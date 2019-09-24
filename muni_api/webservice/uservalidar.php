@@ -27,6 +27,7 @@ try {
     $objSesion = new usuario();
     $objSesion->setRol($rol);
     $objSesion->setDni($dni);
+    $objSesion->setCodigo($dni);
     $objSesion->setClave($clave);
     $resultado = $objSesion->auth();
 

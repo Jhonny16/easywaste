@@ -17,6 +17,25 @@ class usuario extends conexion
     private $clave;
     private $estado;
     private $rol;
+    private $codigo;
+
+    /**
+     * @return mixed
+     */
+    public function getCodigo()
+    {
+        return $this->codigo;
+    }
+
+    /**
+     * @param mixed $codigo
+     */
+    public function setCodigo($codigo)
+    {
+        $this->codigo = $codigo;
+    }
+
+
 
     /**
      * @return mixed
@@ -136,7 +155,48 @@ class usuario extends conexion
     public function auth()
     {
         try {
-            $sql = "select
+            if($this->rol == 2){
+                $sql = "select
+                        p.rol_id,
+                        r.descripcion as rol,
+                        p.id,
+                        p.ap_paterno || ' ' || p.ap_materno ||' ' || p.nombres as persona,
+                        p.dni,
+                        p.celular,
+                        p.correo,
+                        p.direccion,
+                        p.fecha_nac,
+                        z.nombre,
+                        p.password,
+                        p.estado,
+                        p.codigo
+                        from
+                        persona p inner join rol r on p.rol_id = r.id
+                        inner join zona z on p.zona_id = z.id
+                        where p.codigo = :p_codigo";
+                $sentencia = $this->dblink->prepare($sql);
+                $sentencia->bindParam(":p_codigo", $this->codigo);
+                $sentencia->execute();
+                $resultado = $sentencia->fetch();
+                if ($sentencia->rowCount()) {
+                    $activo = $resultado["estado"];
+                    $clave = $resultado["password"];
+//                return $resultado;
+                    if ($activo == 'A') {
+                        if (password_verify($this->clave, $clave)) {
+                            return $resultado;
+                        } else {
+                            return 0;
+                        }
+                    } else {
+                        return -1;
+                    }
+                }else {
+                    return -2;
+                }
+
+            }else{
+                $sql = "select
                         p.rol_id,
                         r.descripcion as rol,
                         p.id,
@@ -153,26 +213,28 @@ class usuario extends conexion
                         persona p inner join rol r on p.rol_id = r.id
                         inner join zona z on p.zona_id = z.id
                         where p.dni = :p_dni and p.rol_id = :p_rol ";
-            $sentencia = $this->dblink->prepare($sql);
-            $sentencia->bindParam(":p_dni", $this->dni);
-            $sentencia->bindParam(":p_rol", $this->rol);
-            $sentencia->execute();
-            $resultado = $sentencia->fetch();
-            if ($sentencia->rowCount()) {
-                $activo = $resultado["estado"];
-                $clave = $resultado["password"];
+                $sentencia = $this->dblink->prepare($sql);
+                $sentencia->bindParam(":p_dni", $this->dni);
+                $sentencia->bindParam(":p_rol", $this->rol);
+                $sentencia->execute();
+                $resultado = $sentencia->fetch();
+                if ($sentencia->rowCount()) {
+                    $activo = $resultado["estado"];
+                    $clave = $resultado["password"];
 //                return $resultado;
-                if ($activo == 'A') {
-                    if (password_verify($this->clave, $clave)) {
-                        return $resultado;
+                    if ($activo == 'A') {
+                        if (password_verify($this->clave, $clave)) {
+                            return $resultado;
+                        } else {
+                            return 0;
+                        }
                     } else {
-                        return 0;
+                        return -1;
                     }
-                } else {
-                    return -1;
                 }
+                return -2;
             }
-            return -2;
+
         } catch (Exception $exc) {
             throw $exc;
         }
