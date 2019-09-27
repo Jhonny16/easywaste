@@ -1,0 +1,641 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="45593b6d-04f6-4b4f-bc99-bacb674dee86" name="Default" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/validacion.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="5" column="12" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/reciclador_list.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1590">
+              <caret line="106" column="9" selection-start-line="106" selection-start-column="9" selection-end-line="106" selection-end-column="9" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Vista/reciclador.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="555">
+              <caret line="37" column="105" selection-start-line="37" selection-start-column="57" selection-end-line="37" selection-end-column="105" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Vista/est_menu.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="7" column="46" selection-start-line="7" selection-start-column="46" selection-end-line="7" selection-end-column="46" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/js/login.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="516">
+              <caret line="115" selection-start-line="115" selection-end-line="115" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/index.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="45">
+              <caret line="3" column="28" selection-start-line="3" selection-start-column="28" selection-end-line="3" selection-end-column="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Vista/reciclador_list.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="960">
+              <caret line="64" column="30" selection-start-line="64" selection-start-column="30" selection-end-line="64" selection-end-column="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Vista/est_cabecera.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="4" column="99" selection-start-line="4" selection-start-column="99" selection-end-line="4" selection-end-column="99" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>sele</find>
+      <find>selec</find>
+      <find>select</find>
+      <find>selectw</find>
+      <find>select2</find>
+      <find>list</find>
+      <find>list_pacientes</find>
+      <find>uscar</find>
+      <find>Hepatitis B</find>
+      <find>num_hepab</find>
+      <find>Anti</find>
+      <find>rnum_vdrl</find>
+      <find>l</find>
+      <find>locati</find>
+      <find>locatio</find>
+      <find>box_tratamiento</find>
+      <find>i</find>
+      <find>ic</find>
+      <find>icheck</find>
+      <find>drawVisualization2</find>
+      <find>validar_password</find>
+      <find>edi</find>
+      <find>buttt</find>
+      <find>map_direcciones</find>
+      <find>margin-left: 60</find>
+      <find>fecha</find>
+      <find>med_vista_lista</find>
+      <find>operation</find>
+      <find>inka</find>
+      <find>ink</find>
+    </findStrings>
+    <replaceStrings>
+      <replace />
+      <replace>modal modal-primary</replace>
+      <replace>sidebar-mini skin-blue-light sidebar-collapse</replace>
+      <replace>sidebar-mini skin-blue-light sidebar-collapset sidebar-collapse</replace>
+    </replaceStrings>
+    <dirStrings>
+      <dir>C:\xampp7\htdocs\app_pjoanfern\Modelo</dir>
+      <dir>C:\xampp7\htdocs\app_pjoanfern\util\lte\datatables.net</dir>
+      <dir>C:\xampp7\htdocs\app_pjoanfern\util\lte\datatables.net-bs</dir>
+      <dir>C:\xampp7\htdocs\app_pjoanfern\util\lte</dir>
+      <dir>C:\xampp7\htdocs\app_pjoanfern\util</dir>
+      <dir>C:\xampp7\htdocs\app_pjoanfern\Vista</dir>
+      <dir>C:\xampp7\htdocs\app_pjoanfern</dir>
+      <dir>C:\xampp7\htdocs\app_pjoanfern\js</dir>
+      <dir>C:\xampp7\htdocs\clinica_web\login</dir>
+      <dir>C:\xampp7\htdocs\clinica_web\Vista</dir>
+      <dir>C:\xampp7\htdocs\clinica_web\js</dir>
+      <dir>$PROJECT_DIR$</dir>
+      <dir>$PROJECT_DIR$/Vista</dir>
+      <dir>$PROJECT_DIR$/js</dir>
+    </dirStrings>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/Vista/mdl_regla_analisis.php" />
+        <option value="$PROJECT_DIR$/js/paciente.js" />
+        <option value="$PROJECT_DIR$/js/enfermera.js" />
+        <option value="$PROJECT_DIR$/js/enfermera_list.js" />
+        <option value="$PROJECT_DIR$/Vista/usuarios.php" />
+        <option value="$PROJECT_DIR$/Vista/analisis.php" />
+        <option value="$PROJECT_DIR$/js/diagnostico.js" />
+        <option value="$PROJECT_DIR$/js/fissal.js" />
+        <option value="$PROJECT_DIR$/js/paciente_list.js" />
+        <option value="$PROJECT_DIR$/Vista/analisis_list.php" />
+        <option value="$PROJECT_DIR$/Vista/analisis_history_report.php" />
+        <option value="$PROJECT_DIR$/js/analsisHistory_list_report.js" />
+        <option value="$PROJECT_DIR$/js/analisis.js" />
+        <option value="$PROJECT_DIR$/Vista/tratamiento.php" />
+        <option value="$PROJECT_DIR$/Vista/analisis_history_hemoglobina_report.php" />
+        <option value="$PROJECT_DIR$/js/analisis_new_paciente.js" />
+        <option value="$PROJECT_DIR$/js/analsisHistory_list.js" />
+        <option value="$PROJECT_DIR$/Vista/est_contenido.php" />
+        <option value="$PROJECT_DIR$/Vista/mdl_tratamientodetalle.php" />
+        <option value="$PROJECT_DIR$/js/tratamiento_list.js" />
+        <option value="$PROJECT_DIR$/Vista/reglas.php" />
+        <option value="$PROJECT_DIR$/js/regla.js" />
+        <option value="$PROJECT_DIR$/Vista/reglas_list.php" />
+        <option value="$PROJECT_DIR$/Vista/regla_read.php" />
+        <option value="$PROJECT_DIR$/js/regla_update.js" />
+        <option value="$PROJECT_DIR$/js/reglas_list.js" />
+        <option value="$PROJECT_DIR$/js/analsisHistory_list_report_charts.js" />
+        <option value="$PROJECT_DIR$/js/usuario.js" />
+        <option value="$PROJECT_DIR$/Vista/read_excel.php" />
+        <option value="$PROJECT_DIR$/js/medicos_sms.js" />
+        <option value="$PROJECT_DIR$/js/read_excel.js" />
+        <option value="$PROJECT_DIR$/login/css/main.css" />
+        <option value="$PROJECT_DIR$/js/roles.js" />
+        <option value="$PROJECT_DIR$/js/validacion.js" />
+        <option value="$PROJECT_DIR$/js/login.js" />
+        <option value="$PROJECT_DIR$/Vista/principal.php" />
+        <option value="$PROJECT_DIR$/util/funciones/definiciones.php" />
+        <option value="$PROJECT_DIR$/Vista/paciente_list.php" />
+        <option value="$PROJECT_DIR$/Vista/reciclador.php" />
+        <option value="$PROJECT_DIR$/util/mapa/mapa.css" />
+        <option value="$PROJECT_DIR$/css/mapa.css" />
+        <option value="$PROJECT_DIR$/js/direcciones.js" />
+        <option value="$PROJECT_DIR$/Vista/ext_scripts.php" />
+        <option value="$PROJECT_DIR$/js/reciclador.js" />
+        <option value="$PROJECT_DIR$/js/medico_list.js" />
+        <option value="$PROJECT_DIR$/Vista/reciclador_create.php" />
+        <option value="$PROJECT_DIR$/js/reciclador_list.js" />
+        <option value="$PROJECT_DIR$/Vista/reciclador_list.php" />
+        <option value="$PROJECT_DIR$/Vista/est_cabecera.php" />
+        <option value="$PROJECT_DIR$/index.php" />
+        <option value="$PROJECT_DIR$/Vista/est_menu.php" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="y" value="5" />
+    <option name="width" value="1366" />
+    <option name="height" value="731" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="muni_web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="muni_web" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="muni_web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="muni_web" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="muni_web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="muni_web" type="462c0819:PsiDirectoryNode" />
+              <item name="Vista" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../muni_api" />
+    <property name="nodejs_interpreter_path" value="node" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/css" />
+      <recent name="C:\xampp7\htdocs\clinica_web\js" />
+      <recent name="C:\xampp7\htdocs\clinica_web\Vista" />
+      <recent name="C:\xampp7\htdocs\clinica_web\login\images" />
+      <recent name="C:\xampp7\htdocs\app_pjoanfern\Controlador" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="js.build_tools.gulp">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="45593b6d-04f6-4b4f-bc99-bacb674dee86" name="Default" comment="" />
+      <created>1537677860003</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1537677860003</updated>
+      <workItem from="1537677861868" duration="7598000" />
+      <workItem from="1537745976567" duration="14831000" />
+      <workItem from="1537797504712" duration="21609000" />
+      <workItem from="1537843719880" duration="2730000" />
+      <workItem from="1537848140071" duration="3290000" />
+      <workItem from="1537990726631" duration="11972000" />
+      <workItem from="1538238732287" duration="41202000" />
+      <workItem from="1538323760971" duration="27408000" />
+      <workItem from="1538427482417" duration="5548000" />
+      <workItem from="1538438102652" duration="14903000" />
+      <workItem from="1538534760629" duration="9590000" />
+      <workItem from="1538545604278" duration="15490000" />
+      <workItem from="1538561296468" duration="2746000" />
+      <workItem from="1538583170516" duration="2443000" />
+      <workItem from="1538607511379" duration="17062000" />
+      <workItem from="1538628643738" duration="5916000" />
+      <workItem from="1538662317350" duration="14041000" />
+      <workItem from="1538707188184" duration="18373000" />
+      <workItem from="1538795910693" duration="7565000" />
+      <workItem from="1538946936412" duration="22320000" />
+      <workItem from="1539011995807" duration="5532000" />
+      <workItem from="1539026760061" duration="29035000" />
+      <workItem from="1539128570421" duration="16932000" />
+      <workItem from="1539225556505" duration="16471000" />
+      <workItem from="1539279246463" duration="484000" />
+      <workItem from="1539310033654" duration="8184000" />
+      <workItem from="1539377027970" duration="595000" />
+      <workItem from="1539391637193" duration="8224000" />
+      <workItem from="1539450311260" duration="35077000" />
+      <workItem from="1539529118917" duration="3214000" />
+      <workItem from="1539562155692" duration="20002000" />
+      <workItem from="1539618900923" duration="23615000" />
+      <workItem from="1539745447586" duration="11894000" />
+      <workItem from="1539789443235" duration="13302000" />
+      <workItem from="1539814302801" duration="20132000" />
+      <workItem from="1539912104914" duration="11677000" />
+      <workItem from="1540084569011" duration="8263000" />
+      <workItem from="1540140570089" duration="5599000" />
+      <workItem from="1540154427487" duration="12704000" />
+      <workItem from="1540311537502" duration="3160000" />
+      <workItem from="1540353135961" duration="5027000" />
+      <workItem from="1540393314023" duration="10776000" />
+      <workItem from="1540422018775" duration="6006000" />
+      <workItem from="1540478994321" duration="10763000" />
+      <workItem from="1540824407275" duration="13217000" />
+      <workItem from="1540853068251" duration="17131000" />
+      <workItem from="1540907808733" duration="24256000" />
+      <workItem from="1541545407506" duration="2495000" />
+      <workItem from="1542043310248" duration="4603000" />
+      <workItem from="1542075525855" duration="12726000" />
+      <workItem from="1542118765241" duration="17000000" />
+      <workItem from="1542556203854" duration="2687000" />
+      <workItem from="1543266639917" duration="1196000" />
+      <workItem from="1543284052353" duration="7431000" />
+      <workItem from="1543328801483" duration="14720000" />
+      <workItem from="1543363895347" duration="16070000" />
+      <workItem from="1543415736205" duration="19213000" />
+      <workItem from="1543501990810" duration="1984000" />
+      <workItem from="1543513876953" duration="757000" />
+      <workItem from="1543526303265" duration="717000" />
+      <workItem from="1543590882970" duration="65000" />
+      <workItem from="1543714980486" duration="1089000" />
+      <workItem from="1543761233112" duration="4596000" />
+      <workItem from="1543850730862" duration="9593000" />
+      <workItem from="1543867010976" duration="4201000" />
+      <workItem from="1543880696391" duration="11763000" />
+      <workItem from="1543935800660" duration="2371000" />
+      <workItem from="1544025817386" duration="612000" />
+      <workItem from="1544027748827" duration="1037000" />
+      <workItem from="1544053843409" duration="13636000" />
+      <workItem from="1544105871791" duration="9859000" />
+      <workItem from="1544140118813" duration="2618000" />
+      <workItem from="1544154083826" duration="10910000" />
+      <workItem from="1544182728468" duration="7051000" />
+      <workItem from="1544193171133" duration="1772000" />
+      <workItem from="1544216882223" duration="3869000" />
+      <workItem from="1544364572121" duration="2307000" />
+      <workItem from="1544391406055" duration="4229000" />
+      <workItem from="1544401338009" duration="1438000" />
+      <workItem from="1544456761359" duration="5151000" />
+      <workItem from="1544626770251" duration="7037000" />
+      <workItem from="1553975878292" duration="3482000" />
+      <workItem from="1555133456351" duration="151000" />
+      <workItem from="1555292327943" duration="1320000" />
+      <workItem from="1555294367935" duration="13000" />
+      <workItem from="1555815343990" duration="5293000" />
+      <workItem from="1555851564274" duration="1097000" />
+      <workItem from="1556596531329" duration="2628000" />
+      <workItem from="1556599331913" duration="3000" />
+      <workItem from="1557018078166" duration="5993000" />
+      <workItem from="1557069444406" duration="4673000" />
+      <workItem from="1558311069557" duration="2312000" />
+      <workItem from="1560137333220" duration="663000" />
+      <workItem from="1560437780543" duration="331000" />
+      <workItem from="1567994096475" duration="599000" />
+      <workItem from="1568997327685" duration="4146000" />
+      <workItem from="1569173588898" duration="21200000" />
+      <workItem from="1569250842440" duration="12981000" />
+      <workItem from="1569339160910" duration="1948000" />
+      <workItem from="1569361501237" duration="1016000" />
+      <workItem from="1569516904582" duration="599000" />
+      <workItem from="1569548769614" duration="628000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="885788000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="5" width="1366" height="731" extended-state="0" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19178082" />
+      <window_info id="Structure" order="1" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.48281017" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.32884902" />
+      <window_info anchor="bottom" id="Database Console" order="9" weight="0.25859493" />
+      <window_info anchor="bottom" id="Version Control" order="10" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" order="12" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Database" order="3" weight="0.15829529" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/js/tratamiento_list.js" />
+    <entry file="file://$PROJECT_DIR$/js/diagnostico.js" />
+    <entry file="file://$PROJECT_DIR$/Vista/reglas_list.php" />
+    <entry file="file://$PROJECT_DIR$/js/regla.js" />
+    <entry file="file://$PROJECT_DIR$/Vista/regla_read.php" />
+    <entry file="file://$PROJECT_DIR$/Vista/reglas.php" />
+    <entry file="file://$PROJECT_DIR$/js/enfermera.js" />
+    <entry file="file://$PROJECT_DIR$/js/analsisHistory_list_report_charts.js" />
+    <entry file="file://$PROJECT_DIR$/Vista/analisis_history_hemoglobina_report.php" />
+    <entry file="file://$PROJECT_DIR$/js/paciente.js" />
+    <entry file="file://$PROJECT_DIR$/Vista/analisis_list.php" />
+    <entry file="file://$PROJECT_DIR$/js/regla_update.js" />
+    <entry file="file://$PROJECT_DIR$/js/medicos_sms.js" />
+    <entry file="file://$PROJECT_DIR$/Vista/read_excel.php" />
+    <entry file="file://$PROJECT_DIR$/js/read_excel.js" />
+    <entry file="file://$PROJECT_DIR$/login/images/loguito.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Vista/usuarios.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2055">
+          <caret line="137" column="25" selection-start-line="137" selection-start-column="25" selection-end-line="137" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/usuario.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2790">
+          <caret line="186" column="21" selection-start-line="186" selection-start-column="4" selection-end-line="186" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/login/css/main.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="363">
+          <caret line="171" selection-start-line="171" selection-end-line="171" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/reglas_list.js" />
+    <entry file="file://$PROJECT_DIR$/js/paciente_list.js" />
+    <entry file="file://$PROJECT_DIR$/js/analsisHistory_list.js" />
+    <entry file="file://$PROJECT_DIR$/js/analsisHistory_list_report.js" />
+    <entry file="file://$PROJECT_DIR$/js/analisis.js" />
+    <entry file="file://$PROJECT_DIR$/util/funciones/defines.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="8" selection-start-line="2" selection-start-column="8" selection-end-line="2" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/util/funciones/definiciones.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="41" selection-start-line="2" selection-start-column="41" selection-end-line="2" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Vista/medico_create.php" />
+    <entry file="file://$PROJECT_DIR$/Vista/paciente_list.php" />
+    <entry file="file://$PROJECT_DIR$/Vista/est_contenido.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1080">
+          <caret line="3" column="83" lean-forward="true" selection-start-line="3" selection-start-column="75" selection-end-line="3" selection-end-column="83" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#section#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#0;n#div#1;n#div#0;n#section#1;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Vista/principal.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="38" lean-forward="true" selection-start-line="19" selection-start-column="38" selection-end-line="19" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Vista/analisis_history_report.php" />
+    <entry file="file://$PROJECT_DIR$/js/roles.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" selection-start-line="7" selection-end-line="33" selection-end-column="1" />
+          <folding>
+            <element signature="n#!!block;n#roles_list#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/mapa.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="236">
+          <caret line="59" column="8" selection-start-line="59" selection-start-column="8" selection-end-line="59" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/direcciones.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="50" selection-start-line="10" selection-start-column="50" selection-end-line="10" selection-end-column="50" />
+          <folding>
+            <element signature="n#!!block;n#guardar_direccion#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/util/mapa/mapa.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="292">
+          <caret line="60" column="23" selection-start-line="60" selection-start-column="23" selection-end-line="60" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Vista/mdl_new_paciente.php" />
+    <entry file="file://$PROJECT_DIR$/Vista/medico.php" />
+    <entry file="file://$PROJECT_DIR$/js/medico.js" />
+    <entry file="file://$PROJECT_DIR$/js/reciclador.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="39" column="32" selection-start-line="39" selection-start-column="23" selection-end-line="39" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/medico_list.js" />
+    <entry file="file://$PROJECT_DIR$/Vista/reciclador_create.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="43" selection-start-column="43" selection-end-column="43" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#select#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#section#1;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Vista/medico_list.php" />
+    <entry file="file://$PROJECT_DIR$/Vista/ext_scripts.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="543">
+          <caret line="136" column="18" selection-start-line="136" selection-start-column="18" selection-end-line="136" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/validacion.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="12" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/reciclador_list.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1590">
+          <caret line="106" column="9" selection-start-line="106" selection-start-column="9" selection-end-line="106" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Vista/reciclador.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="555">
+          <caret line="37" column="105" selection-start-line="37" selection-start-column="57" selection-end-line="37" selection-end-column="105" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Vista/est_menu.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="46" selection-start-line="7" selection-start-column="46" selection-end-line="7" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="28" selection-start-line="3" selection-start-column="28" selection-end-line="3" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Vista/reciclador_list.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="960">
+          <caret line="64" column="30" selection-start-line="64" selection-start-column="30" selection-end-line="64" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Vista/est_cabecera.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="99" selection-start-line="4" selection-start-column="99" selection-end-line="4" selection-end-column="99" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/login.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="516">
+          <caret line="115" selection-start-line="115" selection-end-line="115" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
