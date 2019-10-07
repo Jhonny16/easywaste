@@ -25,73 +25,42 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/validacion.js">
+        <entry file="file://$PROJECT_DIR$/Vista/criterios_comparacion.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="12" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="12" />
+            <state relative-caret-position="282">
+              <caret line="87" column="73" selection-start-line="87" selection-start-column="73" selection-end-line="87" selection-end-column="73" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/reciclador_list.js">
+        <entry file="file://$PROJECT_DIR$/js/proveedor.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1590">
-              <caret line="106" column="9" selection-start-line="106" selection-start-column="9" selection-end-line="106" selection-end-column="9" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Vista/reciclador.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="555">
-              <caret line="37" column="105" selection-start-line="37" selection-start-column="57" selection-end-line="37" selection-end-column="105" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Vista/est_menu.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="46" selection-start-line="7" selection-start-column="46" selection-end-line="7" selection-end-column="46" />
+            <state relative-caret-position="169">
+              <caret line="23" column="3" lean-forward="true" selection-start-line="23" selection-start-column="3" selection-end-line="75" selection-end-column="7" />
+              <folding>
+                <element signature="e#680#1214#0" />
+                <element signature="e#1251#2214#0" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/js/login.js">
+        <entry file="file://$PROJECT_DIR$/js/criterios.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="516">
-              <caret line="115" selection-start-line="115" selection-end-line="115" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/index.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="28" selection-start-line="3" selection-start-column="28" selection-end-line="3" selection-end-column="28" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Vista/reciclador_list.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="960">
-              <caret line="64" column="30" selection-start-line="64" selection-start-column="30" selection-end-line="64" selection-end-column="30" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Vista/est_cabecera.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="99" selection-start-line="4" selection-start-column="99" selection-end-line="4" selection-end-column="99" />
+            <state relative-caret-position="-529">
+              <caret line="115" column="24" selection-start-line="115" selection-start-column="24" selection-end-line="115" selection-end-column="24" />
+              <folding>
+                <element signature="n#style#0;n#tr#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#select#0;n#td#0;n#!!top" expanded="true" />
+                <element signature="e#4672#4992#0" />
+                <element signature="e#5098#5622#0" />
+                <element signature="e#5723#6275#0" />
+                <element signature="e#6379#6830#0" />
+                <element signature="n#style#0;n#tr#0;n#!!top" expanded="true" />
+                <element signature="e#7245#7555#0" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -107,9 +76,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>sele</find>
-      <find>selec</find>
-      <find>select</find>
       <find>selectw</find>
       <find>select2</find>
       <find>list</find>
@@ -137,6 +103,9 @@
       <find>operation</find>
       <find>inka</find>
       <find>ink</find>
+      <find>rec_i</find>
+      <find>onas_list</find>
+      <find>habilitar_create</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -156,22 +125,14 @@
       <dir>C:\xampp7\htdocs\clinica_web\login</dir>
       <dir>C:\xampp7\htdocs\clinica_web\Vista</dir>
       <dir>C:\xampp7\htdocs\clinica_web\js</dir>
-      <dir>$PROJECT_DIR$</dir>
       <dir>$PROJECT_DIR$/Vista</dir>
       <dir>$PROJECT_DIR$/js</dir>
+      <dir>$PROJECT_DIR$</dir>
     </dirStrings>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Vista/mdl_regla_analisis.php" />
-        <option value="$PROJECT_DIR$/js/paciente.js" />
-        <option value="$PROJECT_DIR$/js/enfermera.js" />
-        <option value="$PROJECT_DIR$/js/enfermera_list.js" />
-        <option value="$PROJECT_DIR$/Vista/usuarios.php" />
-        <option value="$PROJECT_DIR$/Vista/analisis.php" />
-        <option value="$PROJECT_DIR$/js/diagnostico.js" />
-        <option value="$PROJECT_DIR$/js/fissal.js" />
         <option value="$PROJECT_DIR$/js/paciente_list.js" />
         <option value="$PROJECT_DIR$/Vista/analisis_list.php" />
         <option value="$PROJECT_DIR$/Vista/analisis_history_report.php" />
@@ -206,7 +167,6 @@
         <option value="$PROJECT_DIR$/util/mapa/mapa.css" />
         <option value="$PROJECT_DIR$/css/mapa.css" />
         <option value="$PROJECT_DIR$/js/direcciones.js" />
-        <option value="$PROJECT_DIR$/Vista/ext_scripts.php" />
         <option value="$PROJECT_DIR$/js/reciclador.js" />
         <option value="$PROJECT_DIR$/js/medico_list.js" />
         <option value="$PROJECT_DIR$/Vista/reciclador_create.php" />
@@ -214,21 +174,28 @@
         <option value="$PROJECT_DIR$/Vista/reciclador_list.php" />
         <option value="$PROJECT_DIR$/Vista/est_cabecera.php" />
         <option value="$PROJECT_DIR$/index.php" />
+        <option value="$PROJECT_DIR$/Vista/proveedor_create.php" />
+        <option value="$PROJECT_DIR$/Vista/proveedor.php" />
+        <option value="$PROJECT_DIR$/Vista/ext_scripts.php" />
+        <option value="$PROJECT_DIR$/Vista/proveedor_list.php" />
+        <option value="$PROJECT_DIR$/js/proveedor_list.js" />
         <option value="$PROJECT_DIR$/Vista/est_menu.php" />
+        <option value="$PROJECT_DIR$/js/proveedor.js" />
+        <option value="$PROJECT_DIR$/Vista/criterios.php" />
+        <option value="$PROJECT_DIR$/Vista/criterios_comparacion.php" />
+        <option value="$PROJECT_DIR$/js/criterios.js" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="y" value="5" />
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="width" value="1366" />
-    <option name="height" value="731" />
+    <option name="height" value="736" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -250,12 +217,14 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../muni_api" />
+    <property name="editor.config.ad.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../app_pjoanfern" />
     <property name="nodejs_interpreter_path" value="node" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
@@ -403,20 +372,25 @@
       <workItem from="1569361501237" duration="1016000" />
       <workItem from="1569516904582" duration="599000" />
       <workItem from="1569548769614" duration="628000" />
+      <workItem from="1569703402273" duration="2020000" />
+      <workItem from="1569786015201" duration="1995000" />
+      <workItem from="1570391441056" duration="5047000" />
+      <workItem from="1570460766192" duration="19919000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="885788000" />
+    <option name="totallyTimeSpent" value="914769000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="5" width="1366" height="731" extended-state="0" />
+    <frame x="0" y="0" width="1366" height="736" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19178082" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22754946" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.48281017" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.48160535" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -438,15 +412,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/js/tratamiento_list.js" />
-    <entry file="file://$PROJECT_DIR$/js/diagnostico.js" />
-    <entry file="file://$PROJECT_DIR$/Vista/reglas_list.php" />
-    <entry file="file://$PROJECT_DIR$/js/regla.js" />
-    <entry file="file://$PROJECT_DIR$/Vista/regla_read.php" />
-    <entry file="file://$PROJECT_DIR$/Vista/reglas.php" />
-    <entry file="file://$PROJECT_DIR$/js/enfermera.js" />
-    <entry file="file://$PROJECT_DIR$/js/analsisHistory_list_report_charts.js" />
-    <entry file="file://$PROJECT_DIR$/Vista/analisis_history_hemoglobina_report.php" />
     <entry file="file://$PROJECT_DIR$/js/paciente.js" />
     <entry file="file://$PROJECT_DIR$/Vista/analisis_list.php" />
     <entry file="file://$PROJECT_DIR$/js/regla_update.js" />
@@ -534,16 +499,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/direcciones.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="50" selection-start-line="10" selection-start-column="50" selection-end-line="10" selection-end-column="50" />
-          <folding>
-            <element signature="n#!!block;n#guardar_direccion#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/util/mapa/mapa.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="292">
@@ -554,33 +509,8 @@
     <entry file="file://$PROJECT_DIR$/Vista/mdl_new_paciente.php" />
     <entry file="file://$PROJECT_DIR$/Vista/medico.php" />
     <entry file="file://$PROJECT_DIR$/js/medico.js" />
-    <entry file="file://$PROJECT_DIR$/js/reciclador.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="39" column="32" selection-start-line="39" selection-start-column="23" selection-end-line="39" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/medico_list.js" />
-    <entry file="file://$PROJECT_DIR$/Vista/reciclador_create.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="43" selection-start-column="43" selection-end-column="43" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#select#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#section#1;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Vista/medico_list.php" />
-    <entry file="file://$PROJECT_DIR$/Vista/ext_scripts.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="543">
-          <caret line="136" column="18" selection-start-line="136" selection-start-column="18" selection-end-line="136" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/validacion.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -588,38 +518,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/reciclador_list.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1590">
-          <caret line="106" column="9" selection-start-line="106" selection-start-column="9" selection-end-line="106" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Vista/reciclador.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="555">
-          <caret line="37" column="105" selection-start-line="37" selection-start-column="57" selection-end-line="37" selection-end-column="105" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Vista/est_menu.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="46" selection-start-line="7" selection-start-column="46" selection-end-line="7" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="3" column="28" selection-start-line="3" selection-start-column="28" selection-end-line="3" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Vista/reciclador_list.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="960">
-          <caret line="64" column="30" selection-start-line="64" selection-start-column="30" selection-end-line="64" selection-end-column="30" />
         </state>
       </provider>
     </entry>
@@ -632,8 +534,155 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/login.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="516">
+        <state relative-caret-position="1056">
           <caret line="115" selection-start-line="115" selection-end-line="115" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/direcciones.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="50" selection-start-line="10" selection-start-column="50" selection-end-line="10" selection-end-column="50" />
+          <folding>
+            <element signature="n#!!block;n#guardar_direccion#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/reciclador.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="461">
+          <caret line="105" column="1" lean-forward="true" selection-end-line="105" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Vista/ext_scripts.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="386">
+          <caret line="142" column="31" selection-start-line="142" selection-start-column="31" selection-end-line="142" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Vista/proveedor.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="30" column="31" selection-start-line="30" selection-start-column="31" selection-end-line="30" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Vista/proveedor_create.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1785">
+          <caret line="119" column="109" selection-start-line="119" selection-start-column="109" selection-end-line="119" selection-end-column="109" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Vista/proveedor_list.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="810">
+          <caret line="54" column="36" selection-start-line="54" selection-start-column="36" selection-end-line="54" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Vista/reciclador_list.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Vista/est_menu.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="371">
+          <caret line="56" column="55" selection-start-line="56" selection-start-column="55" selection-end-line="56" selection-end-column="55" />
+          <folding>
+            <element signature="n#style#0;n#span#0;n#a#0;n#li#4;n#ul#0;n#section#0;n#aside#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Vista/criterios.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="29" column="26" lean-forward="true" selection-start-line="29" selection-start-column="26" selection-end-line="29" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/reciclador_list.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="1" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
+          <folding>
+            <element signature="n#!!block;n#listado#0" />
+            <element signature="n#style#0;n#tr#0;n#!!top" expanded="true" />
+            <element signature="n#!!block;n#read#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/util/lte/bootstrap-datepicker/js/bootstrap-datepicker.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="326">
+          <caret line="1700" column="25" selection-start-line="1700" selection-start-column="4" selection-end-line="1700" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Vista/reciclador.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Vista/reciclador_create.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="141" column="67" lean-forward="true" selection-start-line="141" selection-start-column="67" selection-end-line="141" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/proveedor_list.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="82" column="19" lean-forward="true" selection-start-line="35" selection-start-column="15" selection-end-line="82" selection-end-column="19" />
+          <folding>
+            <element signature="e#1661#2644#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/proveedor.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="169">
+          <caret line="23" column="3" lean-forward="true" selection-start-line="23" selection-start-column="3" selection-end-line="75" selection-end-column="7" />
+          <folding>
+            <element signature="e#680#1214#0" />
+            <element signature="e#1251#2214#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Vista/criterios_comparacion.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="282">
+          <caret line="87" column="73" selection-start-line="87" selection-start-column="73" selection-end-line="87" selection-end-column="73" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/criterios.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-529">
+          <caret line="115" column="24" selection-start-line="115" selection-start-column="24" selection-end-line="115" selection-end-column="24" />
+          <folding>
+            <element signature="n#style#0;n#tr#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#select#0;n#td#0;n#!!top" expanded="true" />
+            <element signature="e#4672#4992#0" />
+            <element signature="e#5098#5622#0" />
+            <element signature="e#5723#6275#0" />
+            <element signature="e#6379#6830#0" />
+            <element signature="n#style#0;n#tr#0;n#!!top" expanded="true" />
+            <element signature="e#7245#7555#0" />
+          </folding>
         </state>
       </provider>
     </entry>

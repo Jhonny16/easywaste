@@ -48,8 +48,20 @@
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="" ><i class="fa fa-circle-o"></i> Nuevo</a></li>
-                    <li><a href=""><i class="fa fa-circle-o"></i> Lista</a></li>
+                    <li><a href="proveedor.php" ><i class="fa fa-circle-o"></i> Nuevo</a></li>
+                    <li><a href="proveedor_list.php"><i class="fa fa-circle-o"></i> Lista</a></li>
+                </ul>
+            </li>
+            <li class="treeview" id="menu_criterios">
+                <a href="#">
+                    <img src="../imagenes/criterios.png" style="width: 1.5em" alt="">
+                    <span style="color: #01a189">Criterios</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="criterios.php" ><i class="fa fa-circle-o"></i> Comparacion</a></li>
                 </ul>
             </li>
 

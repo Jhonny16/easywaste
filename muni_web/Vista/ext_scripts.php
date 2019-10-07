@@ -135,8 +135,14 @@
         })
         //Date picker
         $('#rec_fn').datepicker({
-            autoclose: true
+            autoclose: true,
+
         })
+        $('#pro_fn').datepicker({
+            autoclose: true,
+            format: 'yyyy-mm-dd',
+        })
+        // $('#pro_fn').inputmask('yyyy-mm-dd', {'placeholder': 'yyyy-mm-dd'})
 
         //iCheck for checkbox and radio inputs
         $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
