@@ -171,6 +171,5 @@
         })
     })
 </script>
-<script src="../js/medicos_sms.js"></script>
 <script src="../js/validate_login.js"></script>
 

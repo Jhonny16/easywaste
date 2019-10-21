@@ -64,7 +64,7 @@ try {
 
         $result = $objper->create();
         if ($result) {
-            Funciones::imprimeJSON(200, "Agregado Correcto", "");
+            Funciones::imprimeJSON(200, "Agregado Correcto", $result);
         } else {
             Funciones::imprimeJSON(203, "Error al momento de agregar", "");
         }

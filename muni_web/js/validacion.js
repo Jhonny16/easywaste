@@ -9,8 +9,11 @@ $(document).ready(function () {
     var concat = tipo + ' : ' + user;
     $("#cabecera_user").html(concat);
     access();
+    //code()
 
 });
+
+
 
 function access() {
     var rol = localStorage.getItem('rol');

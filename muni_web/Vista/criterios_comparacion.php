@@ -38,11 +38,28 @@
                                         </div>
                                         <div class="box-body no-padding">
                                             <ul class="nav nav-pills nav-stacked">
-                                                <li><a href="#"><i class="fa fa-circle-o text-light-blue">
-                                                        </i> 1. Seleccionar pesos para realizar la comparacion de los criterios para asignacion de valores.</a>
+                                                <li>
                                                     <a href="#"><i class="fa fa-circle-o text-light-blue">
-                                                        </i> 2. Generar matrices y pesos para cada criterio.
-                                                    <button type="button" class="btn btn-block btn-success" onclick="generate_algorit()">Generar</button></a>
+                                                        </i> 1. Seleccionar pesos para realizar la comparacion de los criterios para asignacion de valores.
+                                                    </a>
+<!--                                                    <a href="#" id="aviso">-->
+<!--                                                        <i class="fa fa-circle-o text-light-blue">-->
+<!--                                                            <div class="alert alert-info alert-dismissible">-->
+<!--                                                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>-->
+<!--                                                                <h4><i class="icon fa fa-info"></i> Aviso!</h4>-->
+<!--                                                                <p id="mensaje"></p>-->
+<!--                                                            </div>-->
+<!--                                                        </i>-->
+<!--                                                    </a>-->
+                                                    <a href="#"><i class="fa fa-circle-o text-light-blue">
+                                                        </i> 2. Para actualizar los pesos de los criterios es necesario ingresar el código de verificación
+                                                        <button type="button" id="btn_code"
+                                                                class="btn btn-block btn-info" data-toggle="modal" data-target="#mdl_code">
+                                                            <i class="fa fa-recycle"> </i> Evaluar</button>
+                                                    <a href="#"><i class="fa fa-circle-o text-light-blue">
+                                                        </i> 3. Generar matrices y pesos para cada criterio.
+                                                    <button id="generar_algoritmo" style="display: none" type="button" class="btn btn-block btn-success" onclick="generate_algorit()">Generar</button></a>
+
                                                 </li>
                                             </ul>
                                         </div>
@@ -85,7 +102,7 @@
                         <!-- /.box-body -->
                         <div class="box-footer">
                             <button type="submit" class="btn btn-default">Cancel</button>
-                            <button type="button" onclick="criterios_values_save()" class="btn btn-info pull-right">Guardar</button>
+                            <button id="guardar_criterios" type="button" onclick="criterios_values_save()" class="btn btn-info pull-right">Guardar</button>
                         </div>
                         <!-- /.box-footer -->
                     </form>

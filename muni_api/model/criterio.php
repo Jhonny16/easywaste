@@ -67,7 +67,6 @@ class criterio extends conexion
     }
 
 
-
     public function criterios_lista()
     {
 
@@ -90,13 +89,15 @@ class criterio extends conexion
 
             $datos = $this->group;
 
-            for($i=0; $i< count($datos); $i++ ){
+            for ($i = 0; $i < count($datos); $i++) {
                 $sql = "update criterio set valor = :p_valor where id = :p_id";
                 $sentencia = $this->dblink->prepare($sql);
                 $sentencia->bindParam(":p_valor", $datos[$i]->valor);
                 $sentencia->bindParam(":p_id", $datos[$i]->criterio_id);
                 $sentencia->execute();
             }
+
+            $this->insert_code();
 
             $this->dblink->commit();
             return true;
@@ -107,4 +108,37 @@ class criterio extends conexion
 
 
     }
+
+    public function insert_code()
+    {
+
+        try {
+
+            //GENERACION DE CODIGO
+            $n=6;
+            $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+                $randomString = '';
+
+                for ($i = 0; $i < $n; $i++) {
+                    $index = rand(0, strlen($characters) - 1);
+                    $randomString .= $characters[$index];
+                }
+
+            $value = $randomString;
+
+            //FIN
+
+            $sql = "insert into code (numero, fecha_creacion) values (:p_valor, current_date)";
+            $sentencia = $this->dblink->prepare($sql);
+            $sentencia->bindParam(":p_valor", $value);
+            $sentencia->execute();
+
+            return true;
+        } catch (Exception $exc) {
+            throw $exc;
+        }
+
+
+    }
 }
+

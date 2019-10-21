@@ -271,7 +271,7 @@ class persona extends conexion
 
     public function create()
     {
-        $this->dblink->beginTransaction();
+
         try {
 
             if ($this->rol_id == 2){
@@ -308,9 +308,6 @@ class persona extends conexion
                 $this->setCodigo(null);
             }
 
-
-
-
             $sql = "insert into persona (dni,nombres,ap_paterno,ap_materno,sexo,fecha_nac,celular,direccion,
                       correo,estado,zona_id,rol_id,codigo,fecha_registro)
                     values (:p_dni, :p_nombres ,:p_ap_paterno, :p_ap_materno, :p_sexo, :p_fn, :p_celular, :p_direccion,
@@ -333,6 +330,8 @@ class persona extends conexion
             $sentencia->execute();
 
             if ($this->rol_id == 2){
+                $this->dblink->beginTransaction();
+
                 $sql = "update correlativo set secuencia = :p_secuencia where tabla = 'persona_reciclador' ";
                 $sentencia = $this->dblink->prepare($sql);
                 $sentencia->bindParam(":p_secuencia", $secuencia);

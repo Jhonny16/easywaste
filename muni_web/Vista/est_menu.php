@@ -61,6 +61,7 @@
                     </span>
                 </a>
                 <ul class="treeview-menu">
+                    <li><a href="codigo_criterio.php" ><i class="fa fa-circle-o"></i> Código Ingreso</a></li>
                     <li><a href="criterios.php" ><i class="fa fa-circle-o"></i> Comparacion</a></li>
                 </ul>
             </li>

@@ -24,7 +24,6 @@ require_once '../util/funciones/definiciones.php';
 
 <!--<script src="../js/usuario_rol_permisos.js" type="text/javascript"></script>-->
 <?php include_once 'ext_scripts.php'; ?>
-    <script src="../js/medicos_sms.js"></script>
 <script src="../js/validacion.js"></script>
 
 </body>

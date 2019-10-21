@@ -1,4 +1,11 @@
 <?php
+/**
+ * Created by PhpStorm.
+ * User: jhonny
+ * Date: 07/10/19
+ * Time: 07:45 PM
+ */
+
 require_once '../util/funciones/definiciones.php';
 ?>
 <html>
@@ -16,10 +23,11 @@ require_once '../util/funciones/definiciones.php';
 </head>
 <body class="sidebar-mini skin-blue-light sidebar-collapset">
 <div class="wrapper">
+
     <?php include_once 'est_cabecera.php'; ?>
     <?php include_once 'est_menu.php'; ?>
-    <?php require_once 'criterios_comparacion.php'; ?>
-    <?php require_once 'modal_codigo.php'; ?>
+    <?php require_once 'periodos_lista.php'; ?>
+    <?php require_once 'modal_periodo.php'; ?>
     <!-- /.content -->
 </div>
 
@@ -28,8 +36,7 @@ require_once '../util/funciones/definiciones.php';
 
 <?php include_once 'ext_scripts.php'; ?>
 <script src="../js/validacion.js"></script>
-<!--<script src="../js/periodo.js"></script>-->
-<script src="../js/criterios.js"></script>
+<script src="../js/periodo.js"></script>
 
 </body>
 </html>

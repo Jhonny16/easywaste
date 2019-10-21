@@ -102,7 +102,6 @@ function criterios_lista() {
 var arrayDetalle = new Array();
 
 function generate_algorit() {
-
     swal({
         title: 'Nota:',
         text: "Se generarán los pesos para los criterios",
@@ -113,12 +112,58 @@ function generate_algorit() {
         confirmButtonText: 'Aceptar!',
         cancelButtonText: 'Cancelar!'
     }).then(function (result) {
-        algoritmo_ahp();
+        if (result.value) {
+            algoritmo_ahp();
+        }
+
     })
+}
+
+function code_evalue() {
+    var ruta = DIRECCION_WS + "code_search.php";
+    var token = localStorage.getItem('token');
+
+    var datos = {'p_code': $("#code_insert").val()};
+    console.log(datos);
+
+    $.ajax({
+        type: "post",
+        headers: {
+            token: token
+        },
+        url: ruta,
+        contentType: "application/json",
+        data: JSON.stringify(datos),
+        success: function (resultado) {
+            console.log(resultado);
+            var datosJSON = resultado;
+            if (datosJSON.estado === 200) {
+                swal({
+                    type: 'success',
+                    title: 'Bien',
+                    text: datosJSON.mensaje,
+                })
+                $("#generar_algoritmo").removeAttr('style');
+                $("#close_mdl_code").click();
+            } else {
+                swal({
+                    type: 'warning',
+                    title: 'Nota!!',
+                    text: datosJSON.mensaje,
+                })
+            }
+        },
+        error: function (error) {
+            console.log(error);
+            var datosJSON = $.parseJSON(error.responseText);
+            swal("Error", datosJSON.mensaje, "error");
+        }
+    });
+
 
 }
 
-function algoritmo_ahp(){
+function algoritmo_ahp() {
 
     arrayDetalle.splice(0, arrayDetalle.length)
 
@@ -138,7 +183,7 @@ function algoritmo_ahp(){
 
     var suma_pie = [];
     for (var j = 1; j <= cantidad_criterios; j++) {
-        var suma =0 ;
+        var suma = 0;
         for (var i = 0; i < arrayDetalle.length; i++) {
             var item = arrayDetalle[i].id.substring(1, 2);
             //console.log(item);
@@ -160,7 +205,7 @@ function algoritmo_ahp(){
     for (var j = 0; j < arrayDetalle.length; j++) {
         for (var i = 0; i < suma_pie.length; i++) {
             var item = arrayDetalle[j].id.substring(1, 2)
-            if(suma_pie[i].columna == parseInt(item)){
+            if (suma_pie[i].columna == parseInt(item)) {
                 var valor = $("#" + arrayDetalle[j].id + "").val();
                 //console.log(valor);
                 var v_fila = valor / suma_pie[i].valor;
@@ -180,7 +225,7 @@ function algoritmo_ahp(){
 
     criterios_val = [];
 
-    for(var j = 1; j <= cantidad_criterios; j++) {
+    for (var j = 1; j <= cantidad_criterios; j++) {
         var sum = 0;
         for (var i = 0; i < res_col.length; i++) {
             var item = res_col[i].fila.substring(0, 1);
@@ -211,8 +256,8 @@ function algoritmo_ahp(){
 
         html += '<tr>';
         html += '<td>' + item.nombre + '</td>';
-        for(var j = 0; j < criterios_val.length ; j++) {
-            if(item.id == criterios_val[j].criterio_id){
+        for (var j = 0; j < criterios_val.length; j++) {
+            if (item.id == criterios_val[j].criterio_id) {
                 html += '<td>' + criterios_val[j].valor + '</td>';
             }
         }
@@ -232,12 +277,12 @@ function algoritmo_ahp(){
 
 }
 
-function criterios_values_save(){
+function criterios_values_save() {
 
     var ruta = DIRECCION_WS + "criterios_update.php";
     var token = localStorage.getItem('token');
 
-    var datos = { 'p_datos' : criterios_val };
+    var datos = {'p_datos': criterios_val};
 
     swal({
         title: 'Consulta!',
@@ -249,39 +294,38 @@ function criterios_values_save(){
         confirmButtonText: 'Aceptar!',
         cancelButtonText: 'Cancelar!'
     }).then(function (result) {
-        $.ajax({
-            type: "post",
-            headers: {
-                token: token
-            },
-            url: ruta,
-            contentType: "application/json",
-            data: JSON.stringify(datos),
-            success: function (resultado) {
-                console.log(resultado);
-                var datosJSON = resultado;
-                if (datosJSON.estado === 200) {
-
-                    swal({
-                        type: 'success',
-                        title: 'Bien',
-                        text: datosJSON.mensaje,
-                    })
-                } else {
-                    swal({
-                        type: 'warning',
-                        title: 'Nota!!',
-                        text: datosJSON.mensaje,
-                    })
+        if (result.value) {
+            $.ajax({
+                type: "post",
+                headers: {
+                    token: token
+                },
+                url: ruta,
+                contentType: "application/json",
+                data: JSON.stringify(datos),
+                success: function (resultado) {
+                    console.log(resultado);
+                    var datosJSON = resultado;
+                    if (datosJSON.estado === 200) {
+                        swal({
+                            type: 'success',
+                            title: 'Bien',
+                            text: datosJSON.mensaje,
+                        })
+                    } else {
+                        swal({
+                            type: 'warning',
+                            title: 'Nota!!',
+                            text: datosJSON.mensaje,
+                        })
+                    }
+                },
+                error: function (error) {
+                    console.log(error);
+                    var datosJSON = $.parseJSON(error.responseText);
+                    swal("Error", datosJSON.mensaje, "error");
                 }
-            },
-            error: function (error) {
-                console.log(error);
-                var datosJSON = $.parseJSON(error.responseText);
-                swal("Error", datosJSON.mensaje, "error");
-            }
-        });
+            });
+        }
     });
-
-
 }
