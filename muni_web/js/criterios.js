@@ -47,7 +47,7 @@ function criterios_lista() {
                     var cont = 1;
                     for (var i = 0; i < datosJSON.datos.length; i++) {
 
-                        html += '<td><select class="form-control select2" style="width: 100%;" ' +
+                        html += '<td><select class="form-control select2" onclick="valdidate_pesos(' + item.id +'' + datosJSON.datos[i].id + ')" style="width: 100%;" ' +
                             'id="' + item.id + '' + datosJSON.datos[i].id + '" >\n' +
                             '                  <option value="0">Seleccione Valor</option>\n' +
                             '                  <option value="9">9</option>\n' +
@@ -145,6 +145,7 @@ function code_evalue() {
                 })
                 $("#generar_algoritmo").removeAttr('style');
                 $("#close_mdl_code").click();
+                combos_equales();
             } else {
                 swal({
                     type: 'warning',
@@ -163,6 +164,59 @@ function code_evalue() {
 
 }
 
+function combos_equales(){
+
+    for (var i = 1; i <= cantidad_criterios; i++) {
+        for (var j = 1; j <= cantidad_criterios; j++) {
+            //console.log("equals");
+            if(i==j){
+                $("#" + i + "" + j + "").attr('readonly','readonly');
+                $("#" + i + "" + j + "").val('1');
+            }
+
+
+        }
+    }
+}
+
+function valdidate_pesos(id){
+    console.log("ide:" + id);
+    var ide = "" + id + "";
+    var id1 = ide.substring(0,1);
+    var id2 = ide.substring(1,2);
+
+    var val = $("#" + id +"").val();
+    var contra_peso = 0;
+    console.log(val);
+    if(val == '9'){
+        contra_peso = '0.11';
+    }
+    if(val == '7'){
+        contra_peso = '0.14';
+    }
+    if(val == '5'){
+        contra_peso = '0.20';
+    }
+    if(val == '3'){
+        contra_peso = '0.33';
+    }
+    if(val == '0.33'){
+        contra_peso = '3';
+    }
+    if(val == '0.20'){
+        contra_peso = '5';
+    }
+    if(val == '0.14'){
+        contra_peso = '7';
+    }
+    if(val == '0.11'){
+        contra_peso = '9';
+    }
+    console.log(contra_peso);
+
+    $("#" + id2 + ""+ id1 +"").val(contra_peso);
+}
+
 function algoritmo_ahp() {
 
     arrayDetalle.splice(0, arrayDetalle.length)
@@ -172,6 +226,7 @@ function algoritmo_ahp() {
             var id = i + "" + j;
             var valor = $("#" + i + "" + j + "").val();
             var objDetalle = new Object();
+
 
             objDetalle.id = id;
             objDetalle.valor = valor;
