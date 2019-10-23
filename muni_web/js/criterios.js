@@ -362,11 +362,22 @@ function criterios_values_save() {
                     console.log(resultado);
                     var datosJSON = resultado;
                     if (datosJSON.estado === 200) {
+
                         swal({
-                            type: 'success',
                             title: 'Bien',
                             text: datosJSON.mensaje,
-                        })
+                            type: 'success',
+                            showCancelButton: true,
+                            confirmButtonColor: '#3085d6',
+                            cancelButtonColor: '#d33',
+                            confirmButtonText: 'Aceptar!',
+                            cancelButtonText: 'Cancelar!'
+                        }).then(function (result) {
+                                if (result.value) {
+                                    window.location = "../Vista/criterios.php";
+                                }
+                            });
+
                     } else {
                         swal({
                             type: 'warning',
