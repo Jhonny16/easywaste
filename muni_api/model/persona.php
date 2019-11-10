@@ -271,42 +271,41 @@ class persona extends conexion
 
     public function create()
     {
-
+        $this->dblink->beginTransaction();
         try {
 
-            if ($this->rol_id == 2){
-                $sql = "select secuencia from correlativo where tabla = 'persona_reciclador' ";
-                $sentencia = $this->dblink->prepare($sql);
-                $sentencia->execute();
-                $resultado = $sentencia->fetch();
 
-                $secuencia = $resultado["secuencia"];
-                $secuencia = $secuencia + 1;
-                if (strlen($secuencia) == 1) {
-                    $pad = 5;
+            $sql = "select secuencia from correlativo where tabla = 'persona_reciclador' ";
+            $sentencia = $this->dblink->prepare($sql);
+            $sentencia->execute();
+            $resultado = $sentencia->fetch();
+
+            $secuencia = $resultado["secuencia"];
+            $secuencia = $secuencia + 1;
+            if (strlen($secuencia) == 1) {
+                $pad = 5;
+            } else {
+                if (strlen($secuencia) == 2) {
+                    $pad = 4;
                 } else {
-                    if (strlen($secuencia) == 2) {
-                        $pad = 4;
+                    if (strlen($secuencia) == 3) {
+                        $pad = 3;
                     } else {
-                        if (strlen($secuencia) == 3) {
-                            $pad = 3;
+                        if (strlen($secuencia) == 4) {
+                            $pad = 2;
                         } else {
-                            if (strlen($secuencia) == 4) {
-                                $pad = 2;
-                            } else {
-                                if (strlen($secuencia) == 5) {
-                                    $pad = 1;
-                                }
+                            if (strlen($secuencia) == 5) {
+                                $pad = 1;
                             }
                         }
                     }
                 }
-                $correlativo = str_pad($secuencia, $pad, "0", STR_PAD_LEFT);
-                $numeracion = "RC-" . $correlativo;
-                $this->setCodigo($numeracion);
-            }else{
-                $this->setCodigo(null);
             }
+            $correlativo = str_pad($secuencia, $pad, "0", STR_PAD_LEFT);
+            $numeracion = "RC-" . $correlativo;
+            $this->setCodigo($numeracion);
+
+
 
             $sql = "insert into persona (dni,nombres,ap_paterno,ap_materno,sexo,fecha_nac,celular,direccion,
                       correo,estado,zona_id,rol_id,codigo,fecha_registro)
@@ -329,15 +328,12 @@ class persona extends conexion
             $sentencia->bindParam(":p_fecha_registro", $this->fecha_registro);
             $sentencia->execute();
 
-            if ($this->rol_id == 2){
-                $this->dblink->beginTransaction();
-
-                $sql = "update correlativo set secuencia = :p_secuencia where tabla = 'persona_reciclador' ";
-                $sentencia = $this->dblink->prepare($sql);
-                $sentencia->bindParam(":p_secuencia", $secuencia);
-                $sentencia->execute();
-                $this->dblink->commit();
-            }
+            $sql = "update correlativo set secuencia = :p_secuencia where tabla = 'persona_reciclador' ";
+            $sentencia = $this->dblink->prepare($sql);
+            $sentencia->bindParam(":p_secuencia", $secuencia);
+            $sentencia->execute();
+            $this->dblink->commit();
+            return True;
             return True;
 
         } catch (Exception $ex) {
@@ -357,20 +353,6 @@ class persona extends conexion
             throw $ex;
         }
     }
-
-    public function proveedor_lista(){
-
-        try{
-            $sql = "select p.*, z.nombre as zona from persona p inner join zona z on p.zona_id = z.id where p.rol_id = 3 ";
-            $sentencia = $this->dblink->prepare($sql);
-            $sentencia->execute();
-            $resultado = $sentencia->fetchAll(PDO::FETCH_ASSOC);
-            return $resultado;
-        } catch (Exception $ex) {
-            throw $ex;
-        }
-    }
-
 
 
 
