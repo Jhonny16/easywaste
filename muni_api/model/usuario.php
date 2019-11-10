@@ -177,7 +177,7 @@ class usuario extends conexion
                 $sentencia = $this->dblink->prepare($sql);
                 $sentencia->bindParam(":p_codigo", $this->codigo);
                 $sentencia->execute();
-                $resultado = $sentencia->fetch();
+                $resultado = $sentencia->fetch(PDO::FETCH_ASSOC);
                 if ($sentencia->rowCount()) {
                     $activo = $resultado["estado"];
                     $clave = $resultado["password"];
@@ -217,7 +217,7 @@ class usuario extends conexion
                 $sentencia->bindParam(":p_dni", $this->dni);
                 $sentencia->bindParam(":p_rol", $this->rol);
                 $sentencia->execute();
-                $resultado = $sentencia->fetch();
+                $resultado = $sentencia->fetch(PDO::FETCH_ASSOC);
                 if ($sentencia->rowCount()) {
                     $activo = $resultado["estado"];
                     $clave = $resultado["password"];

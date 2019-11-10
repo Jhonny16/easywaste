@@ -134,6 +134,7 @@ class criterio extends conexion
             $sentencia->execute();
 
             return true;
+
         } catch (Exception $exc) {
             throw $exc;
         }
