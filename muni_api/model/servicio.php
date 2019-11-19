@@ -368,9 +368,8 @@ class servicio extends conexion
 
             $sql = "select  s.id, s.code, (p.ap_paterno ||' '|| p.ap_materno ||' '|| p.nombres) as proveedor,
                     s.fecha, s.hora, s.estado, s.tiempo_aprox_atencion, latitud, longitud
-                    from
-                    servicio s inner join persona p on s.proveedor_id = p.id
-                    servicio where id =  :p_serv_id ";
+                    from  servicio s inner join persona p on s.proveedor_id = p.id
+                     where s.id =  :p_serv_id ";
             $sentencia = $this->dblink->prepare($sql);
             $sentencia->bindParam(":p_serv_id", $this->id);
             $sentencia->execute();

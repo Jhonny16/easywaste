@@ -35,7 +35,7 @@ $objeto->setHora($hora);
 $objeto->setLatitud($latitud);
 $objeto->setLongitud($longitud);
 $objeto->setReferencia($referencia);
-$objeto->setEstado($referencia);
+$objeto->setEstado($estado);
 
 $res = $objeto->create();
 if ($res) {
