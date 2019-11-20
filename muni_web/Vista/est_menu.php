@@ -63,6 +63,8 @@
                 <ul class="treeview-menu">
                     <li><a href="codigo_criterio.php" ><i class="fa fa-circle-o"></i> Código Ingreso</a></li>
                     <li><a href="criterios.php" ><i class="fa fa-circle-o"></i> Comparacion</a></li>
+                    <li><a href="criterios_datos_recicladores.php" ><i class="fa fa-circle-o"></i> Normalizacion</a></li>
+                    <li><a href="criterios_vectores.php" ><i class="fa fa-circle-o"></i> Vectores</a></li>
                 </ul>
             </li>
 

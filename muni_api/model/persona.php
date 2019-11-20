@@ -27,6 +27,25 @@ class persona extends conexion
     private $codigo;
     private $fecha_registro;
 
+    private $status;
+
+    /**
+     * @return mixed
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
+    /**
+     * @param mixed $status
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
+    }
+
+
     /**
      * @return mixed
      */
@@ -274,7 +293,7 @@ class persona extends conexion
 
         try {
 
-            if ($this->rol_id == 2){
+            if ($this->rol_id == 2) {
                 $sql = "select secuencia from correlativo where tabla = 'persona_reciclador' ";
                 $sentencia = $this->dblink->prepare($sql);
                 $sentencia->execute();
@@ -304,7 +323,7 @@ class persona extends conexion
                 $correlativo = str_pad($secuencia, $pad, "0", STR_PAD_LEFT);
                 $numeracion = "RC-" . $correlativo;
                 $this->setCodigo($numeracion);
-            }else{
+            } else {
                 $this->setCodigo(null);
             }
 
@@ -329,7 +348,7 @@ class persona extends conexion
             $sentencia->bindParam(":p_fecha_registro", $this->fecha_registro);
             $sentencia->execute();
 
-            if ($this->rol_id == 2){
+            if ($this->rol_id == 2) {
                 $this->dblink->beginTransaction();
 
                 $sql = "update correlativo set secuencia = :p_secuencia where tabla = 'persona_reciclador' ";
@@ -345,9 +364,10 @@ class persona extends conexion
         }
     }
 
-    public function reciclador_lista(){
+    public function reciclador_lista()
+    {
 
-        try{
+        try {
             $sql = "select p.*, z.nombre as zona from persona p inner join zona z on p.zona_id = z.id where p.rol_id = 2 ";
             $sentencia = $this->dblink->prepare($sql);
             $sentencia->execute();
@@ -358,9 +378,10 @@ class persona extends conexion
         }
     }
 
-    public function proveedor_lista(){
+    public function proveedor_lista()
+    {
 
-        try{
+        try {
             $sql = "select p.*, z.nombre as zona from persona p inner join zona z on p.zona_id = z.id where p.rol_id = 3 ";
             $sentencia = $this->dblink->prepare($sql);
             $sentencia->execute();
@@ -370,8 +391,5 @@ class persona extends conexion
             throw $ex;
         }
     }
-
-
-
 
 }

@@ -136,7 +136,7 @@
         //Date picker
         $('#rec_fn').datepicker({
             autoclose: true,
-
+            format: 'yyyy-mm-dd',
         })
         $('#pro_fn').datepicker({
             autoclose: true,
