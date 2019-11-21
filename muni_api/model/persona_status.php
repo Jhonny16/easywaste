@@ -107,11 +107,50 @@ class persona_status extends conexion
             $sentencia->bindParam(":name_status", $this->name_status);
             $sentencia->bindParam(":p_reciclador_id", $this->reciclador_id);
             $sentencia->execute();
-            return True;
+
+            $this->asignar_a_servicio($this->reciclador_id);
+            //return True;
 
         }catch (Exception $ex) {
             throw $ex;
         }
 
+    }
+
+    public function asignar_a_servicio($recilador_id)
+    {
+
+        try {
+
+            $sql = "select
+                    s.id, (p.ap_paterno ||' '|| p.ap_materno ||' '|| p.nombres) as proveedor,
+                    s.fecha, s.hora, s.estado, s.tiempo_aprox_atencion
+                    from
+                    servicio s inner join persona p on s.proveedor_id = p.id
+                    where s.estado = 'Abierto'
+                    order by s.id desc limit 1; ";
+            $sentencia = $this->dblink->prepare($sql);
+            $sentencia->execute();
+            $resultado = $sentencia->fetchAll(PDO::FETCH_ASSOC);
+
+            if(count($resultado)>0){
+                $this->dblink->beginTransaction();
+                $sql = "update servicio set reciclador_id = :p_reciclador_id where :p_servicio_id = :p_servicio_id ";
+                $sentencia = $this->dblink->prepare($sql);
+                $sentencia->bindParam(":p_servicio_id", $resultado['id']);
+                $sentencia->bindParam(":p_reciclador_id", $recilador_id);
+                $sentencia->execute();
+                $this->dblink->commit();
+
+                return true;
+            }
+            else{
+                return false;
+            }
+        } catch (Exception $ex) {
+            throw $ex;
+
+
+        }
     }
 }

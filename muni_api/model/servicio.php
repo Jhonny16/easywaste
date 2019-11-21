@@ -322,6 +322,45 @@ class servicio extends conexion
             $sentencia->bindParam(":p_ref", $this->referencia);
             $sentencia->execute();
 
+            //Asignamos los servicios a reciclador segun orden de prioridad
+
+            $sql_s = "select p.id, p.valor,
+                           (select name_status from status where reciclador_id = p.id
+                           order by id desc limit 1) as name_status
+                    from  persona p
+                    where p.rol_id = 2
+                    group by p.id,p.valor
+                    having (select name_status from status where reciclador_id = p.id
+                             order by id desc limit 1) = 'Disponible'
+                    order by p.valor desc limit 1";
+            $sentence = $this->dblink->prepare($sql_s);
+            $sentence->execute();
+            $result = $sentencia->fetch(PDO::FETCH_ASSOC);
+            if(count($result)>0){
+                $this->dblink->beginTransaction();
+                $sql = "update servicio set reciclador_id = :p_reciclador where code = :p_code ";
+                $sentencia = $this->dblink->prepare($sql);
+                $sentencia->bindParam(":p_reciclador", $result['id']);
+                $sentencia->bindParam(":p_code", $this->code);
+                $sentencia->execute();
+                $this->dblink->commit();
+
+
+                date_default_timezone_set("America/Lima");
+                $hora = date('H:i:s');
+                $fecha = date('Y-m-d');
+                $estado = 'Ocupado';
+
+                $sql = "insert into status (fecha, hora, name_status, reciclador_id) 
+                        values (:p_fecha,:p_hora,:p_estado,:p_reciclador)";
+                $sentencia = $this->dblink->prepare($sql);
+                $sentencia->bindParam(":p_fecha", $fecha);
+                $sentencia->bindParam(":p_hora", $hora);
+                $sentencia->bindParam(":p_estado", $estado);
+                $sentencia->bindParam(":p_reciclador", $result['id']);
+                $sentencia->execute();
+            }
+
 
             $this->dblink->beginTransaction();
             $sql = "update correlativo set secuencia = :p_secuencia where tabla = 'servicio' ";

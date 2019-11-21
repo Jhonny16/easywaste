@@ -46,9 +46,9 @@ try {
     $res = $obj->insert_disponibilidad();
 
     if($res==true){
-        Funciones::imprimeJSON(200, "Se actualizo la disponibilidad del reciclador",$resultado);
+        Funciones::imprimeJSON(200, "Se asigno servicio a reciclador",$resultado);
     }else{
-        Funciones::imprimeJSON(203, "No actualizo disponibilidad",$resultado);
+        Funciones::imprimeJSON(203, "Actualizo disponibilidad, no hay servicios pendientes",$resultado);
     }
 
 
