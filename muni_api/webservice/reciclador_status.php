@@ -44,12 +44,16 @@ try {
     $obj->setHora($hora);
     $obj->setFecha($fecha);
     $res = $obj->insert_disponibilidad();
-
-    if($res==true){
-        Funciones::imprimeJSON(200, "Se asigno servicio a reciclador",$resultado);
+    if($res == -1){
+        Funciones::imprimeJSON(203, "Se acgtualizo disponibilidad, pero no asigno servicio",$resultado);
     }else{
-        Funciones::imprimeJSON(203, "Actualizo disponibilidad, no hay servicios pendientes",$resultado);
+        if($res==true){
+            Funciones::imprimeJSON(200, "Se asigno servicio a reciclador",$resultado);
+        }else{
+            Funciones::imprimeJSON(203, "Actualizo disponibilidad, no hay servicios pendientes",$resultado);
+        }
     }
+
 
 
 

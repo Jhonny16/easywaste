@@ -108,7 +108,12 @@ class persona_status extends conexion
             $sentencia->bindParam(":p_reciclador_id", $this->reciclador_id);
             $sentencia->execute();
 
-            $this->asignar_a_servicio($this->reciclador_id);
+            if($this->name_status =='Disponible'){
+                $this->asignar_a_servicio($this->reciclador_id);
+            }else{
+                return -1;
+            }
+
             //return True;
 
         }catch (Exception $ex) {

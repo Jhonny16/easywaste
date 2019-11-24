@@ -25,18 +25,21 @@ try {
     if($resultado){
         $suma = 0;
         $menor = 0;
+
+        $menor = $resultado[0]['bono'];
         for($i=0; $i<count($resultado); $i++){
             $suma = $suma + abs($resultado[$i]['bono']);
-
-            $menor = $resultado[$i]['bono'];
 
             if($resultado[$i]['bono'] < $menor){
                 $menor = $resultado[$i]['bono'];
             }
         }
+
         $suma_intervalo = 0;
         for($i=0; $i<count($resultado); $i++){
+
             $resultado[$i]['intervalo'] = abs($resultado[$i]['bono'] + abs($menor));
+
             $suma_intervalo = $suma_intervalo + $resultado[$i]['intervalo'];
         }
 

@@ -25,10 +25,11 @@ try {
     if($resultado){
         $suma = 0;
         $menor = 0;
+        $menor = $resultado[0]['atencion'];
         for($i=0; $i<count($resultado); $i++){
             $suma = $suma + abs($resultado[$i]['atencion']);
 
-            $menor = $resultado[$i]['atencion'];
+
 
             if($resultado[$i]['atencion'] < $menor){
                 $menor = $resultado[$i]['atencion'];
