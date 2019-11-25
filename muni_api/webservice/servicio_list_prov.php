@@ -15,9 +15,11 @@ if (!isset($_SERVER["HTTP_TOKEN"])) {
     exit();
 }
 
+$reciclador_id = json_decode(file_get_contents("php://input"))->reciclador_id;
 
 try {
     $obj = new servicio();
+    $obj->setRecicladorId($reciclador_id);
     $resultado = $obj->list_serv_prov();
 
     if($resultado){

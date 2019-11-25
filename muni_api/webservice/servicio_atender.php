@@ -17,7 +17,7 @@ if (!isset($_SERVER["HTTP_TOKEN"])) {
 }
 
 $servicio_id = json_decode(file_get_contents("php://input")) -> servicio_id;
-$reciclador_id = json_decode(file_get_contents("php://input")) -> reciclador_id;
+$tiempo_aprox = json_decode(file_get_contents("php://input")) -> tiempo_aprox;
 
 
 
@@ -26,13 +26,14 @@ try {
 
     date_default_timezone_set("America/Lima");
     $hora_respuesta = date('H:i:s');
-    $estado = 'En Camino';
+    $estado = 'En Camino'; //2 - En camino
 
 
     $obj->setId($servicio_id);
     $obj->setEstado($estado);
     $obj->setHoraRespuesta($hora_respuesta);
-    $obj->setRecicladorId($reciclador_id);
+    $obj->setTiempoAproximado($tiempo_aprox);
+
 
     $res = $obj->update_estado_hora();
     if($res==true){

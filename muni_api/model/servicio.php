@@ -24,6 +24,25 @@ class servicio extends conexion
     private $referencia;
     private $hora_respuesta;
     private $hora_llegada;
+    private $tiempo_aproximado;
+
+    /**
+     * @return mixed
+     */
+    public function getTiempoAproximado()
+    {
+        return $this->tiempo_aproximado;
+    }
+
+    /**
+     * @param mixed $tiempo_aproximado
+     */
+    public function setTiempoAproximado($tiempo_aproximado)
+    {
+        $this->tiempo_aproximado = $tiempo_aproximado;
+    }
+
+
 
     /**
      * @return mixed
@@ -390,8 +409,9 @@ class servicio extends conexion
                     s.fecha, s.hora, s.estado, s.tiempo_aprox_atencion
                     from
                     servicio s inner join persona p on s.proveedor_id = p.id
-                    where s.estado = 'Abierto' ";
+                    where s.estado = 'Abierto' and s.reciclador_id = :p_reciclador_id";
             $sentencia = $this->dblink->prepare($sql);
+            $sentencia->bindParam(":p_reciclador_id", $this->reciclador_id);
             $sentencia->execute();
             $resultado = $sentencia->fetchAll(PDO::FETCH_ASSOC);
             return $resultado;
@@ -408,7 +428,7 @@ class servicio extends conexion
             $sql = "select  s.id, s.code, (p.ap_paterno ||' '|| p.ap_materno ||' '|| p.nombres) as proveedor,
                     s.fecha, s.hora, s.estado, s.tiempo_aprox_atencion, latitud, longitud
                     from  servicio s inner join persona p on s.proveedor_id = p.id
-                     where s.id =  :p_serv_id ";
+                    where s.id =  :p_serv_id ";
             $sentencia = $this->dblink->prepare($sql);
             $sentencia->bindParam(":p_serv_id", $this->id);
             $sentencia->execute();
@@ -428,11 +448,11 @@ class servicio extends conexion
         try {
 
             $sql = "update servicio set estado = :p_estado , hora_respuesta = :p_hora_respuesta,
-                    reciclador_id = :p_reciclador_id  where id = :p_serv_id";
+                    tiempo_aprox_atencion = :p_tiempo_aprox where id = :p_serv_id";
             $sentencia = $this->dblink->prepare($sql);
             $sentencia->bindParam(":p_serv_id", $this->id);
             $sentencia->bindParam(":p_hora_respuesta", $this->hora_respuesta);
-            $sentencia->bindParam(":p_reciclador_id", $this->reciclador_id);
+            $sentencia->bindParam(":p_tiempo_aprox", $this->tiempo_aproximado);
             $sentencia->bindParam(":p_estado", $this->estado);
             $sentencia->execute();
             $this->dblink->commit();
