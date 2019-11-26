@@ -354,7 +354,7 @@ class servicio extends conexion
                     order by p.valor desc limit 1";
             $sentence = $this->dblink->prepare($sql_s);
             $sentence->execute();
-            $result = $sentencia->fetch(PDO::FETCH_ASSOC);
+            $result = $sentence->fetch(PDO::FETCH_ASSOC);
             if(count($result)>0){
                 $this->dblink->beginTransaction();
                 $sql = "update servicio set reciclador_id = :p_reciclador where code = :p_code ";
