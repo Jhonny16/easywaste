@@ -507,5 +507,26 @@ class servicio extends conexion
 
     }
 
+    public function update_calificacion()
+    {
+        $this->dblink->beginTransaction();
+
+        try {
+
+            $sql = "update servicio set calificacion = :p_calificacion where id = :p_id";
+            $sentencia = $this->dblink->prepare($sql);
+            $sentencia->bindParam(":p_calificacion", $this->estado);
+            $sentencia->bindParam(":p_id", $this->id);
+            $sentencia->execute();
+            $this->dblink->commit();
+            return true;
+        } catch (Exception $exc) {
+            $this->dblink->rollBack();
+            throw $exc;
+        }
+
+
+    }
+
 
 }
