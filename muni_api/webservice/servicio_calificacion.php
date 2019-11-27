@@ -26,6 +26,7 @@ try {
     $obj->setCalificacion($calificacion);
 
     $res = $obj->update_calificacion();
+    $resultado = "";
     if ($res == true) {
         Funciones::imprimeJSON(200, "Se califico de forma correcta!", $resultado);
 

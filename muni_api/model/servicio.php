@@ -426,9 +426,12 @@ class servicio extends conexion
         try {
 
             $sql = "select  s.id, s.code, (p.ap_paterno ||' '|| p.ap_materno ||' '|| p.nombres) as proveedor,
-                    s.fecha, s.hora, s.estado, s.tiempo_aprox_atencion, latitud, longitud
-                    from  servicio s inner join persona p on s.proveedor_id = p.id
-                    where s.id =  :p_serv_id ";
+                        (r.ap_paterno ||' '|| r.ap_materno ||' '|| r.nombres) as reciclador,
+                        r.dni as reciclador_dni,
+                        s.fecha, s.hora, s.estado, s.tiempo_aprox_atencion, latitud, longitud
+                        from  servicio s inner join persona p on s.proveedor_id = p.id
+                        inner join persona r on s.reciclador_id = r.id
+                    where s.id =  :p_serv_id";
             $sentencia = $this->dblink->prepare($sql);
             $sentencia->bindParam(":p_serv_id", $this->id);
             $sentencia->execute();
@@ -506,13 +509,10 @@ class servicio extends conexion
 
 
     }
-
     public function update_calificacion()
     {
         $this->dblink->beginTransaction();
-
         try {
-
             $sql = "update servicio set calificacion = :p_calificacion where id = :p_id";
             $sentencia = $this->dblink->prepare($sql);
             $sentencia->bindParam(":p_calificacion", $this->estado);
@@ -524,9 +524,6 @@ class servicio extends conexion
             $this->dblink->rollBack();
             throw $exc;
         }
-
-
     }
-
 
 }

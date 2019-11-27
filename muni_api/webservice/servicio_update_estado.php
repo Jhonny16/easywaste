@@ -26,7 +26,6 @@ if ($parametro == '3' or $parametro == 3) {
     $estado = 'En Atencion';
     date_default_timezone_set("America/Lima");
     $hora_llegada = date('H:i:s');
-
 } else {
     if ($parametro == '4' or $parametro == 4) {
         $estado = 'Finalizado';
@@ -50,6 +49,7 @@ try {
     }
 
 
+    $resultado = "";
 
     if($res==true){
             Funciones::imprimeJSON(200, "Se actualizo estado",$resultado);
