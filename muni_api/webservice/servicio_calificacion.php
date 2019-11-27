@@ -26,12 +26,12 @@ try {
     $obj->setCalificacion($calificacion);
 
     $res = $obj->update_calificacion();
-    $resultado = "";
+
     if ($res == true) {
-        Funciones::imprimeJSON(200, "Se califico de forma correcta!", $resultado);
+        Funciones::imprimeJSON(200, "Se califico de forma correcta!", $res);
 
     } else {
-        Funciones::imprimeJSON(203, "No actualizo estado", $resultado);
+        Funciones::imprimeJSON(203, "No actualizo estado", $res);
     }
 
 

@@ -36,7 +36,7 @@ else{
 date_default_timezone_set("America/Lima");
 $hora = date('H:i:s');
 $fecha = date('Y-m-d');
-$resultado ="";
+
 try {
     $obj = new persona_status();
     $obj->setNameStatus($name_status);
