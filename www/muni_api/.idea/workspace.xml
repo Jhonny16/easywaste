@@ -1,0 +1,825 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="45593b6d-04f6-4b4f-bc99-bacb674dee86" name="Default" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/dompdf/composer.json</pharConfigPath>
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="bd_reciclaje@localhost" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="bd_reciclaje@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="bd_reciclaje@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="bd_reciclaje: database" type="162271b6:PgImplModel$Database" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="bd_reciclaje@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="bd_reciclaje: database" type="162271b6:PgImplModel$Database" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="bd_reciclaje@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="bd_reciclaje: database" type="162271b6:PgImplModel$Database" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="public: schema" type="983ebcf7:PgImplModel$Schema" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="bd_reciclaje@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="bd_reciclaje: database" type="162271b6:PgImplModel$Database" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="public: schema" type="983ebcf7:PgImplModel$Schema" />
+        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="bd_reciclaje@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="bd_reciclaje: database" type="162271b6:PgImplModel$Database" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="public: schema" type="983ebcf7:PgImplModel$Schema" />
+        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="servicio: table" type="69fad909:PgImplModel$LocalTable" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/439262b2-8b77-4ba6-8829-69d43dec0930/console.sql">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3154">
+              <caret line="223" column="18" lean-forward="true" selection-start-line="223" selection-start-column="18" selection-end-line="223" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/model/servicio.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="348">
+              <caret line="454" column="77" selection-start-line="454" selection-start-column="77" selection-end-line="454" selection-end-column="77" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/webservice/servicio_atender.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="292">
+              <caret line="34" column="43" selection-start-line="34" selection-start-column="43" selection-end-line="34" selection-end-column="43" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/webservice/servicio_update_estado.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="480">
+              <caret line="46" column="41" selection-start-line="46" selection-start-column="41" selection-end-line="46" selection-end-column="41" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>meses</find>
+      <find>cb</find>
+      <find>se</find>
+      <find>aja</find>
+      <find>ajax</find>
+      <find>lista_analsis_sintomas</find>
+      <find>transd</find>
+      <find>t</find>
+      <find>tra</find>
+      <find>tran</find>
+      <find>trans</find>
+      <find>transf</find>
+      <find>transfe</find>
+      <find>transfer</find>
+      <find>transferi</find>
+      <find>transferr</find>
+      <find>transferrin</find>
+      <find>transferri</find>
+      <find>transferrina</find>
+      <find>read</find>
+      <find>$operation</find>
+      <find>opera</find>
+      <find>create</find>
+      <find>create_periodo_criterio</find>
+      <find>ELECT estado,id</find>
+      <find>apro</find>
+      <find>hora</find>
+      <find>limit</find>
+      <find>insert_disponibilidad</find>
+      <find>tiempo_apro</find>
+    </findStrings>
+    <replaceStrings>
+      <replace />
+      <replace>modal modal-primary</replace>
+    </replaceStrings>
+    <dirStrings>
+      <dir>C:\xampp7\htdocs\app_pjoanfern\Modelo</dir>
+      <dir>C:\xampp7\htdocs\app_pjoanfern\util\lte\datatables.net</dir>
+      <dir>C:\xampp7\htdocs\app_pjoanfern\util\lte\datatables.net-bs</dir>
+      <dir>C:\xampp7\htdocs\app_pjoanfern\util\lte</dir>
+      <dir>C:\xampp7\htdocs\app_pjoanfern\util</dir>
+      <dir>C:\xampp7\htdocs\app_pjoanfern\Vista</dir>
+      <dir>C:\xampp7\htdocs\app_pjoanfern</dir>
+      <dir>C:\xampp7\htdocs\app_pjoanfern\js</dir>
+      <dir>C:\xampp7\htdocs\clinica_api\webservice</dir>
+      <dir>C:\xampp7\htdocs\clinica_api\model</dir>
+      <dir>$PROJECT_DIR$/webservice</dir>
+      <dir>$PROJECT_DIR$/model</dir>
+    </dirStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/PHPExcel" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/model/regla.php" />
+        <option value="$PROJECT_DIR$/webservice/medico_sms_new.php" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/9b2a6fbb-02a8-4ff1-acd0-05b7e653a23e/console.sql" />
+        <option value="$PROJECT_DIR$/webservice/medicos_sms.php" />
+        <option value="$PROJECT_DIR$/webservice/readExcel.php" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/50ea42da-44f8-492b-bd56-dbdea697285d/console.sql" />
+        <option value="$PROJECT_DIR$/datos/configuracion.php" />
+        <option value="$PROJECT_DIR$/model/rol.php" />
+        <option value="$PROJECT_DIR$/webservice/roles_list.php" />
+        <option value="$PROJECT_DIR$/model/zonas.php" />
+        <option value="$PROJECT_DIR$/webservice/zonas_list.php" />
+        <option value="$PROJECT_DIR$/webservice/reciclador_create.php" />
+        <option value="$PROJECT_DIR$/webservice/reciclador_list.php" />
+        <option value="$PROJECT_DIR$/webservice/uservalidar.php" />
+        <option value="$PROJECT_DIR$/webservice/proveedor_list.php" />
+        <option value="$PROJECT_DIR$/webservice/criterios_list.php" />
+        <option value="$PROJECT_DIR$/model/fila.php" />
+        <option value="$PROJECT_DIR$/model/columna.php" />
+        <option value="$PROJECT_DIR$/webservice/criterios_update.php" />
+        <option value="$PROJECT_DIR$/webservice/periodos_list.php" />
+        <option value="$PROJECT_DIR$/webservice/periodo_ultima_fecha.php" />
+        <option value="$PROJECT_DIR$/webservice/periodo_create.php" />
+        <option value="$PROJECT_DIR$/webservice/periodo_read.php" />
+        <option value="$PROJECT_DIR$/webservice/periodo_vigente.php" />
+        <option value="$PROJECT_DIR$/webservice/code_last.php" />
+        <option value="$PROJECT_DIR$/model/periodo.php" />
+        <option value="$PROJECT_DIR$/model/code.php" />
+        <option value="$PROJECT_DIR$/webservice/code_search.php" />
+        <option value="$PROJECT_DIR$/webservice/persona_create.php" />
+        <option value="$PROJECT_DIR$/model/criterio.php" />
+        <option value="$PROJECT_DIR$/webservice/servicio_update_llegada.php" />
+        <option value="$PROJECT_DIR$/model/usuario.php" />
+        <option value="$PROJECT_DIR$/webservice/servicio_create.php" />
+        <option value="$PROJECT_DIR$/webservice/servicio_update_estado.php" />
+        <option value="$PROJECT_DIR$/webservice/servicio_calificacion.php" />
+        <option value="$PROJECT_DIR$/webservice/criterio3--datos.php" />
+        <option value="$PROJECT_DIR$/webservice/criterio2_datos.php" />
+        <option value="$PROJECT_DIR$/webservice/criterio3_datos.php" />
+        <option value="$PROJECT_DIR$/webservice/matriz_normalizada.php" />
+        <option value="$PROJECT_DIR$/webservice/matriz_prioridades.php" />
+        <option value="$PROJECT_DIR$/model/persona_criterio.php" />
+        <option value="$PROJECT_DIR$/model/persona.php" />
+        <option value="$PROJECT_DIR$/model/persona_status.php" />
+        <option value="$PROJECT_DIR$/webservice/reciclador_status.php" />
+        <option value="$PROJECT_DIR$/webservice/criterio1_datos.php" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/.datagrid/cell" />
+        <option value="$PROJECT_DIR$/webservice/criterio4_datos.php" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/439262b2-8b77-4ba6-8829-69d43dec0930/console.sql" />
+        <option value="$PROJECT_DIR$/webservice/servicio_list_prov.php" />
+        <option value="$PROJECT_DIR$/model/servicio.php" />
+        <option value="$PROJECT_DIR$/webservice/servicio_atender.php" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="width" value="1366" />
+    <option name="height" value="736" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="muni_api" type="b2602c69:ProjectViewProjectNode" />
+              <item name="muni_api" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="muni_api" type="b2602c69:ProjectViewProjectNode" />
+              <item name="muni_api" type="462c0819:PsiDirectoryNode" />
+              <item name="datos" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="muni_api" type="b2602c69:ProjectViewProjectNode" />
+              <item name="muni_api" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="muni_api" type="b2602c69:ProjectViewProjectNode" />
+              <item name="muni_api" type="462c0819:PsiDirectoryNode" />
+              <item name="webservice" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="postgresql" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="com.intellij.database.dataSource.DataSourceTemplate" value="PostgreSQL&#10;MySQL" />
+    <property name="database.console.LAST_STATE" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_interpreter_path" value="node" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp7\htdocs\clinica_api\webservice" />
+      <recent name="C:\xampp7\htdocs\clinica_api\imagenes" />
+      <recent name="C:\xampp7\htdocs\clinica_api" />
+      <recent name="C:\xampp7\htdocs\clinica_api\model" />
+      <recent name="C:\xampp7\htdocs\app_pjoanfern\Controlador" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="js.build_tools.gulp">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="45593b6d-04f6-4b4f-bc99-bacb674dee86" name="Default" comment="" />
+      <created>1537677860003</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1537677860003</updated>
+      <workItem from="1537677861868" duration="7598000" />
+      <workItem from="1537745976567" duration="14831000" />
+      <workItem from="1537797504712" duration="21609000" />
+      <workItem from="1537843719880" duration="2730000" />
+      <workItem from="1537848140071" duration="3290000" />
+      <workItem from="1537990726631" duration="11972000" />
+      <workItem from="1538238732287" duration="41202000" />
+      <workItem from="1538323760971" duration="27408000" />
+      <workItem from="1538427482417" duration="5548000" />
+      <workItem from="1538438102652" duration="14903000" />
+      <workItem from="1538534760629" duration="9590000" />
+      <workItem from="1538545604278" duration="15490000" />
+      <workItem from="1538561296468" duration="2746000" />
+      <workItem from="1538583170516" duration="2443000" />
+      <workItem from="1538607511379" duration="17062000" />
+      <workItem from="1538628643738" duration="5916000" />
+      <workItem from="1538662317350" duration="14041000" />
+      <workItem from="1538707188184" duration="18373000" />
+      <workItem from="1538795910693" duration="7565000" />
+      <workItem from="1538946936412" duration="22320000" />
+      <workItem from="1539011995807" duration="5532000" />
+      <workItem from="1539026760061" duration="29035000" />
+      <workItem from="1539128570421" duration="16932000" />
+      <workItem from="1539225556505" duration="16471000" />
+      <workItem from="1539279246463" duration="484000" />
+      <workItem from="1539310033654" duration="8184000" />
+      <workItem from="1539377027970" duration="595000" />
+      <workItem from="1539391637193" duration="8224000" />
+      <workItem from="1539450311260" duration="35077000" />
+      <workItem from="1539529118917" duration="3214000" />
+      <workItem from="1539562155692" duration="20002000" />
+      <workItem from="1539618900923" duration="23615000" />
+      <workItem from="1539745447586" duration="11894000" />
+      <workItem from="1539789443235" duration="13302000" />
+      <workItem from="1539814302801" duration="20132000" />
+      <workItem from="1539912104914" duration="11677000" />
+      <workItem from="1540084569011" duration="8263000" />
+      <workItem from="1540140570089" duration="5599000" />
+      <workItem from="1540154427487" duration="12704000" />
+      <workItem from="1540311537502" duration="3160000" />
+      <workItem from="1540344978610" duration="10378000" />
+      <workItem from="1540390735879" duration="3563000" />
+      <workItem from="1540421902829" duration="6737000" />
+      <workItem from="1540476546131" duration="2582000" />
+      <workItem from="1540663976324" duration="4517000" />
+      <workItem from="1540824382568" duration="18485000" />
+      <workItem from="1540852913825" duration="15779000" />
+      <workItem from="1540907792878" duration="18831000" />
+      <workItem from="1541547815925" duration="668000" />
+      <workItem from="1541894011319" duration="8001000" />
+      <workItem from="1541964285121" duration="2460000" />
+      <workItem from="1542043400709" duration="1097000" />
+      <workItem from="1542072325031" duration="7990000" />
+      <workItem from="1542118306426" duration="15155000" />
+      <workItem from="1542292837223" duration="1822000" />
+      <workItem from="1542482470596" duration="2087000" />
+      <workItem from="1542554289643" duration="4929000" />
+      <workItem from="1542587246987" duration="202000" />
+      <workItem from="1542589989041" duration="351000" />
+      <workItem from="1543266547180" duration="886000" />
+      <workItem from="1543283409480" duration="2640000" />
+      <workItem from="1543328833501" duration="11613000" />
+      <workItem from="1543363920351" duration="6456000" />
+      <workItem from="1543415409917" duration="17528000" />
+      <workItem from="1543437306682" duration="1823000" />
+      <workItem from="1543502052233" duration="1085000" />
+      <workItem from="1543513918479" duration="2378000" />
+      <workItem from="1543715058673" duration="2653000" />
+      <workItem from="1543761260249" duration="5352000" />
+      <workItem from="1543850631374" duration="7590000" />
+      <workItem from="1543865370559" duration="4898000" />
+      <workItem from="1543881809569" duration="7058000" />
+      <workItem from="1544054389944" duration="8689000" />
+      <workItem from="1544106047856" duration="7353000" />
+      <workItem from="1544154099566" duration="8966000" />
+      <workItem from="1544182658047" duration="6344000" />
+      <workItem from="1544213693917" duration="6786000" />
+      <workItem from="1544326525300" duration="1021000" />
+      <workItem from="1544364552087" duration="1233000" />
+      <workItem from="1544378541850" duration="571000" />
+      <workItem from="1544380319083" duration="1990000" />
+      <workItem from="1544453247063" duration="4380000" />
+      <workItem from="1544479849971" duration="710000" />
+      <workItem from="1544626784926" duration="3443000" />
+      <workItem from="1553975888984" duration="4256000" />
+      <workItem from="1555815332484" duration="5814000" />
+      <workItem from="1556576931794" duration="1330000" />
+      <workItem from="1556595631786" duration="3720000" />
+      <workItem from="1557018065560" duration="6812000" />
+      <workItem from="1557068224351" duration="6013000" />
+      <workItem from="1557451273679" duration="42000" />
+      <workItem from="1567994087961" duration="606000" />
+      <workItem from="1568041820214" duration="4831000" />
+      <workItem from="1568055395316" duration="1936000" />
+      <workItem from="1568997266517" duration="655000" />
+      <workItem from="1569173561645" duration="11705000" />
+      <workItem from="1569250823388" duration="10037000" />
+      <workItem from="1569339174565" duration="3073000" />
+      <workItem from="1569361709537" duration="1642000" />
+      <workItem from="1569516752564" duration="747000" />
+      <workItem from="1569548808133" duration="604000" />
+      <workItem from="1569786290656" duration="1297000" />
+      <workItem from="1570388690961" duration="2626000" />
+      <workItem from="1570460515198" duration="12527000" />
+      <workItem from="1570627313342" duration="10824000" />
+      <workItem from="1571671255627" duration="10654000" />
+      <workItem from="1571848823694" duration="671000" />
+      <workItem from="1571851862636" duration="1034000" />
+      <workItem from="1572205440933" duration="646000" />
+      <workItem from="1572466680715" duration="3556000" />
+      <workItem from="1572992958638" duration="614000" />
+      <workItem from="1572995307398" duration="1310000" />
+      <workItem from="1573397286131" duration="11342000" />
+      <workItem from="1573426992080" duration="2200000" />
+      <workItem from="1574117945565" duration="1472000" />
+      <workItem from="1574205175405" duration="19195000" />
+      <workItem from="1574251675779" duration="16942000" />
+      <workItem from="1574295888024" duration="5131000" />
+      <workItem from="1574610640389" duration="3322000" />
+      <workItem from="1574614303959" duration="2790000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="941789000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="0" width="1366" height="736" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2678843" />
+      <window_info id="Structure" order="1" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.48160535" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.3277592" />
+      <window_info active="true" anchor="bottom" id="Database Console" order="9" visible="true" weight="0.27759197" />
+      <window_info anchor="bottom" id="Version Control" order="10" weight="0.32943144" />
+      <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" order="12" weight="0.32943144" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Database" order="3" weight="0.3523592" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/webservice/usuario_create_update.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="528">
+          <caret line="42" column="48" selection-start-line="42" selection-start-column="48" selection-end-line="42" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webservice/usuario_read.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/rol.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="8" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/util/funciones/Funciones.clase.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="27" selection-start-line="7" selection-start-column="27" selection-end-line="7" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/50ea42da-44f8-492b-bd56-dbdea697285d/console.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="38" selection-start-line="15" selection-start-column="38" selection-end-line="15" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webservice/zonas_list.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="35" selection-start-line="16" selection-start-column="35" selection-end-line="16" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webservice/usuarios_list.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" selection-start-line="7" selection-end-line="31" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webservice/reciclador_list.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="25" lean-forward="true" selection-start-line="21" selection-start-column="25" selection-end-line="21" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/fila.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="15" column="19" lean-forward="true" selection-start-line="13" selection-start-column="2" selection-end-line="15" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webservice/periodos_list.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" column="32" selection-start-line="22" selection-start-column="32" selection-end-line="22" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webservice/periodo_vigente.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" column="27" selection-start-line="22" selection-start-column="27" selection-end-line="22" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webservice/periodo_create.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="945">
+          <caret line="68" column="45" selection-start-line="68" selection-start-column="45" selection-end-line="68" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/columna.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="915">
+          <caret line="66" column="4" selection-start-line="66" selection-start-column="4" selection-end-line="104" selection-end-column="5" />
+          <folding>
+            <element signature="n#create#0;n#columna#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webservice/code_last.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="23" column="26" selection-start-line="23" selection-start-column="26" selection-end-line="23" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/periodo.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="278" column="1" lean-forward="true" selection-start-line="278" selection-start-column="1" selection-end-line="297" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webservice/periodo_read.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" selection-start-line="7" selection-end-line="26" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webservice/code_search.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="25" column="34" selection-start-line="25" selection-start-column="34" selection-end-line="25" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webservice/criterios_update.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="28" column="24" selection-start-line="28" selection-start-column="24" selection-end-line="28" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datos/configuracion.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="33" selection-start-line="6" selection-start-column="33" selection-end-line="6" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datos/conexion.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-90" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webservice/uservalidar.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="56">
+          <caret line="9" selection-start-line="9" selection-end-line="9" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webservice/persona_create.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="66" column="70" lean-forward="true" selection-start-line="66" selection-start-column="10" selection-end-line="66" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webservice/servicio_create.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="39" column="21" selection-start-line="39" selection-start-column="21" selection-end-line="39" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webservice/criterio3--datos.php" />
+    <entry file="file://$PROJECT_DIR$/webservice/criterio3_datos.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="33" column="55" selection-start-line="33" selection-start-column="55" selection-end-line="33" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webservice/atriz_prioridades.php" />
+    <entry file="file://$PROJECT_DIR$/webservice/matriz_normalizada.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="127">
+          <caret line="23" column="48" selection-start-line="23" selection-start-column="48" selection-end-line="23" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webservice/criterios_list.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="249">
+          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="31" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webservice/matriz_prioridades.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="43" column="21" lean-forward="true" selection-start-line="43" selection-start-column="21" selection-end-line="43" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/persona.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="123">
+          <caret line="380" column="20" selection-start-line="380" selection-start-column="20" selection-end-line="380" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/code.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="53" selection-start-line="13" selection-start-column="53" selection-end-line="13" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/criterio.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1095">
+          <caret line="78" column="33" selection-start-line="78" selection-start-column="33" selection-end-line="78" selection-end-column="33" />
+          <folding>
+            <element signature="n#update#0;n#criterio#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/usuario.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="123">
+          <caret line="257" column="66" selection-start-line="257" selection-start-column="43" selection-end-line="257" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/persona_criterio.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="86" lean-forward="true" selection-start-line="16" selection-start-column="20" selection-end-line="21" selection-end-column="86" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://439262b2-8b77-4ba6-8829-69d43dec0930/database/bd_reciclaje/schema/public/table/persona">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webservice/criterio4_datos.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2">
+          <caret line="27" column="29" selection-start-line="27" selection-start-column="29" selection-end-line="27" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webservice/criterio1_datos.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4">
+          <caret line="28" column="7" lean-forward="true" selection-start-line="28" selection-start-column="7" selection-end-line="28" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webservice/criterio2_datos.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="33" column="55" selection-start-line="33" selection-start-column="55" selection-end-line="33" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webservice/periodo_ultima_fecha.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" column="38" selection-start-line="22" selection-start-column="38" selection-end-line="22" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webservice/proveedor_list.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="27" selection-start-line="17" selection-start-column="27" selection-end-line="17" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webservice/roles_list.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" selection-start-line="7" selection-end-line="25" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/persona_status.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="191">
+          <caret line="131" column="49" selection-start-line="131" selection-start-column="49" selection-end-line="131" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webservice/reciclador_status.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="274">
+          <caret line="21" selection-start-line="21" selection-end-line="21" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webservice/servicio_calificacion.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="303">
+          <caret line="27" column="31" selection-start-line="27" selection-start-column="31" selection-end-line="27" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webservice/servicio_info.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="29" selection-start-line="17" selection-start-column="29" selection-end-line="17" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webservice/servicio_list_prov.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="42" selection-start-line="21" selection-start-column="42" selection-end-line="21" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/439262b2-8b77-4ba6-8829-69d43dec0930/console.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3154">
+          <caret line="223" column="18" lean-forward="true" selection-start-line="223" selection-start-column="18" selection-end-line="223" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webservice/servicio_tiempo_aprox.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webservice/servicio_update_estado.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="46" column="41" selection-start-line="46" selection-start-column="41" selection-end-line="46" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/servicio.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="348">
+          <caret line="454" column="77" selection-start-line="454" selection-start-column="77" selection-end-line="454" selection-end-column="77" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webservice/servicio_atender.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="292">
+          <caret line="34" column="43" selection-start-line="34" selection-start-column="43" selection-end-line="34" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
