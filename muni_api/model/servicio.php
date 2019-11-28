@@ -355,7 +355,8 @@ class servicio extends conexion
             $sentence = $this->dblink->prepare($sql_s);
             $sentence->execute();
             $result = $sentence->fetch(PDO::FETCH_ASSOC);
-            if(count($result)>0){
+            //if(count($result)>0){
+            if ($sentence->rowCount()) {
                 $this->dblink->beginTransaction();
                 $sql = "update servicio set reciclador_id = :p_reciclador where code = :p_code ";
                 $sentencia = $this->dblink->prepare($sql);
@@ -431,7 +432,6 @@ class servicio extends conexion
                         s.fecha, s.hora, s.estado, s.tiempo_aprox_atencion, latitud, longitud
                         from  servicio s inner join persona p on s.proveedor_id = p.id
                         inner join persona r on s.reciclador_id = r.id
-
                     where s.id =  :p_serv_id ";
             $sentencia = $this->dblink->prepare($sql);
             $sentencia->bindParam(":p_serv_id", $this->id);

@@ -51,8 +51,8 @@ try {
 
 
 
-    if($res==true){
-            Funciones::imprimeJSON(200, "Se actualizo estado",$ress);
+    if($res){
+        Funciones::imprimeJSON(200, "Se actualizo estado",$res);
     }else{
         Funciones::imprimeJSON(203, "No actualizo estado",$res);
     }
