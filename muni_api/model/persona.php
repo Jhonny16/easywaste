@@ -364,6 +364,64 @@ class persona extends conexion
         }
     }
 
+    public function read()
+    {
+
+        try {
+            $sql = "select * from persona where id = :p_persona_id";
+            $sentencia = $this->dblink->prepare($sql);
+            $sentencia->bindParam(":p_persona_id", $this->id);
+            $sentencia->execute();
+            $resultado = $sentencia->fetch(PDO::FETCH_ASSOC);
+            return $resultado;
+        } catch (Exception $ex) {
+            throw $ex;
+        }
+    }
+
+
+    public function update(){
+        $this->dblink->beginTransaction();
+
+        try {
+
+            $sql = "update persona set 
+                    dni = :p_dni,
+                    nombres = :p_nombres,
+                    ap_materno = :p_mateno,
+                    ap_paterno = :p_paterno,
+                    sexo = :p_sexo,
+                    fecha_nac = :p_fc,
+                    celular = :p_celular,
+                    direccion = :p_direccion,
+                    correo = :p_correo,
+                    estado = :p_estado,
+                    zona_id = :p_zona                                        
+                    where id = :p_persona_id ";
+            $sentencia = $this->dblink->prepare($sql);
+            $sentencia->bindParam(":p_dni", $this->dni);
+            $sentencia->bindParam(":p_nombres", $this->nombres);
+            $sentencia->bindParam(":p_mateno", $this->ap_materno);
+            $sentencia->bindParam(":p_paterno", $this->ap_paterno);
+            $sentencia->bindParam(":p_sexo", $this->sexo);
+            $sentencia->bindParam(":p_fc", $this->fn);
+            $sentencia->bindParam(":p_celular", $this->celular);
+            $sentencia->bindParam(":p_direccion", $this->direccion);
+            $sentencia->bindParam(":p_correo", $this->correo);
+            $sentencia->bindParam(":p_estado", $this->estado);
+            $sentencia->bindParam(":p_zona", $this->zona_id);
+            $sentencia->bindParam(":p_persona_id", $this->id);
+
+            $sentencia->execute();
+            $this->dblink->commit();
+            return true;
+
+        } catch (Exception $exc) {
+            $this->dblink->rollBack();
+            throw $exc;
+        }
+    }
+
     public function reciclador_lista()
     {
 

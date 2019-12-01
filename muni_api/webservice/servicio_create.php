@@ -21,6 +21,7 @@ $proveedor_id = json_decode(file_get_contents("php://input"))->proveedor_id;
 $latitud = json_decode(file_get_contents("php://input"))->latitud;
 $longitud = json_decode(file_get_contents("php://input"))->longitud;
 $referencia = json_decode(file_get_contents("php://input"))->referencia;
+$imagen = pg_escape_bytea(file_get_contents("php://input"))->imagen;
 
 $objeto = new servicio();
 
@@ -36,6 +37,7 @@ $objeto->setLatitud($latitud);
 $objeto->setLongitud($longitud);
 $objeto->setReferencia($referencia);
 $objeto->setEstado($estado);
+$objeto->setImagen($imagen);
 
 $res = $objeto->create();
 if ($res) {

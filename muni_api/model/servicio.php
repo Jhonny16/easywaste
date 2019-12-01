@@ -25,6 +25,26 @@ class servicio extends conexion
     private $hora_respuesta;
     private $hora_llegada;
     private $tiempo_aproximado;
+    private $imagen;
+
+    /**
+     * @return mixed
+     */
+    public function getImagen()
+    {
+        return $this->imagen;
+    }
+
+    /**
+     * @param mixed $imagen
+     */
+    public function setImagen($imagen)
+    {
+        $this->imagen = $imagen;
+    }
+
+
+
 
     /**
      * @return mixed
@@ -327,9 +347,9 @@ class servicio extends conexion
 
 
             $sql = "insert into servicio (code, estado, fecha, hora, 
-                                          proveedor_id, latitud,longitud, referencia)
+                                          proveedor_id, latitud,longitud, referencia, imagen)
                     values (:p_code, :p_estado, :p_fecha, :p_hora, 
-                                          :p_proveedor_id, :p_latitud, :p_longitud, :p_ref); ";
+                                          :p_proveedor_id, :p_latitud, :p_longitud, :p_ref, :p_imagen); ";
             $sentencia = $this->dblink->prepare($sql);
             $sentencia->bindParam(":p_code", $this->code);
             $sentencia->bindParam(":p_estado", $this->estado);
@@ -339,6 +359,7 @@ class servicio extends conexion
             $sentencia->bindParam(":p_latitud", $this->latitud);
             $sentencia->bindParam(":p_longitud", $this->longitud);
             $sentencia->bindParam(":p_ref", $this->referencia);
+            $sentencia->bindParam(":p_imagen", $this->imagen);
             $sentencia->execute();
 
             //Asignamos los servicios a reciclador segun orden de prioridad
@@ -394,9 +415,42 @@ class servicio extends conexion
             $sentencia->execute();
             $resultado = $sentencia->fetch(PDO::FETCH_ASSOC);
 
-            return $resultado;
+            if ($sentencia->rowCount()) {
+                $servicio_id = $resultado['id'];
+
+                $res = $this->position_create($servicio_id, $this->latitud, $this->longitud);
+                if($res){
+                    return true;
+                }
+                else{
+                    return false;
+                }
+            }
+
+
+
+
 
         } catch (Exception $ex) {
+            throw $ex;
+        }
+    }
+
+    public function position_create($servicio_id, $latitud, $longitud){
+        try {
+
+            $sql = "insert into position (latitud, longitud, lat_actual, lon_actual, servicio_id)
+                    values (:p_latitud, :p_longitud ,:p_latitud_actual, :p_longitud_actual,  :p_servicio_id); ";
+            $sentencia = $this->dblink->prepare($sql);
+            $sentencia->bindParam(":p_latitud", $latitud);
+            $sentencia->bindParam(":p_longitud", $latitud);
+            $sentencia->bindParam(":p_latitud_actual", $latitud);
+            $sentencia->bindParam(":p_longitud_actual", $longitud);
+            $sentencia->bindParam(":p_servicio_id", $servicio_id);
+            $sentencia->execute();
+            return True;
+
+        }catch (Exception $ex) {
             throw $ex;
         }
     }
@@ -496,19 +550,65 @@ class servicio extends conexion
 
         try {
 
-            $sql = "update servicio set estado = :p_estado   where id = :p_id";
+            $sql = "update servicio set estado = :p_estado where id = :p_id";
             $sentencia = $this->dblink->prepare($sql);
             $sentencia->bindParam(":p_estado", $this->estado);
             $sentencia->bindParam(":p_id", $this->id);
             $sentencia->execute();
             $this->dblink->commit();
-            return true;
+
+            return -1;
+
+//            if($this->estado == 'Finalizado'){
+//                $sql = "select proveedor_id from servicio
+//                    where id = :p_id";
+//                $sentencia = $this->dblink->prepare($sql);
+//                $sentencia->bindParam(":p_id", $this->id);
+//                $sentencia->execute();
+//                $resultado = $sentencia->fetch(PDO::FETCH_ASSOC);
+//                if ($sentencia->rowCount()) {
+//                    $proveedor_id = $resultado['proveedor_id'];
+//                    $res = $this->count_pintrash($proveedor_id);
+//                    if($res==-2){
+//                        return -2 ;
+//                    }else{
+//                        return $res;
+//                    }
+//                }else{
+//                    return -1;
+//                }
+//            }else{
+//                return -1;
+//            }
+
         } catch (Exception $exc) {
             $this->dblink->rollBack();
             throw $exc;
         }
 
 
+    }
+
+    public function count_pintrash($proveedor_id)
+    {
+        try {
+            $sql = "select count(*)/2 as pintrash from servicio
+                    where proveedor_id = :p_proveedor_id
+                    group by proveedor_id
+                    having count(*)/2 > 0";
+            $sentencia = $this->dblink->prepare($sql);
+            $sentencia->bindParam(":p_proveedor_id", $proveedor_id);
+            $sentencia->execute();
+            $resultado = $sentencia->fetch(PDO::FETCH_ASSOC);
+            if ($sentencia->rowCount()) {
+                return $resultado['pintrash'];
+            }else{
+                return -2;
+            }
+
+        } catch (Exception $ex) {
+            throw $ex;
+        }
     }
 
     public function update_calificacion()

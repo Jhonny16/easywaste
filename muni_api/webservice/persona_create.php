@@ -17,6 +17,14 @@ if (!isset($_SERVER["HTTP_TOKEN"])) {
     exit();
 }
 $token = $_SERVER["HTTP_TOKEN"];
+$operation= json_decode(file_get_contents("php://input"))->operation;
+if($operation == 'Nuevo'){
+    $rol_id = json_decode(file_get_contents("php://input"))->rol_id;
+
+}else{
+    $id = json_decode(file_get_contents("php://input"))->id;
+}
+
 $dni = json_decode(file_get_contents("php://input"))->dni;
 $nombres = json_decode(file_get_contents("php://input"))->nombres;
 $ap_paterno= json_decode(file_get_contents("php://input"))->ap_paterno;
@@ -28,9 +36,9 @@ $direccion= json_decode(file_get_contents("php://input"))->direccion;
 $correo = json_decode(file_get_contents("php://input"))->correo;
 $estado= json_decode(file_get_contents("php://input"))->estado;
 $zona_id= json_decode(file_get_contents("php://input"))->zona_id;
-$rol_id = json_decode(file_get_contents("php://input"))->rol_id;
 $fecha_registro= json_decode(file_get_contents("php://input"))->fecha_registro;
-$operation= json_decode(file_get_contents("php://input"))->operation;
+
+
 
 try {
 //    if (validarToken($token)) {
@@ -71,21 +79,24 @@ try {
 
 
     } else {
-//        $objenf = new enfermera();
-//        $objenf->setDni($dni);
-//        $objenf->setCep($cep);
-//        $objenf->setApellidos($apellidos);
-//        $objenf->setNombres($nombres);
-//        $objenf->setEmail($email);
-//        $objenf->setTelefono($telefono);
-//        $objenf->setEstado($estado);
-//        $objuser->setId($user_id);
-//        $objuser->setEstado($estado);
-//        $objuser->setDni($dni);
-//        $objuser->setNombre($nombre);
-//        $objenf->setId($enfermera_id);
-//        $objuser->update_estado();
-//        $result = $objenf->update();
+
+        $objper = new persona();
+
+        $objper->setDni($dni);
+        $objper->setNombres($nombres);
+        $objper->setApPaterno($ap_paterno);
+        $objper->setApMaterno($ap_materno);
+        $objper->setSexo($sexo);
+        $objper->setFn($fn);
+        $objper->setCelular($celular);
+        $objper->setDireccion($direccion);
+        $objper->setCorreo($correo);
+        $objper->setEstado($estado);
+        $objper->setZonaId($zona_id);
+        $objper->setId($id);
+
+        $result = $objper->update();
+
         if ($result) {
             Funciones::imprimeJSON(200, "Se Actualizo Correctamente", "");
         } else {

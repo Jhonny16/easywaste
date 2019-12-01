@@ -6,6 +6,10 @@
  * Time: 9:42 PM
  */
 header('Access-Control-Allow-Origin: *');
+header("Access-Control-Allow-Headers: X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method");
+header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
+header("Allow: GET, POST, OPTIONS, PUT, DELETE");
+
 
 require_once '../model/usuario.php';
 require_once '../model/paciente.php';

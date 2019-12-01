@@ -49,7 +49,18 @@ try {
         $res = $obj->update_estado();
     }
 
+    if($res==-1){
+        Funciones::imprimeJSON(200, "Se actualizo estado",$res);
+    }
+    else{
+        if($res == -2){
+            Funciones::imprimeJSON(203, "No actualizo estado",$res);
 
+        }else{
+            Funciones::imprimeJSON(200, "Estado actualizado, acumulo pintrash",$res);
+
+        }
+    }
 
     if($res){
         Funciones::imprimeJSON(200, "Se actualizo estado",$res);
