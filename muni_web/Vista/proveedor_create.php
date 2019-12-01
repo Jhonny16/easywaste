@@ -18,7 +18,7 @@
             <div class="col-xs-12 col-lg-12">
                 <div class="box box-info">
                     <div class="box-header with-border">
-                        <h5 class="box-title" style="color: #01a189">Nuevo Proveedor!</h5>
+                        <h5 class="box-title" style="color: #01a189" id="proveedor_create_title">Nuevo Proveedor!</h5>
                         <input type="text"  id="user_id" style="display: none">
                         <input type="text" id="proveedor_id"  style="display: none">
                     </div>

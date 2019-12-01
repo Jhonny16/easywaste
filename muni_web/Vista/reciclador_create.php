@@ -18,7 +18,7 @@
             <div class="col-xs-12 col-lg-12">
                 <div class="box box-info">
                     <div class="box-header with-border">
-                        <h5 class="box-title" style="color: #01a189">Nuevo Reciclador!</h5>
+                        <h5 class="box-title" style="color: #01a189" id="reciclador_create_title">Nuevo Reciclador!</h5>
                         <input type="text"  id="user_id" style="display: none">
                         <input type="text" id="reciclador_id"  style="display: none">
                     </div>

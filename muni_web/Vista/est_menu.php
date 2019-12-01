@@ -67,6 +67,19 @@
                     <li><a href="criterios_vectores.php" ><i class="fa fa-circle-o"></i> Vectores</a></li>
                 </ul>
             </li>
+            <li class="treeview" id="menu_venta">
+                <a href="#">
+                    <img src="../imagenes/venta.png" style="width: 1.5em" alt="">
+                    <span style="color: #01a189">Ventas</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="venta.php" ><i class="fa fa-circle-o"></i> Nueva</a></li>
+                    <li><a href="venta_lista.php" ><i class="fa fa-circle-o"></i> Lista</a></li>
+                </ul>
+            </li>
 
         </ul>
     </section>

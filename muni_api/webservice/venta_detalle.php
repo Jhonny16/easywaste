@@ -2,12 +2,12 @@
 /**
  * Created by PhpStorm.
  * User: jhonny
- * Date: 23/09/19
- * Time: 12:42 PM
+ * Date: 01/12/19
+ * Time: 12:13 PM
  */
 header('Access-Control-Allow-Origin: *');
 
-require_once '../model/persona.php';
+require_once '../model/venta.php';
 require_once '../util/funciones/Funciones.clase.php';
 require_once 'tokenvalidar.php';
 
@@ -16,13 +16,19 @@ if (!isset($_SERVER["HTTP_TOKEN"])) {
     exit();
 }
 
+$id = json_decode(file_get_contents("php://input"))->venta_id;
+
 
 try {
-    $obj = new persona();
-    $resultado = $obj->reciclador_lista();
+    $obj = new venta();
 
-    if($resultado){
-        Funciones::imprimeJSON(200, "",$resultado);
+    $obj->setId($id);
+
+    $resultado = $obj->detalle();
+
+    if ($resultado) {
+        Funciones::imprimeJSON(200, "", $resultado);
+    } else {
     }
 
 } catch (Exception $exc) {

@@ -10,6 +10,7 @@ require_once '../util/funciones/definiciones.php';
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <?php include_once 'ext_estilos.php'; ?>
+    <link rel="stylesheet" href="../css/mapa.css">
 
 
 </head>
@@ -63,6 +64,11 @@ require_once '../util/funciones/definiciones.php';
 <?php include_once 'ext_scripts.php'; ?>
 <script src="../js/validacion.js"></script>
 <script src="../js/proveedor_list.js"></script>
+
+<script src="../js/direcciones.js"></script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAz2Oa-_4POfA1s5UslFrXfTe66uPfgEMU&libraries=places&callback=mapa_direcciones"
+        async defer></script>
 
 </body>
 </html>

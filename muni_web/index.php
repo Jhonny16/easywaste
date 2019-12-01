@@ -1,3 +1,10 @@
+<?php
+    header('Access-Control-Allow-Origin: *');
+ //   header("Content-Type: application/json; charset=UTF-8");
+    header("Access-Control-Allow-Headers: X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method");
+    header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
+    header("Allow: GET, POST, OPTIONS, PUT, DELETE");
+//?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -44,10 +51,10 @@
                 <p style="text-align: center">Inicio Sesión</p>
 
 
-                <div class="wrap-input100 validate-input" data-validate = "Enter username">
-                    <select class="input100"  name="txtrol" id="txtrol" style="background-color: #02d49d"></select>
-                    <span class="focus-input100" data-placeholder="&#xf209;"></span>
-                </div>
+<!--                <div class="wrap-input100 validate-input" data-validate = "Enter username">-->
+<!--                    <select class="input100"  name="txtrol" id="txtrol" style="background-color: #02d49d"></select>-->
+<!--                    <span class="focus-input100" data-placeholder="&#xf209;"></span>-->
+<!--                </div>-->
                 <div class="wrap-input100 validate-input" data-validate = "Enter username">
                     <input class="input100" type="text"  id="txtdni" placeholder="Ingrese DNI"
                            onkeypress="return numeros(event);" maxlength="8">

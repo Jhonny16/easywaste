@@ -85,7 +85,8 @@ $("#frminiciosesion").submit(function (evento) {
     evento.preventDefault();
 
     var ruta = DIRECCION_WS + "uservalidar.php";
-    var txtRol = $("#txtrol").val();
+    // var txtRol = $("#txtrol").val();
+    var txtRol = "1";
     var txtDni = $("#txtdni").val();
     var txtPassword = $("#txtclave").val();
 

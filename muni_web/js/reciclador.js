@@ -23,6 +23,10 @@ $(document).ready(function () {
 function reciclador_add() {
     var ruta = DIRECCION_WS + "persona_create.php";
     var token = localStorage.getItem('token');
+
+    var operation = $("#operation").html();
+
+
     var data = {
         dni: $("#rec_dni").val(),
         ap_paterno: $("#rec_appaterno").val(),
@@ -37,8 +41,9 @@ function reciclador_add() {
         zona_id: $("#combo_zona").val(),
         rol_id: 2,
         fecha_registro: $("#fecha_registro").val(),
-        operation: $("#operation").html()
+        operation: operation
     };
+
 
     console.log(data);
     $.ajax({
@@ -77,7 +82,7 @@ function reciclador_add() {
 }
 
 
-function zonas_list(){
+function zonas_list() {
     // $("#combo_zona").empty();
     var ruta = DIRECCION_WS + "zonas_list.php";
     console.log(ruta);
@@ -92,7 +97,7 @@ function zonas_list(){
                 var html = "";
                 html += '<option value="0">-- Seleccione Zona --</option>';
                 $.each(datosJSON.datos, function (i, item) {
-                    html += '<option value="'+ item.id +'">' + item.nombre +'</option>';
+                    html += '<option value="' + item.id + '">' + item.nombre + '</option>';
                 });
                 $("#combo_zona").append(html);
             }

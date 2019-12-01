@@ -3,11 +3,12 @@ var clase = 'background-image: linear-gradient(150deg, rgb(255,255,255) 300px, r
 
 
 $(document).ready(function () {
+
     listado();
     $("#reciclador_vista_nuevo").attr('style', 'display:none');
 });
 
-function nuevo(){
+function nuevo() {
     window.location = "../Vista/reciclador.php";
 }
 
@@ -37,7 +38,7 @@ function listado() {
                 html += '<table id="rec_table_list" class="table table-bordered table-striped">';
                 html += '<thead>';
                 html += '<tr style="background-color: #ededed; height:25px;">';
-                html += '<th>Edit</th>';
+                html += '<th style="text-align: center">Edit</th>';
                 html += '<th>DNI</th>';
                 html += '<th>NOMNRE COMPLETO</th>';
                 html += '<th>CODIGO</th>';
@@ -52,8 +53,8 @@ function listado() {
                 $.each(datosJSON.datos, function (i, item) {
 
                     html += '<tr>';
-                    html += '<td>';
-                    html += '<a type="button" title="Editar" onclick="edit(' + item.id + ')">' +
+                    html += '<td style="text-align: center">';
+                    html += '<a type="button" title="Editar" onclick="read(' + item.id + ')">' +
                         '<i class="fa fa-edit text-aqua"></i></a>';
                     html += '</td>'
                     //+ item.id + '</td>';
@@ -114,7 +115,7 @@ function edit(id) {
 }
 
 function read(id) {
-    var ruta = DIRECCION_WS + "medico_read.php";
+    var ruta = DIRECCION_WS + "persona_read.php";
     var token = localStorage.getItem('token');
     var data = {'id': id};
     $.ajax({
@@ -129,21 +130,41 @@ function read(id) {
             console.log(resultado);
             var datosJSON = resultado;
             if (datosJSON.estado == 200) {
-                $("#med_dni").val(resultado.datos.dni);
-                $("#med_apellidos").val(resultado.datos.apellidos);
-                $("#med_nombres").val(resultado.datos.nombres);
-                $("#med_rne").val(resultado.datos.rne);
-                $("#med_cmp").val(resultado.datos.cmp);
-                $("#med_telefono").val(resultado.datos.telefono);
-                $("#med_email").val(resultado.datos.email);
-                if (resultado.datos.estado == '1') {
-                    $("#med_si").iCheck('check');
-                } else {
-                    $("#med_si").iCheck('check')
-                }
-                $("#user_id").val(resultado.datos.user_id);
-                $("#medico_id").val(resultado.datos.id);
 
+                $("#operation").html('Editar');
+
+                $("#reciclador_create_title").html("");
+                $("#reciclador_create_title").html("Editar datos reciclador");
+
+                $("#reciclador_vista_nuevo").attr('style', 'display:block');
+                $("#rec_vista_lista").attr('style', 'display:none');
+                mapa_direcciones();
+                $("#reciclador_id").val(resultado.datos.id);
+                $("#rec_dni").val(resultado.datos.dni);
+                $("#rec_appaterno").val(resultado.datos.ap_paterno);
+                $("#rec_apmaterno").val(resultado.datos.ap_materno);
+                $("#rec_nombres").val(resultado.datos.nombres);
+                $("#rec_fn").val(resultado.datos.fecha_nac);
+                $("#rec_email").val(resultado.datos.correo);
+
+                if (resultado.datos.sexo == 'M') {
+                    $("#rec_m").iCheck('check');
+                } else {
+                    $("#rec_f").iCheck('check')
+                }
+                $("#rec_celular").val(resultado.datos.celular);
+                if (resultado.datos.estado == 'A') {
+                    $("#rec_a").iCheck('check');
+                } else {
+                    $("#rec_i").iCheck('check')
+                }
+                ;
+                console.log("zonita");
+                console.log('' + resultado.datos.zona_id + '');
+
+                zonas_list(resultado.datos.zona_id);
+                //$("#combo_zona").val(''+resultado.datos.zona_id+'');
+                $("#pac-input").val(resultado.datos.direccion);
 
             } else {
                 swal({
@@ -155,6 +176,123 @@ function read(id) {
             }
         },
         error: function (error) {
+            var datosJSON = $.parseJSON(error.responseText);
+            swal("Error", datosJSON.mensaje, "error");
+        }
+    });
+}
+
+function zonas_list(id) {
+    // $("#combo_zona").empty();
+    var ruta = DIRECCION_WS + "zonas_list.php";
+    console.log(ruta);
+    $.ajax({
+        type: "get",
+        url: ruta,
+        data: {},
+        success: function (resultado) {
+            console.log(resultado);
+            var datosJSON = resultado;
+            if (datosJSON.estado === 200) {
+                var html = "";
+                html += '<option value="0">-- Seleccione Zona --</option>';
+                $.each(datosJSON.datos, function (i, item) {
+                    if (item.id == id) {
+                        html += '<option value="' + item.id + '" selected>' + item.nombre + '</option>';
+
+                    } else {
+                        html += '<option value="' + item.id + '" >' + item.nombre + '</option>';
+
+                    }
+                });
+                $("#combo_zona").append(html);
+            }
+        },
+        error: function (error) {
+            console.log(error);
+            var datosJSON = $.parseJSON(error.responseText);
+            swal("Error", datosJSON.mensaje, "error");
+        }
+    });
+}
+var sexo = 'M';
+var estado = 'A';
+$('#rec_m').on('ifChecked', function (event) {
+    sexo = 'M';
+});
+$('#rec_f').on('ifChecked', function (event) {
+    sexo = 'F';
+});
+$('#rec_a').on('ifChecked', function (event) {
+    estado = 'A';
+});
+$('#rec_i').on('ifChecked', function (event) {
+    estado = 'I';
+});
+
+
+function reciclador_add() {
+    var ruta = DIRECCION_WS + "persona_create.php";
+    var token = localStorage.getItem('token');
+
+    var operation = $("#operation").html();
+
+
+    var data = {
+        dni: $("#rec_dni").val(),
+        ap_paterno: $("#rec_appaterno").val(),
+        ap_materno: $("#rec_apmaterno").val(),
+        nombres: $("#rec_nombres").val(),
+        sexo: sexo,
+        fn: $("#rec_fn").val(),
+        celular: $("#rec_celular").val(),
+        direccion: $("#pac-input").val(),
+        correo: $("#rec_email").val(),
+        estado: estado,
+        zona_id: $("#combo_zona").val(),
+        fecha_registro: $("#fecha_registro").val(),
+        id: $("#reciclador_id").val(),
+        operation: operation
+    };
+
+
+    console.log(data);
+    $.ajax({
+        type: "post",
+        headers: {
+            token: token
+        },
+        url: ruta,
+        contentType: "application/json",
+        data: JSON.stringify(data),
+        success: function (resultado) {
+            console.log(resultado);
+            var datosJSON = resultado;
+            if (datosJSON.estado === 200) {
+
+                swal({
+                    title: 'Bien',
+                    text: datosJSON.mensaje,
+                    type: 'success',
+                    showCancelButton: false,
+                    confirmButtonColor: '#00ACD6',
+                    confirmButtonText: 'Aceptar!',
+                }).then(function (result) {
+                    if (result.value) {
+                        window.location = "../Vista/reciclador_list.php";
+                    }
+                });
+
+            } else {
+                swal({
+                    type: 'warning',
+                    title: 'Nota!!',
+                    text: datosJSON.mensaje,
+                })
+            }
+        },
+        error: function (error) {
+            console.log(error);
             var datosJSON = $.parseJSON(error.responseText);
             swal("Error", datosJSON.mensaje, "error");
         }
