@@ -342,7 +342,7 @@ class servicio extends conexion
 
 
             $sql = "insert into servicio (code, estado, fecha, hora, 
-                                          proveedor_id, latitud,longitud, referencia, imagen)
+                                          proveedor_id, latitud,longitud, referencia)
                     values (:p_code, :p_estado, :p_fecha, :p_hora, 
                                           :p_proveedor_id, :p_latitud, :p_longitud, :p_ref); ";
             $sentencia = $this->dblink->prepare($sql);
