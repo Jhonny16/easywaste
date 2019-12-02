@@ -218,16 +218,36 @@ function al_cambiar(id) {
     $("#precio" + id).html(precio);
 
     $("#det_detalle tr").each(function () {
+
+        var ide = $(this).find("td").eq(0).html();
         var peso = $(this).find("td").eq(2).html();
-        //var precio = $(this).find("td").eq(3).html();
 
-        console.log(peso);
-        console.log(precio);
+        if(id == ide){
+            subtotal = parseFloat(precio) * parseFloat(peso);
+            $("#subtotal" + id).html(subtotal.toFixed(2));
+            return false;
+        }
 
-        subtotal = parseFloat(precio) * parseFloat(peso);
-        $("#subtotal" + id).html(subtotal.toFixed(2));
 
-        total = subtotal + total
+
+        //var price = $(this).find("td").eq(4).html();
+        //console.log(peso);
+        //console.log(price);
+        //subtotal = parseFloat(price) * parseFloat(peso);
+
+
+        //total = subtotal + total;
+    });
+
+    $("#det_detalle tr").each(function () {
+        var sub_total = $(this).find("td").eq(5).html();
+
+        // console.log(peso);
+        // console.log(price);
+        // subtotal = parseFloat(sub_total) * parseFloat(peso);
+        //
+        // $("#subtotal" + id).html(subtotal.toFixed(2));
+        total = parseFloat(sub_total) + total;
     });
 
     console.log("total");
@@ -235,7 +255,16 @@ function al_cambiar(id) {
 
     $("#precio_total").html(total.toFixed(2));
 
-
+    // $("#det_detalle tr").each(function () {
+    //     var peso = $(this).find("td").eq(2).html();
+    //     var price = $(this).find("td").eq(4).html();
+    //     console.log(peso);
+    //     console.log(price);
+    //     subtotal = parseFloat(price) * parseFloat(peso);
+    //
+    //     $("#subtotal" + id).html(subtotal.toFixed(2));
+    //     total = subtotal + total;
+    // });
 
 
 }
