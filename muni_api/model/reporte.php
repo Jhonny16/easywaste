@@ -34,4 +34,69 @@ class reporte extends conexion
         }
     }
 
+    public function criterios_prioridad_reciclador(){
+        try {
+
+            $sql = "select pc.persona_id,
+                   (p.ap_paterno||' '|| p.ap_materno ||' '|| p.nombres) as reciclador,
+                   SUM(case when pc.criterio_id=1 then pc.valor end) * 100 as criterio1,
+                   SUM(case when pc.criterio_id=2 then pc.valor end) * 100 as criterio2,
+                   SUM(case when pc.criterio_id=3 then pc.valor end) * 100 as criterio3,
+                   SUM(case when pc.criterio_id=4 then pc.valor end) * 100 as criterio4,
+                   p.valor * 100 as prioridad
+                    from persona_criterio pc inner join persona p on pc.persona_id = p.id
+                    group by persona_id,p.ap_paterno||' '|| p.ap_materno ||' '|| p.nombres,p.valor
+                    order by p.valor desc ;
+                    ";
+            $sentencia = $this->dblink->prepare($sql);
+            $sentencia->execute();
+            $resultado = $sentencia->fetchAll(PDO::FETCH_ASSOC);
+
+            return $resultado;
+
+        } catch (Exception $ex) {
+            throw $ex;
+        }
+    }
+
+    public function recoleccion_por_zona($anio1, $anio2, $zona_id){
+        try {
+
+            $sql = "select extract(year from v.fecha_registro) as anio,
+                           SUM(case when (extract(month from v.fecha_registro)) = 1  then (d.cantidad) else 0 end) as enero,
+                           SUM(case when (extract(month from v.fecha_registro)) = 2  then (d.cantidad) else 0 end) as febrero,
+                           SUM(case when (extract(month from v.fecha_registro)) = 3  then (d.cantidad) else 0 end) as marzo,
+                           SUM(case when (extract(month from v.fecha_registro)) = 4  then (d.cantidad) else 0 end) as abril,
+                           SUM(case when (extract(month from v.fecha_registro)) = 5  then (d.cantidad) else 0 end) as mayo,
+                           SUM(case when (extract(month from v.fecha_registro)) = 6  then (d.cantidad) else 0 end) as junio,
+                           SUM(case when (extract(month from v.fecha_registro)) = 7  then (d.cantidad) else 0 end) as julio,
+                           SUM(case when (extract(month from v.fecha_registro)) = 8  then (d.cantidad) else 0 end) as agosto,
+                           SUM(case when (extract(month from v.fecha_registro)) = 9  then (d.cantidad) else 0 end) as setiembre,
+                           SUM(case when (extract(month from v.fecha_registro)) = 10  then (d.cantidad) else 0 end) as octubre,
+                           SUM(case when (extract(month from v.fecha_registro)) = 11  then d.cantidad else 0 end) as noviembre,
+                           SUM(case when (extract(month from v.fecha_registro)) = 12  then d.cantidad else 0 end) as diciembre
+                    from venta v
+                           inner join detalle d on d.venta_id =v.id
+                           inner join persona p on v.reciclador_id = p.id
+                    where v.estado = 'Vendido'
+                      and (extract(year from v.fecha_registro) BETWEEN :p_anio1 and :p_anio2)
+                      and p.zona_id = :p_zona_id
+                    GROUP BY  extract(year from v.fecha_registro)                    ;
+                                        ";
+            $sentencia = $this->dblink->prepare($sql);
+            $sentencia->bindParam(":p_anio1", $anio1);
+            $sentencia->bindParam(":p_anio2", $anio2);
+            $sentencia->bindParam(":p_zona_id", $zona_id);
+
+            $sentencia->execute();
+            $resultado = $sentencia->fetchAll(PDO::FETCH_ASSOC);
+
+            return $resultado;
+
+        } catch (Exception $ex) {
+            throw $ex;
+        }
+    }
+
+
 }

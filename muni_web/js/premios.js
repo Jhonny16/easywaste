@@ -81,7 +81,7 @@ function listado() {
 
 function data_modal(id){
     var image = "";
-    var path = '/opt/lampp/htdocs/www/muni_web/imagenes/imagenespremios/';
+    var path = '/www/muni_web/imagenes/imagenespremios/';
     for(var i=0; i<list_imagen.length; i++){
         if(id == list_imagen[i].id ){
             image = list_imagen[i].imagen;
@@ -90,7 +90,8 @@ function data_modal(id){
         }
     }
     var route = path + '' +image;
-    var html = ' <img src="'+route+'" alt="">'
-   // $("#div_image").html(html);
+    var html = '<img src="'+ route +'" height="400px" width="400px" >';
+    console.log(html);
+    $("#p_image").html(html);
 
 }
