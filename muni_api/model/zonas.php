@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: jhonny
- * Date: 22/09/19
- * Time: 07:22 PM
- */
+
 
 require_once '../datos/conexion.php';
 class zonas  extends conexion

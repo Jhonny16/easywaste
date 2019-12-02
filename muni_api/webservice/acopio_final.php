@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: jhonny
- * Date: 01/12/19
- * Time: 12:03 PM
- */
+
 header('Access-Control-Allow-Origin: *');
 
 require_once '../model/centro_acopio.php';

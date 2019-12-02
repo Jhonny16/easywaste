@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: jhonny
- * Date: 30/11/19
- * Time: 09:59 AM
- */
+
 header('Access-Control-Allow-Origin: *');
 
 require_once '../model/posicion.php';

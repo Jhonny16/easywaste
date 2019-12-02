@@ -1,6 +1,4 @@
-/**
- * Created by tito_ on 30/10/2018.
- */
+
 $(document).ready(function () {
     var token = localStorage.getItem('token');
     console.log(token);

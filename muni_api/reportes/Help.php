@@ -1,11 +1,5 @@
 <?php
 
-/**
- * Created by PhpStorm.
- * User: tito_
- * Date: 16/10/2018
- * Time: 11:44 PM
- */
 
 
 date_default_timezone_set("America/Lima");

@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: jhonny
- * Date: 21/10/19
- * Time: 12:48 PM
- */
+
 
 try {
     require_once '../model/code.php';

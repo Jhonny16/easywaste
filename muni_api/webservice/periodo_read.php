@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: jhonny
- * Date: 09/10/19
- * Time: 11:21 AM
- */
+
 try {
     require_once '../model/periodo.php';
     require_once '../util/funciones/Funciones.clase.php';

@@ -19,7 +19,7 @@ require_once '../util/funciones/definiciones.php';
     <?php include_once 'est_cabecera.php'; ?>
     <?php include_once 'est_menu.php'; ?>
     <div class="content-wrapper" id="pro_vista_lista"
-         style="background-image: linear-gradient(150deg, rgb(255,255,255) 300px, rgb(4,216,205)95%);">
+         style="background-image: linear-gradient(150deg, rgb(255,255,255) 300px, rgb(255, 255, 255)95%);">
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>

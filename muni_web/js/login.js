@@ -1,6 +1,4 @@
-/**
- * Created by tito_ on 23/10/2018.
- */
+
 var DIRECCION_WS = "http://localhost/www/muni_api/webservice/";
 $(document).ready(function () {
     loadProfile();

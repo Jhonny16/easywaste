@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: tito_
- * Date: 29/10/2018
- * Time: 9:42 PM
- */
+
 header('Access-Control-Allow-Origin: *');
 header("Access-Control-Allow-Headers: X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method");
 header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");

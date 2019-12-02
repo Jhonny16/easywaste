@@ -1,5 +1,5 @@
 <div class="content-wrapper" id="reciclador_vista_nuevo"
-     style="background-image: linear-gradient(150deg, rgb(255,255,255) 300px, rgb(4,216,205)95%);">
+     style="background-image: linear-gradient(150deg, rgb(255,255,255) 300px, rgb(255,255,255)95%);">
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
@@ -18,7 +18,7 @@
             <div class="col-xs-12 col-lg-12">
                 <div class="box box-info">
                     <div class="box-header with-border">
-                        <h5 class="box-title" style="color: #01a189" id="reciclador_create_title">Nuevo Reciclador!</h5>
+                        <h5 class="box-title" style="color: #00a65a">Nuevo Reciclador</h5>
                         <input type="text"  id="user_id" style="display: none">
                         <input type="text" id="reciclador_id"  style="display: none">
                     </div>

@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: jhonny
- * Date: 07/10/19
- * Time: 08:10 PM
- */
 
 require_once '../datos/conexion.php';
 

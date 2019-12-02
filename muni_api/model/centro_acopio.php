@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: jhonny
- * Date: 30/11/19
- * Time: 09:23 PM
- */
+
 require_once '../datos/conexion.php';
 class centro_acopio extends conexion
 {

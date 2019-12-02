@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: jhonny
- * Date: 10/11/19
- * Time: 03:04 PM
- */
 
 header('Access-Control-Allow-Origin: *');
 

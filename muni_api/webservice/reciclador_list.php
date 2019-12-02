@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: jhonny
- * Date: 23/09/19
- * Time: 12:42 PM
- */
+
 header('Access-Control-Allow-Origin: *');
 
 require_once '../model/persona.php';

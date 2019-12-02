@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: jhonny
- * Date: 10/11/19
- * Time: 12:47 PM
- */
+
 require_once '../datos/conexion.php';
 
 class servicio extends conexion

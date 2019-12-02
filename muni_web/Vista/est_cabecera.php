@@ -1,14 +1,14 @@
 <header class="main-header">
     <!-- Logo -->
-    <a href="../../index2.html" class="logo" style="background: #04d8cd">
-        <!-- mini logo for sidebar mini 50x50 pixels -->
+    <a href="../../index2.html" class="logo" style="background: #00a65a">
+        <!-- mini logo for sidebar mini 50x50 pixels 
         <span class="logo-mini"><img src="../login/images/mundo_opt.png" style="width: 2em" alt=""></span>
-        <!-- logo for regular state and mobile devices -->
-        <span class="logo-lg"><img src="../login/images/mundo_opt.png" style="width: 2em" alt="">EasyWaste</span>
+        logo for regular state and mobile devices -->
+        <span class="logo-lg">EasyWaste</span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top"
-         style="text-align: center;background-image: linear-gradient(200deg, rgb(1, 209, 118) 200px, rgb(4,216,205)60%);">
+         style="text-align: center;background-image: linear-gradient(500deg, rgb(0, 166, 90) 200px, rgb(0, 166, 90)60%);">
         <!-- Sidebar toggle button-->
         <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
             <span class="sr-only">Toggle navigation</span>
@@ -31,7 +31,7 @@
                 </li>
                 <!-- Control Sidebar Toggle Button -->
                 <li>
-                    <a href="#" title="Salir"onclick="out_login()"><img src="../imagenes/salir.png" style="width: 1.5em;height: 1.5em" alt=""></a>
+                    <a href="#" title="Salir"onclick="out_login()"><img src="../imagenes/close.png" style="width: 1.5em;height: 1.5em" alt=""></a>
                 </li>
             </ul>
         </div>

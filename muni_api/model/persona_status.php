@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: jhonny
- * Date: 20/11/19
- * Time: 11:38 AM
- */
+
 require_once '../datos/conexion.php';
 class persona_status extends conexion
 {

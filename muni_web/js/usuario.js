@@ -1,6 +1,4 @@
-/**
- * Created by tito_ on 05/12/2018.
- */
+
 var DIRECCION_WS = "http://localhost/clinica_api/webservice/";
 var user_id =0;
 var operacion = 'agregar';

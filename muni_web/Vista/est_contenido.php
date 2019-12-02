@@ -1,14 +1,14 @@
 <!--<div class="content-wrapper" style="background: white">-->
 <div class="content-wrapper"
      style="text-align: center;
-     background-image: linear-gradient(150deg, rgb(255,255,255) 300px, rgb(4,216,205)95%);">
-    <!-- Content Header (Page header) -->
+     background-image: linear-gradient(150deg, rgb(255,255,255) 300px, rgb(255, 255, 255)95%);">
+    <!-- Content Header (Page header)
     <section class="content-header">
         <h1>
             Bienvenido!
             <small>...</small>
         </h1>
-    </section>
+    </section>-->
 
     <!-- Main content -->
     <section class="content">

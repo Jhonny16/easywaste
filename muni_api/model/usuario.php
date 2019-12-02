@@ -1,11 +1,6 @@
 <?php
 
-/**
- * Created by PhpStorm.
- * User: tito_
- * Date: 23/10/2018
- * Time: 11:08 PM
- */
+
 require_once '../datos/conexion.php';
 
 class usuario extends conexion

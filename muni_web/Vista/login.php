@@ -22,7 +22,7 @@ require_once '../util/funciones/definiciones.php';
 <div class="container">
     <div class="card card-container">
         <!-- <img class="profile-img-card" src="//lh3.googleusercontent.com/-6V8xOA6M7BA/AAAAAAAAAAI/AAAAAAAAAAA/rzlHcD0KYwo/photo.jpg?sz=120" alt="" /> -->
-        <img id="profile-img" class="profile-img-card" src="../imagenes/iniciosesion.png" />
+        <!--<img id="profile-img" class="profile-img-card" src="../imagenes/iniciosesion.png" />-->
         <p id="profile-name" class="profile-name-card"></p>
         <form class="form-signin" id="frminiciosesion">
             <span id="reauth-email" class="reauth-email"></span>

@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: jhonny
- * Date: 01/12/19
- * Time: 01:14 AM
- */
+
 header('Access-Control-Allow-Origin: *');
 
 require_once '../model/venta.php';

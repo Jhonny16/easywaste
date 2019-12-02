@@ -1,5 +1,5 @@
 <div class="content-wrapper" id="reciclador_vista_nuevo"
-     style="background-image: linear-gradient(150deg, rgb(255,255,255) 300px, rgb(4,216,205)95%);">
+     style="background-image: linear-gradient(150deg, rgb(255,255,255) 300px, rgb(255,255,255)95%);">
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>

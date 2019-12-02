@@ -1,6 +1,4 @@
-/**
- * Created by tito_ on 20/09/2018.
- */
+
 $(document).ready(function () {
     var user = localStorage.getItem('nombreUsuario');
     var tipo = localStorage.getItem('rol');

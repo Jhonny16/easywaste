@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: jhonny
- * Date: 19/11/19
- * Time: 07:25 PM
- */
+
 require_once '../datos/conexion.php';
 
 class persona_criterio extends conexion

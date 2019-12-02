@@ -1,3 +1,3 @@
 <?php
 
-define("C_NOMBRE_SOFTWARE", "Sistema Priorizacion");
+define("C_NOMBRE_SOFTWARE", "Sistema easywaste");

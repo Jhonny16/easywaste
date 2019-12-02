@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: jhonny
- * Date: 09/10/19
- * Time: 01:22 PM
- */
+
 header('Access-Control-Allow-Origin: *');
 
 require_once '../model/periodo.php';

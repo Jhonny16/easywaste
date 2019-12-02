@@ -37,18 +37,18 @@
 <body>
 
 <div class="limiter">
-    <div class="container-login100" style="background-image: url('login/images/fndr.png');">
+    <div class="container-login100" style="background-image: url('login/images/fondologin.jpg');">
         <div class="wrap-login100" >
             <form class="login100-form validate-form" id="frminiciosesion">
 <!--					<span class="login100-form-logo"  style="height: 240px; width: 230px" >-->
-					<span class="login100-form-logo"   >
+	<!--				<span class="login100-form-logo"   >
 						<img src="login/images/mundo_opt.png" >
-					</span>
+					</span>-->
 
                 <span class="login100-form-title p-b-34 p-t-27">
 						EasyWaste
 					</span>
-                <p style="text-align: center">Inicio Sesión</p>
+                <!--<p style="text-align: center">Inicio Sesión</p>-->
 
 
 <!--                <div class="wrap-input100 validate-input" data-validate = "Enter username">-->

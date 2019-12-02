@@ -5,7 +5,7 @@
         <!-- Sidebar user panel -->
         <div class="user-panel">
             <div class="pull-left image">
-                <img src="../imagenes/user.png" class="img-circle" alt="User Image">
+                <img src="../imagenes/user1-160x160.jpg" class="img-circle" alt="User Image">
             </div>
             <div class="pull-left info">
                 <p id="menu_user"></p>
@@ -19,17 +19,17 @@
         <!-- /.search form -->
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu" data-widget="tree">
-            <li class="header">MENÚ DESPLEGABLE</li>
+            <li class="header"></li>
             <li class="treeview" >
                 <a href="#">
-                    <img src="../imagenes/perfil.png" style="width: 1.5em" alt="">
-                    <span style="color: #01a189">Mi Perfil</span>
+                    <img src="../imagenes/perfilimagen.png" style="width: 1.5em" alt="">
+                    <span style="color: #00a65a">Mi Perfil</span>
                 </a>
             </li>
             <li class="treeview" id="menu_recicladores">
                 <a href="#">
                     <img src="../imagenes/trash.jpg" style="width: 1.5em" alt="">
-                    <span style="color: #01a189">Reciclador</span>
+                    <span style="color: #00a65a">Reciclador</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
                     </span>
@@ -42,7 +42,7 @@
             <li class="treeview" id="menu_proveedores">
                 <a href="#">
                     <img src="../imagenes/persona.png" style="width: 1.5em" alt="">
-                    <span style="color: #01a189">Proveedor</span>
+                    <span style="color: #00a65a">Proveedor</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
                     </span>
@@ -55,7 +55,7 @@
             <li class="treeview" id="menu_criterios">
                 <a href="#">
                     <img src="../imagenes/criterios.png" style="width: 1.5em" alt="">
-                    <span style="color: #01a189">Criterios</span>
+                    <span style="color: #00a65a">Criterios</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
                     </span>

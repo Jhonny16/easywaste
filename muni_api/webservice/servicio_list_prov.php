@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: jhonny
- * Date: 10/11/19
- * Time: 02:57 PM
- */
+
 header('Access-Control-Allow-Origin: *');
 
 require_once '../model/servicio.php';

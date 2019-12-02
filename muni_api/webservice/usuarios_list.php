@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: tito_
- * Date: 24/10/2018
- * Time: 11:58 PM
- */
+
 header('Access-Control-Allow-Origin: *');
 
 require_once '../model/usuario.php';
