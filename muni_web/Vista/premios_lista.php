@@ -30,7 +30,7 @@ require_once '../util/funciones/definiciones.php';
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                Reporte Ventas
+                Premios
                 <small id="operation">Lista</small>
             </h1>
             <ol class="breadcrumb">
