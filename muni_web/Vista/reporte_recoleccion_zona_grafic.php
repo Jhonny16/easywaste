@@ -1,11 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: jhonny
- * Date: 01/12/19
- * Time: 07:33 PM
- */
-
 require_once '../util/funciones/definiciones.php';
 ?>
 <html>
@@ -17,6 +10,13 @@ require_once '../util/funciones/definiciones.php';
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <?php include_once 'ext_estilos.php'; ?>
+    <script type="text/javascript" src="https://www.google.com/jsapi?autoload=
+                {'modules':[{'name':'visualization','version':'1.1','packages':
+        ['corechart']}]}"></script>
+    <script type="text/javascript">
+        function drawVisualization2() {}
+
+    </script>
 
 
 </head>
@@ -30,7 +30,7 @@ require_once '../util/funciones/definiciones.php';
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                Reporte Ventas
+                Reporte Recoleccion por zona
                 <small id="operation">Lista</small>
             </h1>
             <ol class="breadcrumb">
@@ -48,25 +48,39 @@ require_once '../util/funciones/definiciones.php';
                         <div class="box-body">
                             <div class="row">
                                 <div class="col-xs-12">
-                                    <div class="col-xs-6">
+                                    <div class="col-xs-3">
                                         <div class="form-group">
-                                            <label>Rango de fechas:</label>
+                                            <label for="inputPassword3">Año inicio</label>
+                                            <select name="" id="anio_inicial" class="form-control">
+                                                <option value="2018">2018</option>
+                                                <option value="2019">2019</option>
+                                                <option value="2020">2020</option>
+                                                <option value="2021">2021</option>
+                                                <option value="2022">2022</option>
 
-                                            <div class="input-group">
-                                                <div class="input-group-addon">
-                                                    <i class="fa fa-calendar"></i>
-                                                </div>
-                                                <input type="text" class="form-control pull-right" id="rep_ven_fechas">
-                                            </div>
-                                            <!-- /.input group -->
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-3">
+
+                                    <div class="form-group">
+                                            <label for="inputPassword3">Año final</label>
+                                            <select name="" id="anio_final" class="form-control">
+                                                <option value="2018">2018</option>
+                                                <option value="2019">2019</option>
+                                                <option value="2020">2020</option>
+                                                <option value="2021">2021</option>
+                                                <option value="2022">2022</option>
+
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="col-xs-6">
                                         <div class="row">
                                             <div class="form-group">
-                                                <label>Tipo Residuo</label>
+                                                <label>Zonas</label>
                                                 <select class="form-control select2" style="width: 100%;"
-                                                        id="combo_report_residuos">
+                                                        id="combo_report_zonas">
                                                 </select>
                                             </div>
                                         </div>
@@ -81,9 +95,9 @@ require_once '../util/funciones/definiciones.php';
                                 <i class="fa fa-filter text-white" aria-hidden="true"></i>
                                 Filtrar
                             </button>
-<!--                            <button type="button" onclick="genera_pdf()" class="btn btn-danger pull-right"><i-->
-<!--                                        class="fa fa-file-pdf-o"></i> Exportar PDF-->
-<!--                            </button>-->
+                            <!--                            <button type="button" onclick="genera_pdf()" class="btn btn-danger pull-right"><i-->
+                            <!--                                        class="fa fa-file-pdf-o"></i> Exportar PDF-->
+                            <!--                            </button>-->
                         </div>
                     </div>
 
@@ -98,7 +112,7 @@ require_once '../util/funciones/definiciones.php';
                         <div class="box-body">
                             <div class="row">
                                 <div class="col-xs-12 col-lg-12">
-                                    <div id="reporte_ventas_list"></div>
+                                    <div id="reporte_recoleccion_grafico"></div>
                                 </div>
 
                             </div>
@@ -117,7 +131,7 @@ require_once '../util/funciones/definiciones.php';
 
 <?php include_once 'ext_scripts.php'; ?>
 <script src="../js/validacion.js"></script>
-<script src="../js/reporte_venta.js"></script>
+<script src="../js/reporte_recoleccion.js"></script>
 
 </body>
 </html>

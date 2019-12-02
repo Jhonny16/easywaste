@@ -30,7 +30,7 @@ require_once '../util/funciones/definiciones.php';
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                Reporte Ventas
+                Reporte Prioridad Reciclador
                 <small id="operation">Lista</small>
             </h1>
             <ol class="breadcrumb">
@@ -38,7 +38,6 @@ require_once '../util/funciones/definiciones.php';
             </ol>
         </section>
         <section class="content">
-            <!-- Small boxes (Stat box) -->
             <div class="row">
                 <div class="col-xs-12 col-lg-12">
                     <div class="box box-info">
@@ -46,44 +45,16 @@ require_once '../util/funciones/definiciones.php';
                             <h3 class="box-title">Filtros</h3>
                         </div>
                         <div class="box-body">
-                            <div class="row">
-                                <div class="col-xs-12">
-                                    <div class="col-xs-6">
-                                        <div class="form-group">
-                                            <label>Rango de fechas:</label>
 
-                                            <div class="input-group">
-                                                <div class="input-group-addon">
-                                                    <i class="fa fa-calendar"></i>
-                                                </div>
-                                                <input type="text" class="form-control pull-right" id="rep_ven_fechas">
-                                            </div>
-                                            <!-- /.input group -->
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-6">
-                                        <div class="row">
-                                            <div class="form-group">
-                                                <label>Tipo Residuo</label>
-                                                <select class="form-control select2" style="width: 100%;"
-                                                        id="combo_report_residuos">
-                                                </select>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-
-                            </div>
                         </div>
                         <div class="box-footer">
                             <button type="button" onclick="filtrar()" class="btn btn-info pull-right">
                                 <i class="fa fa-filter text-white" aria-hidden="true"></i>
                                 Filtrar
                             </button>
-<!--                            <button type="button" onclick="genera_pdf()" class="btn btn-danger pull-right"><i-->
-<!--                                        class="fa fa-file-pdf-o"></i> Exportar PDF-->
-<!--                            </button>-->
+                            <!--                            <button type="button" onclick="genera_pdf()" class="btn btn-danger pull-right"><i-->
+                            <!--                                        class="fa fa-file-pdf-o"></i> Exportar PDF-->
+                            <!--                            </button>-->
                         </div>
                     </div>
 
@@ -98,7 +69,7 @@ require_once '../util/funciones/definiciones.php';
                         <div class="box-body">
                             <div class="row">
                                 <div class="col-xs-12 col-lg-12">
-                                    <div id="reporte_ventas_list"></div>
+                                    <div id="reporte_criterios_reciclador_list"></div>
                                 </div>
 
                             </div>
@@ -117,7 +88,7 @@ require_once '../util/funciones/definiciones.php';
 
 <?php include_once 'ext_scripts.php'; ?>
 <script src="../js/validacion.js"></script>
-<script src="../js/reporte_venta.js"></script>
+<script src="../js/reporte_criterios.js"></script>
 
 </body>
 </html>

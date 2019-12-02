@@ -61,6 +61,9 @@
 
         //Date range picker
         $('#reservation').daterangepicker()
+        $('#rep_ven_fechas').daterangepicker({
+            locale: { format: 'YYYY-MM-DD' }
+        })
         $('#regla_picker').daterangepicker()
         //Date range picker with time picker
         $('#reservationtime').daterangepicker({timePicker: true, timePickerIncrement: 30, format: 'MM/DD/YYYY h:mm A'})

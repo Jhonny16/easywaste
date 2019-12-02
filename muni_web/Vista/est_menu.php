@@ -80,6 +80,34 @@
                     <li><a href="venta_lista.php" ><i class="fa fa-circle-o"></i> Lista</a></li>
                 </ul>
             </li>
+            <li class="treeview" id="menu_premio">
+                <a href="#">
+                    <img src="../imagenes/premio.png" style="width: 1.5em" alt="">
+                    <span style="color: #01a189">Premios</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="premios_lista.php" ><i class="fa fa-circle-o"></i> Lista</a></li>
+                </ul>
+            </li>
+
+            <li class="treeview" id="menu_reporte">
+                <a href="#">
+                    <img src="../imagenes/report.png" style="width: 1.5em" alt="">
+                    <span style="color: #01a189">Reportes</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="reporte_ventas.php" ><i class="fa fa-circle-o"></i> Ventas</a></li>
+                    <li><a href="reporte_criterios.php" ><i class="fa fa-circle-o"></i> Prioridad reciclador</a></li>
+                    <li><a href="reporte_recoleccion_zona_grafic.php" ><i class="fa fa-circle-o"></i> Recoleccion por zona</a></li>
+                </ul>
+            </li>
+
 
         </ul>
     </section>

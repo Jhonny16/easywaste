@@ -415,10 +415,10 @@ class servicio extends conexion
 
                 $res = $this->position_create($servicio_id, $this->latitud, $this->longitud);
                 if($res){
-                    return true;
+                    return  $servicio_id;
                 }
                 else{
-                    return false;
+                    return  $servicio_id;
                 }
             }
 
