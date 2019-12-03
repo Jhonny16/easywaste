@@ -38,19 +38,18 @@ try {
     $obj->setRecicladorId($id);
     $obj->setHora($hora);
     $obj->setFecha($fecha);
-    $res = $obj->insert_disponibilidad();
-    if($res == -1){
-        Funciones::imprimeJSON(203, "Se acgtualizo disponibilidad, pero no asigno servicio",$resultado);
+    $res = $obj->insert_disponibilidad($status);
+
+    if($res == 1){
+        Funciones::imprimeJSON(200, "Se asigno servicio a reciclador",$res);
     }else{
-        if($res==true){
-            Funciones::imprimeJSON(200, "Se asigno servicio a reciclador",$resultado);
+        if($res == 0){
+            Funciones::imprimeJSON(203, "Actualizo disponibilidad, no hay servicios pendientes",$res);
         }else{
-            Funciones::imprimeJSON(203, "Actualizo disponibilidad, no hay servicios pendientes",$resultado);
+            Funciones::imprimeJSON(203, "Se actualizo disponibilidad, pero no asigno servicio",$res);
+
         }
     }
-
-
-
 
 } catch (Exception $exc) {
 

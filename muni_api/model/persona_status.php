@@ -1,6 +1,7 @@
 <?php
 
 require_once '../datos/conexion.php';
+
 class persona_status extends conexion
 {
     private $id;
@@ -90,7 +91,8 @@ class persona_status extends conexion
     }
 
 
-    public function insert_disponibilidad(){
+    public function insert_disponibilidad($status)
+    {
 
         try {
 
@@ -103,15 +105,16 @@ class persona_status extends conexion
             $sentencia->bindParam(":p_reciclador_id", $this->reciclador_id);
             $sentencia->execute();
 
-            if($this->name_status =='Disponible'){
-                $this->asignar_a_servicio($this->reciclador_id);
-            }else{
+            if ($status == 1) {
+                $res = $this->asignar_a_servicio($this->reciclador_id);
+                return $res;
+            } else {
                 return -1;
             }
 
             //return True;
 
-        }catch (Exception $ex) {
+        } catch (Exception $ex) {
             throw $ex;
         }
 
@@ -133,19 +136,22 @@ class persona_status extends conexion
             $sentencia->execute();
             $resultado = $sentencia->fetchAll(PDO::FETCH_ASSOC);
 
-            if(count($resultado)>0){
-                $this->dblink->beginTransaction();
-                $sql = "update servicio set reciclador_id = :p_reciclador_id where :p_servicio_id = :p_servicio_id ";
-                $sentencia = $this->dblink->prepare($sql);
-                $sentencia->bindParam(":p_servicio_id", $resultado['id']);
-                $sentencia->bindParam(":p_reciclador_id", $recilador_id);
-                $sentencia->execute();
-                $this->dblink->commit();
+//            if(count($resultado)>0){
+            if ($sentencia->rowCount()) {
 
-                return true;
-            }
-            else{
-                return false;
+                for($i=0; $i<count($resultado); $i++){
+                    $this->dblink->beginTransaction();
+                    $sql = "update servicio set reciclador_id = :p_reciclador_id where id = :p_servicio_id ";
+                    $sentencia = $this->dblink->prepare($sql);
+                    $sentencia->bindParam(":p_servicio_id", $resultado[$i]['id']);
+                    $sentencia->bindParam(":p_reciclador_id", $recilador_id);
+                    $sentencia->execute();
+                    $this->dblink->commit();
+                }
+
+                return 1;
+            } else {
+                return 0;
             }
         } catch (Exception $ex) {
             throw $ex;

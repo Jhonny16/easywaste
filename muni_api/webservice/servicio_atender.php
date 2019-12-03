@@ -31,6 +31,7 @@ try {
 
     $res = $obj->update_estado_hora();
     if($res==true){
+
         $resultado = $obj->serv_atender();
 
         if($resultado){
