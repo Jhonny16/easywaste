@@ -4,7 +4,7 @@ date_default_timezone_set("America/Lima");
 
 class Helper {
 
-    public static $DIRECTORIO_PRINCIPAL = "app_pjoanfern";
+    public static $DIRECTORIO_PRINCIPAL = "muni_api";
 
     public static function export_pdf($htmlDatos, $usuario, $titulo) {
 

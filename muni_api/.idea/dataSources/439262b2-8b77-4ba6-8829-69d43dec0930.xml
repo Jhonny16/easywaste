@@ -98,7 +98,7 @@
       <ObjectId>241735</ObjectId>
       <StateNumber>169674</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>173841</IntrospectionStateNumber>
+      <IntrospectionStateNumber>173925</IntrospectionStateNumber>
       <Current>1</Current>
       <Visible>1</Visible>
       <Relations>sequence|table|241736|241738|1
@@ -232,7 +232,7 @@ sequence|table|266670|266672|1
       <Comment>standard public schema</Comment>
       <StateNumber>351</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>173842</IntrospectionStateNumber>
+      <IntrospectionStateNumber>173926</IntrospectionStateNumber>
       <Current>1</Current>
       <Visible>1</Visible>
     </schema>
@@ -460,7 +460,7 @@ sequence|table|266670|266672|1
     <table id="72" parent="40" name="premio">
       <ObjectId>266664</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>173840</StateNumber>
+      <StateNumber>173920</StateNumber>
     </table>
     <table id="73" parent="40" name="residuo">
       <ObjectId>266617</ObjectId>
@@ -1029,28 +1029,28 @@ sequence|table|266670|266672|1
       <StateNumber>173839</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="156" parent="72" name="imagen">
-      <Position>3</Position>
-      <DataType>varchar(50)|0s</DataType>
-      <StateNumber>173839</StateNumber>
-      <TypeId>1043</TypeId>
-    </column>
-    <column id="157" parent="72" name="stock">
+    <column id="156" parent="72" name="stock">
       <Position>4</Position>
       <DataType>numeric(6,2 digit)|0s</DataType>
       <StateNumber>173839</StateNumber>
       <TypeId>1700</TypeId>
     </column>
-    <column id="158" parent="72" name="precio">
+    <column id="157" parent="72" name="precio">
       <Position>5</Position>
       <DataType>numeric(6,2 digit)|0s</DataType>
       <StateNumber>173839</StateNumber>
       <TypeId>1700</TypeId>
     </column>
-    <column id="159" parent="72" name="pintrash">
+    <column id="158" parent="72" name="pintrash">
       <Position>6</Position>
       <DataType>varchar(10)|0s</DataType>
       <StateNumber>173839</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="159" parent="72" name="imagen">
+      <Position>8</Position>
+      <DataType>varchar(100)|0s</DataType>
+      <StateNumber>173920</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <index id="160" parent="72" name="premio_pkey">

@@ -11,9 +11,8 @@
             <div class="modal-body">
                 <div class="row">
                     <div class="col-xs-12">
-                        <div id="div_image">
-                            <p><img src="../imagenes/imagenespremios/Escobillaplastica.png"
-                                    height="400px" width="400px" ></p>
+                        <div>
+                            <p  id="p_image" style="text-align: center"></p>
                         </div>
                     </div>
 

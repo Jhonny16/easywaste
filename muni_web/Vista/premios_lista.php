@@ -42,7 +42,12 @@ require_once '../util/funciones/definiciones.php';
                 <div class="col-xs-12 col-lg-12">
                     <div class="box box-default">
                         <div class="box-header">
-                            <h3 class="box-title">Resultado</h3>
+                            <h3 class="box-title">
+                                <button type="button" onclick="modal_premio()" class="btn btn-primary pull-right"
+                                        data-toggle="modal" data-target="#modal_premio">
+                                    <i class="fa fa-plus"></i>
+                                    Nuevo</button>
+                            </h3>
                         </div>
                         <div class="box-body">
                             <div class="row">
@@ -57,6 +62,7 @@ require_once '../util/funciones/definiciones.php';
                 </div>
             </div>
             <?php include_once 'modal_imagen.php'; ?>
+            <?php include_once 'modal_premio.php'; ?>
 
         </section>
     </div>

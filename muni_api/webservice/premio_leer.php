@@ -10,27 +10,18 @@ if (!isset($_SERVER["HTTP_TOKEN"])) {
     exit();
 }
 
-
+$id = json_decode(file_get_contents("php://input"))->id;
 
 try {
     $obj = new premio();
-    $resultado = $obj->lista();
+    $obj->setId($id);
 
-//    $lista = array();
-//    for ($i = 0; $i < count($resultado); $i++) {
-//        $datos = array(
-//            "id" => $resultado[$i]["id"],
-//            "nombre" => $resultado[$i]["nombre"],
-//            "stock" => $resultado[$i]["stock"],
-//            "pintrash" => $resultado[$i]["pintrash"],
-//            "imagen" => base64_decode($resultado[$i]["imagen"])
-//        );
-//
-//        $lista[$i] = $datos;
-//    }
+    $resultado = $obj->read();
 
     if($resultado){
         Funciones::imprimeJSON(200, "",$resultado);
+    }else{
+        Funciones::imprimeJSON(203, "Error en la busqueda","");
     }
 
 } catch (Exception $exc) {

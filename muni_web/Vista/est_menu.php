@@ -105,6 +105,7 @@
                     <li><a href="reporte_ventas.php" ><i class="fa fa-circle-o"></i> Ventas</a></li>
                     <li><a href="reporte_criterios.php" ><i class="fa fa-circle-o"></i> Prioridad reciclador</a></li>
                     <li><a href="reporte_recoleccion_zona_grafic.php" ><i class="fa fa-circle-o"></i> Recoleccion por zona</a></li>
+                    <li><a href="reporte_provee_reciclador.php" ><i class="fa fa-circle-o"></i> Proveedores por reciclador</a></li>
                 </ul>
             </li>
 

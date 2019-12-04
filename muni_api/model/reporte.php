@@ -98,5 +98,28 @@ class reporte extends conexion
         }
     }
 
+    public function list_proveedores_reciclador($reciclador_id, $fecha_inicio, $fecha_fin){
+        try {
+
+            $sql = "select  (p.ap_paterno ||' '|| p.ap_materno ||' '|| p.nombres) as proveedor,
+                      p.dni as proveedor_dni, count(p.dni) as total_servicios
+                        from  servicio s inner join persona p on s.proveedor_id = p.id
+                        inner join persona r on s.reciclador_id = r.id
+                    where s.reciclador_id = :p_reciclador_id and 
+                          s.fecha between :p_fecha_inicio and :p_fecha_fin
+                          group by  p.ap_paterno ||' '|| p.ap_materno ||' '|| p.nombres,p.dni ";
+            $sentencia = $this->dblink->prepare($sql);
+            $sentencia->bindParam(":p_reciclador_id", $reciclador_id);
+            $sentencia->bindParam(":p_fecha_inicio", $fecha_inicio);
+            $sentencia->bindParam(":p_fecha_fin", $fecha_fin);
+            $sentencia->execute();
+            $resultado = $sentencia->fetchAll(PDO::FETCH_ASSOC);
+            return $resultado;
+
+        } catch (Exception $ex) {
+            throw $ex;
+        }
+    }
+
 
 }
