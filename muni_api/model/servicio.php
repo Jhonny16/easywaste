@@ -530,7 +530,7 @@ class servicio extends conexion
             $sentencia->bindParam(":p_estado", $this->estado);
             $sentencia->execute();
             $this->dblink->commit();
-            return true;
+            return -1;
         } catch (Exception $exc) {
             $this->dblink->rollBack();
             throw $exc;
@@ -552,7 +552,41 @@ class servicio extends conexion
             $sentencia->execute();
             $this->dblink->commit();
 
-            return -1;
+            if($this->estado == 'Finalizado'){
+
+                $sql = "select reciclador_id from servicio where id = :p_id ";
+                $sentencia = $this->dblink->prepare($sql);
+                $sentencia->bindParam(":p_id", $this->id);
+                $sentencia->execute();
+                $resultado = $sentencia->fetch(PDO::FETCH_ASSOC);
+
+                if ($sentencia->rowCount()) {
+                    $reciclador_id = $resultado['reciclador_id'];
+
+                    date_default_timezone_set("America/Lima");
+                    $hora = date('H:i:s');
+                    $fecha = date('Y-m-d');
+                    $estado = 'Disponible';
+
+                    $sql = "insert into status (fecha, hora, name_status, reciclador_id) 
+                        values (:p_fecha,:p_hora,:p_estado,:p_reciclador)";
+                    $sentencia = $this->dblink->prepare($sql);
+                    $sentencia->bindParam(":p_fecha", $fecha);
+                    $sentencia->bindParam(":p_hora", $hora);
+                    $sentencia->bindParam(":p_estado", $estado);
+                    $sentencia->bindParam(":p_reciclador", $reciclador_id);
+                    $sentencia->execute();
+
+                    return -1;
+                }
+
+            }else{
+                return -1;
+            }
+
+
+
+
 
 //            if($this->estado == 'Finalizado'){
 //                $sql = "select proveedor_id from servicio

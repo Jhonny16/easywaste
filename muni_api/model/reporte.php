@@ -121,5 +121,27 @@ class reporte extends conexion
         }
     }
 
+    public function sensibilizacion($rol_id, $fecha_inicio, $fecha_fin){
+        try {
+
+            $sql = "select count(case when s.respuesta = '1' then 1  end) as si,
+                    count(case when s.respuesta = '0' then 1  end) as no
+                    from sensibilizacion s inner join persona p on s.persona_id = p.id
+                    where (s.fecha_registro between :p_fecha_inicio and :p_fecha_fin) and
+                    (case when :p_rol_id = 0 then true else p.rol_id = :p_rol_id end )
+                    ";
+            $sentencia = $this->dblink->prepare($sql);
+            $sentencia->bindParam(":p_rol_id", $rol_id);
+            $sentencia->bindParam(":p_fecha_inicio", $fecha_inicio);
+            $sentencia->bindParam(":p_fecha_fin", $fecha_fin);
+            $sentencia->execute();
+            $resultado = $sentencia->fetch(PDO::FETCH_ASSOC);
+            return $resultado;
+
+        } catch (Exception $ex) {
+            throw $ex;
+        }
+    }
+
 
 }
