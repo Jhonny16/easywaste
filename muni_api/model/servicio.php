@@ -480,7 +480,7 @@ class servicio extends conexion
                         r.dni as reciclador_dni,
                         s.fecha, s.hora, s.estado, s.tiempo_aprox_atencion, latitud, longitud
                         from  servicio s inner join persona p on s.proveedor_id = p.id
-                        inner join persona r on s.reciclador_id = r.id
+                        left join persona r on s.reciclador_id = r.id
                     where s.id =  :p_serv_id ";
             $sentencia = $this->dblink->prepare($sql);
             $sentencia->bindParam(":p_serv_id", $this->id);

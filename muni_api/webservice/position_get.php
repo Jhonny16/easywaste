@@ -16,6 +16,7 @@ $servicio_id = json_decode(file_get_contents("php://input"))->servicio_id;
 
 try {
     $obj = new posicion();
+    $obj->setServicioId($servicio_id);
     $resultado = $obj->get_position_now();
 
     Funciones::imprimeJSON(200, "",$resultado);

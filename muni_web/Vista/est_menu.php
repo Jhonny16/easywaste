@@ -18,40 +18,101 @@
         </form>
         <!-- /.search form -->
         <!-- sidebar menu: : style can be found in sidebar.less -->
+
         <ul class="sidebar-menu" data-widget="tree">
             <li class="header"></li>
-            <li class="treeview" >
-                <a href="#">
-                    <img src="../imagenes/perfilimagen.png" style="width: 1.5em" alt="">
+            <li><a href="vista_perfil.php"><img src="../imagenes/perfilimagen.png" style="width: 1.5em">
                     <span style="color: #00a65a">Mi Perfil</span>
-                </a>
-            </li>
-            <li class="treeview" id="menu_recicladores">
+                    </a></li>
+            <li class="treeview" id="menu_mantenimiento">
+            <li class="treeview">
                 <a href="#">
-                    <img src="../imagenes/trash.jpg" style="width: 1.5em" alt="">
-                    <span style="color: #00a65a">Reciclador</span>
+                    <img src="../imagenes/mantenimiento.png" style="width: 1.5em" alt="">
+                    <span style="color: #00a65a">Mantenimientos</span>
                     <span class="pull-right-container">
-                        <i class="fa fa-angle-left pull-right"></i>
-                    </span>
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="reciclador.php" ><i class="fa fa-circle-o"></i> Nuevo</a></li>
-                    <li><a href="reciclador_list.php"><i class="fa fa-circle-o"></i> Lista</a></li>
-                </ul>
-            </li>
-            <li class="treeview" id="menu_proveedores">
-                <a href="#">
-                    <img src="../imagenes/persona.png" style="width: 1.5em" alt="">
-                    <span style="color: #00a65a">Proveedor</span>
-                    <span class="pull-right-container">
+                    <li class="treeview" id="menu_recicladores">
+                        <a href="#">
+                            <img src="../imagenes/trash.jpg" style="width: 1.5em" alt="">
+                            <span style="color: #00a65a">Reciclador</span>
+                            <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
                     </span>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="proveedor.php" ><i class="fa fa-circle-o"></i> Nuevo</a></li>
-                    <li><a href="proveedor_list.php"><i class="fa fa-circle-o"></i> Lista</a></li>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="reciclador.php" ><i class="fa fa-circle-o"></i> Nuevo</a></li>
+                            <li><a href="reciclador_list.php"><i class="fa fa-circle-o"></i> Lista</a></li>
+                        </ul>
+                    </li>
+                    <li class="treeview" id="menu_proveedores">
+                        <a href="#">
+                            <img src="../imagenes/persona.png" style="width: 1.5em" alt="">
+                            <span style="color: #00a65a">Proveedor</span>
+                            <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="proveedor.php" ><i class="fa fa-circle-o"></i> Nuevo</a></li>
+                            <li><a href="proveedor_list.php"><i class="fa fa-circle-o"></i> Lista</a></li>
+                        </ul>
+                    </li>
+                    <li class="treeview" id="menu_premio">
+                        <a href="#">
+                            <img src="../imagenes/premio.png" style="width: 1.5em" alt="">
+                            <span style="color: #01a189">Premios</span>
+                            <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="premios_lista.php" ><i class="fa fa-circle-o"></i> Lista</a></li>
+                        </ul>
+                    </li>
+                    <li class="treeview" id="menu_premio">
+                        <a href="#">
+                            <img src="../imagenes/informacion.png" style="width: 1.5em" alt="">
+                            <span style="color: #01a189">Información</span>
+                            <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="informacion_list.php" ><i class="fa fa-circle-o"></i> Lista</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </li>
+            </li>
+<!--            <li class="treeview" id="menu_recicladores">-->
+<!--                <a href="#">-->
+<!--                    <img src="../imagenes/trash.jpg" style="width: 1.5em" alt="">-->
+<!--                    <span style="color: #00a65a">Reciclador</span>-->
+<!--                    <span class="pull-right-container">-->
+<!--                        <i class="fa fa-angle-left pull-right"></i>-->
+<!--                    </span>-->
+<!--                </a>-->
+<!--                <ul class="treeview-menu">-->
+<!--                    <li><a href="reciclador.php" ><i class="fa fa-circle-o"></i> Nuevo</a></li>-->
+<!--                    <li><a href="reciclador_list.php"><i class="fa fa-circle-o"></i> Lista</a></li>-->
+<!--                </ul>-->
+<!--            </li>-->
+<!--            <li class="treeview" id="menu_proveedores">-->
+<!--                <a href="#">-->
+<!--                    <img src="../imagenes/persona.png" style="width: 1.5em" alt="">-->
+<!--                    <span style="color: #00a65a">Proveedor</span>-->
+<!--                    <span class="pull-right-container">-->
+<!--                        <i class="fa fa-angle-left pull-right"></i>-->
+<!--                    </span>-->
+<!--                </a>-->
+<!--                <ul class="treeview-menu">-->
+<!--                    <li><a href="proveedor.php" ><i class="fa fa-circle-o"></i> Nuevo</a></li>-->
+<!--                    <li><a href="proveedor_list.php"><i class="fa fa-circle-o"></i> Lista</a></li>-->
+<!--                </ul>-->
+<!--            </li>-->
             <li class="treeview" id="menu_criterios">
                 <a href="#">
                     <img src="../imagenes/criterios.png" style="width: 1.5em" alt="">
@@ -80,18 +141,18 @@
                     <li><a href="venta_lista.php" ><i class="fa fa-circle-o"></i> Lista</a></li>
                 </ul>
             </li>
-            <li class="treeview" id="menu_premio">
-                <a href="#">
-                    <img src="../imagenes/premio.png" style="width: 1.5em" alt="">
-                    <span style="color: #01a189">Premios</span>
-                    <span class="pull-right-container">
-                        <i class="fa fa-angle-left pull-right"></i>
-                    </span>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="premios_lista.php" ><i class="fa fa-circle-o"></i> Lista</a></li>
-                </ul>
-            </li>
+<!--            <li class="treeview" id="menu_premio">-->
+<!--                <a href="#">-->
+<!--                    <img src="../imagenes/premio.png" style="width: 1.5em" alt="">-->
+<!--                    <span style="color: #01a189">Premios</span>-->
+<!--                    <span class="pull-right-container">-->
+<!--                        <i class="fa fa-angle-left pull-right"></i>-->
+<!--                    </span>-->
+<!--                </a>-->
+<!--                <ul class="treeview-menu">-->
+<!--                    <li><a href="premios_lista.php" ><i class="fa fa-circle-o"></i> Lista</a></li>-->
+<!--                </ul>-->
+<!--            </li>-->
 
             <li class="treeview" id="menu_reporte">
                 <a href="#">
