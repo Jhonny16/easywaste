@@ -562,7 +562,7 @@ class servicio extends conexion
 
                 if ($sentencia->rowCount()) {
                     $reciclador_id = $resultado['reciclador_id'];
-                    if(!isset($reciclador_id)){
+                    if((integer)$reciclador_id > 1){
                         date_default_timezone_set("America/Lima");
                         $hora = date('H:i:s');
                         $fecha = date('Y-m-d');

@@ -207,5 +207,24 @@ class premio extends conexion
 
     }
 
+    public function premios_list_pintrash($pintrash)
+    {
+        try {
+
+//            $sql = "SELECT id,nombre,stock,precio,pintrash from premio";
+            $sql = "SELECT * from premio where pintrash >= :p_pintrash";
+            $sentencia = $this->dblink->prepare($sql);
+            $sentencia->bindParam(":p_pintrash", $pintrash);
+            $sentencia->execute();
+            $resultado = $sentencia->fetchAll(PDO::FETCH_ASSOC);
+            return $resultado;
+
+        } catch (Exception $ex) {
+            throw $ex;
+        }
+
+
+    }
+
 
 }
