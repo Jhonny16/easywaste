@@ -530,7 +530,7 @@ class servicio extends conexion
             $sentencia->bindParam(":p_estado", $this->estado);
             $sentencia->execute();
             $this->dblink->commit();
-            return -1;
+            return true;
         } catch (Exception $exc) {
             $this->dblink->rollBack();
             throw $exc;
@@ -578,9 +578,9 @@ class servicio extends conexion
                         $sentencia->execute();
                     }
 
-                    return -1;
+                    return true;
                 }else{
-                    return -1;
+                    return true;
                 }
 
             }else{
@@ -624,14 +624,49 @@ class servicio extends conexion
     public function count_pintrash($proveedor_id)
     {
         try {
-            $sql = "select count(*)/2 as pintrash from servicio
-                    where proveedor_id = :p_proveedor_id
-                    group by proveedor_id
-                    having count(*)/2 > 0";
+//            $sql = "select count(*)/2 as pintrash from servicio
+//                    where proveedor_id = :p_proveedor_id
+//                    group by proveedor_id
+//                    having count(*)/2 > 0";
+            $sql = "select count(*) as cantidad, count(*)/2 as pintrash,
+                           (select max(id) from servicio where proveedor_id = :p_proveedor_id)
+                            as servicio_id
+                           from servicio
+                    where proveedor_id = :p_proveedor_id";
             $sentencia = $this->dblink->prepare($sql);
             $sentencia->bindParam(":p_proveedor_id", $proveedor_id);
             $sentencia->execute();
+            $res = $sentencia->fetch(PDO::FETCH_ASSOC);
+
+            $sql = "select id from pintrash where persona_id = :p_persona_id";
+            $sentencia = $this->dblink->prepare($sql);
+            $sentencia->bindParam(":p_persona_id", $proveedor_id);
+            $sentencia->execute();
             $resultado = $sentencia->fetch(PDO::FETCH_ASSOC);
+            if ($sentencia->rowCount()) {
+                $cantidad = $res['cantidad'];
+
+                $this->dblink->beginTransaction();
+                $sql = "update pintrash set pintrash = :p_pintrash where id = :p_id";
+                $sentencia = $this->dblink->prepare($sql);
+                $sentencia->bindParam(":p_estado", $this->estado);
+                $sentencia->bindParam(":p_id", $resultado['id']);
+                $sentencia->execute();
+                $this->dblink->commit();
+
+            }else{
+                $sql = "insert into pintrash (pintrash, hasta_id, persona_id)
+                        values (:p_pintrash,:p_hasta_id,:p_persona_id)";
+                $sentencia = $this->dblink->prepare($sql);
+                $sentencia->bindParam(":p_pintrash", $res['pintrash']);
+                $sentencia->bindParam(":p_hasta_id", $res['servicio_id']);
+                $sentencia->bindParam(":p_persona_id", $proveedor_id);
+                $sentencia->execute();
+            }
+
+
+
+
             if ($sentencia->rowCount()) {
                 return $resultado['pintrash'];
             }else{
