@@ -24,7 +24,7 @@ require_once '../util/funciones/definiciones.php';
         <section class="content-header">
             <h1>
                 Pintrash
-                <small id="operation">Intercambio</small>
+                <small id="operation">Canje</small>
             </h1>
             <ol class="breadcrumb">
                 <li><a href="principal.php"><i class="fa fa-arrow-left"></i> Inicio</a></li>
@@ -38,7 +38,7 @@ require_once '../util/funciones/definiciones.php';
                 <div class="col-xs-12 col-lg-12">
                     <div class="box box-info">
                         <div class="box-header with-border">
-                            <h5 class="box-title" style="color: #01a189">Venta</h5>
+                            <h5 class="box-title" style="color: #01a189">Canje de premios</h5>
                             <input type="text" id="user_id" style="display: none">
                         </div>
                         <!-- /.box-header -->
@@ -47,30 +47,35 @@ require_once '../util/funciones/definiciones.php';
 
                                 <div class="col-md-5">
                                     <div class="form-group">
-                                        <label>Tipo Residuo</label>
-                                        <select class="form-control select2" style="width: 100%;" id="combo_tipo_residuo">
+                                        <label>Proveedor</label>
+                                        <select class="form-control select2" style="width: 100%;" id="combo_proveedores_list">
                                         </select>
                                     </div>
-                                    <!-- /.form-group -->
+
                                     <div class="form-group">
-                                        <label>Centro de Acopio Temporal</label>
-                                        <select class="form-control select2" style="width: 100%;" id="combo_centro_acopio_t">
-                                        </select>
+                                        <label>Pintrash.</label>
+                                        <input type="number" class="form-control" id="txt_pintrash"
+                                               placeholder="Pintrash" disabled>
                                     </div>
                                     <div class="form-group">
-                                        <label>Reciclador</label>
-                                        <select class="form-control select2" style="width: 100%;" id="combo_reciclador">
+                                        <label>Premio</label>
+                                        <select class="form-control select2" style="width: 100%;" id="combo_premios_list">
                                         </select>
                                     </div>
-                                    <!-- /.form-group -->
+
                                     <div class="form-group">
-                                        <label>Peso kg.</label>
-                                        <input type="number" class="form-control" id="txt_peso"
-                                               placeholder="Ingrese peso en kg ">
+                                        <label>Stock</label>
+                                        <input type="number" class="form-control" id="txt_stock"
+                                               placeholder="Stock" disabled>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Cantidad.</label>
+                                        <input type="number" class="form-control" id="txt_cantidad"
+                                               placeholder="Ingrese cantidad" >
                                     </div>
                                     <div>
                                         <div class="box-footer">
-                                            <button type="button" onclick="add_preventa()" class="btn btn-foursquare pull-right">
+                                            <button type="button" onclick="add_det_premio()" class="btn btn-foursquare pull-right">
                                                 <i class="fa fa-plus" aria-hidden="true"></i>
                                                 Añadir</button>
                                         </div>
@@ -90,12 +95,13 @@ require_once '../util/funciones/definiciones.php';
                                                     <thead>
                                                     <tr>
                                                         <th>#</th>
-                                                        <th>Residuo</th>
-                                                        <th>Peso</th>
+                                                        <th>Premio</th>
+                                                        <th>Cantidad</th>
+                                                        <th>Total puntos</th>
                                                         <th>Eliminar</th>
                                                     </tr>
                                                     </thead>
-                                                    <tbody id="tblv_detalle">
+                                                    <tbody id="tbl_premio_canje">
                                                     </tbody>
                                                 </table>
 
@@ -108,8 +114,8 @@ require_once '../util/funciones/definiciones.php';
                                         <div class="table-responsive">
                                             <table class="table small">
                                                 <tr>
-                                                    <th>Peso Total:</th>
-                                                    <td id="total"></td>
+                                                    <th>Total puntos:</th>
+                                                    <td id="total_puntos"></td>
                                                 </tr>
                                             </table>
                                         </div>
@@ -124,7 +130,7 @@ require_once '../util/funciones/definiciones.php';
                         <!-- /.box-body -->
                         <div class="box-footer">
                             <button type="submit" class="btn btn-default">Cancel</button>
-                            <button type="button" class="btn btn-info pull-right" onclick="guardar_venta()">Guardar</button>
+                            <button type="button" class="btn btn-info pull-right" onclick="guardar_canje()">Guardar</button>
                         </div>
                         <!-- /.box-footer -->
 

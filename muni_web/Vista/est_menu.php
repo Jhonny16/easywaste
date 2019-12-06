@@ -150,7 +150,7 @@
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="pintrash_intercambio.php" ><i class="fa fa-circle-o"></i> Intercambio</a></li>
+                    <li><a href="pintrash_intercambio.php" ><i class="fa fa-circle-o"></i> Canjear</a></li>
                 </ul>
             </li>
 <!--            <li class="treeview" id="menu_premio">-->

@@ -554,7 +554,7 @@ class servicio extends conexion
 
             if($this->estado == 'Finalizado'){
 
-                $sql = "select reciclador_id from servicio where id = :p_id ";
+                $sql = "select reciclador_id, proveedor_id from servicio where id = :p_id ";
                 $sentencia = $this->dblink->prepare($sql);
                 $sentencia->bindParam(":p_id", $this->id);
                 $sentencia->execute();
@@ -576,6 +576,63 @@ class servicio extends conexion
                         $sentencia->bindParam(":p_estado", $estado);
                         $sentencia->bindParam(":p_reciclador", $reciclador_id);
                         $sentencia->execute();
+
+                        $sql = "select
+                                  p.pintrash, p.servicio_id
+                                from pintrash p inner join servicio s on p.servicio_id = s.id inner join persona p2 on s.proveedor_id = p2.id
+                                where p2.id = :p_proveedor_id and p.descuento >= 1
+                                order by p.id desc limit 1
+                                ;";
+                        $sentencia = $this->dblink->prepare($sql);
+                        $sentencia->bindParam(":p_proveedor_id", $resultado['proveedor_id']);
+                        $sentencia->execute();
+                        $res = $sentencia->fetch(PDO::FETCH_ASSOC);
+
+                        if ($sentencia->rowCount()) {
+                            $p1 = (integer)$res['pintrash'];
+                            $serv_id = (integer)$res['servicio_id'];
+
+                            $sql = "select count(*)/2 as pintrash
+                                from servicio
+                                where proveedor_id = :p_proveedor_id and id > :p_serv_id ;";
+                            $sentencia = $this->dblink->prepare($sql);
+                            $sentencia->bindParam(":p_proveedor_id", $resultado['proveedor_id']);
+                            $sentencia->bindParam(":p_serv_id", $serv_id);
+                            $sentencia->execute();
+                            $res = $sentencia->fetch(PDO::FETCH_ASSOC);
+
+                            if ($sentencia->rowCount()) {
+                                $p2 = (integer)$res['pintrash'];
+
+                                $pin = (integer)$p1 + (integer)$p2;
+
+                                $sql = "insert into pintrash (pintrash, servicio_id) 
+                                    values (:p_pintrash,:p_servicio_id)";
+                                $sentencia = $this->dblink->prepare($sql);
+                                $sentencia->bindParam(":p_pintrash", $pin);
+                                $sentencia->bindParam(":p_servicio_id", $this->id);
+                                $sentencia->execute();
+                            }
+
+                        }else{
+                            $sql = "select count(*)/2 as pintrash
+                                from servicio
+                                where proveedor_id = :p_proveedor_id ;";
+                            $sentencia = $this->dblink->prepare($sql);
+                            $sentencia->bindParam(":p_proveedor_id", $resultado['proveedor_id']);
+                            $sentencia->execute();
+                            $res = $sentencia->fetch(PDO::FETCH_ASSOC);
+                            if ($sentencia->rowCount()) {
+                                $sql = "insert into pintrash (pintrash, servicio_id) 
+                                    values (:p_pintrash,:p_servicio_id)";
+                                $sentencia = $this->dblink->prepare($sql);
+                                $sentencia->bindParam(":p_pintrash", $res['pintrash']);
+                                $sentencia->bindParam(":p_servicio_id", $this->id);
+                                $sentencia->execute();
+                            }
+                        }
+
+
                     }
 
                     return true;
@@ -628,129 +685,142 @@ class servicio extends conexion
 //                    where proveedor_id = :p_proveedor_id
 //                    group by proveedor_id
 //                    having count(*)/2 > 0";
-            $sql = "select id, hasta_id from pintrash where persona_id = :p_persona_id";
+            $sql = "select  p2.id, p2.dni, p2.ap_paterno || ' '|| p2.ap_materno ||' '|| p2.nombres as proveedor,
+                            p.pintrash
+                    from pintrash p inner join servicio s on p.servicio_id = s.id inner join persona p2 on s.proveedor_id = p2.id
+                    where p2.id = :p_persona_id
+                    group by  p2.id, p2.dni, p2.ap_paterno || ' '|| p2.ap_materno ||' '|| p2.nombres ,
+                      p.pintrash";
             $sentence = $this->dblink->prepare($sql);
             $sentence->bindParam(":p_persona_id", $proveedor_id);
             $sentence->execute();
             $result = $sentence->fetch(PDO::FETCH_ASSOC);
+
             if ($sentence->rowCount()) {
-
-                $sql = "select count(*) as cantidad, count(*)/2 as pintrash,
-                           (select max(id) from servicio where proveedor_id = :p_proveedor_id)  as servicio_id,
-                           (select hasta_id from pintrash where persona_id = :p_proveedor_id) as a_partir                           
-                           from servicio
-                    where proveedor_id = :p_proveedor_id and id >= :p_id  ";
-                $sentencia = $this->dblink->prepare($sql);
-                $sentencia->bindParam(":p_proveedor_id", $proveedor_id);
-                $sentencia->bindParam(":p_id", $result['hasta_id']);
-                $sentencia->execute();
-                $resultado = $sentencia->fetch(PDO::FETCH_ASSOC);
-
-                if ($sentencia->rowCount()) {
-                    $cantidad = $resultado['cantidad'];
-
-                    $mod = $cantidad % 2;
-                    if($mod==0){
-                        $this->dblink->beginTransaction();
-                        $sql = "update pintrash set pintrash = :p_pintrash, hasta_id = :p_hasta_id
-                        where id = :p_id";
-                        $sentencia = $this->dblink->prepare($sql);
-                        $sentencia->bindParam(":p_pintrash", $resultado['pintrash']);
-                        $sentencia->bindParam(":p_hasta_id",$resultado['id']);
-                        $sentencia->bindParam(":p_id", $result['id']);
-                        $sentencia->execute();
-                        $this->dblink->commit();
-                    }else{
-                        $var = 1000;
-                        $this->dblink->beginTransaction();
-                        $sql = "update pintrash set pintrash = :p_pintrash, hasta_id = :p_hasta_id
-                        where id = :p_id";
-                        $sentencia = $this->dblink->prepare($sql);
-                        $sentencia->bindParam(":p_pintrash", $resultado['pintrash']);
-                        $sentencia->bindParam(":p_hasta_id", $var);
-                        $sentencia->bindParam(":p_id", $result['id']);
-                        $sentencia->execute();
-                        $this->dblink->commit();
-                    }
-
-                }else{
-                    $sql = "insert into pintrash (pintrash, hasta_id, persona_id)
-                        values (:p_pintrash,:p_hasta_id,:p_persona_id)";
-                    $sentencia = $this->dblink->prepare($sql);
-                    $sentencia->bindParam(":p_pintrash", $resultado['pintrash']);
-                    $sentencia->bindParam(":p_hasta_id", $resultado['servicio_id']);
-                    $sentencia->bindParam(":p_persona_id", $proveedor_id);
-                    $sentencia->execute();
-                }
-
-            }else{
-                $sql = "select count(*) as cantidad, count(*)/2 as pintrash,
-                           (select max(id) from servicio where proveedor_id = :p_proveedor_id)
-                            as servicio_id
-                           from servicio
-                    where proveedor_id = :p_proveedor_id";
-                $sentencia = $this->dblink->prepare($sql);
-                $sentencia->bindParam(":p_proveedor_id", $proveedor_id);
-                $sentencia->execute();
-                $res = $sentencia->fetch(PDO::FETCH_ASSOC);
-
-                $sql = "select id from pintrash where persona_id = :p_persona_id";
-                $sentencia = $this->dblink->prepare($sql);
-                $sentencia->bindParam(":p_persona_id", $proveedor_id);
-                $sentencia->execute();
-                $resultado = $sentencia->fetch(PDO::FETCH_ASSOC);
-                if ($sentencia->rowCount()) {
-                    $cantidad = $res['cantidad'];
-
-                    $mod = $cantidad % 2;
-                    if($mod==0){
-                        $this->dblink->beginTransaction();
-                        $sql = "update pintrash set pintrash = :p_pintrash, hasta_id = :p_hasta_id
-                        where id = :p_id";
-                        $sentencia = $this->dblink->prepare($sql);
-                        $sentencia->bindParam(":p_pintrash", $res['pintrash']);
-                        $sentencia->bindParam(":p_hasta_id",$res['servicio_id']);
-                        $sentencia->bindParam(":p_id", $resultado['id']);
-                        $sentencia->execute();
-                        $this->dblink->commit();
-                    }else{
-                        $var = 1000;
-                        $this->dblink->beginTransaction();
-                        $sql = "update pintrash set pintrash = :p_pintrash, hasta_id = :p_hasta_id
-                        where id = :p_id";
-                        $sentencia = $this->dblink->prepare($sql);
-                        $sentencia->bindParam(":p_pintrash", $res['pintrash']);
-                        $sentencia->bindParam(":p_hasta_id",$var);
-                        $sentencia->bindParam(":p_id", $resultado['id']);
-                        $sentencia->execute();
-                        $this->dblink->commit();
-                    }
-
-                }else{
-                    $sql = "insert into pintrash (pintrash, hasta_id, persona_id)
-                        values (:p_pintrash,:p_hasta_id,:p_persona_id)";
-                    $sentencia = $this->dblink->prepare($sql);
-                    $sentencia->bindParam(":p_pintrash", $res['pintrash']);
-                    $sentencia->bindParam(":p_hasta_id", $res['servicio_id']);
-                    $sentencia->bindParam(":p_persona_id", $proveedor_id);
-                    $sentencia->execute();
-                }
-            }
-
-            $sql = "select pintrash from pintrash where persona_id = :p_persona_id";
-            $sentence = $this->dblink->prepare($sql);
-            $sentence->bindParam(":p_persona_id", $proveedor_id);
-            $sentence->execute();
-            $respuesta = $sentence->fetch(PDO::FETCH_ASSOC);
-
-
-
-
-            if ($sentencia->rowCount()) {
-                return (integer)$respuesta['pintrash'];
+                return (integer)$result['pintrash'];
             }else{
                 return -2;
             }
+//
+//            $sql = "select id, hasta_id from pintrash where persona_id = :p_persona_id";
+//            $sentence = $this->dblink->prepare($sql);
+//            $sentence->bindParam(":p_persona_id", $proveedor_id);
+//            $sentence->execute();
+//            $result = $sentence->fetch(PDO::FETCH_ASSOC);
+//            if ($sentence->rowCount()) {
+//
+//                $sql = "select count(*) as cantidad, count(*)/2 as pintrash,
+//                           (select max(id) from servicio where proveedor_id = :p_proveedor_id)  as servicio_id,
+//                           (select hasta_id from pintrash where persona_id = :p_proveedor_id) as a_partir
+//                           from servicio
+//                    where proveedor_id = :p_proveedor_id and id >= :p_id  ";
+//                $sentencia = $this->dblink->prepare($sql);
+//                $sentencia->bindParam(":p_proveedor_id", $proveedor_id);
+//                $sentencia->bindParam(":p_id", $result['hasta_id']);
+//                $sentencia->execute();
+//                $resultado = $sentencia->fetch(PDO::FETCH_ASSOC);
+//
+//                if ($sentencia->rowCount()) {
+//                    $cantidad = $resultado['cantidad'];
+//
+//                    $mod = $cantidad % 2;
+//                    if($mod==0){
+//                        $this->dblink->beginTransaction();
+//                        $sql = "update pintrash set pintrash = :p_pintrash, hasta_id = :p_hasta_id
+//                        where id = :p_id";
+//                        $sentencia = $this->dblink->prepare($sql);
+//                        $sentencia->bindParam(":p_pintrash", $resultado['pintrash']);
+//                        $sentencia->bindParam(":p_hasta_id",$resultado['id']);
+//                        $sentencia->bindParam(":p_id", $result['id']);
+//                        $sentencia->execute();
+//                        $this->dblink->commit();
+//                    }else{
+//                        $var = 1000;
+//                        $this->dblink->beginTransaction();
+//                        $sql = "update pintrash set pintrash = :p_pintrash, hasta_id = :p_hasta_id
+//                        where id = :p_id";
+//                        $sentencia = $this->dblink->prepare($sql);
+//                        $sentencia->bindParam(":p_pintrash", $resultado['pintrash']);
+//                        $sentencia->bindParam(":p_hasta_id", $var);
+//                        $sentencia->bindParam(":p_id", $result['id']);
+//                        $sentencia->execute();
+//                        $this->dblink->commit();
+//                    }
+//
+//                }else{
+//                    $sql = "insert into pintrash (pintrash, hasta_id, persona_id)
+//                        values (:p_pintrash,:p_hasta_id,:p_persona_id)";
+//                    $sentencia = $this->dblink->prepare($sql);
+//                    $sentencia->bindParam(":p_pintrash", $resultado['pintrash']);
+//                    $sentencia->bindParam(":p_hasta_id", $resultado['servicio_id']);
+//                    $sentencia->bindParam(":p_persona_id", $proveedor_id);
+//                    $sentencia->execute();
+//                }
+//
+//            }else{
+//                $sql = "select count(*) as cantidad, count(*)/2 as pintrash,
+//                           (select max(id) from servicio where proveedor_id = :p_proveedor_id)
+//                            as servicio_id
+//                           from servicio
+//                    where proveedor_id = :p_proveedor_id";
+//                $sentencia = $this->dblink->prepare($sql);
+//                $sentencia->bindParam(":p_proveedor_id", $proveedor_id);
+//                $sentencia->execute();
+//                $res = $sentencia->fetch(PDO::FETCH_ASSOC);
+//
+//                $sql = "select id from pintrash where persona_id = :p_persona_id";
+//                $sentencia = $this->dblink->prepare($sql);
+//                $sentencia->bindParam(":p_persona_id", $proveedor_id);
+//                $sentencia->execute();
+//                $resultado = $sentencia->fetch(PDO::FETCH_ASSOC);
+//                if ($sentencia->rowCount()) {
+//                    $cantidad = $res['cantidad'];
+//
+//                    $mod = $cantidad % 2;
+//                    if($mod==0){
+//                        $this->dblink->beginTransaction();
+//                        $sql = "update pintrash set pintrash = :p_pintrash, hasta_id = :p_hasta_id
+//                        where id = :p_id";
+//                        $sentencia = $this->dblink->prepare($sql);
+//                        $sentencia->bindParam(":p_pintrash", $res['pintrash']);
+//                        $sentencia->bindParam(":p_hasta_id",$res['servicio_id']);
+//                        $sentencia->bindParam(":p_id", $resultado['id']);
+//                        $sentencia->execute();
+//                        $this->dblink->commit();
+//                    }else{
+//                        $var = 1000;
+//                        $this->dblink->beginTransaction();
+//                        $sql = "update pintrash set pintrash = :p_pintrash, hasta_id = :p_hasta_id
+//                        where id = :p_id";
+//                        $sentencia = $this->dblink->prepare($sql);
+//                        $sentencia->bindParam(":p_pintrash", $res['pintrash']);
+//                        $sentencia->bindParam(":p_hasta_id",$var);
+//                        $sentencia->bindParam(":p_id", $resultado['id']);
+//                        $sentencia->execute();
+//                        $this->dblink->commit();
+//                    }
+//
+//                }else{
+//                    $sql = "insert into pintrash (pintrash, hasta_id, persona_id)
+//                        values (:p_pintrash,:p_hasta_id,:p_persona_id)";
+//                    $sentencia = $this->dblink->prepare($sql);
+//                    $sentencia->bindParam(":p_pintrash", $res['pintrash']);
+//                    $sentencia->bindParam(":p_hasta_id", $res['servicio_id']);
+//                    $sentencia->bindParam(":p_persona_id", $proveedor_id);
+//                    $sentencia->execute();
+//                }
+//            }
+//
+//            $sql = "select pintrash from pintrash where persona_id = :p_persona_id";
+//            $sentence = $this->dblink->prepare($sql);
+//            $sentence->bindParam(":p_persona_id", $proveedor_id);
+//            $sentence->execute();
+//            $respuesta = $sentence->fetch(PDO::FETCH_ASSOC);
+//
+//
+
+
+
 
         } catch (Exception $ex) {
             throw $ex;

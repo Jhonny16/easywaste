@@ -369,6 +369,25 @@ class persona extends conexion
                 $sentencia->execute();
                 $this->dblink->commit();
             }
+
+
+
+
+//            if ($this->rol_id == 3) {
+//                $sql = "select id from persona order by id desc limit 1";
+//                $sentencia = $this->dblink->prepare($sql);
+//                $sentencia->execute();
+//                $resultado = $sentencia->fetch(PDO::FETCH_ASSOC);
+//                if ($sentencia->rowCount()) {
+//                    $pintrash = 0;
+//                    $sql = "insert into pintrash (pintrash, persona_id)
+//                        values (:p_pintrash,:p_persona_id)";
+//                    $sentencia = $this->dblink->prepare($sql);
+//                    $sentencia->bindParam(":p_pintrash", $pintrash);
+//                    $sentencia->bindParam(":p_persona_id", $resultado['id']);
+//                    $sentencia->execute();
+//                }
+//            }
             return True;
 
         } catch (Exception $ex) {
@@ -539,9 +558,11 @@ class persona extends conexion
     public function proveedores_pintrash()
     {
         try {
-            $sql = "select p2.id, p2.dni, p2.ap_paterno || ' '|| p2.ap_materno ||' '|| p2.nombres as proveedor,
-                          p.pintrash::integer
-                    from pintrash p inner join persona p2 on p.persona_id = p2.id";
+            $sql = "select  p2.id, p2.dni, p2.ap_paterno || ' '|| p2.ap_materno ||' '|| p2.nombres as proveedor,
+                            p.pintrash
+                    from pintrash p inner join servicio s on p.servicio_id = s.id inner join persona p2 on s.proveedor_id = p2.id
+                    group by  p2.id, p2.dni, p2.ap_paterno || ' '|| p2.ap_materno ||' '|| p2.nombres ,
+                      p.pintrash";
             $sentencia = $this->dblink->prepare($sql);
             $sentencia->execute();
             $resultado = $sentencia->fetchAll(PDO::FETCH_ASSOC);

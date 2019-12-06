@@ -98,7 +98,7 @@
       <ObjectId>241735</ObjectId>
       <StateNumber>169674</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>174031</IntrospectionStateNumber>
+      <IntrospectionStateNumber>174160</IntrospectionStateNumber>
       <Current>1</Current>
       <Visible>1</Visible>
       <Relations>sequence|table|241736|241738|1
@@ -118,8 +118,8 @@ sequence|table|266662|266664|1
 sequence|table|266670|266672|1
 sequence|table|266693|266695|1
 sequence|table|266706|266708|1
-sequence|table|266734|266736|1
 sequence|table|266747|266749|1
+sequence|table|266812|266814|1
 </Relations>
     </database>
     <database id="21" parent="1" name="mistral">
@@ -236,7 +236,7 @@ sequence|table|266747|266749|1
       <Comment>standard public schema</Comment>
       <StateNumber>351</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>174032</IntrospectionStateNumber>
+      <IntrospectionStateNumber>174161</IntrospectionStateNumber>
       <Current>1</Current>
       <Visible>1</Visible>
     </schema>
@@ -369,9 +369,9 @@ sequence|table|266747|266749|1
       <DataType>integer</DataType>
     </sequence>
     <sequence id="57" parent="40" name="pintrash_id_seq">
-      <ObjectId>266734</ObjectId>
+      <ObjectId>266812</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>174000</StateNumber>
+      <StateNumber>174138</StateNumber>
       <SequenceIdentity>1..2147483647</SequenceIdentity>
       <CacheSize>1</CacheSize>
       <DataType>integer</DataType>
@@ -486,7 +486,7 @@ sequence|table|266747|266749|1
     <table id="74" parent="40" name="persona">
       <ObjectId>241757</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>174030</StateNumber>
+      <StateNumber>174127</StateNumber>
     </table>
     <table id="75" parent="40" name="persona_criterio">
       <ObjectId>250009</ObjectId>
@@ -499,9 +499,9 @@ sequence|table|266747|266749|1
       <StateNumber>173840</StateNumber>
     </table>
     <table id="77" parent="40" name="pintrash">
-      <ObjectId>266736</ObjectId>
+      <ObjectId>266814</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>174000</StateNumber>
+      <StateNumber>174138</StateNumber>
     </table>
     <table id="78" parent="40" name="position">
       <ObjectId>266594</ObjectId>
@@ -531,7 +531,7 @@ sequence|table|266747|266749|1
     <table id="83" parent="40" name="servicio">
       <ObjectId>266448</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>173729</StateNumber>
+      <StateNumber>174138</StateNumber>
     </table>
     <table id="84" parent="40" name="status">
       <ObjectId>266461</ObjectId>
@@ -562,10 +562,10 @@ sequence|table|266747|266749|1
       <StateNumber>174030</StateNumber>
       <TypeId>1082</TypeId>
     </column>
-    <column id="89" parent="67" name="pintrash">
+    <column id="89" parent="67" name="pintrash_total">
       <Position>3</Position>
       <DataType>integer|0s</DataType>
-      <StateNumber>174030</StateNumber>
+      <StateNumber>174159</StateNumber>
       <TypeId>23</TypeId>
     </column>
     <column id="90" parent="67" name="persona_id">
@@ -1118,49 +1118,50 @@ sequence|table|266747|266749|1
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>174000</StateNumber>
+      <StateNumber>174138</StateNumber>
       <DefaultExpression>nextval(&apos;pintrash_id_seq&apos;::regclass)</DefaultExpression>
       <TypeId>23</TypeId>
     </column>
     <column id="169" parent="77" name="pintrash">
       <Position>2</Position>
-      <DataType>numeric(7,2 digit)|0s</DataType>
-      <StateNumber>174000</StateNumber>
-      <TypeId>1700</TypeId>
-    </column>
-    <column id="170" parent="77" name="hasta_id">
-      <Position>3</Position>
       <DataType>integer|0s</DataType>
-      <StateNumber>174000</StateNumber>
+      <StateNumber>174138</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="171" parent="77" name="persona_id">
+    <column id="170" parent="77" name="descuento">
+      <Position>3</Position>
+      <DataType>integer|0s</DataType>
+      <StateNumber>174138</StateNumber>
+      <DefaultExpression>0</DefaultExpression>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="171" parent="77" name="servicio_id">
       <Position>4</Position>
       <DataType>integer|0s</DataType>
-      <StateNumber>174000</StateNumber>
+      <StateNumber>174138</StateNumber>
       <TypeId>23</TypeId>
     </column>
     <index id="172" parent="77" name="pintrash_pkey">
-      <ObjectId>266740</ObjectId>
-      <StateNumber>174000</StateNumber>
+      <ObjectId>266819</ObjectId>
+      <StateNumber>174138</StateNumber>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
     <key id="173" parent="77" name="pintrash_pkey">
-      <ObjectId>266741</ObjectId>
-      <StateNumber>174000</StateNumber>
+      <ObjectId>266820</ObjectId>
+      <StateNumber>174138</StateNumber>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>pintrash_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
     <foreign-key id="174" parent="77" name="fk_pintrash_persona">
-      <ObjectId>266742</ObjectId>
-      <StateNumber>174000</StateNumber>
-      <ColNames>persona_id</ColNames>
-      <RefTableId>241757</RefTableId>
+      <ObjectId>266821</ObjectId>
+      <StateNumber>174138</StateNumber>
+      <ColNames>servicio_id</ColNames>
+      <RefTableId>266448</RefTableId>
       <RefColPositions>1</RefColPositions>
-      <RefTableName>persona</RefTableName>
-      <RefKeyName>persona_pkey</RefKeyName>
+      <RefTableName>servicio</RefTableName>
+      <RefKeyName>servicio_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
     <column id="175" parent="78" name="id">
@@ -1479,20 +1480,27 @@ sequence|table|266747|266749|1
       <StateNumber>173718</StateNumber>
       <TypeId>17</TypeId>
     </column>
-    <index id="223" parent="83" name="servicio_pkey">
+    <column id="223" parent="83" name="entrego_premio">
+      <Position>16</Position>
+      <DataType>boolean|0s</DataType>
+      <StateNumber>174132</StateNumber>
+      <DefaultExpression>false</DefaultExpression>
+      <TypeId>16</TypeId>
+    </column>
+    <index id="224" parent="83" name="servicio_pkey">
       <ObjectId>266452</ObjectId>
-      <StateNumber>173371</StateNumber>
+      <StateNumber>174132</StateNumber>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="224" parent="83" name="servicio_pkey">
+    <key id="225" parent="83" name="servicio_pkey">
       <ObjectId>266453</ObjectId>
       <StateNumber>173371</StateNumber>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>servicio_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="225" parent="83" name="fk_serv_proveedor">
+    <foreign-key id="226" parent="83" name="fk_serv_proveedor">
       <ObjectId>266454</ObjectId>
       <StateNumber>173371</StateNumber>
       <ColNames>proveedor_id</ColNames>
@@ -1502,7 +1510,7 @@ sequence|table|266747|266749|1
       <RefKeyName>persona_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="226" parent="84" name="id">
+    <column id="227" parent="84" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
@@ -1510,46 +1518,46 @@ sequence|table|266747|266749|1
       <DefaultExpression>nextval(&apos;status_id_seq&apos;::regclass)</DefaultExpression>
       <TypeId>23</TypeId>
     </column>
-    <column id="227" parent="84" name="fecha">
+    <column id="228" parent="84" name="fecha">
       <Position>2</Position>
       <DataType>date|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>173425</StateNumber>
       <TypeId>1082</TypeId>
     </column>
-    <column id="228" parent="84" name="hora">
+    <column id="229" parent="84" name="hora">
       <Position>3</Position>
       <DataType>time|0s</DataType>
       <StateNumber>173425</StateNumber>
       <TypeId>1083</TypeId>
     </column>
-    <column id="229" parent="84" name="name_status">
+    <column id="230" parent="84" name="name_status">
       <Position>4</Position>
       <DataType>varchar(20)|0s</DataType>
       <StateNumber>173425</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="230" parent="84" name="reciclador_id">
+    <column id="231" parent="84" name="reciclador_id">
       <Position>5</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>173425</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <index id="231" parent="84" name="status_pkey">
+    <index id="232" parent="84" name="status_pkey">
       <ObjectId>266465</ObjectId>
       <StateNumber>173425</StateNumber>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="232" parent="84" name="status_pkey">
+    <key id="233" parent="84" name="status_pkey">
       <ObjectId>266466</ObjectId>
       <StateNumber>173425</StateNumber>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>status_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="233" parent="84" name="fk_serv_proveedor">
+    <foreign-key id="234" parent="84" name="fk_serv_proveedor">
       <ObjectId>266467</ObjectId>
       <StateNumber>173425</StateNumber>
       <ColNames>reciclador_id</ColNames>
@@ -1559,7 +1567,7 @@ sequence|table|266747|266749|1
       <RefKeyName>persona_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="234" parent="85" name="id">
+    <column id="235" parent="85" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
@@ -1567,77 +1575,77 @@ sequence|table|266747|266749|1
       <DefaultExpression>nextval(&apos;venta_id_seq&apos;::regclass)</DefaultExpression>
       <TypeId>23</TypeId>
     </column>
-    <column id="235" parent="85" name="code">
+    <column id="236" parent="85" name="code">
       <Position>2</Position>
       <DataType>varchar(10)|0s</DataType>
       <StateNumber>173745</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="236" parent="85" name="fecha_registro">
+    <column id="237" parent="85" name="fecha_registro">
       <Position>3</Position>
       <DataType>date|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>173745</StateNumber>
       <TypeId>1082</TypeId>
     </column>
-    <column id="237" parent="85" name="estado">
+    <column id="238" parent="85" name="estado">
       <Position>4</Position>
       <DataType>varchar(20)|0s</DataType>
       <StateNumber>173745</StateNumber>
       <DefaultExpression>&apos;Pendiente&apos;::character varying</DefaultExpression>
       <TypeId>1043</TypeId>
     </column>
-    <column id="238" parent="85" name="reciclador_id">
+    <column id="239" parent="85" name="reciclador_id">
       <Position>5</Position>
       <DataType>integer|0s</DataType>
       <StateNumber>173745</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="239" parent="85" name="user_id">
+    <column id="240" parent="85" name="user_id">
       <Position>6</Position>
       <DataType>integer|0s</DataType>
       <StateNumber>173745</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="240" parent="85" name="acopio_temporal_id">
+    <column id="241" parent="85" name="acopio_temporal_id">
       <Position>7</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>173745</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="241" parent="85" name="acopio_final_id">
+    <column id="242" parent="85" name="acopio_final_id">
       <Position>8</Position>
       <DataType>integer|0s</DataType>
       <StateNumber>173745</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="242" parent="85" name="total">
+    <column id="243" parent="85" name="total">
       <Position>9</Position>
       <DataType>numeric(7,2 digit)|0s</DataType>
       <StateNumber>173745</StateNumber>
       <TypeId>1700</TypeId>
     </column>
-    <column id="243" parent="85" name="precio_total">
+    <column id="244" parent="85" name="precio_total">
       <Position>10</Position>
       <DataType>numeric(7,2 digit)|0s</DataType>
       <StateNumber>173768</StateNumber>
       <TypeId>1700</TypeId>
     </column>
-    <index id="244" parent="85" name="venta_pkey">
+    <index id="245" parent="85" name="venta_pkey">
       <ObjectId>266630</ObjectId>
       <StateNumber>173745</StateNumber>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="245" parent="85" name="venta_pkey">
+    <key id="246" parent="85" name="venta_pkey">
       <ObjectId>266631</ObjectId>
       <StateNumber>173745</StateNumber>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>venta_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="246" parent="85" name="fk_venta_reciclador">
+    <foreign-key id="247" parent="85" name="fk_venta_reciclador">
       <ObjectId>266632</ObjectId>
       <StateNumber>173745</StateNumber>
       <ColNames>reciclador_id</ColNames>
@@ -1647,7 +1655,7 @@ sequence|table|266747|266749|1
       <RefKeyName>persona_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="247" parent="85" name="fk_venta_acopio_temporal">
+    <foreign-key id="248" parent="85" name="fk_venta_acopio_temporal">
       <ObjectId>266637</ObjectId>
       <StateNumber>173745</StateNumber>
       <ColNames>acopio_temporal_id</ColNames>
@@ -1657,7 +1665,7 @@ sequence|table|266747|266749|1
       <RefKeyName>centro_acopio_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="248" parent="86" name="id">
+    <column id="249" parent="86" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
@@ -1665,19 +1673,19 @@ sequence|table|266747|266749|1
       <DefaultExpression>nextval(&apos;zona_id_seq&apos;::regclass)</DefaultExpression>
       <TypeId>23</TypeId>
     </column>
-    <column id="249" parent="86" name="nombre">
+    <column id="250" parent="86" name="nombre">
       <Position>2</Position>
       <DataType>varchar(120)|0s</DataType>
       <StateNumber>169676</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="250" parent="86" name="pk_zona">
+    <index id="251" parent="86" name="pk_zona">
       <ObjectId>241750</ObjectId>
       <StateNumber>169676</StateNumber>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="251" parent="86" name="pk_zona">
+    <key id="252" parent="86" name="pk_zona">
       <ObjectId>241751</ObjectId>
       <StateNumber>169676</StateNumber>
       <ColNames>id</ColNames>
