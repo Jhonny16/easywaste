@@ -212,7 +212,7 @@ class premio extends conexion
         try {
 
 //            $sql = "SELECT id,nombre,stock,precio,pintrash from premio";
-            $sql = "SELECT * from premio where pintrash >= :p_pintrash";
+            $sql = "SELECT * from premio where (pintrash::integer) <= :p_pintrash";
             $sentencia = $this->dblink->prepare($sql);
             $sentencia->bindParam(":p_pintrash", $pintrash);
             $sentencia->execute();
