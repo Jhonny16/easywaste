@@ -536,4 +536,19 @@ class persona extends conexion
 
     }
 
+    public function proveedores_pintrash()
+    {
+        try {
+            $sql = "select p2.id, p2.dni, p2.ap_paterno || ' '|| p2.ap_materno ||' '|| p2.nombres as proveedor,
+                          p.pintrash::integer
+                    from pintrash p inner join persona p2 on p.persona_id = p2.id";
+            $sentencia = $this->dblink->prepare($sql);
+            $sentencia->execute();
+            $resultado = $sentencia->fetchAll(PDO::FETCH_ASSOC);
+            return $resultado;
+        } catch (Exception $ex) {
+            throw $ex;
+        }
+    }
+
 }

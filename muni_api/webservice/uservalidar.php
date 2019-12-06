@@ -46,7 +46,7 @@ try {
 
         Funciones::imprimeJSON(200, "Bienvenido a la aplicacion", $resultado);
     } else {
-        Funciones::imprimeJSON(500, "No esta Activo", "");
+        Funciones::imprimeJSON(500, "No esta Activo", $resultado);
     }
 } catch (Exception $exc) {
     Funciones::imprimeJSON(500, $exc->getMessage(), "");

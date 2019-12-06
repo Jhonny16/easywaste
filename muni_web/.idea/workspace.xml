@@ -28,43 +28,40 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Vista/informacion_list.php">
+        <entry file="file://$PROJECT_DIR$/Vista/reporte_sensibilizacion.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="131">
-              <caret line="44" column="74" selection-start-line="44" selection-start-column="74" selection-end-line="44" selection-end-column="74" />
+            <state relative-caret-position="1500">
+              <caret line="100" column="40" selection-start-line="100" selection-start-column="40" selection-end-line="100" selection-end-column="40" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Vista/modal_info_imagen.php">
+        <entry file="file://$PROJECT_DIR$/js/reporte_venta.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="720">
+              <caret line="117" column="7" selection-start-line="35" selection-start-column="3" selection-end-line="117" selection-end-column="7" />
+              <folding>
+                <element signature="e#1513#4054#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/reporte_sensibilizacion.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1290">
+              <caret line="86" column="19" selection-start-line="86" selection-start-column="19" selection-end-line="86" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/reporte_recoleccion.js">
           <provider selected="true" editor-type-id="text-editor">
             <state>
-              <caret column="59" selection-start-column="42" selection-end-column="59" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Vista/modal_informacion.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="175">
-              <caret line="19" column="88" selection-start-line="19" selection-start-column="88" selection-end-line="19" selection-end-column="88" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/js/informacion.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="160">
-              <caret line="86" column="50" selection-start-line="86" selection-start-column="50" selection-end-line="86" selection-end-column="50" />
-              <folding>
-                <element signature="n#style#0;n#tr#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#th#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#0;n#!!top" expanded="true" />
-              </folding>
+              <caret column="36" selection-start-column="20" selection-end-column="36" />
             </state>
           </provider>
         </entry>
@@ -72,8 +69,43 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Vista/est_menu.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="536">
-              <caret line="77" column="64" selection-start-line="77" selection-start-column="64" selection-end-line="77" selection-end-column="64" />
+            <state relative-caret-position="431">
+              <caret line="152" column="57" selection-start-line="152" selection-start-column="57" selection-end-line="152" selection-end-column="57" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Vista/venta_lista.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="315">
+              <caret line="39" selection-start-line="39" selection-end-line="39" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Vista/pintrash_intercambio.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="116">
+              <caret line="26" column="49" selection-start-line="26" selection-start-column="49" selection-end-line="26" selection-end-column="49" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/pintrash.js">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Vista/venta_create.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret selection-end-line="117" selection-end-column="6" />
+              <folding>
+                <element signature="n#div#0;n#!!top" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -89,7 +121,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>inka</find>
       <find>ink</find>
       <find>rec_i</find>
       <find>onas_list</find>
@@ -119,12 +150,14 @@
       <find>swal</find>
       <find>che</find>
       <find>info_title</find>
+      <find>http://localhost</find>
     </findStrings>
     <replaceStrings>
       <replace />
       <replace>modal modal-primary</replace>
       <replace>sidebar-mini skin-blue-light sidebar-collapse</replace>
       <replace>sidebar-mini skin-blue-light sidebar-collapset sidebar-collapse</replace>
+      <replace>http://10.1</replace>
     </replaceStrings>
     <dirStrings>
       <dir>C:\xampp7\htdocs\app_pjoanfern\Modelo</dir>
@@ -146,10 +179,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/js/periodo.js" />
-        <option value="$PROJECT_DIR$/js/periodo_vigencia.js" />
-        <option value="$PROJECT_DIR$/js/validacion.js" />
-        <option value="$PROJECT_DIR$/js/code.js" />
         <option value="$PROJECT_DIR$/Vista/criterios.php" />
         <option value="$PROJECT_DIR$/Vista/modal_codigo.php" />
         <option value="$PROJECT_DIR$/Vista/codigo_criterio.php" />
@@ -162,7 +191,6 @@
         <option value="$PROJECT_DIR$/Vista/criterios_vectores.php" />
         <option value="$PROJECT_DIR$/js/criterios_vectores.js" />
         <option value="$PROJECT_DIR$/Vista/vectores_prioridad.php" />
-        <option value="$PROJECT_DIR$/js/login.js" />
         <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/Vista/reciclador_create.php" />
         <option value="$PROJECT_DIR$/Vista/reciclador_list.php" />
@@ -174,20 +202,17 @@
         <option value="$PROJECT_DIR$/Vista/venta.php" />
         <option value="$PROJECT_DIR$/Vista/venta_create.php" />
         <option value="$PROJECT_DIR$/js/venta.js" />
-        <option value="$PROJECT_DIR$/Vista/venta_lista.php" />
         <option value="$PROJECT_DIR$/Vista/modal_detalle.php" />
         <option value="$PROJECT_DIR$/js/venta_list.js" />
         <option value="$PROJECT_DIR$/Vista/reporte_criterios_reciclador.php" />
         <option value="$PROJECT_DIR$/Vista/reporte_ventas.php" />
         <option value="$PROJECT_DIR$/js/reporte_criterios.js" />
         <option value="$PROJECT_DIR$/Vista/reporte_criterios.php" />
-        <option value="$PROJECT_DIR$/js/reporte_recoleccion.js" />
         <option value="$PROJECT_DIR$/Vista/modal_imagen.php" />
         <option value="$PROJECT_DIR$/Vista/premios_lista.php" />
         <option value="$PROJECT_DIR$/Vista/modal_premio.php" />
         <option value="$PROJECT_DIR$/js/premios.js" />
         <option value="$PROJECT_DIR$/Vista/reporte_recoleccion_zona_grafic.php" />
-        <option value="$PROJECT_DIR$/Vista/ext_scripts.php" />
         <option value="$PROJECT_DIR$/Vista/reporte_provee_reciclador.php" />
         <option value="$PROJECT_DIR$/js/reporte_proveedores_reciclador.js" />
         <option value="$PROJECT_DIR$/js/perfil.js" />
@@ -195,8 +220,16 @@
         <option value="$PROJECT_DIR$/Vista/informacion_list.php" />
         <option value="$PROJECT_DIR$/Vista/modal_info_imagen.php" />
         <option value="$PROJECT_DIR$/Vista/modal_informacion.php" />
-        <option value="$PROJECT_DIR$/Vista/est_menu.php" />
         <option value="$PROJECT_DIR$/js/informacion.js" />
+        <option value="$PROJECT_DIR$/Vista/ext_scripts.php" />
+        <option value="$PROJECT_DIR$/js/reporte_sensibilizacion.js" />
+        <option value="$PROJECT_DIR$/Vista/reporte_sensibilizacion.php" />
+        <option value="$PROJECT_DIR$/js/reporte_recoleccion.js" />
+        <option value="$PROJECT_DIR$/js/login.js" />
+        <option value="$PROJECT_DIR$/js/pintrash.js" />
+        <option value="$PROJECT_DIR$/Vista/pintrash_intercambio.php" />
+        <option value="$PROJECT_DIR$/Vista/est_menu.php" />
+        <option value="$PROJECT_DIR$/Vista/venta_lista.php" />
       </list>
     </option>
   </component>
@@ -209,6 +242,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -230,14 +264,13 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
     <property name="editor.config.ad.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../clinica_api" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
@@ -417,12 +450,15 @@
       <workItem from="1575323600497" duration="1225000" />
       <workItem from="1575389966747" duration="1341000" />
       <workItem from="1575409365866" duration="14772000" />
-      <workItem from="1575497016953" duration="13594000" />
+      <workItem from="1575497016953" duration="13728000" />
+      <workItem from="1575520938074" duration="31000" />
+      <workItem from="1575552826262" duration="8941000" />
+      <workItem from="1575593354654" duration="2148000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1049062000" />
+    <option name="totallyTimeSpent" value="1060316000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -437,7 +473,7 @@
     <frame x="0" y="0" width="1366" height="736" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22754946" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22374429" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -463,40 +499,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/js/direcciones.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="50" selection-start-line="10" selection-start-column="50" selection-end-line="10" selection-end-column="50" />
-          <folding>
-            <element signature="n#!!block;n#guardar_direccion#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Vista/proveedor_list.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="20" column="52" selection-start-line="20" selection-start-column="37" selection-end-line="20" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Vista/proveedor.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="5" lean-forward="true" selection-start-column="5" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Vista/reciclador.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="39" selection-start-line="39" selection-end-line="39" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Vista/est_pie.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/validate_login.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="390">
@@ -560,13 +562,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Vista/venta_create.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1410">
-          <caret line="94" column="42" selection-start-line="87" selection-start-column="35" selection-end-line="94" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Vista/reporte_Criterios_reciclalador.php" />
     <entry file="file://$PROJECT_DIR$/Vista/reporte_criterios_reciclador.php" />
     <entry file="file://$PROJECT_DIR$/js/reporte_criterios.js">
@@ -603,13 +598,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
           <caret line="21" column="103" lean-forward="true" selection-start-line="21" selection-start-column="103" selection-end-line="21" selection-end-column="103" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Vista/venta_lista.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="930">
-          <caret line="65" column="24" selection-start-line="65" selection-start-column="24" selection-end-line="65" selection-end-column="24" />
         </state>
       </provider>
     </entry>
@@ -665,37 +653,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Vista/reporte_ventas.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="62" column="42" lean-forward="true" selection-start-line="50" selection-start-column="36" selection-end-line="62" selection-end-column="42" />
-          <folding>
-            <element signature="n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Vista/ext_scripts.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="66" column="27" selection-start-line="66" selection-start-column="27" selection-end-line="66" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Vista/reporte_provee_reciclador.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="780">
           <caret line="52" column="118" selection-start-line="52" selection-start-column="103" selection-end-line="52" selection-end-column="118" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/reporte_venta.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="720">
-          <caret line="117" column="7" selection-start-line="41" selection-start-column="3" selection-end-line="117" selection-end-column="7" />
-          <folding>
-            <element signature="e#1513#4054#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -710,13 +671,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/reporte_recoleccion.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" selection-start-line="4" selection-end-line="31" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/reporte_proveedores_reciclador.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
@@ -725,13 +679,6 @@
             <element signature="n#style#0;n#tr#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#th#0;n#!!top" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Vista/reporte_recoleccion_zona_grafic.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2040">
-          <caret line="136" column="7" selection-end-line="136" selection-end-column="7" />
         </state>
       </provider>
     </entry>
@@ -762,13 +709,6 @@
           <folding>
             <element signature="n#!!block;n#read#0" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/login.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="88" column="20" selection-start-line="88" selection-start-column="20" selection-end-line="88" selection-end-column="20" />
         </state>
       </provider>
     </entry>
@@ -827,10 +767,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Vista/modal_informacion.php">
+    <entry file="file://$PROJECT_DIR$/Vista/informacion_list.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="19" column="88" selection-start-line="19" selection-start-column="88" selection-end-line="19" selection-end-column="88" />
+        <state relative-caret-position="585">
+          <caret line="44" column="74" selection-start-line="44" selection-start-column="74" selection-end-line="44" selection-end-column="74" />
         </state>
       </provider>
     </entry>
@@ -841,17 +781,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Vista/informacion_list.php">
+    <entry file="file://$PROJECT_DIR$/Vista/modal_informacion.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="131">
-          <caret line="44" column="74" selection-start-line="44" selection-start-column="74" selection-end-line="44" selection-end-column="74" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Vista/est_menu.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="536">
-          <caret line="77" column="64" selection-start-line="77" selection-start-column="64" selection-end-line="77" selection-end-column="64" />
+        <state relative-caret-position="285">
+          <caret line="19" column="88" selection-start-line="19" selection-start-column="88" selection-end-line="19" selection-end-column="88" />
         </state>
       </provider>
     </entry>
@@ -865,6 +798,100 @@
             <element signature="n#style#0;n#td#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#td#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Vista/reporte_senibilizacion.php" />
+    <entry file="file://$PROJECT_DIR$/Vista/reporte_recoleccion_zona_grafic.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="447">
+          <caret line="136" column="7" lean-forward="true" selection-end-line="136" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Vista/reporte_ventas.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="354">
+          <caret line="62" column="42" lean-forward="true" selection-start-line="50" selection-start-column="34" selection-end-line="62" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Vista/ext_scripts.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="69" column="28" selection-start-line="69" selection-start-column="28" selection-end-line="69" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Vista/reporte_sensibilizacion.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1500">
+          <caret line="100" column="40" selection-start-line="100" selection-start-column="40" selection-end-line="100" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/reporte_venta.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="720">
+          <caret line="117" column="7" selection-start-line="35" selection-start-column="3" selection-end-line="117" selection-end-column="7" />
+          <folding>
+            <element signature="e#1513#4054#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/reporte_sensibilizacion.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1290">
+          <caret line="86" column="19" selection-start-line="86" selection-start-column="19" selection-end-line="86" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/login.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/reporte_recoleccion.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="36" selection-start-column="20" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Vista/venta_create.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="117" selection-end-column="6" />
+          <folding>
+            <element signature="n#div#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/pintrash.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Vista/pintrash_intercambio.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="116">
+          <caret line="26" column="49" selection-start-line="26" selection-start-column="49" selection-end-line="26" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Vista/est_menu.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="431">
+          <caret line="152" column="57" selection-start-line="152" selection-start-column="57" selection-end-line="152" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Vista/venta_lista.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="39" selection-start-line="39" selection-end-line="39" />
         </state>
       </provider>
     </entry>

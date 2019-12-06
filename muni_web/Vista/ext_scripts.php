@@ -67,6 +67,9 @@
         $('#rep_prov_fechas').daterangepicker({
             locale: { format: 'YYYY-MM-DD' }
         })
+        $('#rep_sensi_fechas').daterangepicker({
+            locale: { format: 'YYYY-MM-DD' }
+        })
         $('#regla_picker').daterangepicker()
         //Date range picker with time picker
         $('#reservationtime').daterangepicker({timePicker: true, timePickerIncrement: 30, format: 'MM/DD/YYYY h:mm A'})

@@ -141,6 +141,18 @@
                     <li><a href="venta_lista.php" ><i class="fa fa-circle-o"></i> Lista</a></li>
                 </ul>
             </li>
+            <li class="treeview" id="menu_pintrash">
+                <a href="#">
+                    <img src="../imagenes/pintrash.jpg" style="width: 1.5em" alt="">
+                    <span style="color: #01a189">Pintrash</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="pintrash_intercambio.php" ><i class="fa fa-circle-o"></i> Intercambio</a></li>
+                </ul>
+            </li>
 <!--            <li class="treeview" id="menu_premio">-->
 <!--                <a href="#">-->
 <!--                    <img src="../imagenes/premio.png" style="width: 1.5em" alt="">-->
@@ -167,6 +179,7 @@
                     <li><a href="reporte_criterios.php" ><i class="fa fa-circle-o"></i> Prioridad reciclador</a></li>
                     <li><a href="reporte_recoleccion_zona_grafic.php" ><i class="fa fa-circle-o"></i> Recoleccion por zona</a></li>
                     <li><a href="reporte_provee_reciclador.php" ><i class="fa fa-circle-o"></i> Proveedores por reciclador</a></li>
+                    <li><a href="reporte_sensibilizacion.php" ><i class="fa fa-circle-o"></i> Sensibilizacion</a></li>
                 </ul>
             </li>
 
