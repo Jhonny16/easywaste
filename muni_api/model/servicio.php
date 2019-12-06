@@ -519,10 +519,10 @@ class servicio extends conexion
     }
     public function update_estado_hora_llegada()
     {
-        $this->dblink->beginTransaction();
+
 
         try {
-
+            $this->dblink->beginTransaction();
             $sql = "update servicio set estado = :p_estado , hora_llegada = :p_hora_llegada  where id = :p_id";
             $sentencia = $this->dblink->prepare($sql);
             $sentencia->bindParam(":p_id", $this->id);
@@ -541,10 +541,10 @@ class servicio extends conexion
 
     public function update_estado()
     {
-        $this->dblink->beginTransaction();
+
 
         try {
-
+            $this->dblink->beginTransaction();
             $sql = "update servicio set estado = :p_estado where id = :p_id";
             $sentencia = $this->dblink->prepare($sql);
             $sentencia->bindParam(":p_estado", $this->estado);
@@ -562,21 +562,24 @@ class servicio extends conexion
 
                 if ($sentencia->rowCount()) {
                     $reciclador_id = $resultado['reciclador_id'];
+                    if(!isset($reciclador_id)){
+                        date_default_timezone_set("America/Lima");
+                        $hora = date('H:i:s');
+                        $fecha = date('Y-m-d');
+                        $estado = 'Disponible';
 
-                    date_default_timezone_set("America/Lima");
-                    $hora = date('H:i:s');
-                    $fecha = date('Y-m-d');
-                    $estado = 'Disponible';
-
-                    $sql = "insert into status (fecha, hora, name_status, reciclador_id) 
+                        $sql = "insert into status (fecha, hora, name_status, reciclador_id) 
                         values (:p_fecha,:p_hora,:p_estado,:p_reciclador)";
-                    $sentencia = $this->dblink->prepare($sql);
-                    $sentencia->bindParam(":p_fecha", $fecha);
-                    $sentencia->bindParam(":p_hora", $hora);
-                    $sentencia->bindParam(":p_estado", $estado);
-                    $sentencia->bindParam(":p_reciclador", $reciclador_id);
-                    $sentencia->execute();
+                        $sentencia = $this->dblink->prepare($sql);
+                        $sentencia->bindParam(":p_fecha", $fecha);
+                        $sentencia->bindParam(":p_hora", $hora);
+                        $sentencia->bindParam(":p_estado", $estado);
+                        $sentencia->bindParam(":p_reciclador", $reciclador_id);
+                        $sentencia->execute();
+                    }
 
+                    return -1;
+                }else{
                     return -1;
                 }
 
