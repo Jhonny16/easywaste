@@ -98,7 +98,7 @@
       <ObjectId>241735</ObjectId>
       <StateNumber>169674</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>174160</IntrospectionStateNumber>
+      <IntrospectionStateNumber>174185</IntrospectionStateNumber>
       <Current>1</Current>
       <Visible>1</Visible>
       <Relations>sequence|table|241736|241738|1
@@ -236,7 +236,7 @@ sequence|table|266812|266814|1
       <Comment>standard public schema</Comment>
       <StateNumber>351</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>174161</IntrospectionStateNumber>
+      <IntrospectionStateNumber>174186</IntrospectionStateNumber>
       <Current>1</Current>
       <Visible>1</Visible>
     </schema>
@@ -526,7 +526,7 @@ sequence|table|266812|266814|1
     <table id="82" parent="40" name="sensibilizacion">
       <ObjectId>266708</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>173957</StateNumber>
+      <StateNumber>174182</StateNumber>
     </table>
     <table id="83" parent="40" name="servicio">
       <ObjectId>266448</ObjectId>
@@ -1363,20 +1363,26 @@ sequence|table|266812|266814|1
       <StateNumber>173957</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <index id="205" parent="82" name="sensibilizacion_pkey">
+    <column id="205" parent="82" name="comentario">
+      <Position>5</Position>
+      <DataType>text|0s</DataType>
+      <StateNumber>174182</StateNumber>
+      <TypeId>25</TypeId>
+    </column>
+    <index id="206" parent="82" name="sensibilizacion_pkey">
       <ObjectId>266713</ObjectId>
       <StateNumber>173957</StateNumber>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="206" parent="82" name="sensibilizacion_pkey">
+    <key id="207" parent="82" name="sensibilizacion_pkey">
       <ObjectId>266714</ObjectId>
       <StateNumber>173957</StateNumber>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>sensibilizacion_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="207" parent="82" name="kf_sensi_persona">
+    <foreign-key id="208" parent="82" name="kf_sensi_persona">
       <ObjectId>266715</ObjectId>
       <StateNumber>173957</StateNumber>
       <ColNames>persona_id</ColNames>
@@ -1386,7 +1392,7 @@ sequence|table|266812|266814|1
       <RefKeyName>persona_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="208" parent="83" name="id">
+    <column id="209" parent="83" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
@@ -1394,98 +1400,91 @@ sequence|table|266812|266814|1
       <DefaultExpression>nextval(&apos;servicio_id_seq&apos;::regclass)</DefaultExpression>
       <TypeId>23</TypeId>
     </column>
-    <column id="209" parent="83" name="code">
+    <column id="210" parent="83" name="code">
       <Position>2</Position>
       <DataType>varchar(10)|0s</DataType>
       <StateNumber>173371</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="210" parent="83" name="tiempo_aprox_atencion">
+    <column id="211" parent="83" name="tiempo_aprox_atencion">
       <Position>3</Position>
       <DataType>integer|0s</DataType>
       <StateNumber>173371</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="211" parent="83" name="hora_respuesta">
+    <column id="212" parent="83" name="hora_respuesta">
       <Position>4</Position>
       <DataType>time|0s</DataType>
       <StateNumber>173371</StateNumber>
       <TypeId>1083</TypeId>
     </column>
-    <column id="212" parent="83" name="hora_llegada">
+    <column id="213" parent="83" name="hora_llegada">
       <Position>5</Position>
       <DataType>time|0s</DataType>
       <StateNumber>173371</StateNumber>
       <TypeId>1083</TypeId>
     </column>
-    <column id="213" parent="83" name="calificacion">
+    <column id="214" parent="83" name="calificacion">
       <Position>6</Position>
       <DataType>integer|0s</DataType>
       <StateNumber>173371</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="214" parent="83" name="estado">
+    <column id="215" parent="83" name="estado">
       <Position>7</Position>
       <DataType>varchar(15)|0s</DataType>
       <StateNumber>173371</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="215" parent="83" name="fecha">
+    <column id="216" parent="83" name="fecha">
       <Position>8</Position>
       <DataType>date|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>173371</StateNumber>
       <TypeId>1082</TypeId>
     </column>
-    <column id="216" parent="83" name="hora">
+    <column id="217" parent="83" name="hora">
       <Position>9</Position>
       <DataType>time|0s</DataType>
       <StateNumber>173371</StateNumber>
       <TypeId>1083</TypeId>
     </column>
-    <column id="217" parent="83" name="referencia">
+    <column id="218" parent="83" name="referencia">
       <Position>10</Position>
       <DataType>varchar(120)|0s</DataType>
       <StateNumber>173371</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="218" parent="83" name="latitud">
+    <column id="219" parent="83" name="latitud">
       <Position>11</Position>
       <DataType>varchar(20)|0s</DataType>
       <StateNumber>173371</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="219" parent="83" name="longitud">
+    <column id="220" parent="83" name="longitud">
       <Position>12</Position>
       <DataType>varchar(20)|0s</DataType>
       <StateNumber>173371</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="220" parent="83" name="proveedor_id">
+    <column id="221" parent="83" name="proveedor_id">
       <Position>13</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>173371</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="221" parent="83" name="reciclador_id">
+    <column id="222" parent="83" name="reciclador_id">
       <Position>14</Position>
       <DataType>integer|0s</DataType>
       <StateNumber>173371</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="222" parent="83" name="imagen">
+    <column id="223" parent="83" name="imagen">
       <Position>15</Position>
       <DataType>bytea|0s</DataType>
       <StateNumber>173718</StateNumber>
       <TypeId>17</TypeId>
-    </column>
-    <column id="223" parent="83" name="entrego_premio">
-      <Position>16</Position>
-      <DataType>boolean|0s</DataType>
-      <StateNumber>174132</StateNumber>
-      <DefaultExpression>false</DefaultExpression>
-      <TypeId>16</TypeId>
     </column>
     <index id="224" parent="83" name="servicio_pkey">
       <ObjectId>266452</ObjectId>
