@@ -685,12 +685,11 @@ class servicio extends conexion
 //                    where proveedor_id = :p_proveedor_id
 //                    group by proveedor_id
 //                    having count(*)/2 > 0";
-            $sql = "select  p2.id, p2.dni, p2.ap_paterno || ' '|| p2.ap_materno ||' '|| p2.nombres as proveedor,
-                            p.pintrash
-                    from pintrash p inner join servicio s on p.servicio_id = s.id inner join persona p2 on s.proveedor_id = p2.id
-                    where p2.id = :p_persona_id
-                    group by  p2.id, p2.dni, p2.ap_paterno || ' '|| p2.ap_materno ||' '|| p2.nombres ,
-                      p.pintrash";
+            $sql = "select p2.id, p2.dni, p2.ap_paterno || ' '|| p2.ap_materno ||' '|| p2.nombres as proveedor,
+                           p.pintrash
+                    from pintrash p left join servicio s on p.servicio_id = s.id 
+                    inner join persona p2 on s.proveedor_id = p2.id
+                    where p2.id = :p_persona_id order by p.id desc  limit 1;";
             $sentence = $this->dblink->prepare($sql);
             $sentence->bindParam(":p_persona_id", $proveedor_id);
             $sentence->execute();
