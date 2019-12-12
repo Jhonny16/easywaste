@@ -12,6 +12,25 @@ class informacion extends conexion
     private $titulo;
     private $descripcion;
     private $imagen;
+    private $rol_id;
+
+    /**
+     * @return mixed
+     */
+    public function getRolId()
+    {
+        return $this->rol_id;
+    }
+
+    /**
+     * @param mixed $rol_id
+     */
+    public function setRolId($rol_id)
+    {
+        $this->rol_id = $rol_id;
+    }
+
+
 
     /**
      * @return mixed
@@ -82,12 +101,13 @@ class informacion extends conexion
         try {
 
 
-            $sql = "INSERT INTO informacion (titulo, descripcion, imagen) 
-                  values (:p_titulo, :p_des, :p_imagen) ";
+            $sql = "INSERT INTO informacion (titulo, descripcion, imagen,rol_id) 
+                  values (:p_titulo, :p_des, :p_imagen,:p_rol_id) ";
             $sentencia = $this->dblink->prepare($sql);
             $sentencia->bindParam(":p_titulo", $this->titulo);
             $sentencia->bindParam(":p_des", $this->descripcion);
             $sentencia->bindParam(":p_imagen", $this->imagen);
+            $sentencia->bindParam(":p_rol_id", $this->rol_id);
             $sentencia->execute();
 
             return true;
@@ -159,12 +179,14 @@ class informacion extends conexion
             $sql = "update informacion set 
                     titulo = :p_titulo, 
                     descripcion = :p_descripcion,                  
-                    imagen = :p_imagen
+                    imagen = :p_imagen,
+                    rol_id = :p_rol_id
                     where id = :p_id ";
             $sentencia = $this->dblink->prepare($sql);
             $sentencia->bindParam(":p_titulo", $this->titulo);
             $sentencia->bindParam(":p_descripcion", $this->descripcion);
             $sentencia->bindParam(":p_imagen", $this->imagen);
+            $sentencia->bindParam(":p_rol_id", $this->rol_id);
             $sentencia->bindParam(":p_id", $this->id);
             $sentencia->execute();
             $this->dblink->commit();

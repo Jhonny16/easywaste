@@ -154,6 +154,7 @@ function informacion_add() {
             descripcion: $("#info_descripcion").val(),
             id: ide,
             imagen: image,
+            rol_id : $("#combo_rol").val(),
             operation: operacion
         };
     }
@@ -224,7 +225,7 @@ function read_informacion(id) {
 
                 $("#informacion_id").val(jsonResultado.datos.id);
                 $("#info_titulo").val(jsonResultado.datos.titulo);
-                $("#combo_rol_id").val(jsonResultado.datos.rol_id);
+                $("#combo_rol").val(jsonResultado.datos.rol_id);
                 $("#info_descripcion").val(jsonResultado.datos.descripcion);
 
             }

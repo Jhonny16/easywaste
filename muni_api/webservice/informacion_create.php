@@ -20,6 +20,7 @@ if($operation!='Nuevo'){
 
 }
 
+$rol_id = json_decode(file_get_contents("php://input"))->rol_id;
 $titulo = json_decode(file_get_contents("php://input"))->titulo;
 $descripcion = json_decode(file_get_contents("php://input"))->descripcion;
 $foto_name = json_decode(file_get_contents("php://input"))->imagen;
@@ -31,6 +32,7 @@ try {
         $objp = new informacion();
         $objp->setTitulo($titulo);
         $objp->setDescripcion($descripcion);
+        $objp->setRolId($rol_id);
         $objp->setImagen($foto_name);
 
         $result = $objp->create();
@@ -46,6 +48,7 @@ try {
         $objp = new informacion();
         $objp->setTitulo($titulo);
         $objp->setDescripcion($descripcion);
+        $objp->setRolId($rol_id);
         $objp->setImagen($foto_name);
         $objp->setId($id);
 
