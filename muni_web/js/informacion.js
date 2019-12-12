@@ -6,20 +6,13 @@ $(document).ready(function () {
 var list_imagen = [];
 
 function listado() {
-    var ruta = DIRECCION_WS + "informacion_list_persona.php";
-
-
-    var data = {'persona_id': persona_id};
-
+    var ruta = DIRECCION_WS + "informacion_list.php";
 
     $("#informacion_list").html("");
     $.ajax({
-        type: "post",
-        headers: {
-            token: token
-        },
+        type: "get",
         url: ruta,
-        data: JSON.stringify(data),
+        data: {},
         success: function (resultado) {
             console.log(resultado);
             var datosJSON = resultado;

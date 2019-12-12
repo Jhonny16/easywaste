@@ -15,19 +15,21 @@ function getUrlVars() {
         vars[key] = value;
     });
     console.log(vars);
-    console.log(vars.persona_id);
-    persona_id = vars.persona_id;
+    console.log(vars.persona);
+    persona_id = vars.persona;
     //return vars;
 }
 
 function listado() {
-    var ruta = DIRECCION_WS + "informacion_list.php";
+    var ruta = DIRECCION_WS + "informacion_list_persona.php";
+
+    var data = {'persona_id': persona_id};
 
     $("#data_informacion").html("");
     $.ajax({
-        type: "get",
+        type: "post",
         url: ruta,
-        data: {},
+        data: JSON.stringify(data),
         success: function (resultado) {
             console.log(resultado);
             var datosJSON = resultado;
