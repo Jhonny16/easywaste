@@ -39,5 +39,11 @@
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
       <jdbc-url>jdbc:postgresql://localhost:5432/bd_reciclaje</jdbc-url>
     </data-source>
+    <data-source source="LOCAL" name="bd_bances@localhost" uuid="7b3e37c6-4ad2-46a9-bdd0-1d5751d1b676">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://localhost:5432/bd_bances</jdbc-url>
+    </data-source>
   </component>
 </project>

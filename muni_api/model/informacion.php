@@ -118,6 +118,38 @@ class informacion extends conexion
 
     }
 
+    public function lista_por_rol($persona_id)
+    {
+        try {
+
+            $sql = "SELECT rol_id from persona where id = :p_persona_id";
+            $sentencia = $this->dblink->prepare($sql);
+            $sentencia->bindParam(":p_persona_id", $persona_id);
+            $sentencia->execute();
+            $resultado = $sentencia->fetch(PDO::FETCH_ASSOC);
+            if ($sentencia->rowCount()) {
+                $rol_id = $resultado['rol_id'];
+
+                $sql = "SELECT * from informacion where rol_id = :p_rol_id";
+                $sentencia = $this->dblink->prepare($sql);
+                $sentencia->bindParam(":p_rol_id", $rol_id);
+                $sentencia->execute();
+                $resultado = $sentencia->fetchAll(PDO::FETCH_ASSOC);
+
+                return $resultado;
+            }
+
+
+
+
+        } catch (Exception $ex) {
+            throw $ex;
+        }
+
+
+    }
+
+
     public function update()
     {
 

@@ -2,7 +2,7 @@
 
 header('Access-Control-Allow-Origin: *');
 
-require_once '../model/sensi';
+require_once '../model/sensibilizacion.php';
 require_once '../util/funciones/Funciones.clase.php';
 require_once 'tokenvalidar.php';
 

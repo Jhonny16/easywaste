@@ -5,8 +5,8 @@
  * Date: 08/12/19
  * Time: 08:53 PM
  */
-
-class sensibilizacion
+require_once '../datos/conexion.php';
+class sensibilizacion extends conexion
 {
     private $persona_id;
     private $respuesta;

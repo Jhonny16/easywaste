@@ -6,17 +6,20 @@ $(document).ready(function () {
 var list_imagen = [];
 
 function listado() {
-    var ruta = DIRECCION_WS + "iinformacion_list.php";
-    var token = localStorage.getItem('token');
+    var ruta = DIRECCION_WS + "informacion_list_persona.php";
+
+
+    var data = {'persona_id': persona_id};
+
 
     $("#informacion_list").html("");
     $.ajax({
-        type: "get",
+        type: "post",
         headers: {
             token: token
         },
         url: ruta,
-        data: {},
+        data: JSON.stringify(data),
         success: function (resultado) {
             console.log(resultado);
             var datosJSON = resultado;
@@ -29,6 +32,7 @@ function listado() {
                 html += '<th style="text-align: center">#</th>';
                 html += '<th>TITULO</th>';
                 html += '<th>DESCRIPCION</th>';
+                html += '<th>TIPO</th>';
                 html += '<th>IMAGEN</th>';
                 html += '</tr>';
                 html += '</thead>';
@@ -43,6 +47,12 @@ function listado() {
                     //+
                     html += '<td>' + item.titulo + '</td>';
                     html += '<td>' + item.descripcion + '</td>';
+                    if(item.rol_id == 2){
+                        html += '<td>Reciclador</td>';
+                    }else{
+                        html += '<td>Proveedor</td>';
+
+                    }
                     html += '<td style="text-align: center">';
                     html += '<a type="button" title="Ver Imagen" data-toggle="modal" data-target="#modal_info_imagen"' +
                         ' onclick="data_modal(' + item.id + ')">' +
@@ -214,6 +224,7 @@ function read_informacion(id) {
 
                 $("#informacion_id").val(jsonResultado.datos.id);
                 $("#info_titulo").val(jsonResultado.datos.titulo);
+                $("#combo_rol_id").val(jsonResultado.datos.rol_id);
                 $("#info_descripcion").val(jsonResultado.datos.descripcion);
 
             }

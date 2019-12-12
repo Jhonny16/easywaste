@@ -24,6 +24,15 @@
                                     <textarea class="form-control" rows="3" placeholder="Descripcion ... "
                                               id="info_descripcion"></textarea>                                </div>
                                 <div class="form-group">
+                                    <label for="exampleInputPassword1">Para:</label>
+
+                                    <select name="" id="combo_rol" class="form-control">
+                                        <option value="0">Seleccione tipo</option>
+                                        <option value="2">Reciclador</option>
+                                        <option value="3">Proveedor</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
                                     <label for="exampleInputFile">Seleccione Foto</label>
                                     <input type="file" id="info_foto">
                                 </div>
