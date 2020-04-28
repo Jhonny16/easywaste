@@ -22,6 +22,26 @@ class servicio extends conexion
     private $tiempo_aproximado;
     private $imagen;
 
+    private $array_distancias;
+
+    /**
+     * @return mixed
+     */
+    public function getArrayDistancias()
+    {
+        return $this->array_distancias;
+    }
+
+    /**
+     * @param mixed $array_distancias
+     */
+    public function setArrayDistancias($array_distancias)
+    {
+        $this->array_distancias = $array_distancias;
+    }
+
+
+
     /**
      * @return mixed
      */
@@ -317,25 +337,26 @@ class servicio extends conexion
 
             $secuencia = $resultado["secuencia"];
             $secuencia = $secuencia + 1;
-            if (strlen($secuencia) == 1) {
-                $pad = 5;
-            } else {
-                if (strlen($secuencia) == 2) {
-                    $pad = 4;
-                } else {
-                    if (strlen($secuencia) == 3) {
-                        $pad = 3;
-                    } else {
-                        if (strlen($secuencia) == 4) {
-                            $pad = 2;
-                        } else {
-                            if (strlen($secuencia) == 5) {
-                                $pad = 1;
-                            }
-                        }
-                    }
-                }
-            }
+            $pad = 5;
+//            if (strlen($secuencia) == 1) {
+//                $pad = 5;
+//            } else {
+//                if (strlen($secuencia) == 2) {
+//                    $pad = 4;
+//                } else {
+//                    if (strlen($secuencia) == 3) {
+//                        $pad = 3;
+//                    } else {
+//                        if (strlen($secuencia) == 4) {
+//                            $pad = 2;
+//                        } else {
+//                            if (strlen($secuencia) == 5) {
+//                                $pad = 1;
+//                            }
+//                        }
+//                    }
+//                }
+//            }
             $correlativo = str_pad($secuencia, $pad, "0", STR_PAD_LEFT);
             $numeracion = "SRV-" . $correlativo;
             $this->setCode($numeracion);
@@ -357,26 +378,63 @@ class servicio extends conexion
 //            $sentencia->bindParam(":p_imagen", $this->imagen);
             $sentencia->execute();
 
-            //Asignamos los servicios a reciclador segun orden de prioridad
 
-            $sql_s = "select p.id, p.valor,
-                           (select name_status from status where reciclador_id = p.id
-                           order by id desc limit 1) as name_status
-                    from  persona p
-                    where p.rol_id = 2
-                    group by p.id,p.valor
-                    having (select name_status from status where reciclador_id = p.id
-                             order by id desc limit 1) = 'Disponible'
-                    order by p.valor desc limit 1";
-            $sentence = $this->dblink->prepare($sql_s);
-            $sentence->execute();
-            $result = $sentence->fetch(PDO::FETCH_ASSOC);
-            //if(count($result)>0){
-            if ($sentence->rowCount()) {
+            //Calculo de distancias: para ello necesitamos determinar cuales son los disponibles
+            //$datosDetalle = json_decode($this->array_distancias);
+            $datosDetalle = $this->array_distancias;
+            $array = [];
+
+            foreach ($datosDetalle as $key => $value) {
+
+                $sql_d = "select p.id, p.valor,
+                                   (select name_status from status where reciclador_id = p.id
+                                    order by id desc limit 1) as name_status
+                            from  persona p
+                            where p.rol_id = 2 and p.id = :p_reciclador_id
+                            group by p.id,p.valor
+                            order by p.valor desc limit 1
+                            ";
+                $sentence = $this->dblink->prepare($sql_d);
+                $sentence->bindParam(":p_reciclador_id", $value->reciclador_id);
+                $sentence->execute();
+                $res = $sentence->fetch(PDO::FETCH_ASSOC);
+
+                //Determinamos si el reciclador esta disponible
+                if ($sentence->rowCount()) {
+                    if($res['id'] > 0 and $res['name_status'] == 'Disponible'){
+                        $array_data = [];
+                        $array_data[0] = $res['id'];
+                        $array_data[1] = $res['valor'];
+                        //$array_data[1] = $value->distancia;
+                        //En caso este disponible se agregará a un arreglo
+                        array_push($array, $array_data);
+                    }
+
+                }
+
+            }
+
+            //Si hay recicladores disponibles entonces determinamos por prioridad de valor.
+            if(count($array) > 0){
+
+                $mayor = (double)$array[0][1];
+                $recycle_id = $array[0][0];
+                for($i=0; $i<count($array); $i++){
+                    if($mayor < (double)$array[$i][1]){
+                        $mayor = (double)$array[$i][1];
+                        $recycle_id = $array[$i][0];
+                    }
+                }
+
+                //return $recycle_id;
+
+                // --
+                //Asigamos el reciclador al servicio
+
                 $this->dblink->beginTransaction();
                 $sql = "update servicio set reciclador_id = :p_reciclador where code = :p_code ";
                 $sentencia = $this->dblink->prepare($sql);
-                $sentencia->bindParam(":p_reciclador", $result['id']);
+                $sentencia->bindParam(":p_reciclador", $recycle_id);
                 $sentencia->bindParam(":p_code", $this->code);
                 $sentencia->execute();
                 $this->dblink->commit();
@@ -393,34 +451,97 @@ class servicio extends conexion
                 $sentencia->bindParam(":p_fecha", $fecha);
                 $sentencia->bindParam(":p_hora", $hora);
                 $sentencia->bindParam(":p_estado", $estado);
-                $sentencia->bindParam(":p_reciclador", $result['id']);
+                $sentencia->bindParam(":p_reciclador", $recycle_id);
                 $sentencia->execute();
+
+
+               //----
+
+                //Asignamos los servicios a reciclador segun orden de prioridad
+
+                //Comentado por el momento
+
+//                $sql_s = "select p.id, p.valor,
+//                           (select name_status from status where reciclador_id = p.id
+//                           order by id desc limit 1) as name_status
+//                    from  persona p
+//                    where p.rol_id = 2
+//                    group by p.id,p.valor
+//                    having (select name_status from status where reciclador_id = p.id
+//                             order by id desc limit 1) = 'Disponible'
+//                    order by p.valor desc limit 1";
+//                $sentence = $this->dblink->prepare($sql_s);
+//                $sentence->execute();
+//                $result = $sentence->fetch(PDO::FETCH_ASSOC);
+//                //if(count($result)>0){
+//                if ($sentence->rowCount()) {
+//                    $this->dblink->beginTransaction();
+//                    $sql = "update servicio set reciclador_id = :p_reciclador where code = :p_code ";
+//                    $sentencia = $this->dblink->prepare($sql);
+//                    $sentencia->bindParam(":p_reciclador", $result['id']);
+//                    $sentencia->bindParam(":p_code", $this->code);
+//                    $sentencia->execute();
+//                    $this->dblink->commit();
+//
+//
+//                    date_default_timezone_set("America/Lima");
+//                    $hora = date('H:i:s');
+//                    $fecha = date('Y-m-d');
+//                    $estado = 'Ocupado';
+//
+//                    $sql = "insert into status (fecha, hora, name_status, reciclador_id)
+//                        values (:p_fecha,:p_hora,:p_estado,:p_reciclador)";
+//                    $sentencia = $this->dblink->prepare($sql);
+//                    $sentencia->bindParam(":p_fecha", $fecha);
+//                    $sentencia->bindParam(":p_hora", $hora);
+//                    $sentencia->bindParam(":p_estado", $estado);
+//                    $sentencia->bindParam(":p_reciclador", $result['id']);
+//                    $sentencia->execute();
+//                }
+
+
+           //----
+
+                $this->dblink->beginTransaction();
+                $sql = "update correlativo set secuencia = :p_secuencia where tabla = 'servicio' ";
+                $sentencia = $this->dblink->prepare($sql);
+                $sentencia->bindParam(":p_secuencia", $secuencia);
+                $sentencia->execute();
+                $this->dblink->commit();
+
+                $sql = "select id from servicio order by id desc limit 1 ";
+                $sentencia = $this->dblink->prepare($sql);
+                $sentencia->execute();
+                $resultado = $sentencia->fetch(PDO::FETCH_ASSOC);
+
+                if ($sentencia->rowCount()) {
+                    $servicio_id = $resultado['id'];
+
+                    $res = $this->position_create($servicio_id, $this->latitud, $this->longitud);
+                    if($res){
+                        return $resultado;
+                    }
+                    else{
+                        return 0;
+                    }
+                }
+
+                //---
+
+
+
+            }else{
+
+                return -1;
+
             }
 
 
-            $this->dblink->beginTransaction();
-            $sql = "update correlativo set secuencia = :p_secuencia where tabla = 'servicio' ";
-            $sentencia = $this->dblink->prepare($sql);
-            $sentencia->bindParam(":p_secuencia", $secuencia);
-            $sentencia->execute();
-            $this->dblink->commit();
 
-            $sql = "select id from servicio order by id desc limit 1 ";
-            $sentencia = $this->dblink->prepare($sql);
-            $sentencia->execute();
-            $resultado = $sentencia->fetch(PDO::FETCH_ASSOC);
 
-            if ($sentencia->rowCount()) {
-                $servicio_id = $resultado['id'];
 
-                $res = $this->position_create($servicio_id, $this->latitud, $this->longitud);
-                if($res){
-                    return $resultado;
-                }
-                else{
-                    return $resultado;
-                }
-            }
+
+
 
 
 
@@ -443,10 +564,11 @@ class servicio extends conexion
             $sentencia->bindParam(":p_longitud_actual", $longitud);
             $sentencia->bindParam(":p_servicio_id", $servicio_id);
             $sentencia->execute();
-            return True;
+            return 1;
 
         }catch (Exception $ex) {
             throw $ex;
+            return 0;
         }
     }
 

@@ -13,6 +13,7 @@ try {
     $resultado = $obj->lista($persona_id);
 
     if($resultado){
+
         Funciones::imprimeJSON(200, "",$resultado);
     }
 

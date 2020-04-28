@@ -1,0 +1,21 @@
+1. Cambiar a radio button dni o ruc. 
+    * La base de datos ya acepta ruc
+
+2. Mas cercano:
+    * Al dar click en crear servicio(proveedor) lo que se necesita es latitud, longitud ,referencia y proveedor_id, siendo ejecutar un metodo que en primer lugar obtenga las posiciones de todos los recicladores, por api de google calcular la distancia entre el proveedor y todos los recicladores y enviar en un array de objetos con los siguientes parametros. Ese array de objetos debe contener por ejemplo de los 5 o 6 recicladores los 3 mas cercanos, es decir los 3 con la distancia mas corta: 
+    array_ditancias = [{'reciclador_id': 2 , 'distancia': 100 //(en metros)},
+      {'reciclador_id': 8 , 'distancia': 200},
+        'reciclador_id': 9 , distancia: 50  ]
+
+  * Todo ello a la misma ruta de creacion de servicio: 
+    ruta : webservice/servicio_create.php
+    parametros:
+        {
+	        "proveedor_id": 10,
+	        "latitud": -6.7619491,
+             "longitud": -79.8319894,
+             "referencia:": "por tottus",
+             "array_distancias": [{"reciclador_id": 2 , "distancia": 100 },
+					              {"reciclador_id": 8 , "distancia": 200},
+					              {"reciclador_id": 9 , "distancia": 50  }]
+        }
