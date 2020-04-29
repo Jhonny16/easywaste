@@ -101,7 +101,7 @@ class periodo extends conexion
 
     public function ultima_fecha()
     {
-        $sql = "select (fecha_fin + interval '1 days') as fecha_fin from periodo order by id desc limit 1";
+        $sql = "select (fecha_fin + interval '1 days')::date as fecha_fin from periodo order by id desc limit 1";
         $sentencia = $this->dblink->prepare($sql);
         $sentencia->execute();
         $resultado = $sentencia->fetch();

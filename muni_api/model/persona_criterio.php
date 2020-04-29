@@ -10,11 +10,15 @@ class persona_criterio extends conexion
         try{
 
             $sql = "select p.id, (p.ap_paterno ||' '|| p.ap_materno ||' '|| p.nombres) as reciclador,
-                           SUM(s.tiempo_aprox_atencion -
-                           ( ((extract(hours from (hora_llegada)-(hora_respuesta))):: integer) * 60
-                             + (extract(minutes from (hora_llegada)-(hora_respuesta)))::integer))  as bono
-                    from servicio s inner join persona p on s.reciclador_id = p.id
-                    group by p.id,p.ap_paterno ||' '|| p.ap_materno ||'' || p.nombres; ";
+                           coalesce(SUM(s.tiempo_aprox_atencion -
+                                        ( ((extract(hours from (hora_llegada)-(hora_respuesta))):: integer) * 60
+                                          + (extract(minutes from (hora_llegada)-(hora_respuesta)))::integer)),0)   as bono,
+                                                 count(s.id) as cantidad_servicio
+
+                    from servicio s right join persona p on s.reciclador_id = p.id
+                    where rol_id = 2
+                    group by p.id,p.ap_paterno ||' '|| p.ap_materno ||'' || p.nombres;
+                     ";
             $sentencia = $this->dblink->prepare($sql);
             $sentencia->execute();
             $resultado = $sentencia->fetchAll(PDO::FETCH_ASSOC);
@@ -31,7 +35,8 @@ class persona_criterio extends conexion
 
             $sql = "select p.id, (p.ap_paterno ||' '|| p.ap_materno ||' '|| p.nombres) as reciclador,
                           current_date - p.fecha_registro as antiguedad
-                    from servicio s inner join persona p on s.reciclador_id = p.id
+                    from servicio s right join persona p on s.reciclador_id = p.id
+                    where rol_id = 2
                     group by p.id,p.ap_paterno ||' '|| p.ap_materno ||'' || p.nombres; ";
             $sentencia = $this->dblink->prepare($sql);
             $sentencia->execute();
@@ -49,8 +54,10 @@ class persona_criterio extends conexion
         try{
 
             $sql = "select p.id, (p.ap_paterno ||' '|| p.ap_materno ||' '|| p.nombres) as reciclador,
-                          SUM(s.calificacion) as calificacion
-                    from servicio s inner join persona p on s.reciclador_id = p.id
+                           coalesce(SUM(s.calificacion) ,0)as calificacion,
+                           count(s.id) as cantidad_servicio
+                    from servicio s right join persona p on s.reciclador_id = p.id
+                    where rol_id = 2
                     group by p.id,p.ap_paterno ||' '|| p.ap_materno ||'' || p.nombres;
                      ";
             $sentencia = $this->dblink->prepare($sql);
@@ -69,9 +76,10 @@ class persona_criterio extends conexion
         try{
 
             $sql = "select p.id, (p.ap_paterno ||' '|| p.ap_materno ||' '|| p.nombres) as reciclador,
-                           SUM(case when s.estado='Finalizado' then 1 else 0 end) - 
+                           SUM(case when s.estado='Finalizado' then 1 else 0 end) -
                            SUM(case when s.estado='Cancelado' then 1 else 0 end) as atencion
-                    from servicio s inner join persona p on s.reciclador_id = p.id
+                    from servicio s  right join persona p on s.reciclador_id = p.id
+                    where rol_id = 2
                     group by p.id,p.ap_paterno ||' '|| p.ap_materno ||'' || p.nombres;
                      ";
             $sentencia = $this->dblink->prepare($sql);

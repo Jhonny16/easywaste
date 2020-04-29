@@ -33,13 +33,25 @@ try {
         $suma_intervalo = 0;
         for($i=0; $i<count($resultado); $i++){
 
-            $resultado[$i]['intervalo'] = abs($resultado[$i]['bono'] + abs($menor));
+            if($resultado[$i]['cantidad_servicio'] == 0 ){
+                $resultado[$i]['intervalo'] = 0;
+
+            } else{
+                $resultado[$i]['intervalo'] = abs($resultado[$i]['bono'] + abs($menor));
+
+            }
 
             $suma_intervalo = $suma_intervalo + $resultado[$i]['intervalo'];
         }
 
         for($i=0; $i<count($resultado); $i++){
-            $resultado[$i]['valor'] =  round( $resultado[$i]['intervalo']/$suma_intervalo  ,3);
+            if($resultado[$i]['cantidad_servicio'] == 0 ){
+                $resultado[$i]['valor'] =  0;
+
+            }else{
+                $resultado[$i]['valor'] =  round( $resultado[$i]['intervalo']/$suma_intervalo  ,3);
+
+            }
 
             $obj->create_update($resultado[$i]['id'], 1, $resultado[$i]['valor']);
         }

@@ -14,7 +14,6 @@ if (!isset($_SERVER["HTTP_TOKEN"])) {
 $token = $_SERVER["HTTP_TOKEN"];
 $operation= json_decode(file_get_contents("php://input"))->operation;
 if($operation == 'Nuevo'){
-    $rol_id = json_decode(file_get_contents("php://input"))->rol_id;
 
 }else{
     $id = json_decode(file_get_contents("php://input"))->id;
@@ -32,6 +31,8 @@ $correo = json_decode(file_get_contents("php://input"))->correo;
 $estado= json_decode(file_get_contents("php://input"))->estado;
 $zona_id= json_decode(file_get_contents("php://input"))->zona_id;
 $fecha_registro= json_decode(file_get_contents("php://input"))->fecha_registro;
+$rol_id = json_decode(file_get_contents("php://input"))->rol_id;
+$is_param= json_decode(file_get_contents("php://input"))->is_param;
 
 
 
@@ -62,8 +63,25 @@ try {
         $objper->setCorreo($correo);
         $objper->setEstado($estado);
         $objper->setZonaId($zona_id);
-        $objper->setRolId($rol_id);
         $objper->setFechaRegistro($fecha_registro);
+
+        if ($rol_id == 2 and $is_param == 1 ){
+            $objper->setRolId(3);
+
+            $add_other = $objper->create();
+
+        }
+
+        if ($rol_id == 3 and $is_param == 1 ){
+            $objper->setRolId(2);
+
+            $add_other = $objper->create();
+
+        }
+
+        $objper->setRolId($rol_id);
+
+
 
         $result = $objper->create();
         if ($result) {
@@ -90,6 +108,37 @@ try {
         $objper->setZonaId($zona_id);
         $objper->setId($id);
 
+
+        if ($rol_id == 2 and $is_param == 1 ){
+            $objper->setRolId(3);
+            $add_other = $objper->update_other(3);
+
+        }else{
+            if ($rol_id == 2 and $is_param == 0 ){
+                $objper->setRolId(3);
+                $objper->setEstado("I");
+
+                $update_other = $objper->update_other(3);
+            }
+        }
+
+        if ($rol_id == 3 and $is_param == 1 ){
+            $objper->setRolId(2);
+            $objper->setEstado("I");
+
+
+            $add_other = $objper->update_other(2);
+
+        }else{
+            if ($rol_id == 3 and $is_param == 0 ){
+                $objper->setRolId(2);
+                $objper->setEstado("I");
+
+                $update_other = $objper->update_other(2);
+            }
+        }
+
+        $objper->setEstado($estado);
         $result = $objper->update();
 
         if ($result) {

@@ -399,7 +399,13 @@ class persona extends conexion
     {
 
         try {
-            $sql = "select * from persona where id = :p_persona_id";
+            $sql = "select p.*,
+                           (case
+                             when p.rol_id = 2 then (case when (select estado from persona where dni = p.dni and rol_id = 3)='A' then true else false end)
+                             when p.rol_id = 3 then (case when (select estado from persona where dni = p.dni and rol_id = 2)='A' then true else false end)
+                             else FALSE
+                             end) as other_rol
+                     from persona p where id  = :p_persona_id";
             $sentencia = $this->dblink->prepare($sql);
             $sentencia->bindParam(":p_persona_id", $this->id);
             $sentencia->execute();
@@ -407,6 +413,69 @@ class persona extends conexion
             return $resultado;
         } catch (Exception $ex) {
             throw $ex;
+        }
+    }
+    public function update_other($rol_id)
+    {
+
+        try {
+            $sql = "select id from persona where dni = :p_dni and rol_id = :p_rol_id ";
+            $sentencia = $this->dblink->prepare($sql);
+            $sentencia->bindParam(":p_dni", $this->dni);
+            $sentencia->bindParam(":p_rol_id", $rol_id);
+            $sentencia->execute();
+            $resultado = $sentencia->fetch(PDO::FETCH_ASSOC);
+
+            if ($sentencia->rowCount()) {
+                if($resultado['id']){
+
+                    $this->dblink->beginTransaction();
+
+                    try {
+                        $sql = "update persona set 
+                    nombres = :p_nombres,
+                    ap_materno = :p_mateno,
+                    ap_paterno = :p_paterno,
+                    sexo = :p_sexo,
+                    fecha_nac = :p_fc,
+                    celular = :p_celular,
+                    direccion = :p_direccion,
+                    correo = :p_correo,
+                    estado = :p_estado,
+                    zona_id = :p_zona                                        
+                    where dni = :p_dni ";
+                        $sentencia = $this->dblink->prepare($sql);
+                        $sentencia->bindParam(":p_dni", $this->dni);
+                        $sentencia->bindParam(":p_nombres", $this->nombres);
+                        $sentencia->bindParam(":p_mateno", $this->ap_materno);
+                        $sentencia->bindParam(":p_paterno", $this->ap_paterno);
+                        $sentencia->bindParam(":p_sexo", $this->sexo);
+                        $sentencia->bindParam(":p_fc", $this->fn);
+                        $sentencia->bindParam(":p_celular", $this->celular);
+                        $sentencia->bindParam(":p_direccion", $this->direccion);
+                        $sentencia->bindParam(":p_correo", $this->correo);
+                        $sentencia->bindParam(":p_estado", $this->estado);
+                        $sentencia->bindParam(":p_zona", $this->zona_id);
+                        $sentencia->execute();
+                        $this->dblink->commit();
+                        return true;
+                    } catch (Exception $exc) {
+                        $this->dblink->rollBack();
+                        throw $exc;
+                    }
+
+                }else{
+                    $this->create();
+                }
+            }else{
+                $this->create();
+
+            }
+
+
+
+        } catch (Exception $exc) {
+            throw $exc;
         }
     }
 

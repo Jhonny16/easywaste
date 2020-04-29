@@ -39,7 +39,7 @@
       <introspection-schemas>@:@</introspection-schemas>
     </data-source>
     <data-source name="bd_reciclaje@localhost" uuid="439262b2-8b77-4ba6-8829-69d43dec0930">
-      <database-info product="PostgreSQL" version="10.6 (Ubuntu 10.6-0ubuntu0.18.04.1)" jdbc-version="4.2" driver-name="PostgreSQL JDBC Driver" driver-version="42.2.5" dbms="POSTGRES" exact-version="10.6" exact-driver-version="42.2">
+      <database-info product="PostgreSQL" version="10.10 (Ubuntu 10.10-0ubuntu0.18.04.1)" jdbc-version="4.2" driver-name="PostgreSQL JDBC Driver" driver-version="42.2.5" dbms="POSTGRES" exact-version="10.10" exact-driver-version="42.2">
         <identifier-quote-string>&quot;</identifier-quote-string>
       </database-info>
       <case-sensitivity plain-identifiers="lower" quoted-identifiers="exact" />
