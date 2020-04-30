@@ -1,5 +1,7 @@
 
 var DIRECCION_WS = "http://localhost/www/muni_api/webservice/";
+var DIRECCION_WS_IMAGE = "http://localhost/www/muni_api/imagenes/";
+
 $(document).ready(function () {
     loadProfile();
 });

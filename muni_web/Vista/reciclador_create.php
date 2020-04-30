@@ -27,16 +27,30 @@
                         <div class="box-body">
                             <div class="row">
                                 <div class="col-lg-6 col-md-6 col-xs-12">
-
+                                    <input type="text" id="fecha_hoy" value="<?php date_default_timezone_set("America/Lima");
+                                    echo date('Y-m-d');?>" style="display: none">
                                     <div class="form-group">
-                                        <label for="inputEmail3" class="col-sm-3 control-label">DNI</label>
+                                        <label for="inputEmail3" class="col-sm-3 control-label">TIPO DOC.</label>
 
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control" id="rec_dni" placeholder="Ingrese DNI"
-                                                   onkeypress="return numeros(event);" maxlength="8" >
+                                            <label>
+                                                <input type="radio" name="rec_docs" id="rec_td_dni" class="flat-red" checked>DNI
+                                            </label>
+                                            <label>
+                                                <input type="radio" name="rec_docs" id="rec_td_ruc" class="flat-red">RUC
+                                            </label>
                                         </div>
                                     </div>
                                     <div class="form-group">
+                                        <label for="inputEmail3" class="col-sm-3 control-label">N° DOCUMENTO</label>
+
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" id="rec_dni" placeholder="Ingrese número de documento"
+                                                   maxlength="8"
+                                                   onkeypress="return numeros(event);"  >
+                                        </div>
+                                    </div>
+                                    <div class="form-group" id="div_rec_pa">
                                         <label for="inputEmail3" class="col-sm-3 control-label">AP. PATERNO</label>
 
                                         <div class="col-sm-9">
@@ -44,7 +58,7 @@
                                                    onkeypress="return sololetras(event);">
                                         </div>
                                     </div>
-                                    <div class="form-group">
+                                    <div class="form-group" id="div_rec_ma">
                                         <label for="inputEmail3" class="col-sm-3 control-label">AP. MATERNO</label>
 
                                         <div class="col-sm-9">
@@ -67,7 +81,7 @@
                                                 <div class="input-group-addon">
                                                     <i class="fa fa-calendar"></i>
                                                 </div>
-                                                <input type="text" class="form-control pull-right" id="rec_fn">
+                                                <input type="text" class="form-control pull-right" id="rec_fn" ">
                                             </div>
                                         </div>
                                     </div>
@@ -108,6 +122,13 @@
                                             <label>
                                                 <input type="radio" name="rec_estados" id="rec_i" class="flat-red">Inactivo
                                             </label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputEmail3" class="col-sm-3 control-label">Es proveedor?</label>
+
+                                        <div class="col-sm-9">
+                                            <input type="checkbox" class="minimal" id="rec_es_proveedor">
                                         </div>
                                     </div>
                                 </div>

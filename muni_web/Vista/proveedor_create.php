@@ -27,7 +27,20 @@
                         <div class="box-body">
                             <div class="row">
                                 <div class="col-lg-6 col-md-6 col-xs-12">
+                                    <input type="text" id="prov_fecha_hoy" value="<?php date_default_timezone_set("America/Lima");
+                                    echo date('Y-m-d');?>" style="display: none">
+                                    <div class="form-group">
+                                        <label for="inputEmail3" class="col-sm-3 control-label">TIPO DOC.</label>
 
+                                        <div class="col-sm-9">
+                                            <label>
+                                                <input type="radio" name="pro_docs" id="pro_td_dni" class="flat-red" checked>DNI
+                                            </label>
+                                            <label>
+                                                <input type="radio" name="pro_docs" id="pro_td_ruc" class="flat-red">RUC
+                                            </label>
+                                        </div>
+                                    </div>
                                     <div class="form-group">
                                         <label for="inputEmail3" class="col-sm-3 control-label">DNI</label>
 
@@ -36,7 +49,7 @@
                                                    onkeypress="return numeros(event);" maxlength="8" >
                                         </div>
                                     </div>
-                                    <div class="form-group">
+                                    <div class="form-group" id="div_pro_pa">
                                         <label for="inputEmail3" class="col-sm-3 control-label">AP. PATERNO</label>
 
                                         <div class="col-sm-9">
@@ -44,7 +57,7 @@
                                                    onkeypress="return sololetras(event);">
                                         </div>
                                     </div>
-                                    <div class="form-group">
+                                    <div class="form-group" id="div_pro_pa">
                                         <label for="inputEmail3" class="col-sm-3 control-label">AP. MATERNO</label>
 
                                         <div class="col-sm-9">
@@ -108,6 +121,13 @@
                                             <label>
                                                 <input type="radio" name="pro_estados" id="pro_i" class="flat-red">Inactivo
                                             </label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputEmail3" class="col-sm-3 control-label">Es reciclador?</label>
+
+                                        <div class="col-sm-9">
+                                            <input type="checkbox" class="minimal" id="rec_es_reciclador">
                                         </div>
                                     </div>
                                 </div>

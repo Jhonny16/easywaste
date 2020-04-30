@@ -58,7 +58,7 @@
 
                 </div>
                 <div class="modal-footer">
-                    <button type="button" id="btnproducto_close" class="btn btn-outline pull-left"
+                    <button type="button" id="btnperiodo_close" class="btn btn-outline pull-left"
                             data-dismiss="modal">
                         <i class="fa fa-close"></i> Cerrar
                     </button>

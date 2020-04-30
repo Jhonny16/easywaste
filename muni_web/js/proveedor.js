@@ -16,8 +16,88 @@ $('#pro_i').on('ifChecked', function (event) {
     estado = 'I';
 });
 
+
+var doc = 8;
+$('#pro_td_dni').on('ifChecked', function (event) {
+    console.log("dni");
+    doc = 8;
+
+    $("#pro_dni").removeAttr('maxlength');
+    $("#pro_dni").attr('maxlength','8');
+    $("#div_pro_pa").removeAttr('style');
+    $("#div_pro_ma").removeAttr('style');
+});
+$('#pro_td_ruc').on('ifChecked', function (event) {
+    console.log("ruc")
+    doc = 11;
+    $("#pro_dni").removeAttr('maxlength');
+    $("#pro_dni").attr('maxlength','11');
+    $("#div_pro_pa").attr('style','display:none');
+    $("#div_pro_ma").attr('style','display:none');
+});
+
+$("#pro_dni").change(function () {
+    var value = $(this).val();
+    console.log(value);
+    console.log(value.length);
+    if(doc == 11){
+        if(value.length == doc){
+            $("#pro_dni").removeAttr('style');
+        }else{
+            $("#pro_dni").attr('style','background-color: #ed8f8f');
+            swal('Nota', 'Debe ingresar 11 caracteres', 'warning');
+            $("#pro_dni").focus();
+        }
+    }
+
+    if(doc == 8){
+        if(value.length == doc){
+            $("#pro_dni").removeAttr('style');
+        }else{
+            $("#pro_dni").attr('style','background-color: #ed8f8f');
+            swal('Nota', 'Debe ingresar 8 caracteres', 'warning');
+            $("#pro_dni").focus();
+        }
+    }
+
+
+});
+
+
+
 $(document).ready(function () {
     pro_zonas_list();
+});
+
+var es_reciclador = 0;
+
+$("#pro_fn").change(function () {
+    console.log($(this).val());
+
+    console.log($("#prov_fecha_hoy").val())
+
+    var fecha1 = moment($(this).val());
+    var fecha2 = moment($("#prov_fecha_hoy").val());
+
+    console.log(fecha1);
+
+    if ($(this).val() != ""){
+        var diferencia = fecha2.diff(fecha1, 'days');
+        console.log(diferencia);
+        if((diferencia/365.3) >= 18){
+            alerta_fecha = 0;
+            $("#pro_fn").removeAttr('style');
+        }else{
+            alerta_fecha = 1;
+            if (alerta_fecha == 1){
+                swal("Cuidado! ", "No es mayor de edad. Verifique la fecha ingresada", "warning");
+                $("#pro_fn").attr('style','background-color: #ed8f8f');
+
+            }
+
+        }
+        // console.log(fecha2.diff(fecha1, 'days'), ' dias de diferencia');
+    }
 });
 
 function proveedor_add() {
@@ -37,7 +117,8 @@ function proveedor_add() {
         zona_id: $("#pro_combo_zona").val(),
         rol_id: 3,
         fecha_registro: $("#fecha_registro").val(),
-        operation: $("#operation").html()
+        operation: $("#operation").html(),
+        is_param : es_reciclador
     };
 
     console.log(data);
@@ -113,3 +194,14 @@ function pro_zonas_list(){
         }
     });
 }
+
+$('#rec_es_reciclador').on('ifChecked', function (event) {
+    es_reciclador = 1;
+
+});
+
+$('#rec_es_reciclador').on('ifUnchecked', function (event) {
+    es_reciclador = 0;
+});
+
+

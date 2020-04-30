@@ -94,65 +94,62 @@ function data_modal(id) {
             break;
         }
     }
-    var route = path + '' + image;
-    var html = '<img src="' + route + '" height="400px" width="400px" >';
-    console.log(html);
-    $("#p_image").html(html);
+    if (image != null){
+        var route = DIRECCION_WS_IMAGE + '' + image;
+        var html = '<img src="' + route + '" height="400px" width="400px" >';
+        console.log(html);
+        $("#p_image").html(html);
+    }
+
 
 }
 
 function modal_informacion() {
     $("#informacion_title").html("Nuevo");
+    $("#info_operation").val("Nuevo");
+    limpiar();
 }
 
 function informacion_add() {
     var ruta = DIRECCION_WS + "informacion_create.php";
     var token = localStorage.getItem('token');
 
-    //alert("yupe");
-    var operacion = $("#informacion_title").html();
-    var foto_val = $('#info_foto').val();
-    var img = "";
-    if(operacion=="Nuevo"){
-        if(foto_val==""){
-            img = "";
-        }else{
-            img = $('#info_foto')[0].files[0]['name'];
-        }
-        var data = {
-            titulo: $("#info_titulo").val(),
-            descripcion: $("#info_descripcion").val(),
-            imagen: img,
-            operation: operacion
-        };
-    }else{
-        var ide = $("#informacion_id").val();
-        var image = "";
-        for (var i = 0; i < list_imagen.length; i++) {
-            if (ide == list_imagen[i].id) {
-                image = list_imagen[i].imagen;
-                break;
+    $("#info_rol").val($("#combo_rol").val());
+
+    var formData = new FormData($("#form_informacion")[0]);
+    console.log(formData);
+    $.ajax({
+        type: "post",
+        headers: {
+            token: token
+        },
+        url: ruta,
+        contentType: false,
+        processData: false,
+        cache: false,
+        data: formData,
+        success: function (resultado) {
+            console.log(resultado);
+            if (resultado.estado === 200) {
+                swal("Exito", resultado.mensaje, "success");
+                listado();
+                limpiar();
+                $("#info_close").click();
+
+            } else {
+                swal("Nota", resultado.mensaje, "info");
+                console.log(resultado)
             }
+        },
+        error: function (error) {
+            console.log(error);
+            var datosJSON = $.parseJSON(error.responseText);
+            swal("Error", resultado.mensaje, "error");
         }
-        if(image == "" || image == null){
-            if(foto_val==""){
-                image = "";
-            }else{
-                image = $('#info_foto')[0].files[0]['name'];
-            }
-        }
-        console.log(image);
-        var data = {
-            titulo: $("#info_titulo").val(),
-            descripcion: $("#info_descripcion").val(),
-            id: ide,
-            imagen: image,
-            rol_id : $("#combo_rol").val(),
-            operation: operacion
-        };
-    }
+    });
 
 
+/*
     $.ajax({
         type: "post",
         headers: {
@@ -180,7 +177,7 @@ function informacion_add() {
             var datosJSON = $.parseJSON(error.responseText);
             swal("Error", datosJSON.mensaje, "error");
         }
-    });
+    });*/
 
 
 }
@@ -189,6 +186,8 @@ function limpiar() {
     $("#info_titulo").val("");
     $("#info_descripcion").val("");
     $("#info_foto").val("");
+    $("#info_rol").val("");
+    $("#combo_rol").val("0");
 }
 
 
@@ -214,11 +213,14 @@ function read_informacion(id) {
                 limpiar();
 
                 $("#informacion_title").html("Editar");
+                $("#info_operation").val("Editar");
 
 
                 $("#informacion_id").val(jsonResultado.datos.id);
                 $("#info_titulo").val(jsonResultado.datos.titulo);
                 $("#combo_rol").val(jsonResultado.datos.rol_id);
+                $("#info_rol").val(jsonResultado.datos.rol_id);
+
                 $("#info_descripcion").val(jsonResultado.datos.descripcion);
 
             }

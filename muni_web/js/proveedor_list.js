@@ -1,6 +1,9 @@
 var DIRECCION_WS = "http://localhost/www/muni_api/webservice/";
 var clase = 'background-image: linear-gradient(150deg, rgb(255,255,255) 300px, rgb(4,216,205)95%);'
 
+var es_reciclador = 0;
+var rol_id = 0;
+
 
 $(document).ready(function () {
     listado();
@@ -202,6 +205,25 @@ function read(id) {
                 //$("#combo_zona").val(''+resultado.datos.zona_id+'');
                 $("#pac-input").val(resultado.datos.direccion);
 
+                rol_id = resultado.datos.rol_id;
+
+                if(resultado.datos.other_rol == true){
+                    $("#rec_es_reciclador").iCheck('check');
+
+                }else{
+                    $("#rec_es_reciclador").iCheck('uncheck');
+
+                }
+
+
+                if (resultado.dni.length== 8) {
+                    $("#pro_td_dni").iCheck('check');
+
+                } else {
+                    $("#pro_td_ruc").iCheck('check');
+
+                }
+
             } else {
                 swal({
                     type: 'info',
@@ -235,7 +257,10 @@ function proveedor_add() {
         zona_id: $("#pro_combo_zona").val(),
         fecha_registro: $("#fecha_registro").val(),
         id : $("#proveedor_id").val(),
-        operation: $("#operation").html()
+        operation: $("#operation").html(),
+        rol_id : rol_id,
+        is_param : es_reciclador
+
     };
 
     console.log(data);
@@ -280,4 +305,13 @@ function proveedor_add() {
         }
     });
 }
+
+$('#rec_es_reciclador').on('ifChecked', function (event) {
+    es_reciclador = 1;
+
+});
+
+$('#rec_es_reciclador').on('ifUnchecked', function (event) {
+    es_reciclador = 0;
+});
 

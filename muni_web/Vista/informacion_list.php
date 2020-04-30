@@ -74,6 +74,7 @@ require_once '../util/funciones/definiciones.php';
 <?php include_once 'ext_scripts.php'; ?>
 <script src="../js/validacion.js"></script>
 <script src="../js/informacion.js"></script>
+<script src="../js/login.js"></script>
 
 </body>
 </html>

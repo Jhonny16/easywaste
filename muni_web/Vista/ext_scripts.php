@@ -146,6 +146,7 @@
         $('#rec_fn').datepicker({
             autoclose: true,
             format: 'yyyy-mm-dd',
+            defaultDate: '01/01/01'
         })
         $('#pro_fn').datepicker({
             autoclose: true,

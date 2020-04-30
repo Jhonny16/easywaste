@@ -1,11 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: jhonny
- * Date: 01/12/19
- * Time: 07:33 PM
- */
-
 require_once '../util/funciones/definiciones.php';
 ?>
 <html>
@@ -17,65 +10,60 @@ require_once '../util/funciones/definiciones.php';
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <?php include_once 'ext_estilos.php'; ?>
+    <link rel="stylesheet" href="../css/mapa.css">
 
 
 </head>
 <body class="sidebar-mini skin-blue-light sidebar-collapset">
 <div class="wrapper">
-
     <?php include_once 'est_cabecera.php'; ?>
     <?php include_once 'est_menu.php'; ?>
-    <div class="content-wrapper" id="venta_vista_crear"
+    <div class="content-wrapper" id="rec_vista_lista"
          style="background-image: linear-gradient(150deg, rgb(255,255,255) 300px, rgb(4,216,205)95%);">
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                Premios
-                <small id="operation">Lista</small>
+                Almacen
+                <small>Lista</small>
             </h1>
             <ol class="breadcrumb">
                 <li><a href="principal.php"><i class="fa fa-arrow-left"></i> Inicio</a></li>
             </ol>
         </section>
+        <!-- Main content -->
         <section class="content">
+            <!-- Small boxes (Stat box) -->
             <div class="row">
                 <div class="col-xs-12 col-lg-12">
-                    <div class="box box-default">
-                        <div class="box-header">
-                            <h3 class="box-title">
-                                <button type="button" onclick="modal_premio()" class="btn btn-primary pull-right"
-                                        data-toggle="modal" data-target="#modal_premio">
-                                    <i class="fa fa-plus"></i>
-                                    Nuevo</button>
-                            </h3>
+                    <div class="box box-info">
+                        <div class="box-header with-border">
                         </div>
-                        <div class="box-body">
-                            <div class="row">
-                                <div class="col-xs-12 col-lg-12">
-                                    <div id="premios_list"></div>
-                                </div>
+                        <!-- /.box-header -->
+                        <form class="form-horizontal">
+                            <div class="box-body" id="almacen_lista">
 
                             </div>
-                        </div>
+                        </form>
+
+
                     </div>
 
                 </div>
             </div>
-            <?php include_once 'modal_imagen.php'; ?>
-            <?php include_once 'modal_premio.php'; ?>
-
+            <?php include_once 'modal_almacen_detalle.php'; ?>
         </section>
     </div>
-
+    <!-- /.content -->
 </div>
 
 <div class="control-sidebar-bg"></div>
 </div>
 
+<!--<script src="../js/usuario_rol_permisos.js" type="text/javascript"></script>-->
 <?php include_once 'ext_scripts.php'; ?>
 <script src="../js/validacion.js"></script>
-<script src="../js/login.js"></script>
-<script src="../js/premios.js"></script>
+<script src="../js/almacen_list.js"></script>
+
 
 </body>
 </html>

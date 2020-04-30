@@ -45,7 +45,18 @@ require_once '../util/funciones/definiciones.php';
                                         <div class="box-body">
                                             <div class="row">
                                                 <div class="col-lg-6 col-md-6 col-xs-12">
+                                                    <div class="form-group">
+                                                        <label for="inputEmail3" class="col-sm-3 control-label">TIPO DOC.</label>
 
+                                                        <div class="col-sm-9">
+                                                            <label>
+                                                                <input type="radio" name="per_docs" id="per_td_dni" class="flat-red" checked>DNI
+                                                            </label>
+                                                            <label>
+                                                                <input type="radio" name="per_docs" id="per_td_ruc" class="flat-red">RUC
+                                                            </label>
+                                                        </div>
+                                                    </div>
                                                     <div class="form-group">
                                                         <label for="inputEmail3" class="col-sm-3 control-label">DNI</label>
 
@@ -54,7 +65,7 @@ require_once '../util/funciones/definiciones.php';
                                                                    onkeypress="return numeros(event);" maxlength="8" >
                                                         </div>
                                                     </div>
-                                                    <div class="form-group">
+                                                    <div class="form-group" id="div_per_pa">
                                                         <label for="inputEmail3" class="col-sm-3 control-label">Ap.Paterno</label>
 
                                                         <div class="col-sm-9">
@@ -62,7 +73,7 @@ require_once '../util/funciones/definiciones.php';
                                                                    onkeypress="return sololetras(event);">
                                                         </div>
                                                     </div>
-                                                    <div class="form-group">
+                                                    <div class="form-group" id="div_per_ma">
                                                         <label for="inputEmail3" class="col-sm-3 control-label">Ap.Materno</label>
 
                                                         <div class="col-sm-9">

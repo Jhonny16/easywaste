@@ -2,8 +2,11 @@ var DIRECCION_WS = "http://localhost/www/muni_api/webservice/";
 var cantidad_criterios = 0;
 var data_criterios = null;
 var criterios_val = [];
+
+var item_vigencia = 0;
 $(document).ready(function () {
-    criterios_lista();
+    periodo_vigencia();
+
 });
 
 function criterios_lista() {
@@ -47,19 +50,37 @@ function criterios_lista() {
                     var cont = 1;
                     for (var i = 0; i < datosJSON.datos.length; i++) {
 
-                        html += '<td><select class="form-control select2" onclick="valdidate_pesos(' + item.id +'' + datosJSON.datos[i].id + ')" style="width: 100%;" ' +
-                            'id="' + item.id + '' + datosJSON.datos[i].id + '" >\n' +
-                            '                  <option value="0">Seleccione Valor</option>\n' +
-                            '                  <option value="9">9</option>\n' +
-                            '                  <option value="7">7</option>\n' +
-                            '                  <option value="5">5</option>\n' +
-                            '                  <option value="3">3</option>\n' +
-                            '                  <option value="1">1</option>\n' +
-                            '                  <option value="0.33">1/3</option>\n' +
-                            '                  <option value="0.20">1/5</option>\n' +
-                            '                  <option value="0.14">1/7</option>\n' +
-                            '                  <option value="0.11">1/9</option>\n' +
-                            '                </select></td>';
+                        if(item_vigencia == -1){
+                            html += '<td><select class="form-control select2" disabled onclick="valdidate_pesos(' + item.id +'' + datosJSON.datos[i].id + ')" style="width: 100%;" ' +
+                                'id="' + item.id + '' + datosJSON.datos[i].id + '" >\n' +
+                                '                  <option value="0">Seleccione Valor</option>\n' +
+                                '                  <option value="9">9</option>\n' +
+                                '                  <option value="7">7</option>\n' +
+                                '                  <option value="5">5</option>\n' +
+                                '                  <option value="3">3</option>\n' +
+                                '                  <option value="1">1</option>\n' +
+                                '                  <option value="0.33">1/3</option>\n' +
+                                '                  <option value="0.20">1/5</option>\n' +
+                                '                  <option value="0.14">1/7</option>\n' +
+                                '                  <option value="0.11">1/9</option>\n' +
+                                '                </select></td>';
+                        }else{
+                            html += '<td><select class="form-control select2"  onclick="valdidate_pesos(' + item.id +'' + datosJSON.datos[i].id + ')" style="width: 100%;" ' +
+                                'id="' + item.id + '' + datosJSON.datos[i].id + '" >\n' +
+                                '                  <option value="0">Seleccione Valor</option>\n' +
+                                '                  <option value="9">9</option>\n' +
+                                '                  <option value="7">7</option>\n' +
+                                '                  <option value="5">5</option>\n' +
+                                '                  <option value="3">3</option>\n' +
+                                '                  <option value="1">1</option>\n' +
+                                '                  <option value="0.33">1/3</option>\n' +
+                                '                  <option value="0.20">1/5</option>\n' +
+                                '                  <option value="0.14">1/7</option>\n' +
+                                '                  <option value="0.11">1/9</option>\n' +
+                                '                </select></td>';
+                        }
+
+
                         cont = cont + 1;
                     }
 
@@ -394,4 +415,45 @@ function criterios_values_save() {
             });
         }
     });
+}
+
+
+function periodo_vigencia() {
+    var ruta = DIRECCION_WS + "periodo_vigente.php";
+    var token = localStorage.getItem('token');
+
+    $.ajax({
+        type: "get",
+        headers: {
+            token: token
+        },
+        url: ruta,
+        data: {},
+        success: function (resultado) {
+            console.log(resultado);
+            var datosJSON = resultado;
+            if (datosJSON.estado == 200) {
+
+                console.log(item_vigencia);
+                if (resultado.datos.vigente == -1){
+                    item_vigencia = resultado.datos.vigente;
+                    $("#a_vigencia").removeAttr('style');
+                    $("#btn_code").attr('style','display:none');
+                }else{
+                    item_vigencia = 0;
+                    item_vigencia = resultado.datos.vigente;
+                    $("#a_vigencia").attr('style','display:none');
+                    $("#btn_code").removeAttr('style');
+                }
+
+                criterios_lista();
+            }
+        },
+        error: function (error) {
+            var datosJSON = $.parseJSON(error.responseText);
+            swal("Error", datosJSON.mensaje, "error");
+        }
+    });
+
+
 }

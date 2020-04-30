@@ -1,4 +1,4 @@
-<div class="modal modal-success fade" id="modal-success-detalle">
+<div class="modal modal-default fade" id="modal-success-detalle">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -10,17 +10,17 @@
             </div>
             <div class="modal-body">
                 <div class="row">
-                    <div class="col-xs-12">
-                        <div class="form-group">
-                            <label>Centro Acopio Final</label>
-                            <select class="form-control select2" style="width: 100%;" id="combo_acopio_final">
-                            </select>
-                        </div>
-                    </div>
+<!--                    <div class="col-xs-12">-->
+<!--                        <div class="form-group">-->
+<!--                            <label>Centro Acopio Final</label>-->
+<!--                            <select class="form-control select2" style="width: 100%;" id="combo_acopio_final">-->
+<!--                            </select>-->
+<!--                        </div>-->
+<!--                    </div>-->
                     <div class="col-xs-12">
                         <div class="box box-success">
                             <div class="box-header">
-                                <h3 class="box-title">Codigo venta : <span id="venta_code"> </span></h3>
+                                <h3 class="box-title">Número de comprobante : <span id="venta_code"> </span></h3>
                             </div>
                             <div class="box-body">
                                 <div id="tabla_venta_detalle"></div>
@@ -63,8 +63,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Cerrar</button>
-                <button type="button" onclick="save_detail()" class="btn btn-outline">Guardar</button>
+                <button type="button" class="btn pull-left" data-dismiss="modal">Cerrar</button>
             </div>
         </div>
         <!-- /.modal-content -->

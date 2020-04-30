@@ -641,4 +641,30 @@ class persona extends conexion
         }
     }
 
+
+    public function posicion_recicladores()
+    {
+
+        try {
+            $sql = "select
+                           pe.id,
+                      coalesce((select latitud from posicion_actual where reciclador_id = pe.id order by id desc limit 1),'') as lat,
+                      coalesce((select longitud from posicion_actual where reciclador_id = pe.id order by id desc limit 1),'') as lng,
+                     (select name_status from status where reciclador_id = pe.id
+                      order by id desc limit 1) as name_status,
+                      pe.valor
+                    from persona pe
+                    where rol_id = 2
+                    group by pe.id
+                    having (select name_status from status where reciclador_id = pe.id
+                            order by id desc limit 1) = 'Disponible'; ";
+            $sentencia = $this->dblink->prepare($sql);
+            $sentencia->execute();
+            $resultado = $sentencia->fetchAll(PDO::FETCH_ASSOC);
+            return $resultado;
+        } catch (Exception $ex) {
+            throw $ex;
+        }
+    }
+
 }

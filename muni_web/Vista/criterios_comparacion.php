@@ -39,6 +39,14 @@
                                             <div class="box-body no-padding">
                                                 <ul class="nav nav-pills nav-stacked">
                                                     <li>
+                                                        <a href="#" id="a_vigencia" style="display: none"><i class="fa fa-check text-red">
+                                                            </i>
+                                                            <span style="color: orangered">
+                                                                <strong>NOTA:</strong> Ha expirado el periodo de
+                                                            vigencia para la valoración de criterios, actualice el periodo o cree uno nuevo.
+                                                            </span>
+                                                        </a>
+
                                                         <a href="#"><i class="fa fa-circle-o text-light-blue">
                                                             </i> 1. Seleccionar pesos para realizar la comparacion de los criterios para asignacion de valores.
                                                         </a>

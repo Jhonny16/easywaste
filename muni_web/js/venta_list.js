@@ -26,13 +26,12 @@ function listado() {
                 html += '<table id="venta_table_list" class="table table-bordered table-striped">';
                 html += '<thead>';
                 html += '<tr style="background-color: #ededed; height:25px;">';
-                html += '<th style="text-align: center">#</th>';
-                html += '<th>CODIDO</th>';
+                html += '<th style="text-align: center">Detalle</th>';
+                html += '<th>COMPROBANTE</th>';
                 html += '<th>RECICLADOR</th>';
                 html += '<th>FECHA REGISTRO</th>';
-                html += '<th>CENTRO ACOPIO TEMPORAL</th>';
                 html += '<th>CENTRO ACOPIO FINAL</th>';
-                html += '<th>PESO TOTAL</th>';
+                html += '<th>PRECIO TOTAL</th>';
                 html += '<th>ESTADO</th>';
                 html += '</tr>';
                 html += '</thead>';
@@ -45,12 +44,11 @@ function listado() {
                         '<i class="fa fa-outdent text-light" aria-hidden="true"></i></a>';
                     html += '</td>'
                     //+
-                    html += '<td>' + item.code + '</td>';
+                    html += '<td>' + item.documento_referencia + '</td>';
                     html += '<td>' + item.reciclador + '</td>';
                     html += '<td>' + item.fecha_registro + '</td>';
-                    html += '<td>' + item.centro_acopio_t + '</td>';
                     html += '<td>' + item.centro_acopio_f + '</td>';
-                    html += '<td>' + item.peso_total + '</td>';
+                    html += '<td>' + item.precio_total + '</td>';
                     html += '<td>' + item.estado + '</td>';
                     html += '</tr>';
                 });
@@ -62,8 +60,8 @@ function listado() {
                     "aaSorting": [[0, "desc"]],
                     "bScrollCollapse": true,
                     "bPaginate": true,
-                    "sScrollX": "150%",
-                    "sScrollXInner": "150%",
+                    "sScrollX": "110%",
+                    "sScrollXInner": "110%",
                 });
 
 
@@ -115,15 +113,16 @@ function data_modal(id) {
         url: ruta,
         data: JSON.stringify({'venta_id': id}),
         success: function (resultado) {
+            console.log(resultado)
             var datosJSON = resultado;
             if (datosJSON.estado == 200) {
-                $("#venta_code").html(code);
+                $("#venta_code").html(datosJSON.datos[0].documento_referencia);
                 //alert(acopio_final);
-                if(state == 'Vendido'){
-                    ca_final(acopio_final);
-                    $("#combo_acopio_final").val(acopio_final);
-                    $("#precio_total").html(price_total);
-                }
+                // if(state == 'Vendido'){
+                //     ca_final(acopio_final);
+                //     $("#combo_acopio_final").val(acopio_final);
+                //     $("#precio_total").html(price_total);
+                // }
 
                 var html = "";
                 html += '<table id="tabla_venta_detalle_t" class="table table-bordered table-striped">';
@@ -211,7 +210,7 @@ function centro_acopio_final() {
     });
 }
 
-function al_cambiar(id) {
+/*function al_cambiar(id) {
     var total = 0.0;
     var subtotal = 0.0;
     var precio = $("#txt_precio" + id).val();
@@ -267,8 +266,8 @@ function al_cambiar(id) {
     // });
 
 
-}
-
+}*/
+/*
 var arrayDetalle = new Array();
 function save_detail(){
 
@@ -367,39 +366,39 @@ function save_detail(){
     })
 
 
-}
+}*/
 
-
-function ca_final(id) {
-    $("#combo_acopio_final").empty();
-    var ruta = DIRECCION_WS + "acopio_final.php";
-    console.log(ruta);
-    $.ajax({
-        type: "get",
-        url: ruta,
-        data: {},
-        success: function (resultado) {
-            console.log(resultado);
-            var datosJSON = resultado;
-            if (datosJSON.estado === 200) {
-                var html = "";
-                html += '<option value="0">-- Seleccione centro acopio --</option>';
-                $.each(datosJSON.datos, function (i, item) {
-                    if(item.id == acopio_final){
-                        html += '<option value="' + item.id + '" selected>' + item.nombre + '</option>';
-
-                    }else{
-                        html += '<option value="' + item.id + '">' + item.nombre + '</option>';
-
-                    }
-                });
-                $("#combo_acopio_final").append(html);
-            }
-        },
-        error: function (error) {
-            console.log(error);
-            var datosJSON = $.parseJSON(error.responseText);
-            swal("Error", datosJSON.mensaje, "error");
-        }
-    });
-}
+//
+// function ca_final(id) {
+//     $("#combo_acopio_final").empty();
+//     var ruta = DIRECCION_WS + "acopio_final.php";
+//     console.log(ruta);
+//     $.ajax({
+//         type: "get",
+//         url: ruta,
+//         data: {},
+//         success: function (resultado) {
+//             console.log(resultado);
+//             var datosJSON = resultado;
+//             if (datosJSON.estado === 200) {
+//                 var html = "";
+//                 html += '<option value="0">-- Seleccione centro acopio --</option>';
+//                 $.each(datosJSON.datos, function (i, item) {
+//                     if(item.id == acopio_final){
+//                         html += '<option value="' + item.id + '" selected>' + item.nombre + '</option>';
+//
+//                     }else{
+//                         html += '<option value="' + item.id + '">' + item.nombre + '</option>';
+//
+//                     }
+//                 });
+//                 $("#combo_acopio_final").append(html);
+//             }
+//         },
+//         error: function (error) {
+//             console.log(error);
+//             var datosJSON = $.parseJSON(error.responseText);
+//             swal("Error", datosJSON.mensaje, "error");
+//         }
+//     });
+// }

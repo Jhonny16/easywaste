@@ -74,6 +74,18 @@
                     </li>
                     <li class="treeview" id="menu_premio">
                         <a href="#">
+                            <img src="../imagenes/centro_acopio.png" style="width: 1.5em" alt="">
+                            <span style="color: #01a189">Centro Acopio</span>
+                            <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="centro_acopio.php" ><i class="fa fa-circle-o"></i> Lista</a></li>
+                        </ul>
+                    </li>
+                    <li class="treeview" id="menu_premio">
+                        <a href="#">
                             <img src="../imagenes/informacion.png" style="width: 1.5em" alt="">
                             <span style="color: #01a189">Información</span>
                             <span class="pull-right-container">
@@ -122,6 +134,7 @@
                     </span>
                 </a>
                 <ul class="treeview-menu">
+                    <li><a href="periodo.php" ><i class="fa fa-circle-o"></i> Períodos</a></li>
                     <li><a href="codigo_criterio.php" ><i class="fa fa-circle-o"></i> Código Ingreso</a></li>
                     <li><a href="criterios.php" ><i class="fa fa-circle-o"></i> Comparacion</a></li>
                     <li><a href="criterios_datos_recicladores.php" ><i class="fa fa-circle-o"></i> Normalizacion</a></li>
@@ -129,6 +142,19 @@
                 </ul>
             </li>
             <li class="treeview" id="menu_venta">
+                <a href="#">
+                    <img src="../imagenes/store.png" style="width: 1.5em" alt="">
+                    <span style="color: #01a189">Almacenamiento</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="almacen.php" ><i class="fa fa-circle-o"></i> Nueva</a></li>
+                    <li><a href="almacen_lista.php" ><i class="fa fa-circle-o"></i> Lista</a></li>
+                </ul>
+            </li>
+            <li class="treeview" id="menu_almacen">
                 <a href="#">
                     <img src="../imagenes/venta.png" style="width: 1.5em" alt="">
                     <span style="color: #01a189">Ventas</span>

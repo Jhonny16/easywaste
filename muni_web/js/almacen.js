@@ -2,13 +2,13 @@ var DIRECCION_WS = "http://localhost/www/muni_api/webservice/";
 var list_residuos;
 var user_id = localStorage.getItem('id');
 $(document).ready(function () {
-    residuos();
-    centro_acopio();
-    reciclador_list();
+    a_residuos();
+    a_centro_acopio();
+    a_reciclador_list();
 });
 
-function residuos(){
-    $("#combo_tipo_residuo").empty();
+function a_residuos(){
+    $("#a_combo_tipo_residuo").empty();
     var ruta = DIRECCION_WS + "residuo_list.php";
     console.log(ruta);
     $.ajax({
@@ -25,7 +25,7 @@ function residuos(){
                 $.each(datosJSON.datos, function (i, item) {
                     html += '<option value="'+ item.id +'">' + item.nombre +'</option>';
                 });
-                $("#combo_tipo_residuo").append(html);
+                $("#a_combo_tipo_residuo").append(html);
             }
         },
         error: function (error) {
@@ -36,9 +36,9 @@ function residuos(){
     });
 }
 
-function centro_acopio(){
-    $("#combo_centro_acopio_f").empty();
-    var ruta = DIRECCION_WS + "acopio_final.php";
+function a_centro_acopio(){
+    $("#a_combo_centro_acopio_t").empty();
+    var ruta = DIRECCION_WS + "acopio_temporal.php";
     console.log(ruta);
     $.ajax({
         type: "get",
@@ -53,7 +53,7 @@ function centro_acopio(){
                 $.each(datosJSON.datos, function (i, item) {
                     html += '<option value="'+ item.id +'">' + item.nombre +'</option>';
                 });
-                $("#combo_centro_acopio_f").append(html);
+                $("#a_combo_centro_acopio_t").append(html);
             }
         },
         error: function (error) {
@@ -64,8 +64,50 @@ function centro_acopio(){
     });
 }
 
-function reciclador_list(){
-    $("#combo_reciclador").empty();
+
+$("#a_combo_centro_acopio_t").change(function () {
+    a_sector(this.value);
+});
+
+function a_sector(ca_id){
+
+    $("#a_sector").empty();
+
+    var ruta = DIRECCION_WS + "acopio_sector.php";
+    var token = localStorage.getItem('token');
+
+    console.log(ruta);
+    $.ajax({
+        type: "post",
+        headers: {
+            token: token
+        },
+        url: ruta,
+        contentType: "application/json",
+        data: JSON.stringify({'id': ca_id}),
+        success: function (resultado) {
+            console.log(resultado);
+            var datosJSON = resultado;
+            if (datosJSON.estado === 200) {
+                var html = "";
+                html += '<option value="0">-- Seleccione sector --</option>';
+                $.each(resultado.datos, function (i, item) {
+                    console.log(item.nombre);
+                    html += '<option value="'+ item.id +'">' + item.nombre +'</option>';
+                });
+                $("#a_sector").append(html);
+            }
+        },
+        error: function (error) {
+            console.log(error);
+            var datosJSON = $.parseJSON(error.responseText);
+            swal("Error", datosJSON.mensaje, "error");
+        }
+    });
+}
+
+function a_reciclador_list(){
+    $("#a_combo_reciclador").empty();
     var ruta = DIRECCION_WS + "reciclador_list.php";
     var token = localStorage.getItem('token');
     console.log(ruta);
@@ -85,7 +127,7 @@ function reciclador_list(){
                 $.each(datosJSON.datos, function (i, item) {
                     html += '<option value="'+ item.id +'">' + item.ap_paterno + ' '+ item.ap_materno + ' '+ item.nombres  +'</option>';
                 });
-                $("#combo_reciclador").append(html);
+                $("#a_combo_reciclador").append(html);
             }
         },
         error: function (error) {
@@ -96,12 +138,11 @@ function reciclador_list(){
     });
 }
 
-function add_preventa(){
+function add_almacen(){
 
     console.log("add");
-    var residuo_id = $("#combo_tipo_residuo").val();
-    var peso = $("#txt_peso").val();
-    var price = $("#txt_price").val();
+    var residuo_id = $("#a_combo_tipo_residuo").val();
+    var peso = $("#a_txt_peso").val();
 
     if (peso == "" || parseInt(peso) == 0) {
         swal({
@@ -110,15 +151,6 @@ function add_preventa(){
             text: 'Debe ingresar el peso!',
         })
         $("#txt_peso").focus;
-        return 0;
-    }
- if (price == "" || parseInt(price) == 0) {
-        swal({
-            type: 'warning',
-            title: 'Nota',
-            text: 'Debe ingresar el precio!',
-        })
-        $("#txt_price").focus;
         return 0;
     }
 
@@ -145,32 +177,27 @@ function add_preventa(){
     var fila = "<tr>" +
         "<td>" + residuo_id + "</td>" +
         "<td style=\"text-align: right\" >" + nombre + "</td>" +
-        "<td style=\"text-align: right\"  >" + peso + "</td>" +
-        "<td style=\"text-align: right\"  >" + price + "</td>" +
-        "<td style=\"text-align: right\"  >" + peso * price + "</td>" +
+        "<td style=\"text-align: right\" id=>" + peso + "</td>" +
         "<td align=\"center\" id=\"celiminar\"><a href=\"javascript:void();\"><i class=\"fa fa-trash text-red\"></i></a></td>" +
         "</tr>";
 
-    $("#tblv_detalle").append(fila);
+    $("#tbla_detalle").append(fila);
 
-    $("#combo_tipo_residuo").val("0");
-    $("#txt_peso").val("");
-    $("#txt_price").val("");
+    $("#a_combo_tipo_residuo").val("");
+    $("#a_txt_peso").val("");
 
     calcular_total();
 }
 
 function calcular_total(){
     var importeNeto = 0;
-    $("#tblv_detalle tr").each(function () {
-        var peso = $(this).find("td").eq(2).html();
-        var precio = $(this).find("td").eq(3).html();
-        var subtotal = $(this).find("td").eq(4).html();
-        console.log(subtotal);
-        importeNeto = importeNeto + parseFloat(subtotal);
+    $("#tbla_detalle tr").each(function () {
+        var importe = $(this).find("td").eq(2).html();
+        console.log(importe);
+        importeNeto = importeNeto + parseFloat(importe);
     });
 
-    $("#total").html(importeNeto.toFixed(2));
+    $("#a_total").html(importeNeto.toFixed(2));
 }
 
 
@@ -185,13 +212,13 @@ $(document).on("click", "#celiminar", function () {
 });
 
 var arrayDetalle = new Array();
-function guardar_venta() {
+function guardar_en_almacen() {
 
-    var ruta = DIRECCION_WS + "venta_create.php";
+    var ruta = DIRECCION_WS + "almacen_create.php";
     var token = localStorage.getItem('token');
 
-    var centro_acopio_t = $("#combo_centro_acopio_f").val();
-    var reciclador = $("#combo_reciclador").val();
+    var centro_acopio_t = $("#a_combo_centro_acopio_t").val();
+    var reciclador = $("#a_combo_reciclador").val();
     if(centro_acopio_t=='0'){
         swal({
             type: 'warning',
@@ -224,29 +251,26 @@ function guardar_venta() {
 
             arrayDetalle.splice(0, arrayDetalle.length);
 
-            $("#tblv_detalle tr").each(function () {
+            $("#tbla_detalle tr").each(function () {
                 var residuo_id = $(this).find("td").eq(0).html();
-                var cantidad = $(this).find("td").eq(2).html();
-                var precio = $(this).find("td").eq(3).html();
-                var subtotal = $(this).find("td").eq(4).html();
+                var peso = $(this).find("td").eq(2).html();
                 var objDetalle = new Object(); //Crear un objeto para almacenar los datos
 
                 /*declaramos y asignamos los valores a los atributos*/
                 objDetalle.residuo_id = residuo_id;
-                objDetalle.cantidad = cantidad;
-                objDetalle.precio = precio;
-                objDetalle.subtotal = subtotal;
+                objDetalle.cantidad = peso;
+
                 //Almacenar al objeto objDetalle en el array arrayDetalle
                 arrayDetalle.push(objDetalle);
 
             });
             var jsonDetalle = JSON.stringify(arrayDetalle);
             var data = {
-                numero_documento: $("#numero_documento").val(),
-                reciclador_id: $("#combo_reciclador").val(),
+                reciclador_id: $("#a_combo_reciclador").val(),
                 user_id: user_id,
-                acopio_final_id: $("#combo_centro_acopio_f").val(),
-                precio_total: $("#total").html(),
+                acopio_temporal_id: $("#a_combo_centro_acopio_t").val(),
+                sector_id: $("#a_sector").val(),
+                total: $("#a_total").html(),
                 detalle: jsonDetalle
             };
             console.log(data);
@@ -272,7 +296,7 @@ function guardar_venta() {
                             confirmButtonText: 'Aceptar!',
                         }).then(function (result) {
                             if (result.value) {
-                                window.location = "../Vista/venta_lista.php";
+                                window.location = "../Vista/almacen_lista.php";
                             }
                         })
                     } else {

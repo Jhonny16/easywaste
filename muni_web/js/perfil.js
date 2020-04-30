@@ -19,6 +19,53 @@ $('#p_cambiar_password').on('ifUnchecked', function (event) {
     $("#p_password").attr('disabled','disabled');
 });
 
+var doc = 8;
+$('#per_td_dni').on('ifChecked', function (event) {
+    console.log("dni");
+    doc = 8;
+
+    $("#p_dni").removeAttr('maxlength');
+    $("#p_dni").attr('maxlength','8');
+    $("#div_per_pa").removeAttr('style');
+    $("#div_per_ma").removeAttr('style');
+});
+$('#pro_td_ruc').on('ifChecked', function (event) {
+    console.log("ruc")
+    doc = 11;
+    $("#p_dni").removeAttr('maxlength');
+    $("#p_dni").attr('maxlength','11');
+    $("#div_per_pa").attr('style','display:none');
+    $("#div_per_ma").attr('style','display:none');
+});
+
+$("#p_dni").change(function () {
+    var value = $(this).val();
+    console.log(value);
+    console.log(value.length);
+    if(doc == 11){
+        if(value.length == doc){
+            $("#p_dni").removeAttr('style');
+        }else{
+            $("#p_dni").attr('style','background-color: #ed8f8f');
+            swal('Nota', 'Debe ingresar 11 caracteres', 'warning');
+            $("#p_dni").focus();
+        }
+    }
+
+    if(doc == 8){
+        if(value.length == doc){
+            $("#p_dni").removeAttr('style');
+        }else{
+            $("#p_dni").attr('style','background-color: #ed8f8f');
+            swal('Nota', 'Debe ingresar 8 caracteres', 'warning');
+            $("#p_dni").focus();
+        }
+    }
+
+
+});
+
+
 $(document).ready(function () {
 
     read(id);
@@ -138,6 +185,15 @@ function read(id) {
                 var nombre_completo = $("#p_paterno").val() + ' '+ $("#p_materno").val()+ ' ' + $("#p_nombres").val();
                 console.log(nombre_completo);
                 $("#name_complet").html(nombre_completo);
+
+
+                if (resultado.dni.length== 8) {
+                    $("#per_td_dni").iCheck('check');
+
+                } else {
+                    $("#per_td_ruc").iCheck('check');
+
+                }
 
             } else {
                 swal({

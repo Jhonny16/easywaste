@@ -337,26 +337,7 @@ class servicio extends conexion
 
             $secuencia = $resultado["secuencia"];
             $secuencia = $secuencia + 1;
-            $pad = 5;
-//            if (strlen($secuencia) == 1) {
-//                $pad = 5;
-//            } else {
-//                if (strlen($secuencia) == 2) {
-//                    $pad = 4;
-//                } else {
-//                    if (strlen($secuencia) == 3) {
-//                        $pad = 3;
-//                    } else {
-//                        if (strlen($secuencia) == 4) {
-//                            $pad = 2;
-//                        } else {
-//                            if (strlen($secuencia) == 5) {
-//                                $pad = 1;
-//                            }
-//                        }
-//                    }
-//                }
-//            }
+            $pad = 6;
             $correlativo = str_pad($secuencia, $pad, "0", STR_PAD_LEFT);
             $numeracion = "SRV-" . $correlativo;
             $this->setCode($numeracion);
@@ -384,33 +365,40 @@ class servicio extends conexion
             $datosDetalle = $this->array_distancias;
             $array = [];
 
-            foreach ($datosDetalle as $key => $value) {
+            for ($i= 0; $i< count($datosDetalle); $i++){
 
-                $sql_d = "select p.id, p.valor,
-                                   (select name_status from status where reciclador_id = p.id
-                                    order by id desc limit 1) as name_status
-                            from  persona p
-                            where p.rol_id = 2 and p.id = :p_reciclador_id
-                            group by p.id,p.valor
-                            order by p.valor desc limit 1
-                            ";
-                $sentence = $this->dblink->prepare($sql_d);
-                $sentence->bindParam(":p_reciclador_id", $value->reciclador_id);
-                $sentence->execute();
-                $res = $sentence->fetch(PDO::FETCH_ASSOC);
 
-                //Determinamos si el reciclador esta disponible
-                if ($sentence->rowCount()) {
-                    if($res['id'] > 0 and $res['name_status'] == 'Disponible'){
-                        $array_data = [];
-                        $array_data[0] = $res['id'];
-                        $array_data[1] = $res['valor'];
-                        //$array_data[1] = $value->distancia;
-                        //En caso este disponible se agregará a un arreglo
-                        array_push($array, $array_data);
-                    }
-
-                }
+                $array_data = [];
+                $array_data[0] = $datosDetalle[$i]['id'];
+                $array_data[1] = $datosDetalle[$i]['valor'];
+                //En caso este disponible se agregará a un arreglo
+                array_push($array, $array_data);
+//
+//                $sql_d = "select p.id, p.valor,
+//                                   (select name_status from status where reciclador_id = p.id
+//                                    order by id desc limit 1) as name_status
+//                            from  persona p
+//                            where p.rol_id = 2 and p.id = :p_reciclador_id
+//                            group by p.id,p.valor
+//                            order by p.valor desc limit 1
+//                            ";
+//                $sentence = $this->dblink->prepare($sql_d);
+//                $sentence->bindParam(":p_reciclador_id", $value->reciclador_id);
+//                $sentence->execute();
+//                $res = $sentence->fetch(PDO::FETCH_ASSOC);
+//
+//                //Determinamos si el reciclador esta disponible
+//                if ($sentence->rowCount()) {
+//                    if($res['id'] > 0 and $res['name_status'] == 'Disponible'){
+//                        $array_data = [];
+//                        $array_data[0] = $res['id'];
+//                        $array_data[1] = $res['valor'];
+//                        //$array_data[1] = $value->distancia;
+//                        //En caso este disponible se agregará a un arreglo
+//                        array_push($array, $array_data);
+//                    }
+//
+//                }
 
             }
 

@@ -45,7 +45,13 @@ function c1_tiempo_atencion() {
                     ;
                     html += '<td>' + item.id + '</td>';
                     html += '<td>' + item.reciclador + '</td>';
-                    html += '<td>' + item.bono + '</td>';
+                    if (item.bono == 0){
+                        html += '<td bgcolor="red">' + item.bono + '</td>';
+
+                    }else{
+                        html += '<td>' + item.bono + '</td>';
+
+                    }
                     html += '<td>' + item.intervalo + '</td>';
                     html += '<td>' + item.valor + '</td>';
                     html += '</tr>';
@@ -56,8 +62,8 @@ function c1_tiempo_atencion() {
 
                 $("#div_tiempo_atencion").html(html);
                 $('#table_tiempo_atencion').DataTable({
-                    "aaSorting": [[0, "asc"]],
-                    "bbSorting": [[0, "asc"]],
+                    "aaSorting": [[4, "desc"]],
+                    "bbSorting": [[4, "asc"]],
                     "bScrollCollapse": true,
                     "bPaginate": true,
                     "sScrollX": "100%",

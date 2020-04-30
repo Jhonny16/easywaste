@@ -153,6 +153,7 @@ function periodo_add() {
             if (datosJSON.estado === 200) {
                 swal("Exito", datosJSON.mensaje, "success");
                 periodo_listar();
+                $("#btnperiodo_close").click();
 
             } else {
                 swal("Nota", datosJSON.mensaje, "info");
@@ -196,7 +197,7 @@ function read_periodo(id) {
                 $("#txtperiodo_toperacion").val("editar");
                 $("#periodo_title_modal").html("Editar Periodo");
                 $("#txtperiodo_id").val(jsonResultado.datos.id);
-                if (jsonResultado.datos.estado === '1') {
+                if (jsonResultado.datos.estado === 1) {
                     $("#periodo_activo").iCheck('check');
                 } else {
                     $("#periodo_noactivo").iCheck('check');
@@ -235,4 +236,7 @@ function read_periodo(id) {
         }
     });
 }
+
+
+
 

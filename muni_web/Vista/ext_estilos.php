@@ -21,4 +21,8 @@
 <link href="../util/lte/css/skins/_all-skins.min.css" rel="stylesheet" />
 
 
+<link rel="shortcut icon" type="image/x-icon" href="../imagenes/reciclaje.png" />
+
+
+
 

@@ -15,7 +15,26 @@ class venta extends conexion
     private $acopio_final_id;
     private $total;
     private $precio_total;
+    private $documento_referencia;
     private $detalle;
+
+    /**
+     * @return mixed
+     */
+    public function getDocumentoReferencia()
+    {
+        return $this->documento_referencia;
+    }
+
+    /**
+     * @param mixed $documento_referencia
+     */
+    public function setDocumentoReferencia($documento_referencia)
+    {
+        $this->documento_referencia = $documento_referencia;
+    }
+
+
 
     /**
      * @return mixed
@@ -197,77 +216,74 @@ class venta extends conexion
     public function create()
     {
         try {
-            $sql = "select secuencia from correlativo where tabla = 'venta' ";
-            $sentencia = $this->dblink->prepare($sql);
-            $sentencia->execute();
-            $resultado = $sentencia->fetch();
 
-            $secuencia = $resultado["secuencia"];
-            $secuencia = $secuencia + 1;
-            if (strlen($secuencia) == 1) {
-                $pad = 5;
-            } else {
-                if (strlen($secuencia) == 2) {
-                    $pad = 4;
-                } else {
-                    if (strlen($secuencia) == 3) {
-                        $pad = 3;
-                    } else {
-                        if (strlen($secuencia) == 4) {
-                            $pad = 2;
-                        } else {
-                            if (strlen($secuencia) == 5) {
-                                $pad = 1;
-                            }
-                        }
+            $datosDetalle = json_decode($this->detalle);
+            foreach ($datosDetalle as $key => $value) {
+                $sql = "select stock from residuo where id = :p_residuo_id ";
+                $sentencia = $this->dblink->prepare($sql);
+                $sentencia->bindParam(":p_residuo_id", $value->residuo_id);
+                $sentencia->execute();
+                $resultado = $sentencia->fetch(PDO::FETCH_ASSOC);
+
+                $sw = 0;
+                $stock = 0;
+                if ($sentencia->rowCount()) {
+                    $stock = $resultado['stock'];
+                    if($stock < $value->cantidad){
+                        $sw=1;
+                        break;
                     }
                 }
             }
-            $correlativo = str_pad($secuencia, $pad, "0", STR_PAD_LEFT);
-            $numeracion = "VNT-" . $correlativo;
-            $this->setCode($numeracion);
 
+            if($sw==0){
+                $sql = "insert into venta (documento_referencia,fecha_registro,reciclador_id, user_id,acopio_final_id,precio_total)
+                    values (:p_documento, :p_fecha_registro ,:p_reciclador, :p_user, :p_acopio_final, :p_precio_total); ";
+                $sentencia = $this->dblink->prepare($sql);
+                $sentencia->bindParam(":p_documento", $this->documento_referencia);
+                $sentencia->bindParam(":p_fecha_registro", $this->fecha_registro);
+                $sentencia->bindParam(":p_reciclador", $this->reciclador_id);
+                $sentencia->bindParam(":p_user", $this->user_id);
+                $sentencia->bindParam(":p_acopio_final", $this->acopio_final_id);
+                $sentencia->bindParam(":p_precio_total", $this->precio_total);
+                $sentencia->execute();
 
-            $sql = "insert into venta (code,fecha_registro,reciclador_id,user_id,acopio_temporal_id,total)
-                    values (:p_code, :p_fecha_registro ,:p_reciclador, :p_user, :p_acopio_temporal, :p_total); ";
-            $sentencia = $this->dblink->prepare($sql);
-            $sentencia->bindParam(":p_code", $this->code);
-            $sentencia->bindParam(":p_fecha_registro", $this->fecha_registro);
-            $sentencia->bindParam(":p_reciclador", $this->reciclador_id);
-            $sentencia->bindParam(":p_user", $this->user_id);
-            $sentencia->bindParam(":p_acopio_temporal", $this->acopio_temporal_id);
-            $sentencia->bindParam(":p_total", $this->total);
-            $sentencia->execute();
+                $sql = "SELECT id FROM venta order by 1 desc limit 1";
+                $sentencia = $this->dblink->prepare($sql);
+                $sentencia->execute();
+                $resultado = $sentencia->fetch();
 
-            $sql = "SELECT id FROM venta order by 1 desc limit 1";
-            $sentencia = $this->dblink->prepare($sql);
-            $sentencia->execute();
-            $resultado = $sentencia->fetch();
+                if ($sentencia->rowCount()) {
 
-            if ($sentencia->rowCount()) {
-                $datosDetalle = json_decode($this->detalle);
+                    foreach ($datosDetalle as $key => $value) {
+                        $sql = "insert into 
+                        detalle (residuo_id,cantidad,precio,sub_total,venta_id)
+                        values(:p_residuo_id,:p_cantidad, :p_precio, :p_sub_total, :p_venta_id)";
+                        $sentencia = $this->dblink->prepare($sql);
+                        $sentencia->bindParam(":p_residuo_id", $value->residuo_id);
+                        $sentencia->bindParam(":p_cantidad", $value->cantidad);
+                        $sentencia->bindParam(":p_precio", $value->precio);
+                        $sentencia->bindParam(":p_sub_total", $value->subtotal);
+                        $sentencia->bindParam(":p_venta_id", $resultado['id']);
+                        $sentencia->execute();
 
-                foreach ($datosDetalle as $key => $value) {
-                    $sql = "insert into 
-                        detalle (residuo_id,venta_id,cantidad)
-                        values(:p_residuo_id,:p_venta,:p_peso)";
-                    $sentencia = $this->dblink->prepare($sql);
-                    $sentencia->bindParam(":p_residuo_id", $value->residuo_id);
-                    $sentencia->bindParam(":p_venta", $resultado['id']);
-                    $sentencia->bindParam(":p_peso", $value->peso);
-                    $sentencia->execute();
+                        $this->dblink->beginTransaction();
+                        $sql = "update residuo set stock = stock - :p_cantidad where id = :p_residuo_id ";
+                        $sentencia = $this->dblink->prepare($sql);
+                        $sentencia->bindParam(":p_cantidad", $value->cantidad);
+                        $sentencia->bindParam(":p_residuo_id", $value->residuo_id);
+                        $sentencia->execute();
+                        $this->dblink->commit();
+
+                    }
                 }
+
+                return 1;
+            }else{
+                return -1;
             }
 
 
-            $this->dblink->beginTransaction();
-            $sql = "update correlativo set secuencia = :p_secuencia where tabla = 'venta' ";
-            $sentencia = $this->dblink->prepare($sql);
-            $sentencia->bindParam(":p_secuencia", $secuencia);
-            $sentencia->execute();
-            $this->dblink->commit();
-
-            return True;
 
         } catch (Exception $ex) {
             throw $ex;
@@ -280,14 +296,11 @@ class venta extends conexion
         try {
 
             $sql = "select
-                    v.id as venta_id, v.code, v.fecha_registro, v.estado, v.total as peso_total,
-                           p.ap_paterno || ' ' || p.ap_materno||' ' ||p.nombres as reciclador,
-                           ca.nombre as centro_acopio_t,
-                           v.acopio_final_id , v.precio_total,
-                          (case when ca2.nombre IS NULL then 'Sin centro acopio final' else  ca2.nombre  end) as centro_acopio_f
+                      v.id as venta_id, v.documento_referencia, v.fecha_registro, v.estado, v.precio_total,
+                      p.ap_paterno || ' ' || p.ap_materno||' ' ||p.nombres as reciclador,
+                      ca.nombre as centro_acopio_f
                     from venta v inner join persona p on v.reciclador_id = p.id
-                    inner join centro_acopio ca on v.acopio_temporal_id = ca.id
-                    left join centro_acopio ca2 on v.acopio_final_id = ca2.id;";
+                                 inner join centro_acopio ca on v.acopio_final_id = ca.id;";
             $sentencia = $this->dblink->prepare($sql);
             $sentencia->execute();
             $resultado = $sentencia->fetchAll(PDO::FETCH_ASSOC);
@@ -305,8 +318,9 @@ class venta extends conexion
     {
         try {
 
-            $sql = "select d.*, r.nombre
+            $sql = "select d.*, r.nombre, v.documento_referencia
                     from detalle d inner join residuo r on d.residuo_id = r.id
+                    inner join venta v on d.venta_id = v.id
                     where venta_id = :p_venta_id;
                     ";
             $sentencia = $this->dblink->prepare($sql);

@@ -3,7 +3,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            Ventas
+            Almacén
             <small id="operation">Registro</small>
         </h1>
         <ol class="breadcrumb">
@@ -18,7 +18,7 @@
             <div class="col-xs-12 col-lg-12">
                 <div class="box box-info">
                     <div class="box-header with-border">
-                        <h5 class="box-title" style="color: #01a189">Venta</h5>
+                        <h5 class="box-title" style="color: #01a189">Almacén</h5>
                         <input type="text" id="user_id" style="display: none">
                     </div>
                     <!-- /.box-header -->
@@ -29,46 +29,37 @@
 
                                 <!-- /.form-group -->
                                 <div class="form-group">
-                                    <label>Centro de Acopio Final</label>
-                                    <select class="form-control select2" style="width: 100%;"
-                                            id="combo_centro_acopio_f">
+                                    <label>Centro de Acopio Temporal</label>
+                                    <select class="form-control select2" style="width: 100%;" id="a_combo_centro_acopio_t">
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Sector</label>
+                                    <select class="form-control" style="width: 100%;" id="a_sector">
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label>Documento
-                                        referencial</label>
-
-                                    <input type="text" class="form-control" id="numero_documento"
-                                           placeholder="Ingrese número de documento referencial">
-                                </div>
-                                <div class="form-group">
                                     <label>Reciclador</label>
-                                    <select class="form-control select2" style="width: 100%;" id="combo_reciclador">
+                                    <select class="form-control select2" style="width: 100%;" id="a_combo_reciclador">
                                     </select>
                                 </div>
                                 <!-- /.form-group -->
                                 <div class="form-group">
                                     <label>Tipo Residuo</label>
-                                    <select class="form-control select2" style="width: 100%;" id="combo_tipo_residuo">
+                                    <select class="form-control select2" style="width: 100%;" id="a_combo_tipo_residuo">
                                     </select>
                                 </div>
                                 <div class="form-group">
                                     <label>Peso kg.</label>
-                                    <input type="number" class="form-control" id="txt_peso"
+                                    <input type="number" class="form-control" id="a_txt_peso"
                                            placeholder="Ingrese peso en kg ">
-                                </div>
-                                <div class="form-group">
-                                    <label>Precio.</label>
-                                    <input type="number" class="form-control" id="txt_price"
-                                           placeholder="Ingrese precio">
                                 </div>
                                 <div>
                                     <div class="box-footer">
-                                        <button type="button" onclick="add_preventa()"
-                                                class="btn btn-foursquare pull-right">
+                                        <button type="button" onclick="add_almacen()" class="btn btn-foursquare pull-right">
                                             <i class="fa fa-plus" aria-hidden="true"></i>
-                                            Añadir
-                                        </button>
+                                            Añadir</button>
                                     </div>
                                 </div>
                                 <!-- /.form-group -->
@@ -88,12 +79,10 @@
                                                     <th>#</th>
                                                     <th>Residuo</th>
                                                     <th>Peso</th>
-                                                    <th>Precio</th>
-                                                    <th>Subtotal</th>
                                                     <th>Eliminar</th>
                                                 </tr>
                                                 </thead>
-                                                <tbody id="tblv_detalle">
+                                                <tbody id="tbla_detalle">
                                                 </tbody>
                                             </table>
 
@@ -107,7 +96,7 @@
                                         <table class="table small">
                                             <tr>
                                                 <th>Peso Total:</th>
-                                                <td id="total"></td>
+                                                <td id="a_total"></td>
                                             </tr>
                                         </table>
                                     </div>
@@ -122,7 +111,7 @@
                     <!-- /.box-body -->
                     <div class="box-footer">
                         <button type="submit" class="btn btn-default">Cancel</button>
-                        <button type="button" class="btn btn-info pull-right" onclick="guardar_venta()">Guardar</button>
+                        <button type="button" class="btn btn-info pull-right" onclick="guardar_en_almacen()">Guardar</button>
                     </div>
                     <!-- /.box-footer -->
 
