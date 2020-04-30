@@ -29,18 +29,18 @@
                                 <div class="col-lg-6 col-md-6 col-xs-12">
                                     <input type="text" id="fecha_hoy" value="<?php date_default_timezone_set("America/Lima");
                                     echo date('Y-m-d');?>" style="display: none">
-                                    <div class="form-group">
-                                        <label for="inputEmail3" class="col-sm-3 control-label">TIPO DOC.</label>
-
-                                        <div class="col-sm-9">
-                                            <label>
-                                                <input type="radio" name="rec_docs" id="rec_td_dni" class="flat-red" checked>DNI
-                                            </label>
-                                            <label>
-                                                <input type="radio" name="rec_docs" id="rec_td_ruc" class="flat-red">RUC
-                                            </label>
-                                        </div>
-                                    </div>
+<!--                                    <div class="form-group">-->
+<!--                                        <label for="inputEmail3" class="col-sm-3 control-label">TIPO DOC.</label>-->
+<!---->
+<!--                                        <div class="col-sm-9">-->
+<!--                                            <label>-->
+<!--                                                <input type="radio" name="rec_docs" id="rec_td_dni" class="flat-red" checked>DNI-->
+<!--                                            </label>-->
+<!--                                            <label>-->
+<!--                                                <input type="radio" name="rec_docs" id="rec_td_ruc" class="flat-red">RUC-->
+<!--                                            </label>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
                                     <div class="form-group">
                                         <label for="inputEmail3" class="col-sm-3 control-label">N° DOCUMENTO</label>
 

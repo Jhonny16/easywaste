@@ -29,7 +29,7 @@ $('#per_td_dni').on('ifChecked', function (event) {
     $("#div_per_pa").removeAttr('style');
     $("#div_per_ma").removeAttr('style');
 });
-$('#pro_td_ruc').on('ifChecked', function (event) {
+$('#per_td_ruc').on('ifChecked', function (event) {
     console.log("ruc")
     doc = 11;
     $("#p_dni").removeAttr('maxlength');
@@ -187,7 +187,7 @@ function read(id) {
                 $("#name_complet").html(nombre_completo);
 
 
-                if (resultado.dni.length== 8) {
+                if (resultado.datos.dni.length== 8) {
                     $("#per_td_dni").iCheck('check');
 
                 } else {

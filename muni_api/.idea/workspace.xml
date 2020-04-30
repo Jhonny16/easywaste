@@ -29,7 +29,53 @@
     <select />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/webservice/centro_acopio_create.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="336">
+              <caret line="35" column="31" selection-start-line="35" selection-start-column="31" selection-end-line="35" selection-end-column="31" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/webservice/informacion_create.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="377">
+              <caret line="77" selection-start-line="77" selection-end-line="77" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/webservice/premio_create.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1066">
+              <caret line="100" column="29" selection-start-line="100" selection-start-column="29" selection-end-line="100" selection-end-column="29" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/model/premio.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="308">
+              <caret line="187" column="42" lean-forward="true" selection-start-line="187" selection-start-column="42" selection-end-line="187" selection-end-column="42" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/model/informacion.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="87">
+              <caret line="176" column="11" selection-start-line="176" selection-start-column="11" selection-end-line="176" selection-end-column="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -106,7 +152,6 @@
         <option value="$PROJECT_DIR$/model/usuario.php" />
         <option value="$PROJECT_DIR$/webservice/proveedor_list_pintrash.php" />
         <option value="$PROJECT_DIR$/webservice/premio_pintrash_list.php" />
-        <option value="$PROJECT_DIR$/model/premio.php" />
         <option value="$PROJECT_DIR$/webservice/proveedor_pintrash.php" />
         <option value="$PROJECT_DIR$/webservice/canje_create.php" />
         <option value="$PROJECT_DIR$/model/canje.php" />
@@ -119,11 +164,8 @@
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/439262b2-8b77-4ba6-8829-69d43dec0930/console_1.sql" />
         <option value="$PROJECT_DIR$/model/sensibilizacion.php" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/7b3e37c6-4ad2-46a9-bdd0-1d5751d1b676/console.sql" />
-        <option value="$PROJECT_DIR$/model/informacion.php" />
         <option value="$PROJECT_DIR$/webservice/informacion_list_persona.php" />
         <option value="$PROJECT_DIR$/datos/configuracion.php" />
-        <option value="$PROJECT_DIR$/webservice/premio_create.php" />
-        <option value="$PROJECT_DIR$/webservice/informacion_create.php" />
         <option value="$PROJECT_DIR$/webservice/criterio1_datos.php" />
         <option value="$PROJECT_DIR$/webservice/criterio3_datos.php" />
         <option value="$PROJECT_DIR$/model/persona_criterio.php" />
@@ -149,6 +191,10 @@
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/439262b2-8b77-4ba6-8829-69d43dec0930/console.sql" />
         <option value="$PROJECT_DIR$/webservice/venta_create.php" />
         <option value="$PROJECT_DIR$/model/venta.php" />
+        <option value="$PROJECT_DIR$/model/informacion.php" />
+        <option value="$PROJECT_DIR$/webservice/informacion_create.php" />
+        <option value="$PROJECT_DIR$/webservice/premio_create.php" />
+        <option value="$PROJECT_DIR$/model/premio.php" />
       </list>
     </option>
   </component>
@@ -399,17 +445,18 @@
       <workItem from="1588097349448" duration="11799000" />
       <workItem from="1588122835803" duration="7286000" />
       <workItem from="1588161542011" duration="34745000" />
+      <workItem from="1588253378989" duration="3145000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1143252000" />
+    <option name="totallyTimeSpent" value="1146397000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-3" y="0" width="1372" height="739" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21299094" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25755286" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -495,13 +542,6 @@
     <entry file="file://$PROJECT_DIR$/webservice/position_create.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/model/premio.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2080">
-          <caret line="160" column="20" selection-start-line="160" selection-start-column="20" selection-end-line="160" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/webservice/uservalidar.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="336">
@@ -513,20 +553,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="65">
           <caret line="152" column="32" lean-forward="true" selection-start-line="152" selection-start-column="32" selection-end-line="152" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webservice/premio_create.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="102" column="9" selection-start-line="92" selection-start-column="7" selection-end-line="102" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webservice/informacion_create.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="328">
-          <caret line="76" column="32" selection-start-line="76" selection-start-column="32" selection-end-line="76" selection-end-column="32" />
         </state>
       </provider>
     </entry>
@@ -663,9 +689,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/model/centro_acopio_create.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/model/centro_acopio_create.php" />
     <entry file="file://$PROJECT_DIR$/webservice/canje_create.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="13">
@@ -680,24 +704,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/model/informacion.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="218" lean-forward="true" selection-start-line="202" selection-start-column="4" selection-end-line="218" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/webservice/centro_acopio_list.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="208">
           <caret line="16" column="28" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webservice/centro_acopio_create.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="52" column="29" lean-forward="true" selection-start-line="52" selection-start-column="29" selection-end-line="52" selection-end-column="29" />
         </state>
       </provider>
     </entry>
@@ -750,13 +760,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/model/centro_acopio.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="109" column="20" selection-start-line="109" selection-start-column="20" selection-end-line="109" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/webservice/acopio_final.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="143">
@@ -803,6 +806,48 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="243">
           <caret line="320" column="64" selection-start-line="320" selection-start-column="64" selection-end-line="320" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webservice/informacion_create.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="377">
+          <caret line="77" selection-start-line="77" selection-end-line="77" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webservice/centro_acopio_create.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="35" column="31" selection-start-line="35" selection-start-column="31" selection-end-line="35" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/centro_acopio.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-774">
+          <caret line="124" column="20" selection-start-line="124" selection-start-column="20" selection-end-line="124" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/informacion.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="87">
+          <caret line="176" column="11" selection-start-line="176" selection-start-column="11" selection-end-line="176" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/premio.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="187" column="42" lean-forward="true" selection-start-line="187" selection-start-column="42" selection-end-line="187" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webservice/premio_create.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1066">
+          <caret line="100" column="29" selection-start-line="100" selection-start-column="29" selection-end-line="100" selection-end-column="29" />
         </state>
       </provider>
     </entry>

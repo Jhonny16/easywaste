@@ -35,7 +35,7 @@
                                     </select>
                                 </div>
 
-                                <div class="form-group">
+                                <div class="form-group" id="div_numero_sectores">
                                     <label for="exampleInputEmail1">N° Sectores</label>
                                     <input type="number" class="form-control" id="ca_numero_sectores"
                                            max="10" maxlength="2" min="1"

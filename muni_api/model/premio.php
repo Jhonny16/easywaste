@@ -163,21 +163,39 @@ class premio extends conexion
 
         try {
 
-            $this->dblink->beginTransaction();
-            $sql = "update premio set 
+            if($this->imagen){
+                $this->dblink->beginTransaction();
+                $sql = "update premio set 
                     nombre = :p_nombre, 
                     stock = :p_stock, 
                     precio = :p_precio, 
                     pintrash = :p_pintrash,
                     imagen = :p_imagen
                     where id = :p_premio_id ";
-            $sentencia = $this->dblink->prepare($sql);
-            $sentencia->bindParam(":p_nombre", $this->nombre);
-            $sentencia->bindParam(":p_stock", $this->stock);
-            $sentencia->bindParam(":p_precio", $this->precio);
-            $sentencia->bindParam(":p_pintrash", $this->pintrash);
-            $sentencia->bindParam(":p_imagen", $this->imagen);
-            $sentencia->bindParam(":p_premio_id", $this->id);
+                $sentencia = $this->dblink->prepare($sql);
+                $sentencia->bindParam(":p_nombre", $this->nombre);
+                $sentencia->bindParam(":p_stock", $this->stock);
+                $sentencia->bindParam(":p_precio", $this->precio);
+                $sentencia->bindParam(":p_pintrash", $this->pintrash);
+                $sentencia->bindParam(":p_imagen", $this->imagen);
+                $sentencia->bindParam(":p_premio_id", $this->id);
+            }else{
+                $this->dblink->beginTransaction();
+                $sql = "update premio set 
+                    nombre = :p_nombre, 
+                    stock = :p_stock, 
+                    precio = :p_precio, 
+                    pintrash = :p_pintrash
+                    where id = :p_premio_id ";
+                $sentencia = $this->dblink->prepare($sql);
+                $sentencia->bindParam(":p_nombre", $this->nombre);
+                $sentencia->bindParam(":p_stock", $this->stock);
+                $sentencia->bindParam(":p_precio", $this->precio);
+                $sentencia->bindParam(":p_pintrash", $this->pintrash);
+                $sentencia->bindParam(":p_premio_id", $this->id);
+            }
+
+
             $sentencia->execute();
             $this->dblink->commit();
 

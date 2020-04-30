@@ -43,7 +43,13 @@ function listado() {
                     html += '<td>' + item.nombre + '</td>';
                     html += '<td>' + item.direccion + '</td>';
                     html += '<td>' + item.tipo + '</td>';
-                    html += '<td>' + item.numero_sectores + '</td>';
+                    if (item.tipo == 'Final') {
+                        html += '<td>-</td>';
+
+                    } else {
+                        html += '<td>' + item.numero_sectores + '</td>';
+
+                    }
 
                     html += '</tr>';
                 });
@@ -83,7 +89,17 @@ function listado() {
 function modal_acopio() {
     $("#ca_title").html("Nuevo");
     limpiar();
-}
+    operation = 'Nuevo';
+    var value = $("#combo_type").val();
+    if (value == 'Final') {
+        $("#div_numero_sectores").attr('style', 'display:none');
+    } else {
+        $("#div_numero_sectores").removeAttr('style');
+
+    }
+
+};
+
 
 function centro_acopio_add() {
     var ruta = DIRECCION_WS + "centro_acopio_create.php";
@@ -98,6 +114,7 @@ function centro_acopio_add() {
         'id': $("#ca_id").val()
     }
 
+    console.log(data);
     $.ajax({
         type: "post",
         headers: {
@@ -113,7 +130,7 @@ function centro_acopio_add() {
                 swal("Exito", datosJSON.mensaje, "success");
                 listado();
                 limpiar();
-                $("#info_close").click();
+                $("#ca_close").click();
 
             } else {
                 swal("Nota", datosJSON.mensaje, "info");
@@ -169,6 +186,12 @@ function read_centro(id) {
                 $("#ca_direccion").val(jsonResultado.datos.direccion);
                 $("#combo_type").val(jsonResultado.datos.tipo);
 
+                if (jsonResultado.datos.tipo == 'Final') {
+                    $("#div_numero_sectores").attr('style', 'display:none');
+                } else {
+                    $("#div_numero_sectores").removeAttr('style');
+
+                }
                 $("#ca_numero_sectores").val(jsonResultado.datos.numero_sectores);
 
             }

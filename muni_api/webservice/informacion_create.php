@@ -54,36 +54,35 @@ try {
         }
 
 
-
     } else {
-
-        $explode = explode('.', $image['name']);
-        $extension = $explode[1];
-        $name_encriptado = md5($image['tmp_name']) . '.' . $extension;
-        $ruta = '../imagenes/' . '' . $name_encriptado . '';
-
-        $res = move_uploaded_file($image['tmp_name'], $ruta);
-
 
         $objp = new informacion();
         $objp->setTitulo($titulo);
         $objp->setDescripcion($descripcion);
         $objp->setRolId($rol_id);
-        $objp->setImagen($name_encriptado);
 
         $objp->setId($id);
 
-        if ($res) {
-            $result = $objp->update();
-            if ($result) {
-                Funciones::imprimeJSON(200, "Actualizado de manera correcta", $result);
-            } else {
-                Funciones::imprimeJSON(203, "Error al momento de actualizar", "");
-            }
-        } else {
-            Funciones::imprimeJSON(203, "No se guardó la imagen : ", $image);
+        if ($image['name'] != "") {
+            $explode = explode('.', $image['name']);
+            $extension = $explode[1];
+            $name_encriptado = md5($image['tmp_name']) . '.' . $extension;
+            $ruta = '../imagenes/' . '' . $name_encriptado . '';
+
+            $res = move_uploaded_file($image['tmp_name'], $ruta);
+
+            $objp->setImagen($name_encriptado);
 
         }
+
+
+        $result = $objp->update();
+        if ($result) {
+            Funciones::imprimeJSON(200, "Actualizado de manera correcta", $result);
+        } else {
+            Funciones::imprimeJSON(203, "Error al momento de actualizar", "");
+        }
+
     }
 
 

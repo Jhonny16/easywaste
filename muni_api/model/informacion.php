@@ -174,20 +174,35 @@ class informacion extends conexion
     {
 
         try {
-
-            $this->dblink->beginTransaction();
-            $sql = "update informacion set 
+            if($this->imagen){
+                $this->dblink->beginTransaction();
+                $sql = "update informacion set 
                     titulo = :p_titulo, 
                     descripcion = :p_descripcion,                  
                     imagen = :p_imagen,
                     rol_id = :p_rol_id
                     where id = :p_id ";
-            $sentencia = $this->dblink->prepare($sql);
-            $sentencia->bindParam(":p_titulo", $this->titulo);
-            $sentencia->bindParam(":p_descripcion", $this->descripcion);
-            $sentencia->bindParam(":p_imagen", $this->imagen);
-            $sentencia->bindParam(":p_rol_id", $this->rol_id);
-            $sentencia->bindParam(":p_id", $this->id);
+                $sentencia = $this->dblink->prepare($sql);
+                $sentencia->bindParam(":p_titulo", $this->titulo);
+                $sentencia->bindParam(":p_descripcion", $this->descripcion);
+                $sentencia->bindParam(":p_imagen", $this->imagen);
+                $sentencia->bindParam(":p_rol_id", $this->rol_id);
+                $sentencia->bindParam(":p_id", $this->id);
+            }else{
+                $this->dblink->beginTransaction();
+                $sql = "update informacion set 
+                    titulo = :p_titulo, 
+                    descripcion = :p_descripcion,                  
+                    rol_id = :p_rol_id
+                    where id = :p_id ";
+                $sentencia = $this->dblink->prepare($sql);
+                $sentencia->bindParam(":p_titulo", $this->titulo);
+                $sentencia->bindParam(":p_descripcion", $this->descripcion);
+                $sentencia->bindParam(":p_rol_id", $this->rol_id);
+                $sentencia->bindParam(":p_id", $this->id);
+            }
+
+
             $sentencia->execute();
             $this->dblink->commit();
 
