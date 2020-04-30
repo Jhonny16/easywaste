@@ -201,7 +201,7 @@ class centro_acopio extends conexion
             $sentencia->execute();
             $this->dblink->commit();
 
-            $sql = "delete from sector where id = :p_id";
+            $sql = "delete from sector where acopio_temporal_id= :p_id";
             $sentencia = $this->dblink->prepare($sql);
             $sentencia->bindParam(":p_id", $this->id);
             $sentencia->execute();

@@ -110,7 +110,6 @@
                     </div>
                     <!-- /.box-body -->
                     <div class="box-footer">
-                        <button type="submit" class="btn btn-default">Cancel</button>
                         <button type="button" class="btn btn-info pull-right" onclick="guardar_en_almacen()">Guardar</button>
                     </div>
                     <!-- /.box-footer -->
