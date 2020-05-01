@@ -23,7 +23,7 @@
 
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-outline pull-left"><i class="fa fa-close"></i> Cerrar</button>
+                <button type="button" class="btn pull-left" data-dismiss="modal">Cerrar</button>
             </div>
 
 

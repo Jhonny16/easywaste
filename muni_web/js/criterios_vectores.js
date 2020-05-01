@@ -1,4 +1,4 @@
-var DIRECCION_WS = "http://localhost/www/muni_api/webservice/";
+
 var list_criterios = [];
 $(document).ready(function () {
     criterios_lista();

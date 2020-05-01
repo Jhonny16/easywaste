@@ -1,5 +1,5 @@
 <?php
-
+header('Access-Control-Allow-Origin: *');
 require_once '../util/funciones/definiciones.php';
 ?>
 <html>
@@ -59,7 +59,7 @@ require_once '../util/funciones/definiciones.php';
             <!-- Main content -->
             <section class="content">
                 <div class="row" id="data_informacion">
-                    <div class="col-lg-6 col-xs-12"><img src="../imagenes/informacion/" alt=""></div>
+<!--                    <div class="col-lg-6 col-xs-12"><img src="../imagenes/store.png" alt=""></div>-->
                     <div class="col-lg-6 col-xs-12">B</div>
                     <div class="col-lg-6 col-xs-12">C</div>
                     <div class="col-lg-6 col-xs-12">D</div>
@@ -111,9 +111,11 @@ require_once '../util/funciones/definiciones.php';
 
 <div class="control-sidebar-bg"></div>
 </div>
-
 <?php include_once 'ext_scripts_info.php'; ?>
+<script src="../js/login.js"></script>
+<script src="../js/login.js"></script>
 <script src="../js/sensibilizacion_info.js"></script>
+
 
 </body>
 </html>

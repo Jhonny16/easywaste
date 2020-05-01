@@ -27,6 +27,7 @@ require_once '../util/funciones/definiciones.php';
 </div>
 
 <?php include_once 'ext_scripts.php'; ?>
+<script src="../js/login.js"></script>
 <script src="../js/validacion.js"></script>
 <!--<script src="../js/periodo.js"></script>-->
 <script src="../js/criterios.js"></script>

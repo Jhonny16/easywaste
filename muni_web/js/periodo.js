@@ -1,4 +1,4 @@
-var DIRECCION_WS = "http://localhost/www/muni_api/webservice/";
+
 var periodo_estado = 0;
 $(document).ready(function () {
     periodo_listar();

@@ -29,53 +29,7 @@
     <select />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/webservice/centro_acopio_create.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="336">
-              <caret line="35" column="31" selection-start-line="35" selection-start-column="31" selection-end-line="35" selection-end-column="31" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/webservice/informacion_create.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="377">
-              <caret line="77" selection-start-line="77" selection-end-line="77" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/webservice/premio_create.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1066">
-              <caret line="100" column="29" selection-start-line="100" selection-start-column="29" selection-end-line="100" selection-end-column="29" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/model/premio.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="308">
-              <caret line="187" column="42" lean-forward="true" selection-start-line="187" selection-start-column="42" selection-end-line="187" selection-end-column="42" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/model/informacion.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="87">
-              <caret line="176" column="11" selection-start-line="176" selection-start-column="11" selection-end-line="176" selection-end-column="30" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -86,7 +40,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>insert</find>
       <find>rowc</find>
       <find>constra</find>
       <find>cons</find>
@@ -116,6 +69,7 @@
       <find>update</find>
       <find>ro</find>
       <find>row</find>
+      <find>$_GET</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -132,10 +86,10 @@
       <dir>C:\xampp7\htdocs\app_pjoanfern\js</dir>
       <dir>C:\xampp7\htdocs\clinica_api\webservice</dir>
       <dir>C:\xampp7\htdocs\clinica_api\model</dir>
-      <dir>$PROJECT_DIR$/webservice</dir>
       <dir>$PROJECT_DIR$/datos</dir>
       <dir>$PROJECT_DIR$</dir>
       <dir>$PROJECT_DIR$/model</dir>
+      <dir>$PROJECT_DIR$/webservice</dir>
     </dirStrings>
   </component>
   <component name="Git.Settings">
@@ -144,7 +98,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/webservice/iinformacion_list.php" />
         <option value="$PROJECT_DIR$/model/reporte.php" />
         <option value="$PROJECT_DIR$/webservice/reporte_sensibilizacion.php" />
         <option value="$PROJECT_DIR$/webservice/servicio_update_estado.php" />
@@ -160,11 +113,9 @@
         <option value="$PROJECT_DIR$/webservice/sensibilizacion_info_get.php" />
         <option value="$PROJECT_DIR$/webservice/proveedor_create.php" />
         <option value="$PROJECT_DIR$/webservice/informacion_list.php" />
-        <option value="$PROJECT_DIR$/webservice/sensibilizacion_create.php" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/439262b2-8b77-4ba6-8829-69d43dec0930/console_1.sql" />
         <option value="$PROJECT_DIR$/model/sensibilizacion.php" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/7b3e37c6-4ad2-46a9-bdd0-1d5751d1b676/console.sql" />
-        <option value="$PROJECT_DIR$/webservice/informacion_list_persona.php" />
         <option value="$PROJECT_DIR$/datos/configuracion.php" />
         <option value="$PROJECT_DIR$/webservice/criterio1_datos.php" />
         <option value="$PROJECT_DIR$/webservice/criterio3_datos.php" />
@@ -183,18 +134,21 @@
         <option value="$PROJECT_DIR$/webservice/centro_acopio_read.php" />
         <option value="$PROJECT_DIR$/webservice/centro_acopio_create.php" />
         <option value="$PROJECT_DIR$/webservice/acopio_sector.php" />
-        <option value="$PROJECT_DIR$/model/centro_acopio.php" />
         <option value="$PROJECT_DIR$/webservice/almacen_lista.php" />
-        <option value="$PROJECT_DIR$/webservice/almacen_create.php" />
         <option value="$PROJECT_DIR$/webservice/almacen_detalle.php" />
-        <option value="$PROJECT_DIR$/model/almacen.php" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/439262b2-8b77-4ba6-8829-69d43dec0930/console.sql" />
         <option value="$PROJECT_DIR$/webservice/venta_create.php" />
         <option value="$PROJECT_DIR$/model/venta.php" />
-        <option value="$PROJECT_DIR$/model/informacion.php" />
         <option value="$PROJECT_DIR$/webservice/informacion_create.php" />
         <option value="$PROJECT_DIR$/webservice/premio_create.php" />
         <option value="$PROJECT_DIR$/model/premio.php" />
+        <option value="$PROJECT_DIR$/model/centro_acopio.php" />
+        <option value="$PROJECT_DIR$/webservice/almacen_create.php" />
+        <option value="$PROJECT_DIR$/model/almacen.php" />
+        <option value="$PROJECT_DIR$/webservice/informacion_list_persona.php" />
+        <option value="$PROJECT_DIR$/util/funciones/Funciones.clase.php" />
+        <option value="$PROJECT_DIR$/model/informacion.php" />
+        <option value="$PROJECT_DIR$/webservice/sensibilizacion_create.php" />
       </list>
     </option>
   </component>
@@ -216,21 +170,6 @@
             <path>
               <item name="muni_api" type="b2602c69:ProjectViewProjectNode" />
               <item name="muni_api" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="muni_api" type="b2602c69:ProjectViewProjectNode" />
-              <item name="muni_api" type="462c0819:PsiDirectoryNode" />
-              <item name="datos" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="muni_api" type="b2602c69:ProjectViewProjectNode" />
-              <item name="muni_api" type="462c0819:PsiDirectoryNode" />
-              <item name="imagenes" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="muni_api" type="b2602c69:ProjectViewProjectNode" />
-              <item name="muni_api" type="462c0819:PsiDirectoryNode" />
-              <item name="model" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="muni_api" type="b2602c69:ProjectViewProjectNode" />
@@ -445,18 +384,19 @@
       <workItem from="1588097349448" duration="11799000" />
       <workItem from="1588122835803" duration="7286000" />
       <workItem from="1588161542011" duration="34745000" />
-      <workItem from="1588253378989" duration="3145000" />
+      <workItem from="1588253378989" duration="4157000" />
+      <workItem from="1588338526108" duration="6721000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1146397000" />
+    <option name="totallyTimeSpent" value="1154130000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-3" y="0" width="1372" height="739" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25755286" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2613293" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -504,38 +444,10 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/datos/configuracion.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="52">
-          <caret line="4" column="28" selection-start-line="4" selection-start-column="28" selection-end-line="4" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webservice/servicio_update_estado.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="481">
-          <caret line="43" column="25" selection-start-line="43" selection-start-column="25" selection-end-line="43" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webservice/reciclador_status.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="468">
-          <caret line="36" column="38" lean-forward="true" selection-start-line="36" selection-start-column="38" selection-end-line="36" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/webservice/servicio_atender.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="403">
           <caret line="31" column="26" selection-start-line="31" selection-start-column="26" selection-end-line="31" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webservice/sensibilizacion_create.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="416">
-          <caret line="32" column="22" selection-start-line="32" selection-start-column="22" selection-end-line="32" selection-end-column="22" />
         </state>
       </provider>
     </entry>
@@ -746,13 +658,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/webservice/almacen_create.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="130">
-          <caret line="34" column="23" selection-start-line="34" selection-start-column="23" selection-end-line="34" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/webservice/almacen_detalle.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="273">
@@ -771,13 +676,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
           <caret line="180" selection-start-line="180" selection-end-line="185" selection-end-column="70" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/model/almacen.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="438">
-          <caret line="224" column="44" lean-forward="true" selection-start-line="224" selection-start-column="44" selection-end-line="224" selection-end-column="44" />
         </state>
       </provider>
     </entry>
@@ -809,34 +707,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/webservice/informacion_create.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="377">
-          <caret line="77" selection-start-line="77" selection-end-line="77" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webservice/centro_acopio_create.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="35" column="31" selection-start-line="35" selection-start-column="31" selection-end-line="35" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/model/centro_acopio.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-774">
-          <caret line="124" column="20" selection-start-line="124" selection-start-column="20" selection-end-line="124" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/model/informacion.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="87">
-          <caret line="176" column="11" selection-start-line="176" selection-start-column="11" selection-end-line="176" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/model/premio.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="308">
@@ -848,6 +718,76 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1066">
           <caret line="100" column="29" selection-start-line="100" selection-start-column="29" selection-end-line="100" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webservice/centro_acopio_create.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="676">
+          <caret line="52" column="33" selection-start-line="52" selection-start-column="33" selection-end-line="52" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/centro_acopio.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="328">
+          <caret line="203" column="63" selection-start-line="203" selection-start-column="63" selection-end-line="203" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webservice/almacen_create.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="494">
+          <caret line="38" column="23" selection-start-line="38" selection-start-column="23" selection-end-line="38" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/almacen.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="386">
+          <caret line="280" column="40" selection-start-line="280" selection-start-column="40" selection-end-line="280" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webservice/informacion_create.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="429">
+          <caret line="78" column="30" selection-start-line="78" selection-start-column="30" selection-end-line="78" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webservice/usuarios.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="15" column="6" selection-start-line="15" selection-start-column="6" selection-end-line="15" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/util/funciones/Funciones.clase.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="26">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webservice/informacion_list_persona.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="15" column="24" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/informacion.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="39">
+          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webservice/sensibilizacion_create.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="104">
+          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
         </state>
       </provider>
     </entry>

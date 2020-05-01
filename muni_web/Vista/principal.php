@@ -14,16 +14,17 @@ require_once '../util/funciones/definiciones.php';
 
 </head>
 <body class="sidebar-mini skin-blue-light sidebar-collapset">
-    <div class="wrapper">
-        <?php include_once 'est_cabecera.php'; ?>
-        <?php include_once 'est_menu.php'; ?>
-        <?php include_once 'est_contenido.php'; ?>
+<div class="wrapper">
+    <?php include_once 'est_cabecera.php'; ?>
+    <?php include_once 'est_menu.php'; ?>
+    <?php include_once 'est_contenido.php'; ?>
 
-        <div class="control-sidebar-bg"></div>
-    </div>
+    <div class="control-sidebar-bg"></div>
+</div>
 
 <!--<script src="../js/usuario_rol_permisos.js" type="text/javascript"></script>-->
 <?php include_once 'ext_scripts.php'; ?>
+<script src="../js/login.js"></script>
 <script src="../js/validacion.js"></script>
 
 </body>

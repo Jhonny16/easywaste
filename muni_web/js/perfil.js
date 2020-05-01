@@ -1,4 +1,4 @@
-var DIRECCION_WS = "http://localhost/www/muni_api/webservice/";
+
 var sexo = 'M';
 var cambiar_password = 0;
 var id = localStorage.getItem('id');

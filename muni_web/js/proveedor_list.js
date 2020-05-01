@@ -1,4 +1,4 @@
-var DIRECCION_WS = "http://localhost/www/muni_api/webservice/";
+
 var clase = 'background-image: linear-gradient(150deg, rgb(255,255,255) 300px, rgb(4,216,205)95%);'
 
 var es_reciclador = 0;

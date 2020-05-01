@@ -1,5 +1,5 @@
 
-var DIRECCION_WS = "http://localhost/www/muni_api/webservice/";
+
 $(document).ready(function () {
     roles_list();
 });

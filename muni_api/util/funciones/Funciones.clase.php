@@ -1,5 +1,7 @@
 <?php
 
+
+
 class Funciones {
     
      //public static $DIRECCION_WEB_SERVICE = "http://localhost:8080/tesis/e-commerce-ws/webservice/";

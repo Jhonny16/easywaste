@@ -1,4 +1,4 @@
-var DIRECCION_WS = "http://localhost/www/muni_api/webservice/";
+
 var cantidad_criterios = 0;
 var data_criterios = null;
 var criterios_val = [];

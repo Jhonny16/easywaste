@@ -61,6 +61,7 @@ require_once '../util/funciones/definiciones.php';
 
 <!--<script src="../js/usuario_rol_permisos.js" type="text/javascript"></script>-->
 <?php include_once 'ext_scripts.php'; ?>
+<script src="../js/login.js"></script>
 <script src="../js/validacion.js"></script>
 <script src="../js/venta_list.js"></script>
 

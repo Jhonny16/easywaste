@@ -62,9 +62,9 @@ require_once '../util/funciones/definiciones.php';
 
 <!--<script src="../js/usuario_rol_permisos.js" type="text/javascript"></script>-->
 <?php include_once 'ext_scripts.php'; ?>
+<script src="../js/login.js"></script>
 <script src="../js/validacion.js"></script>
 <script src="../js/proveedor_list.js"></script>
-
 <script src="../js/direcciones.js"></script>
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAz2Oa-_4POfA1s5UslFrXfTe66uPfgEMU&libraries=places&callback=mapa_direcciones"

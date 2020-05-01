@@ -5,6 +5,8 @@
  * Date: 04/12/19
  * Time: 10:57 PM
  */
+
+
 require_once '../datos/conexion.php';
 class informacion extends conexion
 {

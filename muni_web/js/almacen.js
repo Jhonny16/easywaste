@@ -1,4 +1,4 @@
-var DIRECCION_WS = "http://localhost/www/muni_api/webservice/";
+
 var list_residuos;
 var user_id = localStorage.getItem('id');
 $(document).ready(function () {

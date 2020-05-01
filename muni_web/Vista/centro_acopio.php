@@ -70,9 +70,9 @@ require_once '../util/funciones/definiciones.php';
 </div>
 
 <?php include_once 'ext_scripts.php'; ?>
+<script src="../js/login.js"></script>
 <script src="../js/validacion.js"></script>
 <script src="../js/centro_acopio_list.js"></script>
-<script src="../js/login.js"></script>
 
 </body>
 </html>

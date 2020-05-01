@@ -1,9 +1,10 @@
-var DIRECCION_WS = "http://localhost/www/muni_api/webservice/";
+// var DIRECCION = "http://192.168.1.5/www/muni_api/webservice/";
 var persona_id = null;
 var list_info = [];
 $(document).ready(function () {
    //alert("el tony kross");
    getUrlVars();
+
 
    listado();
 });
@@ -21,46 +22,91 @@ function getUrlVars() {
 }
 
 function listado() {
-    var ruta = DIRECCION_WS + "informacion_list_persona.php";
+    var ruta = DIRECCION_WS + "informacion_list_persona.php?persona_id="+persona_id;
 
-    var data = {'persona_id': persona_id};
 
-    $("#data_informacion").html("");
-    $.ajax({
-        type: "post",
-        url: ruta,
-        data: JSON.stringify(data),
-        success: function (resultado) {
-            console.log(resultado);
-            var datosJSON = resultado;
-            if (datosJSON.estado == 200) {
-                list_info = resultado.datos;
-                var html = "";
-                $.each(datosJSON.datos, function (i, item) {
+    $.get(ruta, function(data, status){
+        console.log(data);
+        var datosJSON = data;
 
-                    html += ' <div class="col-lg-4 col-xs-12" style="text-align: center">' + '<img width="230" height="230" ' +
-                        'src="../imagenes/informacion/'+ item.imagen+'" data-toggle="modal" data-target="#modal_descripcion" ' +
-                        'onclick="des(' + item.id + ')" alt="">'+'<br>'+ item.titulo+' </div>';
+        if (datosJSON.estado == 200) {
 
-                });
+            list_info = data.datos;
 
-                $("#data_informacion").html(html);
+            var html = "";
+            html += '<ul class="users-list clearfix">';
+            $.each(datosJSON.datos, function (i, item) {
 
-            } else {
-                swal({
-                    type: 'info',
-                    title: 'Nota!',
-                    text: datosJSON.mensaje,
-                })
-                return 0;
-            }
-        },
-        error: function (error) {
-            console.log(error);
-            var datosJSON = $.parseJSON(error.responseText);
-            swal("Error", datosJSON.mensaje, "error");
+                var route = DIRECCION_WS_IMAGE + '' + item.imagen;
+                //var route = '../imagenes/close.png';
+
+                html += '<li ><img src="'+ route +'" alt="User Image" onclick="des(' + item.id + ')" data-toggle="modal" data-target="#modal_descripcion">' +
+                    ' <a class="users-list-name" >' + item.titulo + '</a></li>';
+
+
+
+                // html += ' <div class="col-lg-4 col-md-4 col-xs-4" style="text-align: center">' + '<img width="230" height="230" ' +
+                //     'src="'+ route +'" data-toggle="modal" data-target="#modal_descripcion" ' +
+                //     'onclick="des(' + item.id + ')" alt="">' + '<br>' + item.titulo + ' </div>';
+
+            });
+            html += '</ul>';
+
+            $("#data_informacion").html(html);
+
+        } else {
+            swal({
+                type: 'info',
+                title: 'Nota!',
+                text: datosJSON.mensaje,
+            })
+            return 0;
         }
     });
+
+    // $("#data_informacion").html("");
+    // $.ajax({
+    //     type: "get",
+    //     url: ruta,
+    //     data: data,
+    //     success: function (resultado) {
+    //         alert("hola 4");
+    //
+    //         var datosJSON = resultado;
+    //
+    //         if (datosJSON.estado == 200) {
+    //             list_info = resultado.datos;
+    //             var html = "";
+    //             $.each(datosJSON.datos, function (i, item) {
+    //
+    //                 // var route = DIRECCION_WS_IMAGE + '' + item.imagen;
+    //                 var route = '../imagenes/close.png';
+    //
+    //
+    //                 html += ' <div class="col-lg-4 col-xs-12" style="text-align: center">' + '<img width="230" height="230" ' +
+    //                     'src="../imagenes/close.png" data-toggle="modal" data-target="#modal_descripcion" ' +
+    //                     'onclick="des(' + item.id + ')" alt="">'+'<br>'+ item.titulo+' </div>';
+    //
+    //             });
+    //
+    //             $("#data_informacion").html(html);
+    //             alert(html)
+    //
+    //         } else {
+    //             swal({
+    //                 type: 'info',
+    //                 title: 'Nota!',
+    //                 text: datosJSON.mensaje,
+    //             })
+    //             return 0;
+    //         }
+    //     },
+    //     error: function (error) {
+    //         console.log(error);
+    //         var datosJSON = $.parseJSON(error.responseText);
+    //         swal("Error", datosJSON.mensaje, "error");
+    //     }
+    // });
 
 
 }
@@ -75,7 +121,6 @@ $('#info_no').on('ifChecked', function (event) {
 
 function sensibilizacion_add() {
     var ruta = DIRECCION_WS + "sensibilizacion_create.php";
-    var token = localStorage.getItem('token');
 
     if(persona_id == null){
         swal({
@@ -108,9 +153,6 @@ function sensibilizacion_add() {
         if (result.value) {
             $.ajax({
                 type: "post",
-                headers: {
-                    token: token
-                },
                 url: ruta,
                 contentType: "application/json",
                 data: JSON.stringify(data),

@@ -1,4 +1,4 @@
-var DIRECCION_WS = "http://localhost/www/muni_api/webservice/";
+
 $(document).ready(function () {
     proveedor_pintrash()
 });

@@ -1,4 +1,4 @@
-var DIRECCION_WS = "http://localhost/www/muni_api/webservice/";
+
 
 $(document).ready(function () {
     c1_tiempo_atencion();

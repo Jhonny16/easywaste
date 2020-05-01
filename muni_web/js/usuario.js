@@ -1,5 +1,5 @@
 
-var DIRECCION_WS = "http://localhost/clinica_api/webservice/";
+// var DIRECCION_WS = "http://localhost/clinica_api/webservice/";
 var user_id =0;
 var operacion = 'agregar';
 $(document).ready(function () {
