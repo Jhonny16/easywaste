@@ -16,8 +16,27 @@ class almacen extends conexion
     private $user_id;
     private $acopio_temporal_id;
     private $sector_id;
+    private $sector_name;
     private $total_peso;
     private $detalle;
+
+    /**
+     * @return mixed
+     */
+    public function getSectorName()
+    {
+        return $this->sector_name;
+    }
+
+    /**
+     * @param mixed $sector_name
+     */
+    public function setSectorName($sector_name)
+    {
+        $this->sector_name = $sector_name;
+    }
+
+
 
     /**
      * @return mixed
@@ -183,15 +202,15 @@ class almacen extends conexion
             $this->setCode($numeracion);
 
 
-            $sql = "insert into almacen (code, fecha_registro, reciclador_id, user_id, acopio_temporal_id, sector_id, total_peso)
-                    values (:p_code, :p_fecha_registro ,:p_reciclador, :p_user, :p_acopio_temporal,:p_sector_id, :p_total); ";
+            $sql = "insert into almacen (code, fecha_registro, reciclador_id, user_id, acopio_temporal_id, sector_name, total_peso)
+                    values (:p_code, :p_fecha_registro ,:p_reciclador, :p_user, :p_acopio_temporal,:p_sector_name, :p_total); ";
             $sentencia = $this->dblink->prepare($sql);
             $sentencia->bindParam(":p_code", $this->code);
             $sentencia->bindParam(":p_fecha_registro", $this->fecha_registro);
             $sentencia->bindParam(":p_reciclador", $this->reciclador_id);
             $sentencia->bindParam(":p_user", $this->user_id);
             $sentencia->bindParam(":p_acopio_temporal", $this->acopio_temporal_id);
-            $sentencia->bindParam(":p_sector_id", $this->sector_id);
+            $sentencia->bindParam(":p_sector_name", $this->sector_name);
             $sentencia->bindParam(":p_total", $this->total_peso);
             $sentencia->execute();
 
@@ -259,11 +278,10 @@ class almacen extends conexion
                            a.fecha_registro,
                     p.ap_paterno || ' ' || p.ap_materno||' ' ||p.nombres as reciclador,
                            ca.nombre as centro_acopio,
-                           s.nombre as sector,
+                           a.sector_name as sector,
                            a.total_peso
                     from almacen a inner join persona p on a.reciclador_id = p.id
-                    inner join centro_acopio ca on a.acopio_temporal_id = ca.id
-                    left join sector s on a.sector_id = s.id";
+                    inner join centro_acopio ca on a.acopio_temporal_id = ca.id";
             $sentencia = $this->dblink->prepare($sql);
             $sentencia->execute();
             $resultado = $sentencia->fetchAll(PDO::FETCH_ASSOC);

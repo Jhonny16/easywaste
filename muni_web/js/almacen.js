@@ -93,7 +93,7 @@ function a_sector(ca_id){
                 html += '<option value="0">-- Seleccione sector --</option>';
                 $.each(resultado.datos, function (i, item) {
                     console.log(item.nombre);
-                    html += '<option value="'+ item.id +'">' + item.nombre +'</option>';
+                    html += '<option value="'+ item.nombre +'">' + item.nombre +'</option>';
                 });
                 $("#a_sector").append(html);
             }
@@ -269,7 +269,7 @@ function guardar_en_almacen() {
                 reciclador_id: $("#a_combo_reciclador").val(),
                 user_id: user_id,
                 acopio_temporal_id: $("#a_combo_centro_acopio_t").val(),
-                sector_id: $("#a_sector").val(),
+                sector_name: $("#a_sector").val(),
                 total: $("#a_total").html(),
                 detalle: jsonDetalle
             };

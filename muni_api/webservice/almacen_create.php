@@ -17,7 +17,7 @@ if (!isset($_SERVER["HTTP_TOKEN"])) {
 $reciclador_id = json_decode(file_get_contents("php://input"))->reciclador_id;
 $user_id = json_decode(file_get_contents("php://input"))->user_id;
 $acopio_temporal_id = json_decode(file_get_contents("php://input"))->acopio_temporal_id;
-$sector_id = json_decode(file_get_contents("php://input"))->sector_id;
+$sector_name = json_decode(file_get_contents("php://input"))->sector_name;
 $total = json_decode(file_get_contents("php://input"))->total;
 
 
@@ -31,7 +31,7 @@ try {
     $obj->setRecicladorId($reciclador_id);
     $obj->setUserId($user_id);
     $obj->setAcopioTemporalId($acopio_temporal_id);
-    $obj->setSectorId($sector_id);
+    $obj->setSectorName($sector_name);
     $obj->setTotalPeso($total);
     $obj->setFechaRegistro($fecha);
     $obj->setDetalle($detalle);
