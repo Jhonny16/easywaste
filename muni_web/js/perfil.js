@@ -19,7 +19,7 @@ $('#p_cambiar_password').on('ifUnchecked', function (event) {
     $("#p_password").attr('disabled','disabled');
 });
 
-var doc = 8;
+/*var doc = 8;
 $('#per_td_dni').on('ifChecked', function (event) {
     console.log("dni");
     doc = 8;
@@ -63,7 +63,7 @@ $("#p_dni").change(function () {
     }
 
 
-});
+});*/
 
 
 $(document).ready(function () {

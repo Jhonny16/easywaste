@@ -28,7 +28,7 @@ $objeto->setComentario($comentario);
 
 $res = $objeto->create();
 if ($res) {
-    Funciones::imprimeJSON(200, "Se guardo la informacion de forma correcta", $res);
+    Funciones::imprimeJSON(200, "Gracias por responder a esta pregunta.", $res);
 } else {
     Funciones::imprimeJSON(203, "Error al guardar", "");
 }

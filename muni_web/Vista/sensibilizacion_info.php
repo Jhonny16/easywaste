@@ -21,26 +21,10 @@ require_once '../util/funciones/definiciones.php';
         <nav class="navbar navbar-static-top" style="text-align: center;background-image: linear-gradient(500deg, rgb(0, 166, 90) 200px, rgb(0, 166, 90)60%);">
             <div class="container">
                 <div class="navbar-header" >
-                    <a href="../../index2.html" class="navbar-brand">EasyWaste</a>
+                    <a href="" class="navbar-brand">EasyWaste</a>
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
                         <i class="fa fa-bars"></i>
                     </button>
-                </div>
-
-
-                <div class="navbar-custom-menu">
-                    <ul class="nav navbar-nav">
-
-                        <li class="dropdown user user-menu">
-                            <!-- Menu Toggle Button -->
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <!-- The user image in the navbar-->
-                                <img src="../imagenes/useri.png" class="user-image" alt="User Image">
-                                <!-- hidden-xs hides the username on small devices so only the image appears. -->
-                                <span class="hidden-xs"></span>
-                            </a>
-                        </li>
-                    </ul>
                 </div>
                 <!-- /.navbar-custom-menu -->
             </div>

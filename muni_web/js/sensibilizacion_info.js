@@ -160,7 +160,9 @@ function sensibilizacion_add() {
                     var datosJSON = resultado;
                     console.log(resultado);
                     if (datosJSON.estado === 200) {
-                        swal("Exito", datosJSON.mensaje, "success");
+                        //swal("Exito", datosJSON.mensaje, "success");
+                        window.location = "../Vista/agradecimiento.php";
+
 
                     } else {
                         swal("Nota", datosJSON.mensaje, "info");

@@ -45,18 +45,18 @@ require_once '../util/funciones/definiciones.php';
                                         <div class="box-body">
                                             <div class="row">
                                                 <div class="col-lg-6 col-md-6 col-xs-12">
-                                                    <div class="form-group">
-                                                        <label for="inputEmail3" class="col-sm-3 control-label">Tipo.</label>
-
-                                                        <div class="col-sm-9">
-                                                            <label>
-                                                                <input type="radio" name="per_docs" id="per_td_dni" class="flat-red" checked>DNI
-                                                            </label>
-                                                            <label>
-                                                                <input type="radio" name="per_docs" id="per_td_ruc" class="flat-red">RUC
-                                                            </label>
-                                                        </div>
-                                                    </div>
+<!--                                                    <div class="form-group">-->
+<!--                                                        <label for="inputEmail3" class="col-sm-3 control-label">Tipo.</label>-->
+<!---->
+<!--                                                        <div class="col-sm-9">-->
+<!--                                                            <label>-->
+<!--                                                                <input type="radio" name="per_docs" id="per_td_dni" class="flat-red" checked>DNI-->
+<!--                                                            </label>-->
+<!--                                                            <label>-->
+<!--                                                                <input type="radio" name="per_docs" id="per_td_ruc" class="flat-red">RUC-->
+<!--                                                            </label>-->
+<!--                                                        </div>-->
+<!--                                                    </div>-->
                                                     <div class="form-group">
                                                         <label for="inputEmail3" class="col-sm-3 control-label">N° Documento</label>
 
