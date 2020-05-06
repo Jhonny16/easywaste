@@ -42,18 +42,20 @@ $objeto->setEstado($estado);
 
 $name_encriptado = null;
 
-//if (isset($_FILES['images'])){
-//    $explode = explode('.', $image['name']);
-//    $extension = $explode[1];
-//    $name_encriptado = md5($image['tmp_name']) . '.' . $extension;
-//    $ruta = '../imagenes/' . '' . $name_encriptado . '';
-//
-//    $res = move_uploaded_file($image['tmp_name'], $ruta);
-//    if ($res) {
-//        $objeto->setImagen($name_encriptado);
-//
-//    }
-//}
+if (isset($_FILES['images'])){
+    $explode = explode('.', $image['name']);
+    $extension = $explode[1];
+    $name_encriptado = md5($image['tmp_name']) . '.' . $extension;
+    $ruta = '../imagenes/' . '' . $name_encriptado . '';
+
+    $res = move_uploaded_file($image['tmp_name'], $ruta);
+    if ($res) {
+        $objeto->setImagen($name_encriptado);
+
+    }
+}else{
+    $objeto->setImagen(null);
+}
 
 //
 //if (isset($_FILES['images'])){
@@ -146,17 +148,30 @@ if ($destinos != null) {
     // Funciones::imprimeJSON(203, "No hay recicladores disponibles", $outputTo);
 
 
-    $res = $objeto->create();
-    if ($res == -1) {
-        Funciones::imprimeJSON(200, "No hay recicladores dispomibles", $res);
+    $recycle_id = $objeto->create();
+
+
+    if ($recycle_id == -1) {
+        Funciones::imprimeJSON(203, "No hay recicladores disponibles", $recycle_id);
     } else {
-        if ($res == 0) {
-            Funciones::imprimeJSON(200, "Pequeño error", $res);
+        if ($recycle_id == 0) {
+            Funciones::imprimeJSON(203, "No se creo posicion actual", $recycle_id);
         } else {
-            if ($res > 0) {
-                Funciones::imprimeJSON(200, "Se guardo el servicio", $res);
+            if ($recycle_id > 0) {
+
+                for($i=0; $i< count($position); $i++){
+
+                    if($recycle_id == $position[$i]['id']){
+                        $position[$i]['eledido'] = 1;
+
+                    }else{
+                        $position[$i]['elegido'] = 0;
+                    }
+
+                }
+                Funciones::imprimeJSON(200, "Se guardo el servicio", $position);
             } else {
-                Funciones::imprimeJSON(203, "Error al guardar", $res);
+                Funciones::imprimeJSON(203, "Error al guardar", $recycle_id);
 
             }
         }

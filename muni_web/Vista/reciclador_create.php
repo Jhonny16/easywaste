@@ -42,7 +42,7 @@
 <!--                                        </div>-->
 <!--                                    </div>-->
                                     <div class="form-group">
-                                        <label for="inputEmail3" class="col-sm-3 control-label">N° DOCUMENTO</label>
+                                        <label for="inputEmail3" class="col-sm-3 control-label">DNI</label>
 
                                         <div class="col-sm-9">
                                             <input type="text" class="form-control" id="rec_dni" placeholder="Ingrese número de documento"

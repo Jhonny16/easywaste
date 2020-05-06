@@ -42,7 +42,7 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="inputEmail3" class="col-sm-3 control-label">DNI</label>
+                                        <label for="inputEmail3" class="col-sm-3 control-label">DOCUMENTO</label>
 
                                         <div class="col-sm-9">
                                             <input type="text" class="form-control" id="pro_dni" placeholder="Ingrese DNI"
@@ -108,7 +108,9 @@
                                         <label for="inputEmail3" class="col-sm-3 control-label">E-MAIL</label>
 
                                         <div class="col-sm-9">
-                                            <input type="email" class="form-control" id="pro_email" placeholder="Ingrese e-correo ">
+                                            <input type="email" class="form-control" id="pro_email"
+                                                   attern=".+@[mM][aA][iI][lL][fF][oO][rR][aA][lL][lL][.][cC][oO][mM]"
+                                                   placeholder="Ingrese e-mail por ejemplo: ****@gmail">
                                         </div>
                                     </div>
                                     <div class="form-group">

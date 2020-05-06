@@ -1,12 +1,16 @@
 
 
 $(document).ready(function () {
+    update_criterios();
+});
+
+function update_criterios(){
     c1_tiempo_atencion();
     c2_antiguedad();
     c3_calificacion();
     c4_atencion();
 
-});
+}
 
 function c1_tiempo_atencion() {
     // $("#combo_zona").empty();

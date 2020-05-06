@@ -1,0 +1,56 @@
+Ruta: webservice/servicio_create.php
+1. Enviar imagen tipo file.(Esto se enviará además del punto 2)
+2. Enviar los datos normalmente, por ejemplo:
+    {
+	    "proveedor_id": 10,
+	    "latitud": -6.7619491,
+        "longitud": -79.8319894,
+        "referencia": "por tottus"
+    } 
+  * Posibles resultados:
+    a)Funciones::imprimeJSON(203, "No hay recicladores disponibles", $recycle_id); //donde $recicle_id = -1
+    b)Funciones::imprimeJSON(203, "No se creo posicion actual", $recycle_id); //donde $recicle_id = 0
+    c)Funciones::imprimeJSON(203, "Error al guardar", $recycle_id); //donde $recicle_id puede tomar cualquier otro valor o 
+                                                                    string si falla la conexión o hay error en los insert
+    d)Funciones::imprimeJSON(200, "Se guardo el servicio", $position);
+      En este caso indica que el servicio se guardó, por lo tanto el resultado esperado será el siguiente. Aquí observaremos que nos devuelve un array, para ello es necesario tener en cuenta que solo un 
+      reciclador es el seleccionada para la atención del servicio, ¿Cómo identificcar?, el objeto tendra el item "elegido" cuyo valor será "1". Para el resto de resultados indica que son los recicladores 
+      mas cercanos pero que ni fueron seleccionados, ellos se deberán mostrar en el mapa, solo para un tema visual. Tienen el item del objeto "elefigo" cuyo valor será "0".
+        {
+            "estado": 200,
+            "mensaje": "Se guardo el servicio",
+            "datos": [
+                {
+                    "id": 2,
+                    "lat": "-6.7731822",
+                    "lng": "-79.8418391",
+                    "name_status": "Disponible",
+                    "valor": "0.26",
+                    "distance": "2.6 km",
+                    "elegido": 0
+                },
+                {
+                    "id": 8,
+                    "lat": "-6.7695964",
+                    "lng": "-79.838491",
+                    "name_status": "Disponible",
+                    "valor": "0.35",
+                    "distance": "1.5 km",
+                    "elegido": 0
+                },
+                {
+                    "id": 9,
+                    "lat": "-6.7676373",
+                    "lng": "-79.8473915",
+                    "name_status": "Disponible",
+                    "valor": "0.39",
+                    "distance": "2.5 km",
+                    "eledido": 1
+                }
+            ]
+        }
+
+
+
+
+    

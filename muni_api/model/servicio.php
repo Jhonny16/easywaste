@@ -344,9 +344,9 @@ class servicio extends conexion
 
 
             $sql = "insert into servicio (code, estado, fecha, hora, 
-                                          proveedor_id, latitud,longitud, referencia)
+                                          proveedor_id, latitud,longitud, referencia, imagen)
                     values (:p_code, :p_estado, :p_fecha, :p_hora, 
-                                          :p_proveedor_id, :p_latitud, :p_longitud, :p_ref); ";
+                                          :p_proveedor_id, :p_latitud, :p_longitud, :p_ref, :p_imagen); ";
             $sentencia = $this->dblink->prepare($sql);
             $sentencia->bindParam(":p_code", $this->code);
             $sentencia->bindParam(":p_estado", $this->estado);
@@ -356,7 +356,7 @@ class servicio extends conexion
             $sentencia->bindParam(":p_latitud", $this->latitud);
             $sentencia->bindParam(":p_longitud", $this->longitud);
             $sentencia->bindParam(":p_ref", $this->referencia);
-//            $sentencia->bindParam(":p_imagen", $this->imagen);
+            $sentencia->bindParam(":p_imagen", $this->imagen);
             $sentencia->execute();
 
 
@@ -507,7 +507,7 @@ class servicio extends conexion
 
                     $res = $this->position_create($servicio_id, $this->latitud, $this->longitud);
                     if($res){
-                        return $resultado;
+                        return $recycle_id;
                     }
                     else{
                         return 0;

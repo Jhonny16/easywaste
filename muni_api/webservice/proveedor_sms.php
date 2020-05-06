@@ -6,38 +6,62 @@
  * Time: 04:12 PM
  */
 
-require_once '../client-php-master/autoload.php';
-require_once '../util/funciones/Funciones.clase.php';
+$msg = "First line of text\nSecond line of text";
+
+// use wordwrap() if lines are longer than 70 characters
+$msg = wordwrap($msg,70);
+
+// send email
+$res = mail("shameguar221610@gmail.com","Hola bebecita",$msg);
+
+echo $res;
 
 
 
-use SMSGatewayMe\Client\ApiClient;
-use SMSGatewayMe\Client\Configuration;
-use SMSGatewayMe\Client\Api\MessageApi;
-use SMSGatewayMe\Client\Model\SendMessageRequest;
-
-// Configure client
-$config = Configuration::getDefaultConfiguration();
-//$token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJhZG1pbiIsImlhdCI6MTU0MzQzMTIwMCwiZXhwIjo0MTAyNDQ0ODAwLCJ1aWQiOjY0Nzc5LCJyb2xlcyI6WyJST0xFX1VTRVIiXX0.HEm0dd6IhGN4FqFXa35Rn2RVqyZXxjE3oyzwiVaqEHA';
-$token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJhZG1pbiIsImlhdCI6MTU4ODU0MDM4NywiZXhwIjo0MTAyNDQ0ODAwLCJ1aWQiOjc5OTc4LCJyb2xlcyI6WyJST0xFX1VTRVIiXX0.xFwnqXNVQB-XIvJogafMZq0A5zcs2E1xbC-ZXodoAXk';
-$config->setApiKey('Authorization', $token);
-$apiClient = new ApiClient($config);
-$messageClient = new MessageApi($apiClient);
 
 
-//$telefono = $resultado["telefono"];
-//$medico= $resultado["medico"];
-//$cant = $resultado2["num"];
 
-$telefono = '961682973';
-$medico= 'Jhonny';
-
-$sendMessageRequest1 = new SendMessageRequest([
-    'phoneNumber' => '+51961682973',
-    'message' => 'prueba one XD mas naki',
-    'deviceId' => 106060
-]);
-$sendMessages = $messageClient->sendMessages([
-    $sendMessageRequest1]);
-
-Funciones::imprimeJSON(200, "",$sendMessages);
+//use PHPMailer\PHPMailer\PHPMailer;
+//use PHPMailer\PHPMailer\Exception;
+//
+//require '../Phpmailer/Exception.php';
+//require '../Phpmailer/PHPMailer.php';
+//require '../Phpmailer/SMTP.php';
+//
+//
+//$mail = new PHPMailer(true);
+//
+//try {
+//    //Server settings
+//    $mail->SMTPDebug = 0;                      // Enable verbose debug output
+//    $mail->isSMTP();                                            // Send using SMTP
+//    $mail->Host       = 'smtp.gmail.com';                    // Set the SMTP server to send through
+//    $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
+//    $mail->Username   = 'tinny.1609@gmail.com';                     // SMTP username
+//    $mail->Password   = 'secret';                               // SMTP password
+//    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
+//    $mail->Port       = 587;                                    // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
+//
+//    //Recipients
+//    $mail->setFrom('from@example.com', 'Mailer');
+//    $mail->addAddress('joe@example.net', 'Joe User');     // Add a recipient
+//    $mail->addAddress('ellen@example.com');               // Name is optional
+//    $mail->addReplyTo('info@example.com', 'Information');
+//    $mail->addCC('cc@example.com');
+//    $mail->addBCC('bcc@example.com');
+//
+//    // Attachments
+//    $mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
+//    $mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
+//
+//    // Content
+//    $mail->isHTML(true);                                  // Set email format to HTML
+//    $mail->Subject = 'Here is the subject';
+//    $mail->Body    = 'This is the HTML message body <b>in bold!</b>';
+//    $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+//
+//    $mail->send();
+//    echo 'Message has been sent';
+//} catch (Exception $e) {
+//    echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+//}

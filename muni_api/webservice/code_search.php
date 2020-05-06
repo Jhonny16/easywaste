@@ -1,5 +1,6 @@
 <?php
 
+header('Access-Control-Allow-Origin: *');
 
 try {
     require_once '../model/code.php';

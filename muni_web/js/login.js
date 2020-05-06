@@ -1,8 +1,8 @@
 // const DIRECCION_WS = "http://localhost/www/muni_api/webservice/";
 //var DIRECCION_WS_IMAGE = "http://localhost/www/muni_api/imagenes/";
 
-var DIRECCION_WS = "http://localhost/www/muni_api/webservice/";
-var DIRECCION_WS_IMAGE = "http://localhost/www/muni_api/imagenes/";
+var DIRECCION_WS = "http://192.168.1.5/www/muni_api/webservice/";
+var DIRECCION_WS_IMAGE = "http://192.168.1.5/www/muni_api/imagenes/";
 
 $(document).ready(function () {
     loadProfile();
