@@ -15,7 +15,7 @@ Ruta: webservice/servicio_create.php
     d)Funciones::imprimeJSON(200, "Se guardo el servicio", $position);
       En este caso indica que el servicio se guardó, por lo tanto el resultado esperado será el siguiente. Aquí observaremos que nos devuelve un array, para ello es necesario tener en cuenta que solo un 
       reciclador es el seleccionada para la atención del servicio, ¿Cómo identificcar?, el objeto tendra el item "elegido" cuyo valor será "1". Para el resto de resultados indica que son los recicladores 
-      mas cercanos pero que ni fueron seleccionados, ellos se deberán mostrar en el mapa, solo para un tema visual. Tienen el item del objeto "elefigo" cuyo valor será "0".
+      mas cercanos pero que ni fueron seleccionados, ellos se deberán mostrar en el mapa, solo para un tema visual(markers). Tienen el item del objeto "elefigo" cuyo valor será "0".
         {
             "estado": 200,
             "mensaje": "Se guardo el servicio",

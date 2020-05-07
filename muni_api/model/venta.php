@@ -219,9 +219,14 @@ class venta extends conexion
 
             $datosDetalle = json_decode($this->detalle);
             foreach ($datosDetalle as $key => $value) {
-                $sql = "select stock from residuo where id = :p_residuo_id ";
+//                $sql = "select stock from residuo where id = :p_residuo_id ";
+                $sql = "select
+                        SUM(coalesce((select cantidad from detalle_almacen where almacen_id = a.id and residuo_id = :p_residuo_id ),0)) as stock
+                        from almacen as a where reciclador_id = :p_reciclador
+                        ";
                 $sentencia = $this->dblink->prepare($sql);
                 $sentencia->bindParam(":p_residuo_id", $value->residuo_id);
+                $sentencia->bindParam(":p_reciclador", $this->reciclador_id);
                 $sentencia->execute();
                 $resultado = $sentencia->fetch(PDO::FETCH_ASSOC);
 
