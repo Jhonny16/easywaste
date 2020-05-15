@@ -8,9 +8,9 @@ $(document).ready(function () {
 var list_imagen = [];
 
 function listado() {
-    var ruta = DIRECCION_WS + "centro_acopio_list.php";
+    var ruta = DIRECCION_WS + "centro_acopio_final_list.php";
 
-    $("#centro_acopio_list").html("");
+    $("#centro_acopio_final_list").html("");
     $.ajax({
         type: "get",
         url: ruta,
@@ -21,14 +21,13 @@ function listado() {
             if (datosJSON.estado == 200) {
                 list_imagen = resultado.datos;
                 var html = "";
-                html += '<table id="table_ca_list" class="table table-bordered table-striped">';
+                html += '<table id="table_ca_final_list" class="table table-bordered table-striped">';
                 html += '<thead>';
                 html += '<tr style="background-color: #ededed; height:25px;">';
                 html += '<th style="text-align: center">#</th>';
                 html += '<th>NOMBRE</th>';
                 html += '<th>DIRECCIÓN</th>';
                 html += '<th>TIPO</th>';
-                html += '<th>N° SECTORES</th>';
                 html += '</tr>';
                 html += '</thead>';
                 html += '<tbody>';
@@ -43,21 +42,14 @@ function listado() {
                     html += '<td>' + item.nombre + '</td>';
                     html += '<td>' + item.direccion + '</td>';
                     html += '<td>' + item.tipo + '</td>';
-                    if (item.tipo == 'Final') {
-                        html += '<td>-</td>';
-
-                    } else {
-                        html += '<td>' + item.numero_sectores + '</td>';
-
-                    }
 
                     html += '</tr>';
                 });
                 html += '</tbody>';
                 html += '</table>';
 
-                $("#centro_acopio_list").html(html);
-                $('#table_ca_list').DataTable({
+                $("#centro_acopio_final_list").html(html);
+                $('#table_ca_final_list').DataTable({
                     "aaSorting": [[0, "desc"]],
                     "bScrollCollapse": true,
                     "bPaginate": true,
@@ -90,14 +82,13 @@ function modal_acopio() {
     $("#ca_title").html("Nuevo");
     limpiar();
     operation = 'Nuevo';
+    $("#combo_type").val("Final");
 
-    $("#combo_type").val("Temporal");
     var value = $("#combo_type").val();
-    $("#div_numero_sectores").removeAttr('style');
-    console.log("Temporaliy");
+    $("#div_numero_sectores").attr('style', 'display:none');
+    console.log("finality");
+
     $("#combo_type").attr('disabled','disabled');
-
-
     if (operation != "Nuevo"){
         if (value == 'Final') {
             $("#div_numero_sectores").attr('style', 'display:none');
@@ -119,7 +110,7 @@ function centro_acopio_add() {
         'nombre': $("#ca_nombre").val(),
         'direccion': $("#ca_direccion").val(),
         'tipo': $("#combo_type").val(),
-        'numero_sectores': $("#ca_numero_sectores").val(),
+        'numero_sectores': 0,
         'operation': operation,
         'id': $("#ca_id").val()
     }

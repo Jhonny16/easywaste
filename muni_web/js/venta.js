@@ -2,19 +2,30 @@
 var list_residuos;
 var user_id = localStorage.getItem('id');
 $(document).ready(function () {
-    residuos();
+    //residuos();
     centro_acopio();
     reciclador_list();
 });
 
-function residuos(){
+$("#combo_reciclador").change(function () {
+    console.log(this.value);
+    residuos(this.value);
+})
+
+function residuos(id){
     $("#combo_tipo_residuo").empty();
-    var ruta = DIRECCION_WS + "residuo_list.php";
-    console.log(ruta);
+    var token = localStorage.getItem('token');
+    var ruta = DIRECCION_WS + "residuo_por_reciclador.php";
+
+
     $.ajax({
-        type: "get",
+        type: "post",
+        headers: {
+            token: token
+        },
         url: ruta,
-        data: {},
+        contentType: "application/json",
+        data: JSON.stringify({'reciclador_id':  id}),
         success: function (resultado) {
             console.log(resultado);
             var datosJSON = resultado;
@@ -23,7 +34,7 @@ function residuos(){
                 html += '<option value="0">-- Seleccione residuo --</option>';
                 list_residuos = resultado.datos;
                 $.each(datosJSON.datos, function (i, item) {
-                    html += '<option value="'+ item.id +'">' + item.nombre +'</option>';
+                    html += '<option value="'+ item.id +'">Residuo: ' + item.nombre +' / Stock: ' + item.cantidad+'</option>';
                 });
                 $("#combo_tipo_residuo").append(html);
             }

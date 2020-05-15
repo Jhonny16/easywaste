@@ -313,25 +313,26 @@ class persona extends conexion
 
                 $secuencia = $resultado["secuencia"];
                 $secuencia = $secuencia + 1;
-                if (strlen($secuencia) == 1) {
-                    $pad = 5;
-                } else {
-                    if (strlen($secuencia) == 2) {
-                        $pad = 4;
-                    } else {
-                        if (strlen($secuencia) == 3) {
-                            $pad = 3;
-                        } else {
-                            if (strlen($secuencia) == 4) {
-                                $pad = 2;
-                            } else {
-                                if (strlen($secuencia) == 5) {
-                                    $pad = 1;
-                                }
-                            }
-                        }
-                    }
-                }
+                $pad = 5;
+//                if (strlen($secuencia) == 1) {
+//                    $pad = 5;
+//                } else {
+//                    if (strlen($secuencia) == 2) {
+//                        $pad = 4;
+//                    } else {
+//                        if (strlen($secuencia) == 3) {
+//                            $pad = 3;
+//                        } else {
+//                            if (strlen($secuencia) == 4) {
+//                                $pad = 2;
+//                            } else {
+//                                if (strlen($secuencia) == 5) {
+//                                    $pad = 1;
+//                                }
+//                            }
+//                        }
+//                    }
+//                }
                 $correlativo = str_pad($secuencia, $pad, "0", STR_PAD_LEFT);
                 $numeracion = "RC-" . $correlativo;
                 $this->setCodigo($numeracion);
@@ -368,6 +369,7 @@ class persona extends conexion
                 $sentencia->bindParam(":p_secuencia", $secuencia);
                 $sentencia->execute();
                 $this->dblink->commit();
+
             }
 
             $sql = "SELECT id FROM persona order by 1 desc limit 1";

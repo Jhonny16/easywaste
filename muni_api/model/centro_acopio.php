@@ -171,7 +171,28 @@ class centro_acopio extends conexion
     {
         try {
 
-            $sql = "SELECT id,nombre,direccion,tipo,coalesce(numero_sectores,0) as numero_sectores from centro_acopio";
+            $sql = "SELECT id,nombre,direccion,tipo,coalesce(numero_sectores,0) as numero_sectores from centro_acopio
+                    where tipo = 'Temporal'";
+            $sentencia = $this->dblink->prepare($sql);
+            $sentencia->execute();
+            $resultado = $sentencia->fetchAll(PDO::FETCH_ASSOC);
+
+            return $resultado;
+
+        } catch (Exception $ex) {
+            throw $ex;
+        }
+
+
+    }
+
+
+    public function list_finales()
+    {
+        try {
+
+            $sql = "SELECT id,nombre,direccion,tipo,coalesce(numero_sectores,0) as numero_sectores from centro_acopio
+        where tipo = 'Final'";
             $sentencia = $this->dblink->prepare($sql);
             $sentencia->execute();
             $resultado = $sentencia->fetchAll(PDO::FETCH_ASSOC);

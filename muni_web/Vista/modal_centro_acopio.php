@@ -26,7 +26,7 @@
                                            name="ca_direccion">
                                 </div>
 
-                                <div class="form-group">
+                                <div class="form-group" >
                                     <label for="exampleInputPassword1">Tipo</label>
 
                                     <select name="" id="combo_type" class="form-control" >

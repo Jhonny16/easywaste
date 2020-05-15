@@ -178,7 +178,7 @@ function read(id) {
 
                 }
 
-                if (resultado.dni.length== 8) {
+                if (resultado.datos.dni.length== 8) {
                     $("#rec_td_dni").iCheck('check');
 
                 } else {

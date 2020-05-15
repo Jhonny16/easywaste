@@ -28,7 +28,7 @@ require_once '../util/funciones/definiciones.php';
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                Centro acopio temporal
+                Centro acopio final
                 <small id="operation">Lista</small>
             </h1>
             <ol class="breadcrumb">
@@ -50,7 +50,7 @@ require_once '../util/funciones/definiciones.php';
                         <div class="box-body">
                             <div class="row">
                                 <div class="col-xs-12 col-lg-12">
-                                    <div id="centro_acopio_list"></div>
+                                    <div id="centro_acopio_final_list"></div>
                                 </div>
 
                             </div>
@@ -72,7 +72,7 @@ require_once '../util/funciones/definiciones.php';
 <?php include_once 'ext_scripts.php'; ?>
 <script src="../js/login.js"></script>
 <script src="../js/validacion.js"></script>
-<script src="../js/centro_acopio_list.js"></script>
+<script src="../js/centro_acopio_final_list.js"></script>
 
 </body>
 </html>

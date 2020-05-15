@@ -52,4 +52,24 @@ class residuo extends conexion
             throw $ex;
         }
     }
+
+    public function lista_por_reciclador($reciclador_id){
+        try {
+
+            $sql = "select r.id,r.nombre , sum(da.cantidad) as cantidad from detalle_almacen as da inner join residuo r on da.residuo_id = r.id
+                    inner join almacen a on da.almacen_id = a.id
+                    where a.reciclador_id = :p_reciclador
+                    group by r.id, r.nombre
+                    ";
+            $sentencia = $this->dblink->prepare($sql);
+            $sentencia->bindParam(":p_reciclador", $reciclador_id);
+            $sentencia->execute();
+            $resultado = $sentencia->fetchAll(PDO::FETCH_ASSOC);
+
+            return $resultado;
+
+        } catch (Exception $ex) {
+            throw $ex;
+        }
+    }
 }

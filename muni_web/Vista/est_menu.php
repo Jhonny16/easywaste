@@ -81,7 +81,8 @@
                     </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="centro_acopio.php" ><i class="fa fa-circle-o"></i> Lista</a></li>
+                            <li><a href="centro_acopio.php" ><i class="fa fa-circle-o"></i> Temporal</a></li>
+                            <li><a href="centro_acopio_final.php" ><i class="fa fa-circle-o"></i> Final</a></li>
                         </ul>
                     </li>
                     <li class="treeview" id="menu_premio">
