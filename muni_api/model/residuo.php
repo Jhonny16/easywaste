@@ -56,10 +56,16 @@ class residuo extends conexion
     public function lista_por_reciclador($reciclador_id){
         try {
 
-            $sql = "select r.id,r.nombre , sum(da.cantidad) as cantidad from detalle_almacen as da inner join residuo r on da.residuo_id = r.id
+            $sql = "select r.id,r.nombre ,
+                           sum(da.cantidad) -
+                           coalesce((select
+                              sum(d.cantidad) as cantidad
+                            from detalle as d inner join venta v on d.venta_id = v.id
+                            where v.reciclador_id = :p_reciclador and d.residuo_id = r.id),0) as cantidad
+                    from detalle_almacen as da left join residuo r on da.residuo_id = r.id
                     inner join almacen a on da.almacen_id = a.id
                     where a.reciclador_id = :p_reciclador
-                    group by r.id, r.nombre
+                    group by r.id, r.nombre;
                     ";
             $sentencia = $this->dblink->prepare($sql);
             $sentencia->bindParam(":p_reciclador", $reciclador_id);

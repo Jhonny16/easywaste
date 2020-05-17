@@ -151,6 +151,9 @@ class persona_criterio extends conexion
             $sentencia = $this->dblink->prepare($sql);
             $sentencia->execute();
             $resultado = $sentencia->fetchAll(PDO::FETCH_ASSOC);
+
+            $this->update_state_reciclador();
+
             return $resultado;
         } catch (Exception $ex) {
             throw $ex;
@@ -175,6 +178,70 @@ class persona_criterio extends conexion
             throw $exc;
         }
 
+    }
+
+    public function update_state_reciclador(){
+        try {
+            $sql = "
+                    select
+                           r.id,
+                           (select name_status from status
+                       where reciclador_id = r.id
+                         order by 1 desc limit 1) as status,
+                           (select fecha from status
+                            where reciclador_id = r.id
+                              order by 1 desc limit 1) as fecha,
+                         coalesce  ((current_date
+                            -
+                           (select fecha from status
+                            where reciclador_id = r.id
+                              order by 1 desc limit 1)),0) as diferencia,
+                           (case
+                             when  (current_date - (select fecha from status where reciclador_id = r.id order by 1 desc limit 1) ) >15 then
+                             'Desactivar' else 'Activar'
+                             end)
+                     from
+                    persona as r
+                    where r.rol_id = 2;";
+            $sentencia = $this->dblink->prepare($sql);
+            $sentencia->execute();
+            $resultado = $sentencia->fetchAll(PDO::FETCH_ASSOC);
+            if ($sentencia->rowCount()) {
+                for ($i=0; $i<count($resultado); $i++){
+                    if($resultado[$i]['diferencia'] > 15){
+
+                        date_default_timezone_set("America/Lima");
+                        $hora = date('H:i:s');
+                        $fecha = date('Y-m-d');
+                        $estado = 'No Disponible';
+
+                        $sql = "insert into status (fecha, hora, name_status, reciclador_id) 
+                        values (:p_fecha,:p_hora,:p_estado,:p_reciclador)";
+                        $sentencia = $this->dblink->prepare($sql);
+                        $sentencia->bindParam(":p_fecha", $fecha);
+                        $sentencia->bindParam(":p_hora", $hora);
+                        $sentencia->bindParam(":p_estado", $estado);
+                        $sentencia->bindParam(":p_reciclador", $resultado[$i]['id']);
+                        $sentencia->execute();
+
+                        $state = 'I';
+
+                        $this->dblink->beginTransaction();
+                        $sql = "update persona set estado  = :p_estado where id = :p_id";
+                        $sentencia = $this->dblink->prepare($sql);
+                        $sentencia->bindParam(":p_estado", $state);
+                        $sentencia->bindParam(":p_id", $resultado[$i]['id']);
+                        $sentencia->execute();
+                        $this->dblink->commit();
+
+                    }
+                }
+            }
+
+            return $resultado;
+        } catch (Exception $ex) {
+            throw $ex;
+        }
     }
 
 }
