@@ -507,10 +507,10 @@ class servicio extends conexion
 
                     $res = $this->position_create($servicio_id, $this->latitud, $this->longitud);
                     if($res){
-                        return $recycle_id;
+                        return array($recycle_id,$servicio_id);
                     }
                     else{
-                        return 0;
+                        return array(0,0);
                     }
                 }
 
@@ -520,7 +520,7 @@ class servicio extends conexion
 
             }else{
 
-                return -1;
+                return array(-1,-1);
 
             }
 

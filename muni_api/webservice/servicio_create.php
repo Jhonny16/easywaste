@@ -22,6 +22,7 @@ $proveedor_id = json_decode(file_get_contents("php://input"))->proveedor_id;
 $latitud = json_decode(file_get_contents("php://input"))->latitud;
 $longitud = json_decode(file_get_contents("php://input"))->longitud;
 $referencia = json_decode(file_get_contents("php://input"))->referencia;
+$imagen= json_decode(file_get_contents("php://input"))->imagen;
 //$array_distancias = json_decode(file_get_contents("php://input"))->array_distancias;
 //$imagen = pg_escape_bytea(file_get_contents("php://input"))->imagen;
 
@@ -39,23 +40,24 @@ $objeto->setLatitud($latitud);
 $objeto->setLongitud($longitud);
 $objeto->setReferencia($referencia);
 $objeto->setEstado($estado);
+$objeto->setImagen($imagen);
 
-$name_encriptado = null;
-
-if (isset($_FILES['images'])){
-    $explode = explode('.', $image['name']);
-    $extension = $explode[1];
-    $name_encriptado = md5($image['tmp_name']) . '.' . $extension;
-    $ruta = '../imagenes/' . '' . $name_encriptado . '';
-
-    $res = move_uploaded_file($image['tmp_name'], $ruta);
-    if ($res) {
-        $objeto->setImagen($name_encriptado);
-
-    }
-}else{
-    $objeto->setImagen(null);
-}
+//$name_encriptado = null;
+//
+//if (isset($_FILES['images'])){
+//    $explode = explode('.', $image['name']);
+//    $extension = $explode[1];
+//    $name_encriptado = md5($image['tmp_name']) . '.' . $extension;
+//    $ruta = '../imagenes/' . '' . $name_encriptado . '';
+//
+//    $res = move_uploaded_file($image['tmp_name'], $ruta);
+//    if ($res) {
+//        $objeto->setImagen($name_encriptado);
+//
+//    }
+//}else{
+//    $objeto->setImagen(null);
+//}
 
 //
 //if (isset($_FILES['images'])){
@@ -151,21 +153,23 @@ if ($destinos != null) {
     $recycle_id = $objeto->create();
 
 
-    if ($recycle_id == -1) {
+    if ($recycle_id[0] == -1) {
         Funciones::imprimeJSON(203, "No hay recicladores disponibles", $recycle_id);
     } else {
-        if ($recycle_id == 0) {
+        if ($recycle_id[0] == 0) {
             Funciones::imprimeJSON(203, "No se creo posicion actual", $recycle_id);
         } else {
-            if ($recycle_id > 0) {
+            if ($recycle_id[0] > 0) {
 
                 for($i=0; $i< count($position); $i++){
 
                     if($recycle_id == $position[$i]['id']){
                         $position[$i]['eledido'] = 1;
+                        $position[$i]['servicio_id'] = $recycle_id[1];
 
                     }else{
                         $position[$i]['elegido'] = 0;
+                        $position[$i]['servicio_id'] = $recycle_id[1];
                     }
 
                 }
