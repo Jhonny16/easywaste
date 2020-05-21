@@ -22,7 +22,11 @@ $proveedor_id = json_decode(file_get_contents("php://input"))->proveedor_id;
 $latitud = json_decode(file_get_contents("php://input"))->latitud;
 $longitud = json_decode(file_get_contents("php://input"))->longitud;
 $referencia = json_decode(file_get_contents("php://input"))->referencia;
-$imagen= json_decode(file_get_contents("php://input"))->imagen;
+$imagen = null;
+$outputTo = null;
+if(isset(json_decode(file_get_contents("php://input"))->imagen)){
+    $imagen= json_decode(file_get_contents("php://input"))->imagen;
+}
 //$array_distancias = json_decode(file_get_contents("php://input"))->array_distancias;
 //$imagen = pg_escape_bytea(file_get_contents("php://input"))->imagen;
 
@@ -81,12 +85,16 @@ $objeto->setImagen($imagen);
 $position_reciclacores = new persona();
 $position = $position_reciclacores->posicion_recicladores();
 
-$lat = $position[0]['lat'];
-$lng = $position[0]['lng'];
+
 
 //$geocodeFrom = file_get_contents('https://maps.googleapis.com/maps/api/geocode/json?latlng='.$lat.','.$lng.'&key=AIzaSyAz2Oa-_4POfA1s5UslFrXfTe66uPfgEMU');
 
 $cant = count($position) - 1;
+if($cant>0) {
+    $lat = $position[0]['lat'];
+    $lng = $position[0]['lng'];
+}
+
 
 $destinos = null;
 
@@ -176,7 +184,6 @@ if ($destinos != null) {
                 Funciones::imprimeJSON(200, "Se guardo el servicio", $position);
             } else {
                 Funciones::imprimeJSON(203, "Error al guardar", $recycle_id);
-
             }
         }
     }
