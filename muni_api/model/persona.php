@@ -541,7 +541,8 @@ class persona extends conexion
     {
 
         try {
-            $sql = "select p.*, z.nombre as zona from persona p inner join zona z on p.zona_id = z.id where p.rol_id = 2 ";
+            $sql = "select p.*, z.nombre as zona from persona p inner join zona z on p.zona_id = z.id where p.rol_id = 2 
+                    and p.estado = 'A' ";
             $sentencia = $this->dblink->prepare($sql);
             $sentencia->execute();
             $resultado = $sentencia->fetchAll(PDO::FETCH_ASSOC);

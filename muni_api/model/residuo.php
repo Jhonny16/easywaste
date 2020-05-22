@@ -65,7 +65,12 @@ class residuo extends conexion
                     from detalle_almacen as da left join residuo r on da.residuo_id = r.id
                     inner join almacen a on da.almacen_id = a.id
                     where a.reciclador_id = :p_reciclador
-                    group by r.id, r.nombre;
+                    group by r.id, r.nombre
+                    having    sum(da.cantidad) -
+                              coalesce((select
+                                          sum(d.cantidad) as cantidad
+                                        from detalle as d inner join venta v on d.venta_id = v.id
+                                        where v.reciclador_id = 8 and d.residuo_id = r.id),0) > 0
                     ";
             $sentencia = $this->dblink->prepare($sql);
             $sentencia->bindParam(":p_reciclador", $reciclador_id);
