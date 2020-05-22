@@ -37,9 +37,15 @@ try {
         }
 
         for($i=0; $i<count($resultado); $i++){
-            $resultado[$i]['valor'] =  round( $resultado[$i]['intervalo']/$suma_intervalo  ,3);
+            if($resultado[$i]['intervalo'] == 0){
+                $resultado[$i]['valor'] =  0;
 
-            $obj->create_update($resultado[$i]['id'], 4, $resultado[$i]['valor']);
+            }else{
+                $resultado[$i]['valor'] =  round( $resultado[$i]['intervalo']/$suma_intervalo  ,3);
+
+            }
+
+            $obj->create_update($resultado[$i]['id'], 4, round($resultado[$i]['valor'],3));
         }
 
 

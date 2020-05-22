@@ -16,7 +16,7 @@ class persona_criterio extends conexion
                                                  count(s.id) as cantidad_servicio
 
                     from servicio s right join persona p on s.reciclador_id = p.id
-                    where rol_id = 2 and estado = 'A'
+                    where rol_id = 2 and p.estado = 'A'
                     group by p.id,p.ap_paterno ||' '|| p.ap_materno ||'' || p.nombres;
                      ";
             $sentencia = $this->dblink->prepare($sql);
@@ -36,7 +36,7 @@ class persona_criterio extends conexion
             $sql = "select p.id, (p.ap_paterno ||' '|| p.ap_materno ||' '|| p.nombres) as reciclador,
                           current_date - p.fecha_registro as antiguedad
                     from servicio s right join persona p on s.reciclador_id = p.id
-                    where rol_id = 2 and estado = 'A'
+                    where rol_id = 2 and p.estado = 'A'
                     group by p.id,p.ap_paterno ||' '|| p.ap_materno ||'' || p.nombres; ";
             $sentencia = $this->dblink->prepare($sql);
             $sentencia->execute();
@@ -57,7 +57,7 @@ class persona_criterio extends conexion
                            coalesce(SUM(s.calificacion) ,0)as calificacion,
                            count(s.id) as cantidad_servicio
                     from servicio s right join persona p on s.reciclador_id = p.id
-                    where rol_id = 2 and estado = 'A'
+                    where rol_id = 2 and p.estado = 'A'
                     group by p.id,p.ap_paterno ||' '|| p.ap_materno ||'' || p.nombres;
                      ";
             $sentencia = $this->dblink->prepare($sql);
@@ -79,7 +79,7 @@ class persona_criterio extends conexion
                            SUM(case when s.estado='Finalizado' then 1 else 0 end) -
                            SUM(case when s.estado='Cancelado' then 1 else 0 end) as atencion
                     from servicio s  right join persona p on s.reciclador_id = p.id
-                    where rol_id = 2 and estado = 'A'
+                    where rol_id = 2 and p.estado = 'A'
                     group by p.id,p.ap_paterno ||' '|| p.ap_materno ||'' || p.nombres;
                      ";
             $sentencia = $this->dblink->prepare($sql);
@@ -146,7 +146,7 @@ class persona_criterio extends conexion
                       SUM(case when pc.criterio_id=3 then pc.valor end) as criterio3,
                       SUM(case when pc.criterio_id=4 then pc.valor end) as criterio4
                     from persona_criterio pc inner join persona p on pc.persona_id = p.id
-                    where and p.estado = 'A'
+                    where p.estado = 'A'
                     group by persona_id,p.ap_paterno||' '|| p.ap_materno ||' '|| p.nombres
                     order by persona_id asc;";
             $sentencia = $this->dblink->prepare($sql);
