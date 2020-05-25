@@ -537,6 +537,20 @@ class persona extends conexion
         }
     }
 
+    public function reciclador_lista_all()
+    {
+
+        try {
+            $sql = "select p.*, z.nombre as zona from persona p inner join zona z on p.zona_id = z.id where p.rol_id = 2  ";
+            $sentencia = $this->dblink->prepare($sql);
+            $sentencia->execute();
+            $resultado = $sentencia->fetchAll(PDO::FETCH_ASSOC);
+            return $resultado;
+        } catch (Exception $ex) {
+            throw $ex;
+        }
+    }
+
     public function reciclador_lista()
     {
 

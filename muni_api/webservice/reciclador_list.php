@@ -14,7 +14,7 @@ if (!isset($_SERVER["HTTP_TOKEN"])) {
 
 try {
     $obj = new persona();
-    $resultado = $obj->reciclador_lista();
+    $resultado = $obj->reciclador_lista_all();
 
     if($resultado){
         Funciones::imprimeJSON(200, "",$resultado);

@@ -13,28 +13,27 @@ if (!isset($_SERVER["HTTP_TOKEN"])) {
     exit();
 }
 $token = $_SERVER["HTTP_TOKEN"];
-$operation= json_decode(file_get_contents("php://input"))->operation;
-if($operation == 'Nuevo'){
+$operation = json_decode(file_get_contents("php://input"))->operation;
+if ($operation == 'Nuevo') {
 
-}else{
+} else {
     $id = json_decode(file_get_contents("php://input"))->id;
 }
 
 $dni = json_decode(file_get_contents("php://input"))->dni;
 $nombres = json_decode(file_get_contents("php://input"))->nombres;
-$ap_paterno= json_decode(file_get_contents("php://input"))->ap_paterno;
-$ap_materno= json_decode(file_get_contents("php://input"))->ap_materno;
+$ap_paterno = json_decode(file_get_contents("php://input"))->ap_paterno;
+$ap_materno = json_decode(file_get_contents("php://input"))->ap_materno;
 $sexo = json_decode(file_get_contents("php://input"))->sexo;
 $fn = json_decode(file_get_contents("php://input"))->fn;
 $celular = json_decode(file_get_contents("php://input"))->celular;
-$direccion= json_decode(file_get_contents("php://input"))->direccion;
+$direccion = json_decode(file_get_contents("php://input"))->direccion;
 $correo = json_decode(file_get_contents("php://input"))->correo;
-$estado= json_decode(file_get_contents("php://input"))->estado;
-$zona_id= json_decode(file_get_contents("php://input"))->zona_id;
-$fecha_registro= json_decode(file_get_contents("php://input"))->fecha_registro;
+$estado = json_decode(file_get_contents("php://input"))->estado;
+$zona_id = json_decode(file_get_contents("php://input"))->zona_id;
+$fecha_registro = json_decode(file_get_contents("php://input"))->fecha_registro;
 $rol_id = json_decode(file_get_contents("php://input"))->rol_id;
-$is_param= json_decode(file_get_contents("php://input"))->is_param;
-
+$is_param = json_decode(file_get_contents("php://input"))->is_param;
 
 
 try {
@@ -43,7 +42,7 @@ try {
     $interval = $datetime1->diff($datetime2);
     $dias = $interval->format('%R%a');
     $anio = (float)$dias / 365;
-    if($anio < 18){
+    if ($anio < 18) {
         Funciones::imprimeJSON(500, "La fecha de nacimiento del nuevo registro no supera los 18 años", "");
         exit();
     }
@@ -51,23 +50,19 @@ try {
     if ($operation == 'Nuevo') {
 
 
-
-
-
         $e_mail = explode('@', $correo);
-        if($correo == null or $correo == ''){
+        if ($correo == null or $correo == '') {
             Funciones::imprimeJSON(500, "Debe ingresar e-mail", "");
             exit();
-        }else{
-            if($e_mail[1] == 'gmail.com'){
+        } else {
+            if ($e_mail[1] == 'gmail.com') {
 
-            }else{
+            } else {
                 Funciones::imprimeJSON(500, "El mail ingresado debe ser de la cuenta de GMAIL", "");
                 exit();
             }
 
         }
-
 
 
         $objper = new persona();
@@ -80,23 +75,23 @@ try {
         $objper->setCelular($celular);
         $objper->setDireccion($direccion);
         $objper->setCorreo($correo);
-        if ($rol_id == 3){
+        if ($rol_id == 3) {
             $objper->setEstado("I");
-        }else{
+        } else {
             $objper->setEstado($estado);
 
         }
         $objper->setZonaId($zona_id);
         $objper->setFechaRegistro($fecha_registro);
 
-        if ($rol_id == 2 and $is_param == 1 ){
+        if ($rol_id == 2 and $is_param == 1) {
             $objper->setRolId(3);
 
             $add_other = $objper->create();
 
         }
 
-        if ($rol_id == 3 and $is_param == 1 ){
+        if ($rol_id == 3 and $is_param == 1) {
             $objper->setRolId(2);
 
             $add_other = $objper->create();
@@ -106,49 +101,51 @@ try {
         $objper->setRolId($rol_id);
 
 
-
         $persona_id = $objper->create();
-        if ($persona_id >1 ) {
-
-            if ($rol_id == 3){
-                $obj_mail = new verificacionEmail();
-
-                $obj_mail->setGmail($correo) ;
-                $obj_mail->setProveedorId($persona_id) ;
-
-                $new_code = $obj_mail->create();
-
-                $msg = "Bienvido a EasyWaste. \nPara completar su registro, por favor, ingrese su código de verificación.\n
-                Código de verificación: " . $new_code . "\nAcceda a este link: 
-                http://192.168.1.5/www/muni_web/Vista/code_validation.php?persona_id=".$persona_id." \nGracias por su preferencia !";
-
-                $msg = wordwrap($msg,98,"\r\n");
-
-                $res = mail($correo,"EasyWaste dice Hola!",$msg);
+        if ($persona_id > 1 and $rol_id == 3) {
 
 
+            $obj_mail = new verificacionEmail();
 
-            }
+            $obj_mail->setGmail($correo);
+            $obj_mail->setProveedorId($persona_id);
 
-            if($res == 1){
-                if($rol_id == 3){
+            $new_code = $obj_mail->create();
+
+            $msg = "Bienvido a EasyWaste. \nPara completar su registro, por favor, ingrese su código de verificación.\n
+            Código de verificación: " . $new_code . "\nAcceda a este link: 
+            http://192.168.1.5/www/muni_web/Vista/code_validation.php?persona_id=" . $persona_id . " \nGracias por su preferencia !";
+
+            $msg = wordwrap($msg, 98, "\r\n");
+
+            $res = mail($correo, "EasyWaste dice Hola!", $msg);
+
+
+            if ($res == 1) {
+                if ($rol_id == 3) {
                     Funciones::imprimeJSON(200, "Agregado Correcto. Valide su codigo de verificación  a traveś de la cuenta de gmail que ud ingresó", $persona_id);
 
-                }else{
+                } else {
                     Funciones::imprimeJSON(200, "Agregado Correcto.", $persona_id);
 
                 }
 
-            }else{
+            } else {
                 Funciones::imprimeJSON(200, "Agregado Correcto. No se envió el correo electróniico. ", $persona_id);
             }
 
 
-
-
-
         } else {
-            Funciones::imprimeJSON(203, "Error al momento de agregar", "");
+            if ($persona_id > 1 and $rol_id != 3) {
+
+                Funciones::imprimeJSON(200, "Agregado Correcto.", $persona_id);
+
+
+            } else {
+                Funciones::imprimeJSON(203, "Error al momento de agregar", "");
+
+            }
+
         }
 
 
@@ -170,12 +167,12 @@ try {
         $objper->setId($id);
 
 
-        if ($rol_id == 2 and $is_param == 1 ){
+        if ($rol_id == 2 and $is_param == 1) {
             $objper->setRolId(3);
             $add_other = $objper->update_other(3);
 
-        }else{
-            if ($rol_id == 2 and $is_param == 0 ){
+        } else {
+            if ($rol_id == 2 and $is_param == 0) {
                 $objper->setRolId(3);
                 $objper->setEstado("I");
 
@@ -183,15 +180,15 @@ try {
             }
         }
 
-        if ($rol_id == 3 and $is_param == 1 ){
+        if ($rol_id == 3 and $is_param == 1) {
             $objper->setRolId(2);
             $objper->setEstado("I");
 
 
             $add_other = $objper->update_other(2);
 
-        }else{
-            if ($rol_id == 3 and $is_param == 0 ){
+        } else {
+            if ($rol_id == 3 and $is_param == 0) {
                 $objper->setRolId(2);
                 $objper->setEstado("I");
 

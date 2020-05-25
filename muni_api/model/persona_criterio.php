@@ -184,32 +184,21 @@ class persona_criterio extends conexion
     public function update_state_reciclador(){
         try {
             $sql = "
-                    select
-                           r.id,
-                           (select name_status from status
-                       where reciclador_id = r.id
-                         order by 1 desc limit 1) as status,
-                           (select fecha from status
-                            where reciclador_id = r.id
-                              order by 1 desc limit 1) as fecha,
-                         coalesce  ((current_date
-                            -
-                           (select fecha from status
-                            where reciclador_id = r.id
-                              order by 1 desc limit 1)),0) as diferencia,
-                           (case
-                             when  (current_date - (select fecha from status where reciclador_id = r.id order by 1 desc limit 1) ) >15 then
-                             'Desactivar' else 'Activar'
-                             end)
-                     from
-                    persona as r
-                    where r.rol_id = 2;";
+               select r.id,
+                        current_date - r.fecha_registro as diferencia,
+                       (case when (select name_status from status
+                                   where reciclador_id = r.id
+                                   order by 1 desc limit 1) is null then 'Baja' else 'Continue'end) as baja
+                
+                 from persona as r
+                where r.rol_id = 2
+                ";
             $sentencia = $this->dblink->prepare($sql);
             $sentencia->execute();
             $resultado = $sentencia->fetchAll(PDO::FETCH_ASSOC);
             if ($sentencia->rowCount()) {
                 for ($i=0; $i<count($resultado); $i++){
-                    if($resultado[$i]['diferencia'] > 15){
+                    if($resultado[$i]['diferencia'] > 15 && $resultado[$i]['baja'] == 'Baja'){
 
                         date_default_timezone_set("America/Lima");
                         $hora = date('H:i:s');
