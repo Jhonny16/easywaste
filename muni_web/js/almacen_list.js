@@ -142,3 +142,6 @@ function data_modal(id) {
 
 }
 
+function nuevo() {
+    window.location = "../Vista/almacen.php";
+}

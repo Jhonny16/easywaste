@@ -36,6 +36,8 @@ function criterios_lista() {
 }
 
 function criterios_vectores() {
+    console.log("Actualizar estado reciclador");
+    console.log("Actualizar periodo ");
 
     var ruta = DIRECCION_WS + "matriz_normalizada.php";
     var token = localStorage.getItem('token');
@@ -110,7 +112,7 @@ function criterios_vectores() {
     });
 }
 
-function criterios_matriz() {
+function  criterios_matriz() {
 
     var ruta = DIRECCION_WS + "matriz_prioridades.php";
     var token = localStorage.getItem('token');

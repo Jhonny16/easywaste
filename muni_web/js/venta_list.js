@@ -210,6 +210,10 @@ function centro_acopio_final() {
     });
 }
 
+function nuevo() {
+    window.location = "../Vista/venta.php";
+}
+
 /*function al_cambiar(id) {
     var total = 0.0;
     var subtotal = 0.0;

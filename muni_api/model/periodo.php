@@ -321,5 +321,38 @@ class periodo extends conexion
 
     }
 
+    public function update_state_periodo(){
+        try {
+            $sql = "
+               select
+                 id,
+                 (case when current_date between fecha_inicio and fecha_inicio then 1 else 0 end) as new_status
+                 from periodo
+                ";
+            $sentencia = $this->dblink->prepare($sql);
+            $sentencia->execute();
+            $resultado = $sentencia->fetchAll(PDO::FETCH_ASSOC);
+            if ($sentencia->rowCount()) {
+                for ($i=0; $i<count($resultado); $i++){
+
+                    $id = $resultado[$i]['id'];
+                    $new_status = $resultado[$i]['new_status'];
+
+                    $this->dblink->beginTransaction();
+                    $sql = "update periodo set estado  = :p_estado where id = :p_id";
+                    $sentencia = $this->dblink->prepare($sql);
+                    $sentencia->bindParam(":p_estado", $new_status);
+                    $sentencia->bindParam(":p_id", $id);
+                    $sentencia->execute();
+                    $this->dblink->commit();
+                }
+            }
+
+            return $resultado;
+        } catch (Exception $ex) {
+            throw $ex;
+        }
+    }
+
 
 }

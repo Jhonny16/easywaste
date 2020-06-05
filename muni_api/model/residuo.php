@@ -70,7 +70,7 @@ class residuo extends conexion
                               coalesce((select
                                           sum(d.cantidad) as cantidad
                                         from detalle as d inner join venta v on d.venta_id = v.id
-                                        where v.reciclador_id = 8 and d.residuo_id = r.id),0) > 0
+                                        where v.reciclador_id = :p_reciclador and d.residuo_id = r.id),0) > 0
                     ";
             $sentencia = $this->dblink->prepare($sql);
             $sentencia->bindParam(":p_reciclador", $reciclador_id);

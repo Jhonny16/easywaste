@@ -60,6 +60,18 @@
                             <li><a href="proveedor_list.php"><i class="fa fa-circle-o"></i> Lista</a></li>
                         </ul>
                     </li>
+                    <li class="treeview" id="menu_pintrash">
+                        <a href="#">
+                            <img src="../imagenes/pintrash.jpg" style="width: 1.5em" alt="">
+                            <span style="color: #01a189">Pintrash</span>
+                            <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="pintrash_intercambio.php" ><i class="fa fa-circle-o"></i> Canjear</a></li>
+                        </ul>
+                    </li>
                     <li class="treeview" id="menu_premio">
                         <a href="#">
                             <img src="../imagenes/premio.png" style="width: 1.5em" alt="">
@@ -151,7 +163,7 @@
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="almacen.php" ><i class="fa fa-circle-o"></i> Nueva</a></li>
+<!--                    <li><a href="almacen.php" ><i class="fa fa-circle-o"></i> Nueva</a></li>-->
                     <li><a href="almacen_lista.php" ><i class="fa fa-circle-o"></i> Lista</a></li>
                 </ul>
             </li>
@@ -164,22 +176,11 @@
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="venta.php" ><i class="fa fa-circle-o"></i> Nueva</a></li>
+<!--                    <li><a href="venta.php" ><i class="fa fa-circle-o"></i> Nueva</a></li>-->
                     <li><a href="venta_lista.php" ><i class="fa fa-circle-o"></i> Lista</a></li>
                 </ul>
             </li>
-            <li class="treeview" id="menu_pintrash">
-                <a href="#">
-                    <img src="../imagenes/pintrash.jpg" style="width: 1.5em" alt="">
-                    <span style="color: #01a189">Pintrash</span>
-                    <span class="pull-right-container">
-                        <i class="fa fa-angle-left pull-right"></i>
-                    </span>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="pintrash_intercambio.php" ><i class="fa fa-circle-o"></i> Canjear</a></li>
-                </ul>
-            </li>
+
 <!--            <li class="treeview" id="menu_premio">-->
 <!--                <a href="#">-->
 <!--                    <img src="../imagenes/premio.png" style="width: 1.5em" alt="">-->
