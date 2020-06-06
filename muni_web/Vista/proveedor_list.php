@@ -37,6 +37,7 @@ require_once '../util/funciones/definiciones.php';
                 <div class="col-xs-12 col-lg-12">
                     <div class="box box-info">
                         <div class="box-header with-border">
+                            <button type="button" class="btn btn-info pull-right" onclick="nuevo()" ><i class="fa fa-user-plus"></i> Nuevo</button>
                         </div>
                         <!-- /.box-header -->
                         <form class="form-horizontal">

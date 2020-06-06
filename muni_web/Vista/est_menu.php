@@ -43,7 +43,7 @@
                     </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="reciclador.php" ><i class="fa fa-circle-o"></i> Nuevo</a></li>
+<!--                            <li><a href="reciclador.php" ><i class="fa fa-circle-o"></i> Nuevo</a></li>-->
                             <li><a href="reciclador_list.php"><i class="fa fa-circle-o"></i> Lista</a></li>
                         </ul>
                     </li>
@@ -56,7 +56,7 @@
                     </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="proveedor.php" ><i class="fa fa-circle-o"></i> Nuevo</a></li>
+<!--                            <li><a href="proveedor.php" ><i class="fa fa-circle-o"></i> Nuevo</a></li>-->
                             <li><a href="proveedor_list.php"><i class="fa fa-circle-o"></i> Lista</a></li>
                         </ul>
                     </li>
