@@ -9,6 +9,24 @@ class periodo extends conexion
     private $fecha_fin;
     private $descripcion;
     private $estado;
+    private $user_name;
+
+    /**
+     * @return mixed
+     */
+    public function getUserName()
+    {
+        return $this->user_name;
+    }
+
+    /**
+     * @param mixed $user_name
+     */
+    public function setUserName($user_name)
+    {
+        $this->user_name = $user_name;
+    }
+
 
     /**
      * @return mixed
@@ -159,13 +177,14 @@ class periodo extends conexion
 
             if ($this->estado=='1' or $this->estado == 1){
 
-                $sql = "INSERT INTO periodo (fecha_inicio, fecha_fin, estado, descripcion) 
-                values (:p_fecha_inicio, :p_fecha_fin, :p_estado, :p_descripcion) ";
+                $sql = "INSERT INTO periodo (fecha_inicio, fecha_fin, estado, descripcion, user_name) 
+                values (:p_fecha_inicio, :p_fecha_fin, :p_estado, :p_descripcion, :p_user_name) ";
                 $sentencia = $this->dblink->prepare($sql);
                 $sentencia->bindParam(":p_fecha_inicio", $this->fecha_inicio);
                 $sentencia->bindParam(":p_fecha_fin", $this->fecha_fin);
                 $sentencia->bindParam(":p_estado", $this->estado);
                 $sentencia->bindParam(":p_descripcion", $this->descripcion);
+                $sentencia->bindParam(":p_user_name", $this->user_name);
                 $sentencia->execute();
 
                 $sql = "SELECT id FROM periodo order by 1 desc limit 1";
@@ -178,13 +197,15 @@ class periodo extends conexion
 
                 }
             }else{
-                $sql = "INSERT INTO periodo (fecha_inicio, fecha_fin, estado, descripcion) 
-                  values (:p_fecha_inicio, :p_fecha_fin, :p_estado, :p_descripcion) ";
+                $sql = "INSERT INTO periodo (fecha_inicio, fecha_fin, estado, descripcion, user_name) 
+                  values (:p_fecha_inicio, :p_fecha_fin, :p_estado, :p_descripcion, :p_user_name) ";
                 $sentencia = $this->dblink->prepare($sql);
                 $sentencia->bindParam(":p_fecha_inicio", $this->fecha_inicio);
                 $sentencia->bindParam(":p_fecha_fin", $this->fecha_fin);
                 $sentencia->bindParam(":p_estado", $this->estado);
                 $sentencia->bindParam(":p_descripcion", $this->descripcion);
+                $sentencia->bindParam(":p_user_name", $this->user_name);
+
                 $sentencia->execute();
 
                 return 1;
@@ -211,13 +232,14 @@ class periodo extends conexion
 
                 if($id == $this->id){
                     $sql = "UPDATE periodo SET fecha_inicio= :p_fecha_inicio,fecha_fin = :p_fecha_fin,
-                    descripcion =  :p_descripcion, estado = :p_estado WHERE id = :p_id";
+                    descripcion =  :p_descripcion, estado = :p_estado, user_name = :p_user_name WHERE id = :p_id";
 
                     $sentencia = $this->dblink->prepare($sql);
                     $sentencia->bindParam(":p_fecha_inicio", $this->fecha_inicio);
                     $sentencia->bindParam(":p_fecha_fin", $this->fecha_fin);
                     $sentencia->bindParam(":p_descripcion", $this->descripcion);
                     $sentencia->bindParam(":p_estado", $this->estado);
+                    $sentencia->bindParam(":p_user_name", $this->user_name);
                     $sentencia->bindParam(":p_id", $this->id);
                     $sentencia->execute();
 
@@ -231,13 +253,14 @@ class periodo extends conexion
                         $this->create_periodo_criterio($this->id);
 
                         $sql = "UPDATE periodo SET fecha_inicio= :p_fecha_inicio,fecha_fin = :p_fecha_fin,
-                    descripcion =  :p_descripcion, estado = :p_estado WHERE id = :p_id";
+                    descripcion =  :p_descripcion, estado = :p_estado, user_name = :p_user_name WHERE id = :p_id";
 
                         $sentencia = $this->dblink->prepare($sql);
                         $sentencia->bindParam(":p_fecha_inicio", $this->fecha_inicio);
                         $sentencia->bindParam(":p_fecha_fin", $this->fecha_fin);
                         $sentencia->bindParam(":p_descripcion", $this->descripcion);
                         $sentencia->bindParam(":p_estado", $this->estado);
+                        $sentencia->bindParam(":p_user_name", $this->user_name);
                         $sentencia->bindParam(":p_id", $this->id);
                         $sentencia->execute();
 
@@ -248,13 +271,14 @@ class periodo extends conexion
                 }
             }else{
                 $sql = "UPDATE periodo SET fecha_inicio= :p_fecha_inicio,fecha_fin = :p_fecha_fin,
-                    descripcion =  :p_descripcion, estado = :p_estado WHERE id = :p_id";
+                    descripcion =  :p_descripcion, estado = :p_estado, user_name = :p_user_name WHERE id = :p_id";
 
                 $sentencia = $this->dblink->prepare($sql);
                 $sentencia->bindParam(":p_fecha_inicio", $this->fecha_inicio);
                 $sentencia->bindParam(":p_fecha_fin", $this->fecha_fin);
                 $sentencia->bindParam(":p_descripcion", $this->descripcion);
                 $sentencia->bindParam(":p_estado", $this->estado);
+                $sentencia->bindParam(":p_user_name", $this->user_name);
                 $sentencia->bindParam(":p_id", $this->id);
                 $sentencia->execute();
 
@@ -302,12 +326,7 @@ class periodo extends conexion
     }
 
     public function vigencia(){
-        $sql = "select
-                p.estado, p.fecha_inicio, p.fecha_fin, pc.id
-                ,(case when fecha_fin < current_date then -1 else 1 end) as vigente
-                from periodo p left join periodo_criterio pc on p.id = pc.periodo_id
-                --where p.estado = '1'
-                group by p.estado, p.fecha_inicio, p.fecha_fin,pc.id;
+        $sql = "select count(*) as vigente from periodo where estado = 1
                 " ;
         $sentencia = $this->dblink->prepare($sql);
         $sentencia->execute();
@@ -324,10 +343,10 @@ class periodo extends conexion
     public function update_state_periodo(){
         try {
             $sql = "
-               select
-                 id,
-                 (case when current_date between fecha_inicio and fecha_inicio then 1 else 0 end) as new_status
-                 from periodo
+                select
+                  id,
+                  (case when current_date between fecha_inicio and fecha_fin then 1 else 0 end) as new_status
+                from periodo
                 ";
             $sentencia = $this->dblink->prepare($sql);
             $sentencia->execute();
@@ -352,6 +371,19 @@ class periodo extends conexion
         } catch (Exception $ex) {
             throw $ex;
         }
+    }
+
+
+    public function historial($f_inicio, $f_fin)
+    {
+        $sql = "select * from bitacora.periodo
+                where date(fecha_hora) between :p_fecha_inicio and :p_fecha_fin  ";
+        $sentencia = $this->dblink->prepare($sql);
+        $sentencia->bindParam(":p_fecha_inicio", $f_inicio);
+        $sentencia->bindParam(":p_fecha_fin", $f_fin);
+        $sentencia->execute();
+        $resultado = $sentencia->fetchAll();
+        return $resultado;
     }
 
 

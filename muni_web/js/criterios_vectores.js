@@ -119,12 +119,13 @@ function  criterios_matriz() {
 
     console.log(ruta);
     $.ajax({
-        type: "get",
+        type: "post",
         headers: {
             token: token
         },
         url: ruta,
-        data: {},
+        contentType: "application/json",
+        data: JSON.stringify({'user_name': localStorage.getItem('nombreUsuario')}),
         success: function (resultado) {
             console.log(resultado);
             var datosJSON = resultado;

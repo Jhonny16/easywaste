@@ -9,6 +9,38 @@ $(document).ready(function () {
 
 });
 
+function criterios_generados() {
+    // $("#combo_zona").empty();
+    var ruta = DIRECCION_WS + "criterios_list.php";
+    var token = localStorage.getItem('token');
+
+    console.log(ruta);
+    $.ajax({
+        type: "get",
+        headers: {
+            token: token
+        },
+        url: ruta,
+        data: {},
+        success: function (resultado) {
+            console.log(resultado);
+            var datosJSON = resultado;
+            if (datosJSON.estado === 200) {
+
+                console.log("lista de criterios vectores");
+                algoritmo_ahp(datosJSON.datos.length, datosJSON.datos);
+
+
+            }
+        },
+        error: function (error) {
+            console.log(error);
+            var datosJSON = $.parseJSON(error.responseText);
+            swal("Error", datosJSON.mensaje, "error");
+        }
+    });
+}
+
 function criterios_lista() {
     // $("#combo_zona").empty();
     var ruta = DIRECCION_WS + "criterios_list.php";
@@ -27,7 +59,6 @@ function criterios_lista() {
             var datosJSON = resultado;
             if (datosJSON.estado === 200) {
                 cantidad_criterios = datosJSON.datos.length;
-                data_criterios = datosJSON.datos;
                 var html = "";
                 html += '<table id="table_criterios_comparacion" class="table table-bordered table-striped">';
                 html += '<thead>';
@@ -50,7 +81,7 @@ function criterios_lista() {
                     var cont = 1;
                     for (var i = 0; i < datosJSON.datos.length; i++) {
 
-                        if(item_vigencia == -1){
+                        if(item_vigencia == 0){
                             html += '<td><select class="form-control select2" disabled onclick="valdidate_pesos(' + item.id +'' + datosJSON.datos[i].id + ')" style="width: 100%;" ' +
                                 'id="' + item.id + '' + datosJSON.datos[i].id + '" >\n' +
                                 '                  <option value="0">Seleccione Valor</option>\n' +
@@ -134,7 +165,7 @@ function generate_algorit() {
         cancelButtonText: 'Cancelar!'
     }).then(function (result) {
         if (result.value) {
-            algoritmo_ahp();
+            criterios_generados();
         }
 
     })
@@ -238,8 +269,8 @@ function valdidate_pesos(id){
     $("#" + id2 + ""+ id1 +"").val(contra_peso);
 }
 
-function algoritmo_ahp() {
-
+function algoritmo_ahp(cantidad_criterios,data_criterios) {
+    console.log(data_criterios);
     arrayDetalle.splice(0, arrayDetalle.length)
 
     for (var i = 1; i <= cantidad_criterios; i++) {
@@ -358,7 +389,11 @@ function criterios_values_save() {
     var ruta = DIRECCION_WS + "criterios_update.php";
     var token = localStorage.getItem('token');
 
-    var datos = {'p_datos': criterios_val};
+    var datos = {
+        'p_datos': criterios_val,
+        'user_name': localStorage.getItem('nombreUsuario')};
+
+    console.log(datos);
 
     swal({
         title: 'Consulta!',
@@ -396,6 +431,7 @@ function criterios_values_save() {
                         }).then(function (result) {
                                 if (result.value) {
                                     window.location = "../Vista/criterios.php";
+                                    update_normalizacion_and_vectores();
                                 }
                             });
 
@@ -435,7 +471,7 @@ function periodo_vigencia() {
             if (datosJSON.estado == 200) {
 
                 console.log(item_vigencia);
-                if (resultado.datos.vigente == -1){
+                if (resultado.datos.vigente == 0){
                     item_vigencia = resultado.datos.vigente;
                     $("#a_vigencia").removeAttr('style');
                     $("#btn_code").attr('style','display:none');
@@ -456,4 +492,12 @@ function periodo_vigencia() {
     });
 
 
+}
+
+function update_normalizacion_and_vectores() {
+    console.log("actualizar normalizacion");
+    console.log("actualizar vectorizacion");
+    criterios_lista();
+    criterios_vectores();
+    criterios_matriz();
 }

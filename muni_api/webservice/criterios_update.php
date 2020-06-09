@@ -13,6 +13,7 @@ if (!isset($_SERVER["HTTP_TOKEN"])) {
 }
 $token = $_SERVER["HTTP_TOKEN"];
 $datos = json_decode(file_get_contents("php://input"))->p_datos;
+$user_name = json_decode(file_get_contents("php://input"))->user_name;
 
 
 try {
@@ -20,6 +21,7 @@ try {
 
     $obj = new criterio();
     $obj->setGroup($datos);
+    $obj->setUserName($user_name);
 
     $result = $obj->update();
     if ($result) {

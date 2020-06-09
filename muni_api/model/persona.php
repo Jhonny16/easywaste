@@ -656,11 +656,12 @@ class persona extends conexion
     public function proveedores_pintrash()
     {
         try {
-            $sql = "select  p2.id, p2.dni, p2.ap_paterno || ' '|| p2.ap_materno ||' '|| p2.nombres as proveedor,
-                            p.pintrash
+            $sql = "select  p2.id, p2.dni, p2.ap_paterno || ' '|| p2.ap_materno ||' '|| p2.nombres as proveedor
+                           ,sum(p.pintrash) as pintrash
+                            --,p.pintrash
                     from pintrash p inner join servicio s on p.servicio_id = s.id inner join persona p2 on s.proveedor_id = p2.id
-                    group by  p2.id, p2.dni, p2.ap_paterno || ' '|| p2.ap_materno ||' '|| p2.nombres ,
-                      p.pintrash";
+                    group by  p2.id, p2.dni, p2.ap_paterno || ' '|| p2.ap_materno ||' '|| p2.nombres
+                    ";
             $sentencia = $this->dblink->prepare($sql);
             $sentencia->execute();
             $resultado = $sentencia->fetchAll(PDO::FETCH_ASSOC);
@@ -728,4 +729,16 @@ class persona extends conexion
         return (filter_var($correo, FILTER_VALIDATE_EMAIL)) ? 1 : 0;
     }
 
+
+    public function historial($f_inicio, $f_fin)
+    {
+        $sql = "select * from bitacora.persona
+                where date(fecha_hora) between :p_fecha_inicio and :p_fecha_fin  ";
+        $sentencia = $this->dblink->prepare($sql);
+        $sentencia->bindParam(":p_fecha_inicio", $f_inicio);
+        $sentencia->bindParam(":p_fecha_fin", $f_fin);
+        $sentencia->execute();
+        $resultado = $sentencia->fetchAll();
+        return $resultado;
+    }
 }

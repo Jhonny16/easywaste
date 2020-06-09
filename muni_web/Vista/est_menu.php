@@ -211,7 +211,20 @@
                 </ul>
             </li>
 
-
+            <li class="treeview" id="menu_historial">
+                <a href="#">
+                    <img src="../imagenes/history.png" style="width: 1.5em" alt="">
+                    <span style="color: #01a189">Historial</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="historial_periodos.php" ><i class="fa fa-circle-o"></i> Periodos</a></li>
+                    <li><a href="historial_criterios.php" ><i class="fa fa-circle-o"></i> Criterios valoración</a></li>
+                    <li><a href="historial_pesonas_valoracion.php" ><i class="fa fa-circle-o"></i> Persona valoración</a></li>
+                </ul>
+            </li>
         </ul>
     </section>
     <!-- /.sidebar -->

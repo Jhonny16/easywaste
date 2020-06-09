@@ -8,6 +8,25 @@ class criterio extends conexion
 
     private $id;
     private $valor;
+    private $user_name;
+
+    /**
+     * @return mixed
+     */
+    public function getUserName()
+    {
+        return $this->user_name;
+    }
+
+    /**
+     * @param mixed $user_name
+     */
+    public function setUserName($user_name)
+    {
+        $this->user_name = $user_name;
+    }
+
+
 
 
     private $group;
@@ -85,16 +104,19 @@ class criterio extends conexion
             $datos = $this->group;
 
             for ($i = 0; $i < count($datos); $i++) {
-                $sql = "update criterio set valor = :p_valor where id = :p_id";
+                $sql = "update criterio set valor = :p_valor, user_name = :p_user_name where id = :p_id";
                 $sentencia = $this->dblink->prepare($sql);
                 $sentencia->bindParam(":p_valor", $datos[$i]->valor);
                 $sentencia->bindParam(":p_id", $datos[$i]->criterio_id);
+                $sentencia->bindParam(":p_user_name", $this->user_name);
                 $sentencia->execute();
             }
 
+            $this->dblink->commit();
+
             $this->insert_code();
 
-            $this->dblink->commit();
+
             return true;
         } catch (Exception $exc) {
             $this->dblink->rollBack();
@@ -136,5 +158,18 @@ class criterio extends conexion
 
 
     }
+
+    public function historial($f_inicio, $f_fin)
+    {
+        $sql = "select * from bitacora.criterio
+                where date(fecha_hora) between :p_fecha_inicio and :p_fecha_fin order by secuencia asc ";
+        $sentencia = $this->dblink->prepare($sql);
+        $sentencia->bindParam(":p_fecha_inicio", $f_inicio);
+        $sentencia->bindParam(":p_fecha_fin", $f_fin);
+        $sentencia->execute();
+        $resultado = $sentencia->fetchAll();
+        return $resultado;
+    }
+
 }
 

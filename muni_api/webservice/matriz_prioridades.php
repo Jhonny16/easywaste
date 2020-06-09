@@ -12,9 +12,14 @@ if (!isset($_SERVER["HTTP_TOKEN"])) {
     exit();
 }
 
+
+$user_name = json_decode(file_get_contents("php://input")) -> user_name;
+
+
 try {
     $obj = new criterio();
     $objpc = new persona_criterio();
+    $objpc->setUserName($user_name);
 
     $criterios = $obj->criterios_lista();
     $norma = $objpc->datos_normalizados();

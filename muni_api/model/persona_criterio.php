@@ -4,6 +4,41 @@ require_once '../datos/conexion.php';
 
 class persona_criterio extends conexion
 {
+    private $user_name;
+
+    /**
+     * @return mixed
+     */
+    public function getUserName()
+    {
+        return $this->user_name;
+    }
+
+    /**
+     * @param mixed $user_name
+     */
+    public function setUserName($user_name)
+    {
+        $this->user_name = $user_name;
+    }
+
+
+    /**
+     * @return mixed
+     */
+    public function getDblink()
+    {
+        return $this->dblink;
+    }
+
+    /**
+     * @param mixed $dblink
+     */
+    public function setDblink($dblink)
+    {
+        $this->dblink = $dblink;
+    }
+
 
     public function c_tiempo_atencion(){
 
@@ -107,23 +142,26 @@ class persona_criterio extends conexion
 
             if ($sentencia->rowCount()){
 
-                $sql = "update persona_criterio  set valor = :p_valor  where 
+                $sql = "update persona_criterio  set valor = :p_valor, user_name = :p_user_name where 
                               persona_id = :p_personaid and criterio_id = :p_criterioid";
                 $sentencia = $this->dblink->prepare($sql);
                 $sentencia->bindParam(":p_valor", $valor);
                 $sentencia->bindParam(":p_personaid", $persona_id);
                 $sentencia->bindParam(":p_criterioid",  $criterio_id);
+                $sentencia->bindParam(":p_user_name",  $this->user_name);
                 $sentencia->execute();
 
 
             }
             else{
-                $sql = "insert into persona_criterio(persona_id,criterio_id,valor) 
-                        values(:p_personaid, :p_criterioid, :p_valor)";
+                $sql = "insert into persona_criterio(persona_id,criterio_id,valor, user_name) 
+                        values(:p_personaid, :p_criterioid, :p_valor, :p_user_name)";
                 $sentencia = $this->dblink->prepare($sql);
                 $sentencia->bindParam(":p_personaid", $persona_id);
                 $sentencia->bindParam(":p_criterioid", $criterio_id);
                 $sentencia->bindParam(":p_valor", $valor);
+                $sentencia->bindParam(":p_user_name",  $this->user_name);
+
                 $sentencia->execute();
             }
             $this->dblink->commit();
@@ -164,10 +202,11 @@ class persona_criterio extends conexion
 
         try {
 
-            $sql = "update persona set valor = :p_valor where id  = :p_persona_id ";
+            $sql = "update persona set valor = :p_valor, user_name = :p_user_name where id  = :p_persona_id ";
             $sentencia = $this->dblink->prepare($sql);
             $sentencia->bindParam(":p_valor", $valor);
             $sentencia->bindParam(":p_persona_id", $persona_id);
+            $sentencia->bindParam(":p_user_name",  $this->user_name);
             $sentencia->execute();
             $this->dblink->commit();
             return true;

@@ -10,7 +10,9 @@ $(document).ready(function () {
     $("#reciclador_vista_nuevo").attr('style', 'display:none');
 });
 
-
+function nuevo(){
+    window.location = "../Vista/reciclador.php";
+}
 
 function habilitar_create() {
     $("#reciclador_vista_nuevo").attr('style', 'display:block;' + clase + '');

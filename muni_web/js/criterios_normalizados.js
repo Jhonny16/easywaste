@@ -19,12 +19,13 @@ function c1_tiempo_atencion() {
 
     console.log(ruta);
     $.ajax({
-        type: "get",
+        type: "post",
         headers: {
             token: token
         },
         url: ruta,
-        data: {},
+        contentType: "application/json",
+        data: JSON.stringify({'user_name': localStorage.getItem('nombreUsuario')}),
         success: function (resultado) {
             console.log(resultado);
             var datosJSON = resultado;
@@ -91,12 +92,13 @@ function c2_antiguedad() {
     var token = localStorage.getItem('token');
 
     $.ajax({
-        type: "get",
+        type: "post",
         headers: {
             token: token
         },
         url: ruta,
-        data: {},
+        contentType: "application/json",
+        data: JSON.stringify({'user_name': localStorage.getItem('nombreUsuario')}),
         success: function (resultado) {
             console.log(resultado);
             var datosJSON = resultado;
@@ -154,12 +156,13 @@ function c3_calificacion() {
     var token = localStorage.getItem('token');
 
     $.ajax({
-        type: "get",
+        type: "post",
         headers: {
             token: token
         },
         url: ruta,
-        data: {},
+        contentType: "application/json",
+        data: JSON.stringify({'user_name': localStorage.getItem('nombreUsuario')}),
         success: function (resultado) {
             console.log(resultado);
             var datosJSON = resultado;
@@ -217,12 +220,13 @@ function c4_atencion() {
     var token = localStorage.getItem('token');
 
     $.ajax({
-        type: "get",
+        type: "post",
         headers: {
             token: token
         },
         url: ruta,
-        data: {},
+        contentType: "application/json",
+        data: JSON.stringify({'user_name': localStorage.getItem('nombreUsuario')}),
         success: function (resultado) {
             console.log(resultado);
             var datosJSON = resultado;

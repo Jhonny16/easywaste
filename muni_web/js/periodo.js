@@ -135,7 +135,8 @@ function periodo_add() {
         p_fecha_fin: $("#periodo_fecha_fin").val(),
         p_descripcion: $("#periodo_descripcion").val(),
         p_estado: periodo_estado,
-        p_operacion: operacion
+        p_operacion: operacion,
+        p_user_name : localStorage.getItem('nombreUsuario')
     };
     console.log(data);
 

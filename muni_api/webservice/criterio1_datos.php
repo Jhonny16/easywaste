@@ -12,9 +12,13 @@ if (!isset($_SERVER["HTTP_TOKEN"])) {
 }
 
 
+$user_name = json_decode(file_get_contents("php://input")) -> user_name;
+
+
 
 try {
     $obj = new persona_criterio();
+    $obj->setUserName($user_name);
     $resultado = $obj->c_tiempo_atencion();
 
     if($resultado){

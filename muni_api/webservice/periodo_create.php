@@ -18,6 +18,7 @@ $fecha_fin = json_decode(file_get_contents("php://input"))->p_fecha_fin;
 $descripcion= json_decode(file_get_contents("php://input"))->p_descripcion;
 $estado = json_decode(file_get_contents("php://input"))->p_estado;
 $operation = json_decode(file_get_contents("php://input"))->p_operacion;
+$user_name= json_decode(file_get_contents("php://input"))->p_user_name;
 
 
 try {
@@ -28,6 +29,7 @@ try {
     $objPeriodo->setFechaFin($fecha_fin);
     $objPeriodo->setDescripcion($descripcion);
     $objPeriodo->setEstado($estado);
+    $objPeriodo->setUserName($user_name);
 
     $datetime1 = new DateTime($fecha_inicio);
     $datetime2 = new DateTime($fecha_fin);

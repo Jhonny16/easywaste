@@ -48,6 +48,19 @@
 
 <script>
     $(function () {
+
+        $('#history_fecha_incial').datepicker({
+            autoclose: true,
+            format: 'yyyy-mm-dd',
+            defaultDate: moment()
+        });
+
+        $('#history_fecha_final').datepicker({
+            autoclose: true,
+            format: 'yyyy-mm-dd',
+            defaultDate: moment()
+        });
+
         //Initialize Select2 Elements
         $('.select2').select2();
 
