@@ -27,7 +27,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/historial_reciclador_valoracion.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="302">
@@ -36,6 +36,15 @@
                 <element signature="n#style#0;n#tr#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#th#0;n#!!top" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Vista/reciclador_list.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="276">
+              <caret line="39" column="40" selection-start-line="39" selection-end-line="40" />
             </state>
           </provider>
         </entry>
@@ -411,12 +420,13 @@
       <workItem from="1591394505597" duration="3028000" />
       <workItem from="1591545929240" duration="163000" />
       <workItem from="1591648691906" duration="7617000" />
-      <workItem from="1591728927432" duration="7576000" />
+      <workItem from="1591728927432" duration="8176000" />
+      <workItem from="1591810645480" duration="439000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1188080000" />
+    <option name="totallyTimeSpent" value="1189119000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -431,7 +441,7 @@
     <frame x="-3" y="0" width="1372" height="739" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27265862" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27643505" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -656,13 +666,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Vista/reciclador_list.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="39" column="94" selection-start-line="39" selection-start-column="94" selection-end-line="39" selection-end-column="94" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/proveedor_list.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="156">
@@ -880,6 +883,13 @@
             <element signature="n#style#0;n#tr#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#th#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Vista/reciclador_list.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="39" column="40" selection-start-line="39" selection-end-line="40" />
         </state>
       </provider>
     </entry>
