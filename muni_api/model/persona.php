@@ -657,10 +657,14 @@ class persona extends conexion
     {
         try {
             $sql = "select  p2.id, p2.dni, p2.ap_paterno || ' '|| p2.ap_materno ||' '|| p2.nombres as proveedor
-                         ,sum(p.pintrash) - sum(p.descuento)as pintrash
+                         ,sum(p.pintrash) -
+                          coalesce((select sum(pintrash_total) from canje where persona_id = p2.id),0)
+                           as pintrash
+                    
                          --,p.pintrash
                     from pintrash p inner join servicio s on p.servicio_id = s.id inner join persona p2 on s.proveedor_id = p2.id
-                    group by  p2.id, p2.dni, p2.ap_paterno || ' '|| p2.ap_materno ||' '|| p2.nombres
+                    --inner join canje c on p2.id = c.persona_id
+                    group by  p2.id, p2.dni, p2.ap_paterno || ' '|| p2.ap_materno ||' '|| p2.nombres;
                     ";
             $sentencia = $this->dblink->prepare($sql);
             $sentencia->execute();
