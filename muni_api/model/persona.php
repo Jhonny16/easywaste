@@ -657,8 +657,8 @@ class persona extends conexion
     {
         try {
             $sql = "select  p2.id, p2.dni, p2.ap_paterno || ' '|| p2.ap_materno ||' '|| p2.nombres as proveedor
-                           ,sum(p.pintrash) as pintrash
-                            --,p.pintrash
+                         ,sum(p.pintrash) - sum(p.descuento)as pintrash
+                         --,p.pintrash
                     from pintrash p inner join servicio s on p.servicio_id = s.id inner join persona p2 on s.proveedor_id = p2.id
                     group by  p2.id, p2.dni, p2.ap_paterno || ' '|| p2.ap_materno ||' '|| p2.nombres
                     ";

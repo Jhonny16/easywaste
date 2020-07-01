@@ -171,7 +171,7 @@ if ($destinos != null) {
 
                 for($i=0; $i< count($position); $i++){
 
-                    if($recycle_id == $position[$i]['id']){
+                    if($recycle_id[0] == $position[$i]['id']){
                         $position[$i]['eledido'] = 1;
                         $position[$i]['servicio_id'] = $recycle_id[1];
 

@@ -116,10 +116,9 @@ class canje extends conexion
             if ($sentencia->rowCount()) {
 
                 $this->dblink->beginTransaction();
-                $sql = "update pintrash set pintrash = :p_pintrash, descuento = :p_descuento
+                $sql = "update pintrash set descuento = :p_descuento
                          where id = :p_id";
                 $sentencia = $this->dblink->prepare($sql);
-                $sentencia->bindParam(":p_pintrash", $this->pintrash_actual);
                 $sentencia->bindParam(":p_descuento", $this->descuento);
                 $sentencia->bindParam(":p_id", $resultado['id']);
                 $sentencia->execute();
