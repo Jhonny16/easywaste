@@ -38,12 +38,14 @@ function proveedor_pintrash() {
 $("#combo_proveedores_list").change(function () {
     var pintrash = null;
     var id = $("#combo_proveedores_list").val();
+    console.log(list_prov);
+    console.log(id);
     for (var i = 0; i < list_prov.length; i++) {
         if (list_prov[i].id == id) {
             pintrash = list_prov[i].pintrash;
         }
     }
-
+    console.log(pintrash);
     $("#txt_pintrash").val(pintrash);
 
     premios_list(pintrash);
@@ -72,7 +74,6 @@ function premios_list(pintrash) {
                 list_premios = resultado.datos;
                 var html = "";
                 html += '<option value="0">-- Seleccione premio--</option>';
-                list_prov = resultado.datos;
                 $.each(datosJSON.datos, function (i, item) {
                     html += '<option value="' + item.id + '">Premio: ' + item.nombre + " - Pintrash: " + item.pintrash + '</option>';
                 });
