@@ -318,4 +318,34 @@ class almacen extends conexion
 
     }
 
+    public function lista_por_reciclador()
+    {
+
+        try {
+
+            $sql = "
+                    select
+                    a.id, a.code,
+                           a.fecha_registro,
+                    p.ap_paterno || ' ' || p.ap_materno||' ' ||p.nombres as reciclador,
+                           ca.nombre as centro_acopio,
+                           a.sector_name as sector,
+                           a.total_peso
+                    from almacen a inner join persona p on a.reciclador_id = p.id
+                    inner join centro_acopio ca on a.acopio_temporal_id = ca.id
+                    where a.reciclador_id = :p_reciclador_id ";
+            $sentencia = $this->dblink->prepare($sql);
+            $sentencia->bindParam(":p_reciclador_id", $this->reciclador_id);
+            $sentencia->execute();
+            $resultado = $sentencia->fetchAll(PDO::FETCH_ASSOC);
+
+            return $resultado;
+
+        } catch (Exception $ex) {
+            throw $ex;
+        }
+
+
+    }
+
 }
