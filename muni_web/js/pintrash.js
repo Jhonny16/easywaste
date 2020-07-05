@@ -234,12 +234,14 @@ function guardar_canje() {
             $("#tbl_premio_canje tr").each(function () {
                 var premio_id = $(this).find("td").eq(0).html();
                 var sub_pintrash = $(this).find("td").eq(2).html();
+                var puntos = $(this).find("td").eq(3).html();
                 var persona_id = $("#combo_proveedores_list").val();
                 var objDetalle = new Object(); //Crear un objeto para almacenar los datos
 
                 /*declaramos y asignamos los valores a los atributos*/
                 objDetalle.premio_id = premio_id;
                 objDetalle.sub_pintrash = sub_pintrash;
+                objDetalle.puntos = puntos;
 
                 //Almacenar al objeto objDetalle en el array arrayDetalle
                 arrayDetalle.push(objDetalle);
@@ -280,6 +282,7 @@ function guardar_canje() {
                             confirmButtonText: 'Aceptar!',
                         }).then(function (result) {
                             if (result.value) {
+                                window.location.reload();
                             }
                         })
                     } else {

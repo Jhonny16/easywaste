@@ -99,10 +99,22 @@ class canje extends conexion
                         values(:p_fecha,:p_total_pintrash,:p_persona_id,:p_premio_id)";
                 $sentencia = $this->dblink->prepare($sql);
                 $sentencia->bindParam(":p_fecha", $fecha);
-                $sentencia->bindParam(":p_total_pintrash", $value->sub_pintrash);
+                $sentencia->bindParam(":p_total_pintrash", $value->puntos);
                 $sentencia->bindParam(":p_persona_id", $persona_id);
                 $sentencia->bindParam(":p_premio_id", $value->premio_id);
                 $sentencia->execute();
+
+
+                $this->dblink->beginTransaction();
+                $sql = "update premio set stock = stock - :p_total_pintrash
+                         where id = :p_premio_id";
+                $sentencia = $this->dblink->prepare($sql);
+                $sentencia->bindParam(":p_total_pintrash", $value->sub_pintrash);
+                $sentencia->bindParam(":p_premio_id", $value->premio_id);
+                $sentencia->execute();
+                $this->dblink->commit();
+
+
             }
 
             $sql = "Select p.id from pintrash p inner join servicio s on p.servicio_id = s.id 
