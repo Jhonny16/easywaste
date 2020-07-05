@@ -282,7 +282,8 @@ function guardar_canje() {
                             confirmButtonText: 'Aceptar!',
                         }).then(function (result) {
                             if (result.value) {
-                                window.location.reload();
+                                window.location = "../Vista/pintrash_intercambio.php";
+
                             }
                         })
                     } else {
