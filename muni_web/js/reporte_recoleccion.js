@@ -107,7 +107,6 @@ function filtrar(){
 }
 
 
-
 function drawVisualization2(valor) {
     //var datos = $.parseJSON(valor);
     var array = valor;
@@ -116,15 +115,15 @@ function drawVisualization2(valor) {
     console.log(array);
 
     // Some raw data (not necessarily accurate)
-    var data = google.visualization.arrayToDataTable(array);
+    data = google.visualization.arrayToDataTable(array);
 
     var options = {
         title: '',
         vAxis: {title: 'Peso Vendido'},
         hAxis: {title: 'Año'},
         seriesType: 'bars',
-        width: 700,
-        heigth: 900
+        width: 1000,
+        heigth: 1000
 
     };
 

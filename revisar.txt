@@ -1,0 +1,94 @@
+
+--------------------------------------------------------------------------------------------------------------
+REVISAR EN LA WEB
+
+- en el canje del pintrash se selecciona el proveedor, el premio a canjear y
+  se añade al detalle hasta ahí esta bien pero cuando el usuario desea agregar mas
+  premios siempre aparece la misma cantidad de pintrash, y debería reducir la 
+  cantidad de pintrash después de añadir al detalle ejemplo antonella tiene 4 pintrah y canjeo 
+  una lija se añadio al detalle pero no redució los pintrash sigue teniendo 4 cuando deberia tener
+  3 pintrash practicamente faltaría un refresh o algo así para que actualice los pintrash 
+  y el premio a escoger después de añadir al detalle, canjeo dos premios y siguen apareciendo 4 pintrash
+(NO FUNCIONA ASÍ Y NO ES UN SIMPLE REFRESH, ESO SE ACTUALIZA AL VALIDAR EL CANJE, CASO CONTRARIO SE PUEDE AÑADIR UNA FUNCIONALIDAD, TIENE PRECIO)
+(NO HACER)
+
+
+- En el listado de almacen aparecen dos recicladores en el mismo centro de acopio hasta ahí va bien 
+  pero los dos en un mismo sector del mismo centro acopio lo cual no debería ser ya que el sector
+  debe ser ocupado por 1 mas no por dos, ejemplo jose perez y lita juarez estan en el "sector 1"
+  del mismo centro de acopio lo cual no debería ocurrir.
+(VALIDACION DE SECTOR, SE HARÁ , ESO ESTABA COTIZADO)(LISTO)
+
+- cuando registro un nuevo almacen se selecciona un centro de acopio y muestra los sectores ya ocupados
+  ejemplo: se selecciona el centro acopio "municipalidad JLO" y se selecciona el sector y sigue 
+  apareciendo el sector 1 cuando no deberia porque ya esta ocupado
+(VALIDACION DE SECTOR, SE HARÁ , ESO ESTABA COTIZADO)(LISTO)
+
+
+- cuando se registra un nuevo almacen, aparece aurelio mejia flores es un reciclador y un proveedor 
+  inactivo, cuando un reciclador almacena aparece en el combo de los recicladores y en el listado almacen
+  y eso no debería ocurrir porque ya esta dado de baja, tambien me deja guardar
+  el almacenamiento con el mismo usuario inactivo
+(SE HARÁ)(LISTO)
+
+- cuando se registra una venta aparecen recicladores inactivos como es el caso de Aurelio flores mejia
+(se HARÁ)(LISTO)
+
+- cuando se registra una venta se selecciona el residuo a registrar con la cantidad y no refresca los 
+  residuos despues de añadir al detalle, ya que debería de hacerlo porque si el reciclador tiene otro
+  residuo por registrar le parece de nuevo el residuo agregado al detalle, deberia refrescar los tipos
+ de residuo para que no aparescan ya los residuos añadidos en el detalle, así como el peso y el precio
+(Al momento de añadir al detalle de la venta no debe aañadir varias veces y guardarlo)(LISTO)
+
+
+- ordenar la tabla de comparacion de criterios cuando se le asignan los pesos aparece desordenado
+(SE HARÁ)(LISTO)
+
+- ver en la interfaz historial "persona valoracion" porque muestra tambien los proveedores si solo debe
+  mostrar a los recicladores y no son usuarios que han sido antes recicladores.
+(SE HARPAÁ)(LISTO)
+
+- ver el registro del proveedor por medio de envio del correo electronico
+(LA FUNCIONALIDAD ESTA, TOMARÍA UN DÍA REVISAR ELLO PARA WINDOWS, TIENE PRECIO) (1)
+-----------------------------------------------------------------------------------------------------------------
+
+NUEVO EN LA WEB
+
+- ver los reportes de reciclador por zona y de sensibilizacion ya que no se muestran porque son graficas
+(ESO DEPENDE DEL API DE GOOGLE, ESO CAMBIA ANUALMENTE, SE HIZO EL AÑO PASADO, LOS SERVICIOS DE GOOGLE TIENEN PRECIO, ESTÁN CON MIS CREDENCIALES.
+PUEDO REACERLOS, TIENE PRECIO.) (2)(LISTO)
+  
+-------------------------------------------------------------------------------------------------------------------
+
+REVISAR EN LA APP MÓVIL 
+
+-  revisar porque no actualiza los pintrash que tiene el proveedor, ejemplo antonella tiene 100 pintrash
+   y solo aparecen 5 pintrash en la app movil, no lo actualiza (REVISARÉ ELLO.)(LISTO)
+
+-  revisar en la app movil porque cuando pasa un tiempo dice "ERROR DE CONEXION" y los bota del 
+   aplicativo movil y empieza a fallar (HABLA CON OLANO)
+
+-  revisar el boton del "no" cuando no sale el proveedor ya que pasado los 5 min deberia aparecer 
+   para que el reciclador marque que no salio y finalice el servicio y penalice al proveedor
+(NUEVA FUNCIONALIDAD)(PREGUNTAR A OLANO)
+  
+
+----------------------------------------------------------------------------------------------------------------------
+
+NUEVO EN LA APP MÓVIL
+
+- cambiar los pintrash que se le asignan al proveedor, que se le asignen por cada servicio que pida y lo finalice
+  que ya no se le asigne cada dos servicio sino por cada servicio pedido y finalizado.
+(ESTO ES API , TIENE PRECIO)(3)(LISTO)
+
+- ver el boton de cancelar de la aplicacion movil ya que cuando le llegue la solicitud al reciclador priorizado derrepente
+  este no quiera atender ese servicio pues que la solicitud sea liberada para el otro proveedor priorizado y disponible y 
+  sino que se mantenga en pendiente hasta que se desocupe un reciclador.
+NOTA: (En este caso si se le asgina al primer priorizado, tienen que desocuparse mínimo 2 a la vez para que entre esos 2 compare quien tiene mas valor que el otro. La funcionalidad real sería que al primero que se desocupa se le asigna el servicio. Esto depende de que el primer reciclador(sea cual sea) actualice que se encuntra en estado DISPONIBLE desde la app, el sistema buscará el primero servicio pendiente y asignará el reciclador a dicho servicio.
+(NUEVA FUNCIONALIDAD, TIENE PRECIO)(4)(LISTO)
+--------------------------------------------------------------------------------------------------------------------------
+se adjuntan los pantallazos en donde se tienen que corregir
+
+
+
+

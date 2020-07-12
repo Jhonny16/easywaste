@@ -540,6 +540,56 @@ class servicio extends conexion
         }
     }
 
+    public function create_pendiente(){
+
+        try {
+            $sql = "select secuencia from correlativo where tabla = 'servicio' ";
+            $sentencia = $this->dblink->prepare($sql);
+            $sentencia->execute();
+            $resultado = $sentencia->fetch();
+
+            $secuencia = $resultado["secuencia"];
+            $secuencia = $secuencia + 1;
+            $pad = 6;
+            $correlativo = str_pad($secuencia, $pad, "0", STR_PAD_LEFT);
+            $numeracion = "SRV-" . $correlativo;
+            $this->setCode($numeracion);
+
+            $state = 'Abierto';
+
+            $sql = "insert into servicio (code, estado, fecha, hora, 
+                                          proveedor_id, latitud,longitud, referencia, imagen)
+                    values (:p_code, :p_estado, :p_fecha, :p_hora, 
+                                          :p_proveedor_id, :p_latitud, :p_longitud, :p_ref, :p_imagen); ";
+            $sentencia = $this->dblink->prepare($sql);
+            $sentencia->bindParam(":p_code", $this->code);
+            $sentencia->bindParam(":p_estado", $state);
+            $sentencia->bindParam(":p_fecha", $this->fecha);
+            $sentencia->bindParam(":p_hora", $this->hora);
+            $sentencia->bindParam(":p_proveedor_id", $this->proveedor_id);
+            $sentencia->bindParam(":p_latitud", $this->latitud);
+            $sentencia->bindParam(":p_longitud", $this->longitud);
+            $sentencia->bindParam(":p_ref", $this->referencia);
+            $sentencia->bindParam(":p_imagen", $this->imagen);
+            $sentencia->execute();
+
+            $this->dblink->beginTransaction();
+            $sql = "update correlativo set secuencia = :p_secuencia where tabla = 'servicio' ";
+            $sentencia = $this->dblink->prepare($sql);
+            $sentencia->bindParam(":p_secuencia", $secuencia);
+            $sentencia->execute();
+            $this->dblink->commit();
+
+            return true;
+
+        }catch (Exception $ex) {
+            throw $ex;
+        }
+
+
+
+    }
+
     public function position_create($servicio_id, $latitud, $longitud){
         try {
 
@@ -687,60 +737,69 @@ class servicio extends conexion
                         $sentencia->bindParam(":p_reciclador", $reciclador_id);
                         $sentencia->execute();
 
-                        $sql = "select
-                                  p.pintrash, p.servicio_id
-                                from pintrash p inner join servicio s on p.servicio_id = s.id inner join persona p2 on s.proveedor_id = p2.id
-                                where p2.id = :p_proveedor_id and p.descuento >= 1
-                                order by p.id desc limit 1
-                                ;";
+                        //Agregado para insertar 1 pintrash por servicio
+                        $value = 1;
+                        $sql = "insert into pintrash (pintrash, servicio_id) 
+                                    values (:p_pintrash,:p_servicio_id)";
                         $sentencia = $this->dblink->prepare($sql);
-                        $sentencia->bindParam(":p_proveedor_id", $resultado['proveedor_id']);
+                        $sentencia->bindParam(":p_pintrash", $value);
+                        $sentencia->bindParam(":p_servicio_id", $this->id);
                         $sentencia->execute();
-                        $res = $sentencia->fetch(PDO::FETCH_ASSOC);
+//
+//                        $sql = "select
+//                                  p.pintrash, p.servicio_id
+//                                from pintrash p inner join servicio s on p.servicio_id = s.id inner join persona p2 on s.proveedor_id = p2.id
+//                                where p2.id = :p_proveedor_id and p.descuento >= 1
+//                                order by p.id desc limit 1
+//                                ;";
+//                        $sentencia = $this->dblink->prepare($sql);
+//                        $sentencia->bindParam(":p_proveedor_id", $resultado['proveedor_id']);
+//                        $sentencia->execute();
+//                        $res = $sentencia->fetch(PDO::FETCH_ASSOC);
 
-                        if ($sentencia->rowCount()) {
-                            $p1 = (integer)$res['pintrash'];
-                            $serv_id = (integer)$res['servicio_id'];
-
-                            $sql = "select count(*)/2 as pintrash
-                                from servicio
-                                where proveedor_id = :p_proveedor_id and id > :p_serv_id ;";
-                            $sentencia = $this->dblink->prepare($sql);
-                            $sentencia->bindParam(":p_proveedor_id", $resultado['proveedor_id']);
-                            $sentencia->bindParam(":p_serv_id", $serv_id);
-                            $sentencia->execute();
-                            $res = $sentencia->fetch(PDO::FETCH_ASSOC);
-
-                            if ($sentencia->rowCount()) {
-                                $p2 = (integer)$res['pintrash'];
-
-                                $pin = (integer)$p1 + (integer)$p2;
-
-                                $sql = "insert into pintrash (pintrash, servicio_id) 
-                                    values (:p_pintrash,:p_servicio_id)";
-                                $sentencia = $this->dblink->prepare($sql);
-                                $sentencia->bindParam(":p_pintrash", $pin);
-                                $sentencia->bindParam(":p_servicio_id", $this->id);
-                                $sentencia->execute();
-                            }
-
-                        }else{
-                            $sql = "select count(*)/2 as pintrash
-                                from servicio
-                                where proveedor_id = :p_proveedor_id ;";
-                            $sentencia = $this->dblink->prepare($sql);
-                            $sentencia->bindParam(":p_proveedor_id", $resultado['proveedor_id']);
-                            $sentencia->execute();
-                            $res = $sentencia->fetch(PDO::FETCH_ASSOC);
-                            if ($sentencia->rowCount()) {
-                                $sql = "insert into pintrash (pintrash, servicio_id) 
-                                    values (:p_pintrash,:p_servicio_id)";
-                                $sentencia = $this->dblink->prepare($sql);
-                                $sentencia->bindParam(":p_pintrash", $res['pintrash']);
-                                $sentencia->bindParam(":p_servicio_id", $this->id);
-                                $sentencia->execute();
-                            }
-                        }
+//                        if ($sentencia->rowCount()) {
+//                            $p1 = (integer)$res['pintrash'];
+//                            $serv_id = (integer)$res['servicio_id'];
+//
+//                            $sql = "select count(*)/2 as pintrash
+//                                from servicio
+//                                where proveedor_id = :p_proveedor_id and id > :p_serv_id ;";
+//                            $sentencia = $this->dblink->prepare($sql);
+//                            $sentencia->bindParam(":p_proveedor_id", $resultado['proveedor_id']);
+//                            $sentencia->bindParam(":p_serv_id", $serv_id);
+//                            $sentencia->execute();
+//                            $res = $sentencia->fetch(PDO::FETCH_ASSOC);
+//
+//                            if ($sentencia->rowCount()) {
+//                                $p2 = (integer)$res['pintrash'];
+//
+//                                $pin = (integer)$p1 + (integer)$p2;
+//
+//                                $sql = "insert into pintrash (pintrash, servicio_id)
+//                                    values (:p_pintrash,:p_servicio_id)";
+//                                $sentencia = $this->dblink->prepare($sql);
+//                                $sentencia->bindParam(":p_pintrash", $pin);
+//                                $sentencia->bindParam(":p_servicio_id", $this->id);
+//                                $sentencia->execute();
+//                            }
+//
+//                        }else{
+//                            $sql = "select count(*)/2 as pintrash
+//                                from servicio
+//                                where proveedor_id = :p_proveedor_id ;";
+//                            $sentencia = $this->dblink->prepare($sql);
+//                            $sentencia->bindParam(":p_proveedor_id", $resultado['proveedor_id']);
+//                            $sentencia->execute();
+//                            $res = $sentencia->fetch(PDO::FETCH_ASSOC);
+//                            if ($sentencia->rowCount()) {
+//                                $sql = "insert into pintrash (pintrash, servicio_id)
+//                                    values (:p_pintrash,:p_servicio_id)";
+//                                $sentencia = $this->dblink->prepare($sql);
+//                                $sentencia->bindParam(":p_pintrash", $res['pintrash']);
+//                                $sentencia->bindParam(":p_servicio_id", $this->id);
+//                                $sentencia->execute();
+//                            }
+//                        }
 
 
                     }
@@ -795,11 +854,15 @@ class servicio extends conexion
 //                    where proveedor_id = :p_proveedor_id
 //                    group by proveedor_id
 //                    having count(*)/2 > 0";
-            $sql = "select p2.id, p2.dni, p2.ap_paterno || ' '|| p2.ap_materno ||' '|| p2.nombres as proveedor,
-                           p.pintrash
-                    from pintrash p left join servicio s on p.servicio_id = s.id 
-                    inner join persona p2 on s.proveedor_id = p2.id
-                    where p2.id = :p_persona_id order by p.id desc  limit 1;";
+            $sql = "select p2.id, p2.dni, p2.ap_paterno || ' '|| p2.ap_materno ||' '|| p2.nombres as proveedor
+                            ,sum(p.pintrash) -
+                             coalesce((select sum(pintrash_total) from canje where persona_id = p2.id),0)
+                               as pintrash
+                    from pintrash p left join servicio s on p.servicio_id = s.id
+                                    inner join persona p2 on s.proveedor_id = p2.id
+                    where p2.id = :p_persona_id
+                    group by  p2.id, p2.dni, p2.ap_paterno || ' '|| p2.ap_materno ||' '|| p2.nombres
+                     limit 1;";
             $sentence = $this->dblink->prepare($sql);
             $sentence->bindParam(":p_persona_id", $proveedor_id);
             $sentence->execute();

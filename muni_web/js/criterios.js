@@ -60,7 +60,7 @@ function criterios_lista() {
             if (datosJSON.estado === 200) {
                 cantidad_criterios = datosJSON.datos.length;
                 var html = "";
-                html += '<table id="table_criterios_comparacion" class="table table-bordered table-striped">';
+                html += '<table id="table_criterios_comparacion" class="table table-bordered table-striped small">';
                 html += '<thead>';
                 html += '<tr style="background-color: #ededed; height:25px;">';
                 html += '<th colspan="5">Comparacion de Criterios</th>';
@@ -131,12 +131,12 @@ function criterios_lista() {
 
                 $("#criterios_comparacion").html(html);
                 $('#table_criterios_comparacion').DataTable({
-                    "aaSorting": [[0, "asc"]],
-                    "bbSorting": [[0, "asc"]],
-                    "bScrollCollapse": true,
-                    "bPaginate": true,
-                    "sScrollX": "100%",
-                    "sScrollXInner": "100%",
+                     "aaSorting": [[3, "asc"]],
+                     //"bbSorting": [[0, "asc"]],
+                    // "bScrollCollapse": true,
+                    // "bPaginate": true,
+                    // "sScrollX": "100%",
+                    // "sScrollXInner": "100%",
                 });
 
 

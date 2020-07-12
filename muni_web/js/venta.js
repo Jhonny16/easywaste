@@ -94,7 +94,9 @@ function reciclador_list(){
                 var html = "";
                 html += '<option value="0">-- Seleccione reciclador --</option>';
                 $.each(datosJSON.datos, function (i, item) {
-                    html += '<option value="'+ item.id +'">' + item.ap_paterno + ' '+ item.ap_materno + ' '+ item.nombres  +'</option>';
+                    if(item.estado != 'I'){
+                        html += '<option value="'+ item.id +'">' + item.ap_paterno + ' '+ item.ap_materno + ' '+ item.nombres  +'</option>';
+                    }
                 });
                 $("#combo_reciclador").append(html);
             }
@@ -107,68 +109,88 @@ function reciclador_list(){
     });
 }
 
+
 function add_preventa(){
-
-    console.log("add");
     var residuo_id = $("#combo_tipo_residuo").val();
-    var peso = $("#txt_peso").val();
-    var price = $("#txt_price").val();
-
-    if (peso == "" || parseInt(peso) == 0) {
-        swal({
-            type: 'warning',
-            title: 'Nota',
-            text: 'Debe ingresar el peso!',
-        })
-        $("#txt_peso").focus;
-        return 0;
-    }
- if (price == "" || parseInt(price) == 0) {
-        swal({
-            type: 'warning',
-            title: 'Nota',
-            text: 'Debe ingresar el precio!',
-        })
-        $("#txt_price").focus;
-        return 0;
-    }
-
-    if (residuo_id == "0") {
-        swal({
-            type: 'warning',
-            title: 'Nota',
-            text: 'Debe seleccionar residuo!',
-        })
-        return 0;
-    }
-
-    console.log("detail_pppp");
-    var nombre = "";
-    console.log(list_residuos);
-    for(var i=0; i < list_residuos.length; i++){
-        if(residuo_id == list_residuos[i].id){
-            nombre = list_residuos[i].nombre;
-            break;
+    var sw=0;
+    $("#tblv_detalle tr").each(function () {
+        var res_id = $(this).find("td").eq(0).html();
+        if (residuo_id== res_id){
+            sw=1;
+            return 0;
         }
+
+    });
+    if (sw==1){
+        swal({
+            type: 'warning',
+            title: 'Nota',
+            text: 'Este residuo ya está ingresado en el detalle de la venta.',
+        })
+        return 0;
+    }else{
+        console.log("add");
+        var peso = $("#txt_peso").val();
+        var price = $("#txt_price").val();
+
+        if (peso == "" || parseInt(peso) == 0) {
+            swal({
+                type: 'warning',
+                title: 'Nota',
+                text: 'Debe ingresar el peso!',
+            })
+            $("#txt_peso").focus;
+            return 0;
+        }
+        if (price == "" || parseInt(price) == 0) {
+            swal({
+                type: 'warning',
+                title: 'Nota',
+                text: 'Debe ingresar el precio!',
+            })
+            $("#txt_price").focus;
+            return 0;
+        }
+
+        if (residuo_id == "0") {
+            swal({
+                type: 'warning',
+                title: 'Nota',
+                text: 'Debe seleccionar residuo!',
+            })
+            return 0;
+        }
+
+        console.log("detail_pppp");
+        var nombre = "";
+        console.log(list_residuos);
+        for(var i=0; i < list_residuos.length; i++){
+            if(residuo_id == list_residuos[i].id){
+                nombre = list_residuos[i].nombre;
+                break;
+            }
+        }
+
+
+        var fila = "<tr>" +
+            "<td>" + residuo_id + "</td>" +
+            "<td style=\"text-align: right\" >" + nombre + "</td>" +
+            "<td style=\"text-align: right\"  >" + peso + "</td>" +
+            "<td style=\"text-align: right\"  >" + price + "</td>" +
+            "<td style=\"text-align: right\"  >" + peso * price + "</td>" +
+            "<td align=\"center\" id=\"celiminar\"><a href=\"javascript:void();\"><i class=\"fa fa-trash text-red\"></i></a></td>" +
+            "</tr>";
+
+        $("#tblv_detalle").append(fila);
+
+        $("#combo_tipo_residuo").val("0");
+        $("#txt_peso").val("");
+        $("#txt_price").val("");
+
+        calcular_total();
     }
 
 
-    var fila = "<tr>" +
-        "<td>" + residuo_id + "</td>" +
-        "<td style=\"text-align: right\" >" + nombre + "</td>" +
-        "<td style=\"text-align: right\"  >" + peso + "</td>" +
-        "<td style=\"text-align: right\"  >" + price + "</td>" +
-        "<td style=\"text-align: right\"  >" + peso * price + "</td>" +
-        "<td align=\"center\" id=\"celiminar\"><a href=\"javascript:void();\"><i class=\"fa fa-trash text-red\"></i></a></td>" +
-        "</tr>";
-
-    $("#tblv_detalle").append(fila);
-
-    $("#combo_tipo_residuo").val("0");
-    $("#txt_peso").val("");
-    $("#txt_price").val("");
-
-    calcular_total();
 }
 
 function calcular_total(){

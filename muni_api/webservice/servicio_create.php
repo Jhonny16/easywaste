@@ -189,7 +189,14 @@ if ($destinos != null) {
     }
 
 } else {
-    Funciones::imprimeJSON(203, "No hay recicladores disponibles", $outputTo);
+    $res = $objeto->create_pendiente();
+    if($res){
+        Funciones::imprimeJSON(200, "Se guardo el servicio. Esperando reciclador ... ", []);
+    }else{
+
+    }
+
+    //Funciones::imprimeJSON(203, "No hay recicladores disponibles", $outputTo);
 
 }
 

@@ -92,8 +92,11 @@ function a_sector(ca_id){
                 var html = "";
                 html += '<option value="0">-- Seleccione sector --</option>';
                 $.each(resultado.datos, function (i, item) {
-                    console.log(item.nombre);
-                    html += '<option value="'+ item.nombre +'">' + item.nombre +'</option>';
+                    if (item.nombre != '-'){
+                        console.log(item.nombre);
+                        html += '<option value="'+ item.nombre +'">' + item.nombre +'</option>';
+                    }
+
                 });
                 $("#a_sector").append(html);
             }
@@ -125,7 +128,10 @@ function a_reciclador_list(){
                 var html = "";
                 html += '<option value="0">-- Seleccione reciclador --</option>';
                 $.each(datosJSON.datos, function (i, item) {
-                    html += '<option value="'+ item.id +'">' + item.ap_paterno + ' '+ item.ap_materno + ' '+ item.nombres  +'</option>';
+                    if(item.estado != 'I'){
+                        html += '<option value="'+ item.id +'">' + item.ap_paterno + ' '+ item.ap_materno + ' '+ item.nombres  +'</option>';
+
+                    }
                 });
                 $("#a_combo_reciclador").append(html);
             }

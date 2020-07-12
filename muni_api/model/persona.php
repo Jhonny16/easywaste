@@ -736,8 +736,9 @@ class persona extends conexion
 
     public function historial($f_inicio, $f_fin)
     {
-        $sql = "select * from bitacora.persona
-                where date(fecha_hora) between :p_fecha_inicio and :p_fecha_fin  ";
+        $sql = "select bp.* from bitacora.persona bp
+                inner join public.persona pp on bp.dni = pp.dni
+                where pp.rol_id = 2 and date(bp.fecha_hora) between :p_fecha_inicio and :p_fecha_fin and   ";
         $sentencia = $this->dblink->prepare($sql);
         $sentencia->bindParam(":p_fecha_inicio", $f_inicio);
         $sentencia->bindParam(":p_fecha_fin", $f_fin);

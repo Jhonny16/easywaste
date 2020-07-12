@@ -130,7 +130,7 @@ class persona_status extends conexion
                     s.fecha, s.hora, s.estado, s.tiempo_aprox_atencion
                     from
                     servicio s inner join persona p on s.proveedor_id = p.id
-                    where s.estado = 'Abierto'
+                    where s.estado = 'Pendiente'
                     order by s.id desc limit 1; ";
             $sentencia = $this->dblink->prepare($sql);
             $sentencia->execute();

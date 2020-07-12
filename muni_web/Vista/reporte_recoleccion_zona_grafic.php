@@ -10,13 +10,27 @@ require_once '../util/funciones/definiciones.php';
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <?php include_once 'ext_estilos.php'; ?>
-    <script type="text/javascript" src="https://www.google.com/jsapi?autoload=
-                {'modules':[{'name':'visualization','version':'1.1','packages':
-        ['corechart']}]}"></script>
-    <script type="text/javascript">
-        function drawVisualization2() {}
 
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <script>
+        google.charts.load('current', {packages: ['corechart']});
+        google.charts.setOnLoadCallback(drawVisualization2);
+        function drawVisualization2(){}
     </script>
+
+<!--    <script src="//www.google.com/jsapi"></script>-->
+<!--    <script type="text/javascript" src="https://www.google.com/jsapi?autoload=-->
+<!--    {'modules':[{'name':'visualization','version':'1.1','packages':['corechart']}]}">-->
+<!--        google.load("visualization", "1", {packages:["corechart"]});-->
+<!--    </script>-->
+<!--    <script type="text/javascript" src="https://www.google.com/jsapi?autoload=-->
+<!--                {'modules':[{'name':'visualization','version':'1.1','packages':-->
+<!--        ['corechart']}]}"></script>-->
+<!--    <script type="text/javascript">-->
+<!--        //var data = google.visualization.arrayToDataTable;-->
+<!--        function drawVisualization2() {}-->
+<!---->
+<!--    </script>-->
 
 
 </head>

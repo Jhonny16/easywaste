@@ -267,7 +267,13 @@ class centro_acopio extends conexion
     function read_sector(){
         try {
 
-            $sql = "SELECT * from sector where acopio_temporal_id = :p_id";
+//            $sql = "SELECT * from sector where acopio_temporal_id = :p_id";
+            $sql = "SELECT
+                    (case when
+                        (select (count(*)) from almacen where acopio_temporal_id = s.acopio_temporal_id and sector_name = s.nombre) > 0
+                        then '-' else s.nombre
+                        end)
+                    from sector s where acopio_temporal_id = :p_id";
             $sentencia = $this->dblink->prepare($sql);
             $sentencia->bindParam(":p_id", $this->id);
             $sentencia->execute();

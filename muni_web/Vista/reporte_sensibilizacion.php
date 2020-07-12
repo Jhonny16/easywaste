@@ -10,12 +10,18 @@ require_once '../util/funciones/definiciones.php';
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <?php include_once 'ext_estilos.php'; ?>
-    <script type="text/javascript" src="https://www.google.com/jsapi?autoload=
-                {'modules':[{'name':'visualization','version':'1.1','packages':['corechart']}]}"></script>
-    <script type="text/javascript">
-        function grafico_circular() {}
-
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <script>
+        google.charts.load('current', {packages: ['corechart']});
+        google.charts.setOnLoadCallback(grafico_circular);
+        function grafico_circular(){}
     </script>
+<!--    <script type="text/javascript" src="https://www.google.com/jsapi?autoload=-->
+<!--                {'modules':[{'name':'visualization','version':'1.1','packages':['corechart']}]}"></script>-->
+<!--    <script type="text/javascript">-->
+<!--        function grafico_circular() {}-->
+<!---->
+<!--    </script>-->
 
 
 </head>
