@@ -1019,6 +1019,28 @@ class servicio extends conexion
 
 
     }
+    public function servicio_create_reasignar($reciclador_id)
+    {
+
+        try {
+
+            $this->dblink->beginTransaction();
+            $sql = "update servicio set reciclador_id = :p_reciclador_id where id = :p_id ";
+            $sentencia = $this->dblink->prepare($sql);
+            $sentencia->bindParam(":p_id", $this->id);
+            $sentencia->bindParam(":p_reciclador_id", $reciclador_id);
+            $sentencia->execute();
+            $this->dblink->commit();
+
+            return true;
+
+        } catch (Exception $exc) {
+            $this->dblink->rollBack();
+            throw $exc;
+        }
+
+
+    }
 
 
 }

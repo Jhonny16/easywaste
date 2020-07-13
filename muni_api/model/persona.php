@@ -682,6 +682,7 @@ class persona extends conexion
         try {
             $sql = "select
                            pe.id,
+                           pe.ap_paterno || ' ' || pe.ap_materno || ' '|| pe.nombres as reciclador_name,
                       coalesce((select latitud from posicion_actual where reciclador_id = pe.id order by id desc limit 1),'') as lat,
                       coalesce((select longitud from posicion_actual where reciclador_id = pe.id order by id desc limit 1),'') as lng,
                      (select name_status from status where reciclador_id = pe.id
@@ -746,4 +747,35 @@ class persona extends conexion
         $resultado = $sentencia->fetchAll();
         return $resultado;
     }
+
+    public function posicion_recicladores_reasignacion($reciclador_id)
+    {
+
+        try {
+            $sql = "select
+                           pe.id,
+                           pe.ap_paterno || ' ' || pe.ap_materno || ' '|| pe.nombres as reciclador_name,
+                      coalesce((select latitud from posicion_actual where reciclador_id = pe.id order by id desc limit 1),'') as lat,
+                      coalesce((select longitud from posicion_actual where reciclador_id = pe.id order by id desc limit 1),'') as lng,
+                     (select name_status from status where reciclador_id = pe.id
+                      order by id desc limit 1) as name_status,
+                      pe.valor
+                    from persona pe
+                    where rol_id = 2 and pe.id != :p_reciclador_id 
+                    group by pe.id
+                    having (select name_status from status where reciclador_id = pe.id
+                            order by id desc limit 1) = 'Disponible'; ";
+            $sentencia = $this->dblink->prepare($sql);
+            $sentencia->bindParam(":p_reciclador_id", $reciclador_id);
+            $sentencia->execute();
+            $resultado = $sentencia->fetchAll(PDO::FETCH_ASSOC);
+            return $resultado;
+        } catch (Exception $ex) {
+            throw $ex;
+        }
+    }
+
+
+
+
 }
