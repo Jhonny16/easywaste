@@ -31,7 +31,7 @@ if(count($position) > 0){
     }
 
     $objserv = new servicio();
-    $objserv->getId($servicio_id);
+    $objserv->setId($servicio_id);
     $res = $objserv->servicio_create_reasignar($reciclador_id);
 
     Funciones::imprimeJSON(200, "Se reasigno el servicio", $res);
