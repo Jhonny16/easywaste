@@ -690,7 +690,7 @@ class persona extends conexion
                       pe.valor
                     from persona pe
                     where rol_id = 2
-                    group by pe.id
+                    group by pe.id,   pe.ap_paterno, pe.ap_materno , pe.nombres
                     having (select name_status from status where reciclador_id = pe.id
                             order by id desc limit 1) = 'Disponible'; ";
             $sentencia = $this->dblink->prepare($sql);
