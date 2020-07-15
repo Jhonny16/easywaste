@@ -637,7 +637,7 @@ class servicio extends conexion
 
             $sql = "select  s.id, s.code, (p.ap_paterno ||' '|| p.ap_materno ||' '|| p.nombres) as proveedor,
                         (r.ap_paterno ||' '|| r.ap_materno ||' '|| r.nombres) as reciclador,
-                        r.dni as reciclador_dni,
+                        r.dni as reciclador_dni, s.reciclador_id,
                         s.fecha, s.hora, s.estado, s.tiempo_aprox_atencion, latitud, longitud
                         from  servicio s inner join persona p on s.proveedor_id = p.id
                         left join persona r on s.reciclador_id = r.id
@@ -646,6 +646,26 @@ class servicio extends conexion
             $sentencia->bindParam(":p_serv_id", $this->id);
             $sentencia->execute();
             $resultado = $sentencia->fetch(PDO::FETCH_ASSOC);
+
+            if ($sentencia->rowCount()) {
+                $reciclador_id = $resultado['reciclador_id'];
+                date_default_timezone_set("America/Lima");
+                $hora = date('H:i:s');
+                $fecha = date('Y-m-d');
+                $name_status = 'Ocupado';
+                $sql = "insert into status (fecha, hora, name_status, reciclador_id)
+                    values (:p_fecha, :p_hora ,:name_status, :p_reciclador_id); ";
+                $sentencia = $this->dblink->prepare($sql);
+                $sentencia->bindParam(":p_fecha", $fecha);
+                $sentencia->bindParam(":p_hora", $hora);
+                $sentencia->bindParam(":name_status", $name_status);
+                $sentencia->bindParam(":p_reciclador_id", $reciclador_id);
+                $sentencia->execute();
+            }
+
+
+
+
             return $resultado;
 
         } catch (Exception $ex) {
@@ -1031,6 +1051,7 @@ class servicio extends conexion
             $sentencia->bindParam(":p_reciclador_id", $reciclador_id);
             $sentencia->execute();
             $this->dblink->commit();
+
 
             return true;
 

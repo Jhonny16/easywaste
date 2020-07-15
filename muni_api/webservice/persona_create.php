@@ -34,6 +34,7 @@ $zona_id = json_decode(file_get_contents("php://input"))->zona_id;
 $fecha_registro = json_decode(file_get_contents("php://input"))->fecha_registro;
 $rol_id = json_decode(file_get_contents("php://input"))->rol_id;
 $is_param = json_decode(file_get_contents("php://input"))->is_param;
+$user_name = json_decode(file_get_contents("php://input"))->user_name;
 
 
 try {
@@ -75,6 +76,7 @@ try {
         $objper->setCelular($celular);
         $objper->setDireccion($direccion);
         $objper->setCorreo($correo);
+        $objper->setUserName($user_name);
         if ($rol_id == 3) {
             $objper->setEstado("I");
         } else {
@@ -165,6 +167,8 @@ try {
         $objper->setEstado($estado);
         $objper->setZonaId($zona_id);
         $objper->setId($id);
+        $objper->setUserName($user_name);
+
 
 
         if ($rol_id == 2 and $is_param == 1) {

@@ -118,7 +118,9 @@ function proveedor_add() {
         rol_id: 3,
         fecha_registro: $("#fecha_registro").val(),
         operation: $("#operation").html(),
-        is_param : es_reciclador
+        is_param : es_reciclador,
+        user_name: localStorage.getItem('nombreUsuario')
+
     };
 
     console.log(data);

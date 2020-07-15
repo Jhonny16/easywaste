@@ -21,6 +21,25 @@ class persona extends conexion
     private $codigo;
     private $fecha_registro;
     private $clave;
+    private $user_name;
+
+    /**
+     * @return mixed
+     */
+    public function getUserName()
+    {
+        return $this->user_name;
+    }
+
+    /**
+     * @param mixed $user_name
+     */
+    public function setUserName($user_name)
+    {
+        $this->user_name = $user_name;
+    }
+
+
 
     private $status;
 
@@ -341,9 +360,9 @@ class persona extends conexion
             }
 
             $sql = "insert into persona (dni,nombres,ap_paterno,ap_materno,sexo,fecha_nac,celular,direccion,
-                      correo,estado,zona_id,rol_id,codigo,fecha_registro)
+                      correo,estado,zona_id,rol_id,codigo,fecha_registro, user_name)
                     values (:p_dni, :p_nombres ,:p_ap_paterno, :p_ap_materno, :p_sexo, :p_fn, :p_celular, :p_direccion,
-                    :p_correo,:p_estado,:p_zona, :p_rol, :p_codigo, :p_fecha_registro); ";
+                    :p_correo,:p_estado,:p_zona, :p_rol, :p_codigo, :p_fecha_registro, :p_user_name); ";
             $sentencia = $this->dblink->prepare($sql);
             $sentencia->bindParam(":p_dni", $this->dni);
             $sentencia->bindParam(":p_nombres", $this->nombres);
@@ -359,6 +378,7 @@ class persona extends conexion
             $sentencia->bindParam(":p_rol", $this->rol_id);
             $sentencia->bindParam(":p_codigo", $this->codigo);
             $sentencia->bindParam(":p_fecha_registro", $this->fecha_registro);
+            $sentencia->bindParam(":p_user_name", $this->user_name);
             $sentencia->execute();
 
             if ($this->rol_id == 2) {
@@ -415,8 +435,8 @@ class persona extends conexion
         try {
             $sql = "select p.*,
                            (case
-                             when p.rol_id = 2 then (case when (select estado from persona where dni = p.dni and rol_id = 3)='A' then true else false end)
-                             when p.rol_id = 3 then (case when (select estado from persona where dni = p.dni and rol_id = 2)='A' then true else false end)
+                             when p.rol_id = 2 then (case when (select count(id) from persona where dni = p.dni and rol_id = 3)>0 then true else false end)
+                             when p.rol_id = 3 then (case when (select count(id) from persona where dni = p.dni and rol_id = 2)>0  then true else false end)
                              else FALSE
                              end) as other_rol
                      from persona p where id  = :p_persona_id";
@@ -456,7 +476,8 @@ class persona extends conexion
                     direccion = :p_direccion,
                     correo = :p_correo,
                     estado = :p_estado,
-                    zona_id = :p_zona                                        
+                    zona_id = :p_zona    ,
+                    user_name = :p_user_name                                    
                     where dni = :p_dni ";
                         $sentencia = $this->dblink->prepare($sql);
                         $sentencia->bindParam(":p_dni", $this->dni);
@@ -470,6 +491,7 @@ class persona extends conexion
                         $sentencia->bindParam(":p_correo", $this->correo);
                         $sentencia->bindParam(":p_estado", $this->estado);
                         $sentencia->bindParam(":p_zona", $this->zona_id);
+                        $sentencia->bindParam(":p_user_name", $this->user_name);
                         $sentencia->execute();
                         $this->dblink->commit();
                         return true;
@@ -511,7 +533,8 @@ class persona extends conexion
                     direccion = :p_direccion,
                     correo = :p_correo,
                     estado = :p_estado,
-                    zona_id = :p_zona                                        
+                    zona_id = :p_zona,
+                    user_name = :p_user_name                                    
                     where id = :p_persona_id ";
             $sentencia = $this->dblink->prepare($sql);
             $sentencia->bindParam(":p_dni", $this->dni);
@@ -526,6 +549,7 @@ class persona extends conexion
             $sentencia->bindParam(":p_estado", $this->estado);
             $sentencia->bindParam(":p_zona", $this->zona_id);
             $sentencia->bindParam(":p_persona_id", $this->id);
+            $sentencia->bindParam(":p_user_name", $this->user_name);
 
             $sentencia->execute();
             $this->dblink->commit();

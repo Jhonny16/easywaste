@@ -162,7 +162,8 @@ function reciclador_add() {
         rol_id: 2,
         fecha_registro: $("#fecha_registro").val(),
         operation: operation,
-        is_param : es_proveedor
+        is_param : es_proveedor,
+        user_name: localStorage.getItem('nombreUsuario')
     };
 
 
