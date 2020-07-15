@@ -259,7 +259,9 @@ function proveedor_add() {
         id : $("#proveedor_id").val(),
         operation: $("#operation").html(),
         rol_id : rol_id,
-        is_param : es_reciclador
+        is_param : es_reciclador,
+        user_name: localStorage.getItem('nombreUsuario')
+
 
     };
 

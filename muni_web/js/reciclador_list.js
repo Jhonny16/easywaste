@@ -275,7 +275,9 @@ function reciclador_add() {
         id: $("#reciclador_id").val(),
         operation: operation,
         rol_id : rol_id,
-        is_param : es_proveedor
+        is_param : es_proveedor,
+        user_name: localStorage.getItem('nombreUsuario')
+
 
     };
 
