@@ -173,14 +173,14 @@ try {
 
         if ($rol_id == 2 and $is_param == 1) {
             $objper->setRolId(3);
-            $add_other = $objper->update_other(3);
+            $add_other = $objper->update_other(3, $is_param);
 
         } else {
             if ($rol_id == 2 and $is_param == 0) {
                 $objper->setRolId(3);
                 $objper->setEstado("I");
 
-                $update_other = $objper->update_other(3);
+                $update_other = $objper->update_other(3, $is_param);
             }
         }
 
@@ -189,14 +189,14 @@ try {
             $objper->setEstado("I");
 
 
-            $add_other = $objper->update_other(2);
+            $add_other = $objper->update_other(2, $is_param);
 
         } else {
             if ($rol_id == 3 and $is_param == 0) {
                 $objper->setRolId(2);
                 $objper->setEstado("I");
 
-                $update_other = $objper->update_other(2);
+                $update_other = $objper->update_other(2, $is_param);
             }
         }
 

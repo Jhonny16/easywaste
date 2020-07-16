@@ -449,7 +449,7 @@ class persona extends conexion
             throw $ex;
         }
     }
-    public function update_other($rol_id)
+    public function update_other($rol_id, $is_param)
     {
 
         try {
@@ -501,10 +501,14 @@ class persona extends conexion
                     }
 
                 }else{
-                    $this->create();
+                    if($is_param == 1){
+                        $this->create();
+                    }
                 }
             }else{
-                $this->create();
+                if($is_param == 1){
+                    $this->create();
+                }
 
             }
 
