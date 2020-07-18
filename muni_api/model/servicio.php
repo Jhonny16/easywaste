@@ -1039,7 +1039,8 @@ class servicio extends conexion
             $resultado = $sentencia->fetch(PDO::FETCH_ASSOC);
 
             if ($sentencia->rowCount()) {
-                $this->setEstado($resultado['estado']);
+                $estado = 'Abierto';
+                $this->setEstado($estado);
                 $this->setFecha($resultado['fecha']);
                 $this->setHora($resultado['hora']);
                 $this->setProveedorId($resultado['proveedor_id']);
@@ -1078,6 +1079,20 @@ class servicio extends conexion
             $sentencia->bindParam(":p_longitud", $this->longitud);
             $sentencia->bindParam(":p_ref", $this->referencia);
             $sentencia->bindParam(":p_imagen", $this->imagen);
+            $sentencia->execute();
+
+            date_default_timezone_set("America/Lima");
+            $hora = date('H:i:s');
+            $fecha = date('Y-m-d');
+            $estado = 'Ocupado';
+
+            $sql = "insert into status (fecha, hora, name_status, reciclador_id) 
+                        values (:p_fecha,:p_hora,:p_estado,:p_reciclador)";
+            $sentencia = $this->dblink->prepare($sql);
+            $sentencia->bindParam(":p_fecha", $fecha);
+            $sentencia->bindParam(":p_hora", $hora);
+            $sentencia->bindParam(":p_estado", $estado);
+            $sentencia->bindParam(":p_reciclador", $reciclador_id);
             $sentencia->execute();
 
 
