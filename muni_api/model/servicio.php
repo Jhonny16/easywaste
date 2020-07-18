@@ -41,7 +41,6 @@ class servicio extends conexion
     }
 
 
-
     /**
      * @return mixed
      */
@@ -59,8 +58,6 @@ class servicio extends conexion
     }
 
 
-
-
     /**
      * @return mixed
      */
@@ -76,7 +73,6 @@ class servicio extends conexion
     {
         $this->tiempo_aproximado = $tiempo_aproximado;
     }
-
 
 
     /**
@@ -110,7 +106,6 @@ class servicio extends conexion
     {
         $this->hora_llegada = $hora_llegada;
     }
-
 
 
     /**
@@ -365,7 +360,7 @@ class servicio extends conexion
             $datosDetalle = $this->array_distancias;
             $array = [];
 
-            for ($i= 0; $i< count($datosDetalle); $i++){
+            for ($i = 0; $i < count($datosDetalle); $i++) {
 
 
                 $array_data = [];
@@ -403,12 +398,12 @@ class servicio extends conexion
             }
 
             //Si hay recicladores disponibles entonces determinamos por prioridad de valor.
-            if(count($array) > 0){
+            if (count($array) > 0) {
 
                 $mayor = (double)$array[0][1];
                 $recycle_id = $array[0][0];
-                for($i=0; $i<count($array); $i++){
-                    if($mayor < (double)$array[$i][1]){
+                for ($i = 0; $i < count($array); $i++) {
+                    if ($mayor < (double)$array[$i][1]) {
                         $mayor = (double)$array[$i][1];
                         $recycle_id = $array[$i][0];
                     }
@@ -443,7 +438,7 @@ class servicio extends conexion
                 $sentencia->execute();
 
 
-               //----
+                //----
 
                 //Asignamos los servicios a reciclador segun orden de prioridad
 
@@ -488,7 +483,7 @@ class servicio extends conexion
 //                }
 
 
-           //----
+                //----
 
                 $this->dblink->beginTransaction();
                 $sql = "update correlativo set secuencia = :p_secuencia where tabla = 'servicio' ";
@@ -506,33 +501,21 @@ class servicio extends conexion
                     $servicio_id = $resultado['id'];
 
                     $res = $this->position_create($servicio_id, $this->latitud, $this->longitud);
-                    if($res){
-                        return array($recycle_id,$servicio_id);
-                    }
-                    else{
-                        return array(0,0);
+                    if ($res) {
+                        return array($recycle_id, $servicio_id);
+                    } else {
+                        return array(0, 0);
                     }
                 }
 
                 //---
 
 
+            } else {
 
-            }else{
-
-                return array(-1,-1);
+                return array(-1, -1);
 
             }
-
-
-
-
-
-
-
-
-
-
 
 
         } catch (Exception $ex) {
@@ -540,7 +523,8 @@ class servicio extends conexion
         }
     }
 
-    public function create_pendiente(){
+    public function create_pendiente()
+    {
 
         try {
             $sql = "select secuencia from correlativo where tabla = 'servicio' ";
@@ -582,15 +566,15 @@ class servicio extends conexion
 
             return true;
 
-        }catch (Exception $ex) {
+        } catch (Exception $ex) {
             throw $ex;
         }
 
 
-
     }
 
-    public function position_create($servicio_id, $latitud, $longitud){
+    public function position_create($servicio_id, $latitud, $longitud)
+    {
         try {
 
             $sql = "insert into position (latitud, longitud, lat_actual, lon_actual, servicio_id)
@@ -604,7 +588,7 @@ class servicio extends conexion
             $sentencia->execute();
             return 1;
 
-        }catch (Exception $ex) {
+        } catch (Exception $ex) {
             throw $ex;
             return 0;
         }
@@ -664,8 +648,6 @@ class servicio extends conexion
             }
 
 
-
-
             return $resultado;
 
         } catch (Exception $ex) {
@@ -697,6 +679,7 @@ class servicio extends conexion
 
 
     }
+
     public function update_estado_hora_llegada()
     {
 
@@ -732,7 +715,7 @@ class servicio extends conexion
             $sentencia->execute();
             $this->dblink->commit();
 
-            if($this->estado == 'Finalizado'){
+            if ($this->estado == 'Finalizado') {
 
                 $sql = "select reciclador_id, proveedor_id from servicio where id = :p_id ";
                 $sentencia = $this->dblink->prepare($sql);
@@ -742,7 +725,7 @@ class servicio extends conexion
 
                 if ($sentencia->rowCount()) {
                     $reciclador_id = $resultado['reciclador_id'];
-                    if((integer)$reciclador_id > 1){
+                    if ((integer)$reciclador_id > 1) {
                         date_default_timezone_set("America/Lima");
                         $hora = date('H:i:s');
                         $fecha = date('Y-m-d');
@@ -825,16 +808,13 @@ class servicio extends conexion
                     }
 
                     return true;
-                }else{
+                } else {
                     return true;
                 }
 
-            }else{
+            } else {
                 return -1;
             }
-
-
-
 
 
 //            if($this->estado == 'Finalizado'){
@@ -890,7 +870,7 @@ class servicio extends conexion
 
             if ($sentence->rowCount()) {
                 return (integer)$result['pintrash'];
-            }else{
+            } else {
                 return -2;
             }
 //
@@ -1012,8 +992,6 @@ class servicio extends conexion
 //
 
 
-
-
         } catch (Exception $ex) {
             throw $ex;
         }
@@ -1039,21 +1017,95 @@ class servicio extends conexion
 
 
     }
+
     public function servicio_create_reasignar($reciclador_id)
     {
 
         try {
 
+            $state = 'Cancelado';
             $this->dblink->beginTransaction();
-            $sql = "update servicio set reciclador_id = :p_reciclador_id where id = :p_id ";
+            $sql = "update servicio set estado = :p_estado where id = :p_id ";
             $sentencia = $this->dblink->prepare($sql);
             $sentencia->bindParam(":p_id", $this->id);
-            $sentencia->bindParam(":p_reciclador_id", $reciclador_id);
+            $sentencia->bindParam(":p_estado", $state);
             $sentencia->execute();
             $this->dblink->commit();
 
+            $sql = "select * from servicio where id = :p_id ";
+            $sentencia = $this->dblink->prepare($sql);
+            $sentencia->bindParam(":p_id", $this->id);
+            $sentencia->execute();
+            $resultado = $sentencia->fetch(PDO::FETCH_ASSOC);
 
-            return true;
+            if ($sentencia->rowCount()) {
+                $this->setEstado($resultado['estado']);
+                $this->setFecha($resultado['fecha']);
+                $this->setHora($resultado['hora']);
+                $this->setProveedorId($resultado['proveedor_id']);
+                $this->setLongitud($resultado['longitud']);
+                $this->setLatitud($resultado['latitud']);
+                $this->setReferencia($resultado['referencia']);
+                $this->setImagen($resultado['imagen']);
+
+            }
+
+
+            $sql = "select secuencia from correlativo where tabla = 'servicio' ";
+            $sentencia = $this->dblink->prepare($sql);
+            $sentencia->execute();
+            $resultado = $sentencia->fetch();
+
+            $secuencia = $resultado["secuencia"];
+            $secuencia = $secuencia + 1;
+            $pad = 6;
+            $correlativo = str_pad($secuencia, $pad, "0", STR_PAD_LEFT);
+            $numeracion = "SRV-" . $correlativo;
+            $this->setCode($numeracion);
+
+
+            $sql = "insert into servicio (code, estado, fecha, hora, 
+                                          proveedor_id, latitud,longitud, referencia, imagen)
+                    values (:p_code, :p_estado, :p_fecha, :p_hora, 
+                                          :p_proveedor_id, :p_latitud, :p_longitud, :p_ref, :p_imagen); ";
+            $sentencia = $this->dblink->prepare($sql);
+            $sentencia->bindParam(":p_code", $this->code);
+            $sentencia->bindParam(":p_estado", $this->estado);
+            $sentencia->bindParam(":p_fecha", $this->fecha);
+            $sentencia->bindParam(":p_hora", $this->hora);
+            $sentencia->bindParam(":p_proveedor_id", $this->proveedor_id);
+            $sentencia->bindParam(":p_latitud", $this->latitud);
+            $sentencia->bindParam(":p_longitud", $this->longitud);
+            $sentencia->bindParam(":p_ref", $this->referencia);
+            $sentencia->bindParam(":p_imagen", $this->imagen);
+            $sentencia->execute();
+
+
+            $this->dblink->beginTransaction();
+            $sql = "update correlativo set secuencia = :p_secuencia where tabla = 'servicio' ";
+            $sentencia = $this->dblink->prepare($sql);
+            $sentencia->bindParam(":p_secuencia", $secuencia);
+            $sentencia->execute();
+            $this->dblink->commit();
+
+            $sql = "select id from servicio order by id desc limit 1 ";
+            $sentencia = $this->dblink->prepare($sql);
+            $sentencia->execute();
+            $resultado = $sentencia->fetch(PDO::FETCH_ASSOC);
+
+            if ($sentencia->rowCount()) {
+                $servicio_id = $resultado['id'];
+
+                $res = $this->position_create($servicio_id, $this->latitud, $this->longitud);
+                if ($res) {
+                    return array($reciclador_id, $servicio_id);
+                } else {
+                    return array(0, 0);
+                }
+            }
+
+            //---
+
 
         } catch (Exception $exc) {
             $this->dblink->rollBack();
