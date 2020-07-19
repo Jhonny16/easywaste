@@ -715,106 +715,107 @@ class servicio extends conexion
             $sentencia->execute();
             $this->dblink->commit();
 
-            if ($this->estado == 'Finalizado') {
-
-                $sql = "select reciclador_id, proveedor_id from servicio where id = :p_id ";
-                $sentencia = $this->dblink->prepare($sql);
-                $sentencia->bindParam(":p_id", $this->id);
-                $sentencia->execute();
-                $resultado = $sentencia->fetch(PDO::FETCH_ASSOC);
-
-                if ($sentencia->rowCount()) {
-                    $reciclador_id = $resultado['reciclador_id'];
-                    if ((integer)$reciclador_id > 1) {
-                        date_default_timezone_set("America/Lima");
-                        $hora = date('H:i:s');
-                        $fecha = date('Y-m-d');
-                        $estado = 'Disponible';
-
-                        $sql = "insert into status (fecha, hora, name_status, reciclador_id) 
-                        values (:p_fecha,:p_hora,:p_estado,:p_reciclador)";
-                        $sentencia = $this->dblink->prepare($sql);
-                        $sentencia->bindParam(":p_fecha", $fecha);
-                        $sentencia->bindParam(":p_hora", $hora);
-                        $sentencia->bindParam(":p_estado", $estado);
-                        $sentencia->bindParam(":p_reciclador", $reciclador_id);
-                        $sentencia->execute();
-
-                        //Agregado para insertar 1 pintrash por servicio
-                        $value = 1;
-                        $sql = "insert into pintrash (pintrash, servicio_id) 
-                                    values (:p_pintrash,:p_servicio_id)";
-                        $sentencia = $this->dblink->prepare($sql);
-                        $sentencia->bindParam(":p_pintrash", $value);
-                        $sentencia->bindParam(":p_servicio_id", $this->id);
-                        $sentencia->execute();
+            return true;
+//            if ($this->estado == 'Finalizado') {
 //
-//                        $sql = "select
-//                                  p.pintrash, p.servicio_id
-//                                from pintrash p inner join servicio s on p.servicio_id = s.id inner join persona p2 on s.proveedor_id = p2.id
-//                                where p2.id = :p_proveedor_id and p.descuento >= 1
-//                                order by p.id desc limit 1
-//                                ;";
+//                $sql = "select reciclador_id, proveedor_id from servicio where id = :p_id ";
+//                $sentencia = $this->dblink->prepare($sql);
+//                $sentencia->bindParam(":p_id", $this->id);
+//                $sentencia->execute();
+//                $resultado = $sentencia->fetch(PDO::FETCH_ASSOC);
+//
+//                if ($sentencia->rowCount()) {
+//                    $reciclador_id = $resultado['reciclador_id'];
+//                    if ((integer)$reciclador_id > 1) {
+//                        date_default_timezone_set("America/Lima");
+//                        $hora = date('H:i:s');
+//                        $fecha = date('Y-m-d');
+//                        $estado = 'Disponible';
+//
+//                        $sql = "insert into status (fecha, hora, name_status, reciclador_id)
+//                        values (:p_fecha,:p_hora,:p_estado,:p_reciclador)";
 //                        $sentencia = $this->dblink->prepare($sql);
-//                        $sentencia->bindParam(":p_proveedor_id", $resultado['proveedor_id']);
+//                        $sentencia->bindParam(":p_fecha", $fecha);
+//                        $sentencia->bindParam(":p_hora", $hora);
+//                        $sentencia->bindParam(":p_estado", $estado);
+//                        $sentencia->bindParam(":p_reciclador", $reciclador_id);
 //                        $sentencia->execute();
-//                        $res = $sentencia->fetch(PDO::FETCH_ASSOC);
-
-//                        if ($sentencia->rowCount()) {
-//                            $p1 = (integer)$res['pintrash'];
-//                            $serv_id = (integer)$res['servicio_id'];
 //
-//                            $sql = "select count(*)/2 as pintrash
-//                                from servicio
-//                                where proveedor_id = :p_proveedor_id and id > :p_serv_id ;";
-//                            $sentencia = $this->dblink->prepare($sql);
-//                            $sentencia->bindParam(":p_proveedor_id", $resultado['proveedor_id']);
-//                            $sentencia->bindParam(":p_serv_id", $serv_id);
-//                            $sentencia->execute();
-//                            $res = $sentencia->fetch(PDO::FETCH_ASSOC);
-//
-//                            if ($sentencia->rowCount()) {
-//                                $p2 = (integer)$res['pintrash'];
-//
-//                                $pin = (integer)$p1 + (integer)$p2;
-//
-//                                $sql = "insert into pintrash (pintrash, servicio_id)
+//                        //Agregado para insertar 1 pintrash por servicio
+//                        $value = 1;
+//                        $sql = "insert into pintrash (pintrash, servicio_id)
 //                                    values (:p_pintrash,:p_servicio_id)";
-//                                $sentencia = $this->dblink->prepare($sql);
-//                                $sentencia->bindParam(":p_pintrash", $pin);
-//                                $sentencia->bindParam(":p_servicio_id", $this->id);
-//                                $sentencia->execute();
-//                            }
+//                        $sentencia = $this->dblink->prepare($sql);
+//                        $sentencia->bindParam(":p_pintrash", $value);
+//                        $sentencia->bindParam(":p_servicio_id", $this->id);
+//                        $sentencia->execute();
+////
+////                        $sql = "select
+////                                  p.pintrash, p.servicio_id
+////                                from pintrash p inner join servicio s on p.servicio_id = s.id inner join persona p2 on s.proveedor_id = p2.id
+////                                where p2.id = :p_proveedor_id and p.descuento >= 1
+////                                order by p.id desc limit 1
+////                                ;";
+////                        $sentencia = $this->dblink->prepare($sql);
+////                        $sentencia->bindParam(":p_proveedor_id", $resultado['proveedor_id']);
+////                        $sentencia->execute();
+////                        $res = $sentencia->fetch(PDO::FETCH_ASSOC);
 //
-//                        }else{
-//                            $sql = "select count(*)/2 as pintrash
-//                                from servicio
-//                                where proveedor_id = :p_proveedor_id ;";
-//                            $sentencia = $this->dblink->prepare($sql);
-//                            $sentencia->bindParam(":p_proveedor_id", $resultado['proveedor_id']);
-//                            $sentencia->execute();
-//                            $res = $sentencia->fetch(PDO::FETCH_ASSOC);
-//                            if ($sentencia->rowCount()) {
-//                                $sql = "insert into pintrash (pintrash, servicio_id)
-//                                    values (:p_pintrash,:p_servicio_id)";
-//                                $sentencia = $this->dblink->prepare($sql);
-//                                $sentencia->bindParam(":p_pintrash", $res['pintrash']);
-//                                $sentencia->bindParam(":p_servicio_id", $this->id);
-//                                $sentencia->execute();
-//                            }
-//                        }
-
-
-                    }
-
-                    return true;
-                } else {
-                    return true;
-                }
-
-            } else {
-                return -1;
-            }
+////                        if ($sentencia->rowCount()) {
+////                            $p1 = (integer)$res['pintrash'];
+////                            $serv_id = (integer)$res['servicio_id'];
+////
+////                            $sql = "select count(*)/2 as pintrash
+////                                from servicio
+////                                where proveedor_id = :p_proveedor_id and id > :p_serv_id ;";
+////                            $sentencia = $this->dblink->prepare($sql);
+////                            $sentencia->bindParam(":p_proveedor_id", $resultado['proveedor_id']);
+////                            $sentencia->bindParam(":p_serv_id", $serv_id);
+////                            $sentencia->execute();
+////                            $res = $sentencia->fetch(PDO::FETCH_ASSOC);
+////
+////                            if ($sentencia->rowCount()) {
+////                                $p2 = (integer)$res['pintrash'];
+////
+////                                $pin = (integer)$p1 + (integer)$p2;
+////
+////                                $sql = "insert into pintrash (pintrash, servicio_id)
+////                                    values (:p_pintrash,:p_servicio_id)";
+////                                $sentencia = $this->dblink->prepare($sql);
+////                                $sentencia->bindParam(":p_pintrash", $pin);
+////                                $sentencia->bindParam(":p_servicio_id", $this->id);
+////                                $sentencia->execute();
+////                            }
+////
+////                        }else{
+////                            $sql = "select count(*)/2 as pintrash
+////                                from servicio
+////                                where proveedor_id = :p_proveedor_id ;";
+////                            $sentencia = $this->dblink->prepare($sql);
+////                            $sentencia->bindParam(":p_proveedor_id", $resultado['proveedor_id']);
+////                            $sentencia->execute();
+////                            $res = $sentencia->fetch(PDO::FETCH_ASSOC);
+////                            if ($sentencia->rowCount()) {
+////                                $sql = "insert into pintrash (pintrash, servicio_id)
+////                                    values (:p_pintrash,:p_servicio_id)";
+////                                $sentencia = $this->dblink->prepare($sql);
+////                                $sentencia->bindParam(":p_pintrash", $res['pintrash']);
+////                                $sentencia->bindParam(":p_servicio_id", $this->id);
+////                                $sentencia->execute();
+////                            }
+////                        }
+//
+//
+//                    }
+//
+//                    return true;
+//                } else {
+//                    return true;
+//                }
+//
+//            } else {
+//                return -1;
+//            }
 
 
 //            if($this->estado == 'Finalizado'){
