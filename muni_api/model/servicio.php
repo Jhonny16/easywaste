@@ -1067,9 +1067,9 @@ class servicio extends conexion
 
 
             $sql = "insert into servicio (code, estado, fecha, hora, 
-                                          proveedor_id, latitud,longitud, referencia, imagen)
+                                          proveedor_id, latitud,longitud, referencia, imagen, reciclador_id)
                     values (:p_code, :p_estado, :p_fecha, :p_hora, 
-                                          :p_proveedor_id, :p_latitud, :p_longitud, :p_ref, :p_imagen); ";
+                                          :p_proveedor_id, :p_latitud, :p_longitud, :p_ref, :p_imagen, :p_reciclador_id); ";
             $sentencia = $this->dblink->prepare($sql);
             $sentencia->bindParam(":p_code", $this->code);
             $sentencia->bindParam(":p_estado", $this->estado);
@@ -1080,6 +1080,7 @@ class servicio extends conexion
             $sentencia->bindParam(":p_longitud", $this->longitud);
             $sentencia->bindParam(":p_ref", $this->referencia);
             $sentencia->bindParam(":p_imagen", $this->imagen);
+            $sentencia->bindParam(":p_reciclador_id", $reciclador_id);
             $sentencia->execute();
 
             date_default_timezone_set("America/Lima");
