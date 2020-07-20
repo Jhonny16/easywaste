@@ -619,7 +619,7 @@ class servicio extends conexion
 
         try {
 
-            $sql = "select  s.id, s.nuevo_id, s.code, (p.ap_paterno ||' '|| p.ap_materno ||' '|| p.nombres) as proveedor,
+            $sql = "select  s.id, s.nuevo_id , s.code, (p.ap_paterno ||' '|| p.ap_materno ||' '|| p.nombres) as proveedor,
                         (r.ap_paterno ||' '|| r.ap_materno ||' '|| r.nombres) as reciclador,
                         r.dni as reciclador_dni, s.reciclador_id,
                         s.fecha, s.hora, s.estado, s.tiempo_aprox_atencion, latitud, longitud
