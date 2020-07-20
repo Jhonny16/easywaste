@@ -619,7 +619,7 @@ class servicio extends conexion
 
         try {
 
-            $sql = "select  s.id, s.code, (p.ap_paterno ||' '|| p.ap_materno ||' '|| p.nombres) as proveedor,
+            $sql = "select  s.id, s.nuevo_id, s.code, (p.ap_paterno ||' '|| p.ap_materno ||' '|| p.nombres) as proveedor,
                         (r.ap_paterno ||' '|| r.ap_materno ||' '|| r.nombres) as reciclador,
                         r.dni as reciclador_dni, s.reciclador_id,
                         s.fecha, s.hora, s.estado, s.tiempo_aprox_atencion, latitud, longitud
@@ -1023,15 +1023,6 @@ class servicio extends conexion
 
         try {
 
-            $state = 'Cancelado';
-            $this->dblink->beginTransaction();
-            $sql = "update servicio set estado = :p_estado where id = :p_id ";
-            $sentencia = $this->dblink->prepare($sql);
-            $sentencia->bindParam(":p_id", $this->id);
-            $sentencia->bindParam(":p_estado", $state);
-            $sentencia->execute();
-            $this->dblink->commit();
-
             $sql = "select * from servicio where id = :p_id ";
             $sentencia = $this->dblink->prepare($sql);
             $sentencia->bindParam(":p_id", $this->id);
@@ -1121,6 +1112,17 @@ class servicio extends conexion
 
             if ($sentencia->rowCount()) {
                 $servicio_id = $resultado['id'];
+
+
+                $state = 'Cancelado';
+                $this->dblink->beginTransaction();
+                $sql = "update servicio set estado = :p_estado, nuevo_id = :p_nuevo_id where id = :p_id ";
+                $sentencia = $this->dblink->prepare($sql);
+                $sentencia->bindParam(":p_id", $this->id);
+                $sentencia->bindParam(":p_estado", $state);
+                $sentencia->bindParam(":p_nuevo_id", $servicio_id);
+                $sentencia->execute();
+                $this->dblink->commit();
 
                 $res = $this->position_create($servicio_id, $this->latitud, $this->longitud);
                 if ($res) {
