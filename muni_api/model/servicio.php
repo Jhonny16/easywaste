@@ -715,7 +715,6 @@ class servicio extends conexion
             $sentencia->execute();
             $this->dblink->commit();
 
-            return true;
             if ($this->estado == 'Finalizado') {
 
                 $sql = "select reciclador_id, proveedor_id from servicio where id = :p_id ";
