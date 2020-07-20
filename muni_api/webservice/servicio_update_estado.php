@@ -43,6 +43,14 @@ try {
     if ($parametro == '3' or $parametro == 3) {
         $obj->setHoraLlegada($hora_llegada);
         $res = $obj->update_estado_hora_llegada();
+        if ($res) {
+            Funciones::imprimeJSON(200, "Se actualizo estado", $res);
+        } else {
+            Funciones::imprimeJSON(203, "No actualizo estado", $res);
+//        else{
+//            Funciones::imprimeJSON(200, "Estado actualizado, acumulo pintrash",$res);
+//        }
+        }
     } else {
         if($parametro == '5' or $parametro == 5){
 
@@ -78,17 +86,11 @@ try {
         }
         else{
             $res = $obj->update_estado();
+            Funciones::imprimeJSON(200, "Se actualizo estado de servicio y reciclador", $res);
         }
     }
 
-    if ($res) {
-        Funciones::imprimeJSON(200, "Se actualizo estado", $res);
-    } else {
-        Funciones::imprimeJSON(203, "No actualizo estado", $res);
-//        else{
-//            Funciones::imprimeJSON(200, "Estado actualizado, acumulo pintrash",$res);
-//        }
-    }
+
 
 //    if($res){
 //        Funciones::imprimeJSON(200, "Se actualizo estado",$res);
