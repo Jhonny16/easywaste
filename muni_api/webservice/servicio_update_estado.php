@@ -74,7 +74,7 @@ try {
 
 
             }else{
-                $res = $objeto->create_pendiente();
+                $res = $obj->create_pendiente();
                 if($res){
                     Funciones::imprimeJSON(200, "Se guardo el servicio. Esperando reciclador ... ", []);
                 }else{
